@@ -1,0 +1,12 @@
+//requesturl  https://uat-steam-api.opg.cn/resource-service/resource/addEntry
+//requery headers
+{
+	"entryId": null,
+	"entryName": "测试",
+	"picturePath": "http://uat-steam.opg.cn/admin/_static/images/resource/20180418143743_261504.jpg",
+	"state": "UNVISIBLE",
+	"fileListThumb": [],
+	"order": 3
+}
+
+//{"code":"000000","message":"成功","data":9}
