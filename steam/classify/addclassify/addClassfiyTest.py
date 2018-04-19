@@ -23,6 +23,7 @@ class ClassfiyAddTest(ParametrizedTestCase):
           self.inputdata =  self.getInputData()
           self.expectdata = self.getExpectData()
           self.classfiySer = ClassfiyAddService(self.inputdata)
+          self.setService(self.classfiySer)
 
       def testClassfiyAddNor(self):
           clsrsp = self.classfiySer.addClassfiy()
@@ -32,7 +33,7 @@ class ClassfiyAddTest(ParametrizedTestCase):
 
 
 if __name__ == "__main__":
-    runTestOneCls(
+   runTestOneCls(
                     casefilepath = "\\steamcase\\classify\\addclassify\\classifyaddcase.xlsx",
                     testclse = ClassfiyAddTest
                  )

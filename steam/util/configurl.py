@@ -12,6 +12,10 @@
 
 base_url = "https://uat-steam-api.opg.cn"
 addentryurl = base_url + "/resource-service/resource/addEntry"
+alertentryurl = base_url +"/resource-service/resource/modifyEntry"
+delEntryurl = base_url + "/resource-service/resource/removeEntry"
+addMatchurl = base_url + "/match-service/match/createMatch"
+delMatchurl = base_url + "/match-service/match/deleteMatch"
 uploadImagesurl = "/steam-resource/resource/uploadImages"
 
 

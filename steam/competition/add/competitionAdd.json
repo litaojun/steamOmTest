@@ -1,0 +1,6 @@
+//https://uat-steam-api.opg.cn/match-service/match/createMatch
+{
+  "matchId":"需要服务器分配ID",
+  "matchName":"测试奥林匹克"
+}
+//{"code":"000000","message":"请求成功","matchId":27}

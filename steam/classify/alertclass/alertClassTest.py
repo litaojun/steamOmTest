@@ -10,15 +10,30 @@
 @time: 2018/4/18 19:06 
 """
 
+from opg.unit.parametrized import ParametrizedTestCase
+from steam.classify.alertclass.alertClassService import ClassfiyAlertService
+from opg.unit.testcaseRunMgr import runTestOneCls
 
-def func():
-	pass
+class ClassfiyAlertTest(ParametrizedTestCase):
+      '''
+            admin新增分类
+      '''
+      __interfaceName__ = "/resource-service/resource/modifyEntry"
+      def __init__(self, methodName='runTest', param=None):
+          super(ClassfiyAlertTest,self).__init__(methodName,param)
+          self.inputdata =  self.getInputData()
+          self.expectdata = self.getExpectData()
+          self.classfiySer = ClassfiyAlertService(self.inputdata)
+          self.setService(self.classfiySer)
 
-
-class Main():
-	def __init__(self):
-		pass
-
+      def testClassfiyAlertNor(self):
+          clsrsp = self.classfiySer.alertClassfiy()
+          print("testclsrsp====" + str(clsrsp))
+          rspcode = self.classfiySer.getRetCodeAlertRsp(rsp=clsrsp)
+          self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
-	pass  
+   runTestOneCls(
+                    casefilepath = "\\steamcase\\classify\\addclassify\\classifyalertcase.xlsx",
+                    testclse = ClassfiyAlertTest
+                 )

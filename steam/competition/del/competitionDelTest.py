@@ -6,8 +6,8 @@
 @contact: li.taojun@opg.cn
 @site: http://blog.csdn.net/hqzxsc2006 
 @software: PyCharm 
-@file: competitionJson.py 
-@time: 2018/4/17 14:35 
+@file: competitionDelTest.py 
+@time: 2018/4/19 18:32 
 """
 
 
