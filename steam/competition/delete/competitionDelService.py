@@ -35,20 +35,20 @@ class MatchDelService(UopService):
                          }
         self.matchser = MatchAddService(self.matchReqjson)
 
-    @decorator("preInterfaceAddOneEntry")
+    @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
         matchrsp = self.matchser.addMatch()
         self.delMatchIdJson["matchId"] = self.matchser.getMatchIdByRsp(matchrsp)
 
-
     def delMatchById(self,matchId):
         self.delMatchIdJson["matchId"] = matchId
         delclassfiyRsp = requests.post(
-									        url = delMatchurl,
-									        json = self.delMatchIdJson,
-									        headers = self.jsonheart,
-									        verify = False
-								        )
+									     url = delMatchurl,
+									     json = self.delMatchIdJson,
+									     headers = self.jsonheart,
+									     verify = False
+								       )
+	    
 
     def delMatch(self):
         delmatchRsp = requests.post(

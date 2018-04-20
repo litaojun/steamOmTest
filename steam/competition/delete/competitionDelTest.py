@@ -9,7 +9,7 @@
 @file: competitionDelTest.py 
 @time: 2018/4/19 18:32 
 """
-from .competitionDelService import ClassfiyAddService
+from steam.competition.delete.competitionDelService import MatchDelService
 from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 class MatchDelTest(ParametrizedTestCase):
@@ -21,16 +21,16 @@ class MatchDelTest(ParametrizedTestCase):
           super(MatchDelTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
           self.expectdata = self.getExpectData()
-          self.matchSer = ClassfiyAddService(self.inputdata)
-          self.setService(self.classfiySer)
+          self.matchDelSer = MatchDelService(self.inputdata)
+          self.setService(self.matchDelSer)
 
       def testClassfiyDelNor(self):
-          clsrsp = self.classfiySer.delClassfiy()
-          rspcode = self.classfiySer.getRetcodeByClassfiyRsp(classfiyRsp=clsrsp)
+          clsrsp = self.matchDelSer.delMatch()
+          rspcode = self.matchDelSer.getRetcodeByMatchRsp(matchRsp=clsrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\classify\\addclassify\\classifydeletecase.xlsx",
+                    casefilepath = "\\steamcase\\competition\\competitiondelcase.xlsx",
                     testclse = MatchDelTest
-                 )
+                )
