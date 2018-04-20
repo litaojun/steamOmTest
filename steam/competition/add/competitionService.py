@@ -65,4 +65,4 @@ class MatchAddService(UopService):
 	    :param matchRsp:
 	    :return:
 	    """
-        return query_json(json_content=json.loads(matchRsp), query="data")
+        return query_json(json_content=json.loads(matchRsp), query="matchId")

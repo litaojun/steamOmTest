@@ -41,31 +41,31 @@ class MatchDelService(UopService):
         self.delMatchIdJson["matchId"] = self.matchser.getMatchIdByRsp(matchrsp)
 
     def delMatchById(self,matchId):
-        self.delEntryIdJson["matchId"] = matchId
+        self.delMatchIdJson["matchId"] = matchId
         delclassfiyRsp = requests.post(
 									        url = delMatchurl,
-									        json = self.delEntryIdJson,
+									        json = self.delMatchIdJson,
 									        headers = self.jsonheart,
 									        verify = False
 								        )
 
     def delMatch(self):
-        delclassfiyRsp = requests.post(
+        delmatchRsp = requests.post(
 		                                   url=delMatchurl,
-		                                   json=self.delEntryIdJson,
+		                                   json=self.delMatchIdJson,
 		                                   headers=self.jsonheart,
 		                                   verify=False
                                       )
-        print("addclassfiyrsp = %s" % delclassfiyRsp.text)
-        return delclassfiyRsp.text
+        print("addclassfiyrsp = %s" % delmatchRsp.text)
+        return delmatchRsp.text
 
     def getRetcodeByMatchRsp(self, matchRsp=None):
         print("classfiyRsp" + str(matchRsp))
         return query_json(json_content=json.loads(matchRsp), query="code")
 
     def getMatchIdByRsp(self, matchRsp=None):
-        return query_json(json_content=json.loads(matchRsp), query="data")
+        return query_json(json_content=json.loads(matchRsp), query="matchId")
 
 
 if __name__ == "__main__":
-	pass
+   pass
