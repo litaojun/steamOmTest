@@ -40,6 +40,7 @@ class MatchDelService(UopService):
         matchrsp = self.matchser.addMatch()
         self.delMatchIdJson["matchId"] = self.matchser.getMatchIdByRsp(matchrsp)
 
+
     def delMatchById(self,matchId):
         self.delMatchIdJson["matchId"] = matchId
         delclassfiyRsp = requests.post(
