@@ -19,7 +19,9 @@ delMatchurl = base_url + "/match-service/match/deleteMatch"
 alertMatchurl = base_url + "/match-service/match/updateMatchById"
 uploadImagesurl = "/steam-resource/resource/uploadImages"
 addArticleurl =  base_url + "/steam-media/media/addMedia"
-
+delArticleurl =  base_url + "/steam-media/media/deleteMedia"
+alertArtcleurl = base_url + "/steam-media/media/updateMedia"
+queryArticleurl = base_url + "/steam-media/media/queryMedias?currentPage=1&pageSize=10"
 
 if __name__ == "__main__":
 	pass  

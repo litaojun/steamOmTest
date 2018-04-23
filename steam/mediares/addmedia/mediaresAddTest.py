@@ -6,21 +6,20 @@
 @contact: li.taojun@opg.cn
 @site: http://blog.csdn.net/hqzxsc2006 
 @software: PyCharm 
-@file: ArticleAddTest.py 
-@time: 2018/4/20 17:42 
+@file: mediaresAddTest.py 
+@time: 2018/4/23 17:01 
 """
-
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.article.add.ArticleAddService import ArticleAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
-class ArticleAddTest(ParametrizedTestCase):
+class MediaresAddTest(ParametrizedTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-media/media/addMedia-article"
+      __interfaceName__ = "/steam-media/media/addMedia"
       def __init__(self, methodName='runTest', param=None):
-          super(ArticleAddTest,self).__init__(methodName,param)
+          super(MediaresAddTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
           self.expectdata = self.getExpectData()
           self.articleSer = ArticleAddService(self.inputdata)
@@ -35,6 +34,6 @@ class ArticleAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\article\\articleaddcase.xlsx",
-                    testclse = ArticleAddTest
+                    casefilepath = "\\steamcase\\mediares\\articleaddcase.xlsx",
+                    testclse = MediaresAddTest
                 )

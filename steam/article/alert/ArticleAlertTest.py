@@ -6,28 +6,27 @@
 @contact: li.taojun@opg.cn
 @site: http://blog.csdn.net/hqzxsc2006 
 @software: PyCharm 
-@file: ArticleAddTest.py 
-@time: 2018/4/20 17:42 
+@file: ArticleAlertTest.py 
+@time: 2018/4/23 16:13 
 """
-
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
+from steam.article.alert.ArticleAlertService import ArticleAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
-class ArticleAddTest(ParametrizedTestCase):
+class ArticleAlertTest(ParametrizedTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-media/media/addMedia-article"
+      __interfaceName__ = "/steam-media/media/updateMedia-article"
       def __init__(self, methodName='runTest', param=None):
-          super(ArticleAddTest,self).__init__(methodName,param)
+          super(ArticleAlertTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
           self.expectdata = self.getExpectData()
-          self.articleSer = ArticleAddService(self.inputdata)
+          self.articleSer = ArticleAlertService(self.inputdata)
           self.setService(self.articleSer)
 
-      def testArticleAddNor(self):
-          articlersp = self.articleSer.addArticle()
+      def testArticleAlertNor(self):
+          articlersp = self.articleSer.alertArticle()
           print("articlersp====" + str(articlersp))
           rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
@@ -35,6 +34,6 @@ class ArticleAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\article\\articleaddcase.xlsx",
-                    testclse = ArticleAddTest
+                    casefilepath = "\\steamcase\\article\\articlealertcase.xlsx",
+                    testclse = ArticleAlertTest
                 )

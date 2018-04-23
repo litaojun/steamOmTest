@@ -9,8 +9,6 @@
 @file: delClassifyService.py 
 @time: 2018/4/18 19:06 
 """
-
-
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
