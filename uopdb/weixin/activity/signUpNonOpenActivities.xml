@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>del_t_raffle_result</name>
+        <opertype>delete</opertype>
+        <sql>delete f.* from t_raffle_result f where  f.MEMBER_ID = '%(memberId)s' and f.ACTIVITIES_ID = '%(activitiesId)s';</sql>
+	    <desc>删除中奖结果表</desc>
+    </mysql>
+    <mysql>
+        <name>del_t_raffle_result_address</name>
+        <opertype>delete</opertype>
+        <sql>delete t.* from t_raffle_result_address t where EXISTS(select 1 from t_raffle_result f where t.RESULT_ID = f.ID and f.MEMBER_ID = '%(memberId)s' and f.ACTIVITIES_ID = '%(activitiesId)s' );</sql>
+	    <desc>删除中奖结果表地址表</desc>
+    </mysql>
+	<mysql>
+        <name>t_sku_1</name>
+        <opertype>update</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 1 where EXISTS(select 1 from t_raffle_prize p where p.RAFFLE_ID = '%(activitiesId)s' and p.sku_id = k.ID);</sql>
+	    <townname>t_sku_21</townname>
+		<desc>修改非即开奖品库存为1</desc>
+    </mysql>
+	<mysql>
+        <name>t_sku_0</name>
+        <opertype>update</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 0 where EXISTS(select 1 from t_raffle_prize p where p.RAFFLE_ID = '%(activitiesId)s' and p.sku_id = k.ID);</sql>
+	    <townname>t_sku_21</townname>
+		<desc>修改非即开奖品库存为0</desc>
+    </mysql>
+	<mysql>
+        <name>t_sku_21</name>
+        <opertype>update</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 0 where EXISTS(select 1 from t_raffle_prize p where p.RAFFLE_ID = '%(activitiesId)s' and p.sku_id = k.ID);</sql>
+	    <desc>修改非即开奖品库存为21个</desc>
+    </mysql>
+	<mysql>
+        <name>t_sku_total_inventory</name>
+        <opertype>select</opertype>
+        <sql>select k.TOTAL_INVENTORY from t_sku k where EXISTS(select 1 from t_raffle_prize p where p.RAFFLE_ID = '%(activitiesId)s' and p.sku_id = k.ID);</sql>
+	    <desc>非即开奖品库存查询</desc>
+    </mysql>
+	<mysql>
+        <name>t_points_1</name>
+        <opertype>update</opertype>
+        <sql>update t_points s set s.TOTAL_POINTS = 1  where  s.MEMBER_ID = '%(memberId)s';</sql>
+	    <townname>t_points_99999999</townname>
+		<desc>修改个人积分为1积分</desc>
+    </mysql>
+	<mysql>
+        <name>t_points_99999999</name>
+        <opertype>update</opertype>
+        <sql>update t_points s set s.TOTAL_POINTS = 99999999  where  s.MEMBER_ID = '%(memberId)s';</sql>
+	    <desc>修改个人积分为99999999积分</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_order_detail</name>
+        <opertype>delete</opertype>
+        <sql>DELETE d.* from t_order_detail d where EXISTS(select * from t_raffle_result t where d.RAFFLE_RESULT_ID = t.id and t.MEMBER_ID = '%(memberId)s' and t.ACTIVITIES_ID ='%(activitiesId)s');</sql>
+	    <desc>删除中奖订单表</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_order</name>
+        <opertype>delete</opertype>
+        <sql>DELETE o.* from t_order o where EXISTS(select 1 from t_order_detail d , t_raffle_result t where o.id = d.ORDER_ID and d.RAFFLE_RESULT_ID = t.id and t.MEMBER_ID = '%(memberId)s' and t.ACTIVITIES_ID = '%(activitiesId)s');</sql>
+	    <desc>删除中奖订单表</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_02_TOTAL_INVENTORY_1</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 1  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '02');</sql>
+	    <townname>update_t_sku_02_TOTAL_INVENTORY_50</townname>
+		<desc>修改大转盘活动通知类奖品库存为1</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_02_TOTAL_INVENTORY_0</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 0  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '02');</sql>
+	    <townname>update_t_sku_02_TOTAL_INVENTORY_50</townname>
+		<desc>修改大转盘活动通知类奖品库存为0</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_01_TOTAL_INVENTORY_0</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 0  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '01');</sql>
+	    <townname>update_t_sku_01_TOTAL_INVENTORY_50</townname>
+		<desc>修改大转盘活动实物类奖品库存为0</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_00_TOTAL_INVENTORY_0</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 0  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '00');</sql>
+	    <townname>update_t_sku_00_TOTAL_INVENTORY_50</townname>
+		<desc>修改大转盘活动电子类奖品库存为0</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_02_TOTAL_INVENTORY_50</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 50  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '02');</sql>
+	    <desc>修改大转盘活动通知类奖品库存为50</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_01_TOTAL_INVENTORY_50</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 50  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '01');</sql>
+	    <desc>修改大转盘活动实物类奖品库存为50</desc>
+    </mysql>
+	<mysql>
+        <name>update_t_sku_00_TOTAL_INVENTORY_50</name>
+        <opertype>delete</opertype>
+        <sql>update t_sku k set k.TOTAL_INVENTORY = 50  where EXISTS(select p.SKU_ID from  t_raffle_prize p ,t_item i where p.SKU_ID = k.id and p.RAFFLE_ID = '%(activitiesId)s' and p.ITEM_ID = i.id and i.DELIVER_TYPE = '00');</sql>
+	    <desc>修改大转盘活动电子类奖品库存为50</desc>
+    </mysql>
+</uop>

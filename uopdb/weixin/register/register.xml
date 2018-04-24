@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>del_t_member</name>
+        <opertype>delete</opertype>
+        <sql>DELETE t.* from t_member t where t.PHONE = '%(phone)s';</sql>
+	    <desc>删除用户表</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_member_address</name>
+        <opertype>delete</opertype>
+        <sql>DELETE a.* from t_member_address a where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = a.MEMBER_ID);</sql>
+	    <desc>删除昨天用户的签到数据</desc>
+    </mysql>
+    <mysql>
+        <name>del_t_points</name>
+        <opertype>delete</opertype>
+        <sql>DELETE s.* from t_points s where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = s.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_point_logs</name>
+        <opertype>delete</opertype>
+        <sql>DELETE l.* from t_point_logs l where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = l.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_member_source</name>
+        <opertype>delete</opertype>
+        <sql>DELETE o.* from t_member_source o where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = o.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	    <mysql>
+        <name>del_t_member_sign</name>
+        <opertype>delete</opertype>
+        <sql>DELETE n.* from t_member_sign n where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = n.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_member_sign_receive</name>
+        <opertype>delete</opertype>
+        <sql>DELETE v.* from t_member_sign_receive v where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = v.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	    <mysql>
+        <name>del_t_member_share</name>
+        <opertype>delete</opertype>
+        <sql>DELETE e.* from t_member_share e where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = e.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	    <mysql>
+        <name>del_t_member_collection</name>
+        <opertype>delete</opertype>
+        <sql>DELETE c.* from t_member_collection c where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = c.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+
+	<mysql>
+        <name>del_t_item_collection</name>
+        <opertype>delete</opertype>
+        <sql>DELETE l.* from t_item_collection l where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = l.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_keyword_history</name>
+        <opertype>delete</opertype>
+        <sql>DELETE h.* from t_keyword_history h where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = h.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+		<mysql>
+        <name>del_t_invite</name>
+        <opertype>delete</opertype>
+        <sql>DELETE i.* from t_invite i where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = i.INVITER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+		<mysql>
+        <name>del_t_raffle_result</name>
+        <opertype>delete</opertype>
+        <sql>DELETE u.* from t_raffle_result u where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = u.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+		<mysql>
+        <name>del_t_order_detail</name>
+        <opertype>delete</opertype>
+        <sql>DELETE d.* from t_order_detail d  where EXISTS(select r.* from t_order r,t_member t where r.member_id= t.ID and t.PHONE = '%(phone)s' and d.ORDER_ID = r.id) ;</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+		<mysql>
+        <name>del_t_order</name>
+        <opertype>delete</opertype>
+        <sql>DELETE o.* from t_order o where EXISTS(SELECT 1 from t_member t where t.PHONE = '%(phone)s' and t.id = o.MEMBER_ID);</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+	<mysql>
+        <name>select_memberid_t_member</name>
+        <opertype>select</opertype>
+        <sql>select id from t_member t where t.PHONE = '%(phone)s';</sql>
+	    <desc>通过手机号码查询memberid</desc>
+    </mysql>
+	
+</uop>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>del_t_member_sign_now</name>
+        <opertype>delete</opertype>
+        <sql>DELETE s.* from t_member_sign s where s.MEMBER_ID = '%(memberId)s' and s.CREATE_DATE = '%(nowdate)s';</sql>
+	    <desc>删除今天用户的签到数据</desc>
+    </mysql>
+	    <mysql>
+        <name>del_t_point_logs_now</name>
+        <opertype>delete</opertype>
+        <sql>DELETE s.* from t_point_logs s where s.MEMBER_ID = '%(memberId)s' and POINT_TYPE = 'sign' and DATE_FORMAT(s.CREATE_TIME,"%%Y-%%m-%%d")= '%(nowdate)s';</sql>
+	    <desc>删除今天用户的签的日志记录数据</desc>
+    </mysql>
+	<mysql>
+        <name>del_t_member_sign_last</name>
+        <opertype>delete</opertype>
+        <sql>DELETE s.* from t_member_sign s where s.MEMBER_ID = '%(memberId)s' and s.CREATE_DATE = '%(lastdate)s';</sql>
+	    <desc>删除昨天用户的签到数据</desc>
+    </mysql>
+     <mysql>
+        <name>del_t_point_logs_last</name>
+        <opertype>delete</opertype>
+        <sql>DELETE s.* from t_point_logs s where s.MEMBER_ID = '%(memberId)s' and POINT_TYPE = 'sign' and DATE_FORMAT(s.CREATE_TIME,"%%Y-%%m-%%d")= '%(lastdate)s';</sql>
+	    <desc>删除昨天用户的签的历史数据</desc>
+    </mysql>
+    <mysql>
+        <name>insert_t_member_sign_last</name>
+        <opertype>add</opertype>
+        <sql>insert t_member_sign(id,member_id,CREATE_date) VALUES(UUID(),'%(memberId)s','%(lastdate)s');</sql>
+	    <desc>插入昨天用户的签到数据</desc>
+    </mysql>
+</uop>
