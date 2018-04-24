@@ -27,7 +27,7 @@ class ArticleDelTest(ParametrizedTestCase):
           self.articleSer = ArticleDelService(self.inputdata)
           self.setService(self.articleSer)
 
-      def testClassfiyDelNor(self):
+      def testArticleDelNor(self):
           articlersp = self.articleSer.delClassfiy()
           rspcode = self.articleSer.getRetcodeByArticleRsp (articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])

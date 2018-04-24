@@ -10,6 +10,7 @@
 @time: 2018/4/23 17:02 
 """
 from opg.unit.parametrized import ParametrizedTestCase
+from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from steam.article.delete.delArticleService import ArticleDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
@@ -25,13 +26,13 @@ class MediaresDelTest(ParametrizedTestCase):
           self.articleSer = ArticleDelService(self.inputdata)
           self.setService(self.articleSer)
 
-      def testClassfiyDelNor(self):
+      def testMediaresDelNor(self):
           articlersp = self.articleSer.delClassfiy()
           rspcode = self.articleSer.getRetcodeByArticleRsp (articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\mediares\\articledelcase.xlsx",
+                    casefilepath = "\\steamcase\\mediares\\mediaresdelcase.xlsx",
                     testclse = MediaresDelTest
                 )

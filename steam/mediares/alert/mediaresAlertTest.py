@@ -15,7 +15,7 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 
 class MediaresAlertTest(ParametrizedTestCase):
       '''
-            新增文章
+            修改作品
       '''
       __interfaceName__ = "/steam-media/media/updateMedia"
       def __init__(self, methodName='runTest', param=None):
@@ -25,7 +25,7 @@ class MediaresAlertTest(ParametrizedTestCase):
           self.articleSer = ArticleAlertService(self.inputdata)
           self.setService(self.articleSer)
 
-      def testArticleAlertNor(self):
+      def testMediaresAlertNor(self):
           articlersp = self.articleSer.alertArticle()
           print("articlersp====" + str(articlersp))
           rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
@@ -34,6 +34,6 @@ class MediaresAlertTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\mediares\\articlealertcase.xlsx",
+                    casefilepath = "\\steamcase\\mediares\\mediaresalertcase.xlsx",
                     testclse = MediaresAlertTest
                 )

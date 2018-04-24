@@ -79,7 +79,7 @@ class ArticleAddService(UopService):
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getArticleIdByRsp(self,articleRsp = None):
-        articleQs = ArticleQueryService(kwargs={"title":self.articleReqjson["title"]})
+        articleQs = ArticleQueryService(kwargs={"title":self.articleReqjson["title"],"resourceTypeId":self.articleReqjson["resourceTypeId"]})
         queryRsp = articleQs.queryArtcle()
         rssid = articleQs.getFirstResourceIdByRsp(queryRsp = queryRsp)
         return rssid

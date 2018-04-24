@@ -25,7 +25,7 @@ class MediaresAddTest(ParametrizedTestCase):
           self.articleSer = ArticleAddService(self.inputdata)
           self.setService(self.articleSer)
 
-      def testArticleAddNor(self):
+      def testMediaresAddNor(self):
           articlersp = self.articleSer.addArticle()
           print("articlersp====" + str(articlersp))
           rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
@@ -34,6 +34,6 @@ class MediaresAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\mediares\\articleaddcase.xlsx",
+                    casefilepath = "\\steamcase\\mediares\\mediaresaddcase.xlsx",
                     testclse = MediaresAddTest
                 )

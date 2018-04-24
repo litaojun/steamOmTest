@@ -9,7 +9,7 @@
 @file: mediaresQueryTest.py 
 @time: 2018/4/23 17:02 
 """
-
+from opg.unit.testcaseRunMgr import runTest
 
 def func():
 	pass
@@ -21,4 +21,4 @@ class Main():
 
 
 if __name__ == "__main__":
-	pass  
+	testResult = runTest()

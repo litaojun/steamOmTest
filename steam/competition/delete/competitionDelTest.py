@@ -24,7 +24,7 @@ class MatchDelTest(ParametrizedTestCase):
           self.matchDelSer = MatchDelService(self.inputdata)
           self.setService(self.matchDelSer)
 
-      def testClassfiyDelNor(self):
+      def testMatchDelNor(self):
           clsrsp = self.matchDelSer.delMatch()
           rspcode = self.matchDelSer.getRetcodeByMatchRsp(matchRsp=clsrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
