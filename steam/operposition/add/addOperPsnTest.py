@@ -29,7 +29,7 @@ class OperpsnAddTest(ParametrizedTestCase):
       def testOperpsnAddNor(self):
           operpsnrsp = self.operpsnSer.addOperPosition()
           print("testclsrsp====" + str(operpsnrsp))
-          rspcode = self.operpsnSer.getRetCodeOperpsnRsp(operpsnrsp)
+          rspcode = self.operpsnSer.getRetcodeByOperpsnRsp(operpsnrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 

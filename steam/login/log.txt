@@ -1,0 +1,18 @@
+2018-03-06 10:11:10,193 - __main__ - INFO - Start print log
+2018-03-06 10:11:10,193 - __main__ - WARNING - Something maybe fail.
+2018-03-06 10:12:32,424 - UserLoginTest - INFO - Start print log
+2018-03-06 10:12:32,424 - UserLoginTest - WARNING - Something maybe fail.
+2018-03-06 10:14:28,548 - UserLoginTest - INFO - Start print log
+2018-03-06 10:14:28,548 - UserLoginTest - WARNING - Something maybe fail.
+2018-03-06 10:19:42,910 - module=__main__,class = UserLoginTest,fun = __init__ - INFO - Start print log
+2018-03-06 10:19:42,911 - module=__main__,class = UserLoginTest,fun = __init__ - WARNING - Something maybe fail.
+2018-03-06 10:30:33,461 - module = __main__,class = UserLoginTest,fun = __init__ - INFO - Start print log
+2018-03-06 10:30:33,462 - module = __main__,class = UserLoginTest,fun = __init__ - WARNING - Something maybe fail.
+2018-03-06 10:31:06,388 - module = __main__,class = UserLoginTest,fun = __init__ - INFO - Start print log
+2018-03-06 10:31:06,388 - module = __main__,class = UserLoginTest,fun = __init__ - WARNING - Something maybe fail.
+2018-03-06 10:32:08,146 - class = UserLoginTest,fun = __init__ - INFO - Start print log
+2018-03-06 10:32:08,146 - class = UserLoginTest,fun = __init__ - WARNING - Something maybe fail.
+2018-03-06 10:32:27,763 - UserLoginTest-__init__ - INFO - Start print log
+2018-03-06 10:32:27,763 - UserLoginTest-__init__ - WARNING - Something maybe fail.
+2018-03-06 10:32:46,889 - UserLoginTest.__init__ - INFO - Start print log
+2018-03-06 10:32:46,889 - UserLoginTest.__init__ - WARNING - Something maybe fail.
