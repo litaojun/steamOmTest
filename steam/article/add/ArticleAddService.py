@@ -53,7 +53,6 @@ class ArticleAddService(UopService):
 
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
-        articleId = self.getArticleIdByRsp(articleRsp = self.rsp)
         delclassfiyRsp = requests.post(
 									        url=delArticleurl,
 									        json={"resourceId": articleId},

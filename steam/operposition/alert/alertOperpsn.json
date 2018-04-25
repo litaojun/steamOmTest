@@ -1,0 +1,14 @@
+//https://uat-steam-api.opg.cn/steam-featured/homeConfig/modifyIndexConfig
+
+{
+	"title": "Makeblock 2017 品牌视频",
+	"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112224_258421.jpg",
+	"position": "03",
+	"oldListOrder": 1,
+	"listOrder": 1,
+	"displayType": "1",
+	"itemId": 121,
+	"id": 52
+}
+
+//{"code":"000000","message":"成功","data":null}

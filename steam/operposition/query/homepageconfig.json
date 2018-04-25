@@ -1,0 +1,73 @@
+//https://uat-steam-api.opg.cn/steam-featured/homeConfig/listData?position=03&pageNo=1&pageSize=20&title=
+
+{
+	"code": "000000",
+	"message": "成功",
+	"data": {
+		"currentPage": 1,
+		"pageSize": 20,
+		"pageCounts": 1,
+		"itemCounts": 5,
+		"targets": [{
+			"id": 67,
+			"resourceId": 181,
+			"position": "03",
+			"listOrder": 1,
+			"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425151531_703014.jpg",
+			"createTime": null,
+			"updateTime": null,
+			"title": "Makeblock创始人兼CEO王建军：让MakeX成为青少",
+			"displayType": "2",
+			"cornMark": null,
+			"specificType": null
+		}, {
+			"id": 63,
+			"resourceId": 121,
+			"position": "03",
+			"listOrder": 2,
+			"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425130345_659774.jpg",
+			"createTime": null,
+			"updateTime": null,
+			"title": "Makeblock 2017 品牌视频",
+			"displayType": "1",
+			"cornMark": null,
+			"specificType": null
+		}, {
+			"id": 52,
+			"resourceId": 121,
+			"position": "03",
+			"listOrder": 3,
+			"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112224_258421.jpg",
+			"createTime": null,
+			"updateTime": null,
+			"title": "Makeblock 2017 品牌视频",
+			"displayType": "1",
+			"cornMark": null,
+			"specificType": null
+		}, {
+			"id": 51,
+			"resourceId": 182,
+			"position": "03",
+			"listOrder": 4,
+			"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112154_337844.jpg",
+			"createTime": null,
+			"updateTime": null,
+			"title": "用比赛普及STEAM教育和教育机器人的人工智能",
+			"displayType": "2",
+			"cornMark": null,
+			"specificType": null
+		}, {
+			"id": 50,
+			"resourceId": 181,
+			"position": "03",
+			"listOrder": 5,
+			"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112015_168056.jpg",
+			"createTime": null,
+			"updateTime": null,
+			"title": "Makeblock创始人兼CEO王建军：让MakeX成为青少",
+			"displayType": "2",
+			"cornMark": null,
+			"specificType": null
+		}]
+	}
+}
