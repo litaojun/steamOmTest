@@ -32,7 +32,6 @@ class ArticleAddTest(ParametrizedTestCase):
           rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
-
 if __name__ == "__main__":
    runTestOneCls(
                     casefilepath = "\\steamcase\\article\\articleaddcase.xlsx",
