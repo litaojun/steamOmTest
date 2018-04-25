@@ -53,9 +53,10 @@ class ArticleAddService(UopService):
 
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
+        articleid = self.getArticleIdByRsp(self.rsp)
         delclassfiyRsp = requests.post(
 									        url=delArticleurl,
-									        json={"resourceId": articleId},
+									        json={"resourceId": articleid},
 									        headers=self.jsonheart,
 									        verify=False
 								      )
@@ -69,6 +70,7 @@ class ArticleAddService(UopService):
 		                                   headers=self.jsonheart,
 		                                   verify=False
                                       )
+        #self.articleReqjson[""] = self.getArticleIdByRsp(addArticleRsp)
         self.rsp = addArticleRsp.text
         print("addArticleRsp = %s" % addArticleRsp.text)
         return addArticleRsp.text
