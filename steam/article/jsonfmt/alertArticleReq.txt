@@ -1,0 +1,19 @@
+{
+  "resourceTypeId": %(resourceTypeId)d,
+  "title": "%(title)s",
+  "subtitle": "%(subtitle)s",
+  "cornerMask": "%(cornerMask)s",
+  "matchId": %(matchId)d,
+  "vendorId": %(vendorId)d,
+  "thumbUrl": "%(thumbUrl)s",
+  "bannerUrl": "%(bannerUrl)s",
+  "content": "%(content)s",
+  "baseVisits": "%(baseVisits)s",
+  "baseCollects": %(baseCollects)d,
+  "tags": %(tags)s,
+  "entryIds": %(entryIds)s,
+  "state": "%(state)s",
+  "shareTitle": "%(shareTitle)s",
+  "shareImgUrl": "%(shareImgUrl)s",
+  "shareDescription": "%(shareDescription)s"
+}

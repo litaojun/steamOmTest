@@ -5,7 +5,8 @@
 @author: li.taojun 
 @contact: li.taojun@opg.cn
 @site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
+@software: PyCharm
+#PVC:uop:18916899938:OTP:467021
 @file: testTools.py 
 @time: 2018/4/24 17:31 
 """

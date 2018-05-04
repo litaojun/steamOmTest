@@ -14,7 +14,6 @@ from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import delMatchurl
-from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from steam.competition.add.competitionService import MatchAddService
 class MatchDelService(UopService):
     '''
@@ -30,9 +29,9 @@ class MatchDelService(UopService):
 							        "matchName": kwargs['matchName']
 						    }
         self.delMatchIdJson = {"matchId":29}
-        self.jsonheart = {
+        self.jsonheart =  {
 	                         "x-token":"admin"
-                         }
+                          }
         self.matchser = MatchAddService(self.matchReqjson)
 
     @decorator("preInterfaceAddOneMatch")
@@ -43,25 +42,24 @@ class MatchDelService(UopService):
     def delMatchById(self,matchId):
         self.delMatchIdJson["matchId"] = matchId
         delclassfiyRsp = requests.post(
-									     url = delMatchurl,
-									     json = self.delMatchIdJson,
+									     url     = delMatchurl,
+									     json    = self.delMatchIdJson,
 									     headers = self.jsonheart,
-									     verify = False
+									     verify  = False
 								       )
 	    
 
     def delMatch(self):
         delmatchRsp = requests.post(
-		                                   url=delMatchurl,
-		                                   json=self.delMatchIdJson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
+		                                   url     = delMatchurl,
+		                                   json    = self.delMatchIdJson,
+		                                   headers = self.jsonheart,
+		                                   verify  = False
                                       )
         print("addclassfiyrsp = %s" % delmatchRsp.text)
         return delmatchRsp.text
 
     def getRetcodeByMatchRsp(self, matchRsp=None):
-        print("classfiyRsp" + str(matchRsp))
         return query_json(json_content=json.loads(matchRsp), query="code")
 
     def getMatchIdByRsp(self, matchRsp=None):

@@ -29,7 +29,7 @@ class ArticleAddTest(ParametrizedTestCase):
       def testArticleAddNor(self):
           articlersp = self.articleSer.addArticle()
           print("articlersp====" + str(articlersp))
-          rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
+          rspcode = self.articleSer.getRetcodeByArticleRsp(response=articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":

@@ -1,0 +1,23 @@
+{
+  "code": "000000",
+  "message": "成功",
+  "data": {
+    "itemCounts": 1,
+    "currentPage": 1,
+    "pageSize": 10,
+    "pageCounts": 1,
+    "targets": [
+      {
+        "id": 1471,
+        "resourceTypeId": 2,
+        "cornerMask": "",
+        "title": "前端动态",
+        "state": "01",
+        "baseVisits": 0,
+        "baseCollects": 0,
+        "actualVisits": 0,
+        "actualCollects": 0
+      }
+    ]
+  }
+}
