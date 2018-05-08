@@ -26,6 +26,12 @@ addOperpositionurl = base_url +"/steam-featured/homeConfig/createConfig"
 delOperpositionurl = base_url +"/steam-featured/homeConfig/removeIndexConfig"
 queryHomeConfigurl =  base_url + "/steam-featured/homeConfig/listData?pageNo=1&pageSize=20" #position=03&title=ffff
 alertOperpositionurl =  base_url + "/steam-featured/homeConfig/modifyIndexConfig"
+addActivityurl = base_url + "/steam-resource/admin/product/add"
+alertActivityurl = base_url + "/steam-resource/admin/product/update"
+searchActivityurl = base_url + "/steam-resource/admin/product/page"
+upActivityurl = base_url + "/steam-resource/admin/product/publish"
+downActivityurl = base_url + "/steam-resource/admin/product/unPublish"
+queryIdActivityurl = base_url + "/steam-resource/admin/product/query"
 
 if __name__ == "__main__":
 	pass  

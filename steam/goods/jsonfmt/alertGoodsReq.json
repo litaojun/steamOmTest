@@ -1,0 +1,71 @@
+{
+	"resourceId": 1593,
+	"resourceTypeId": 11,
+	"title": "韩国天使嫁衣婚纱礼服馆(上海旗舰",
+	"subTitle": "韩国天使嫁衣婚纱礼服馆(上海旗舰-商品副标题",
+	"cornerMask": "商品",
+	"vendorIdList": [6],
+	"content": "<!DOCTYPE html><html><head></head><body><p>测试图片</p><table style=\"border-collapse: collapse; width: 100%;\" border=\"1\" data-mce-style=\"border-collapse: collapse; width: 100%;\"><tbody><tr><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td></tr><tr><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br></td><td style=\"width: 20%;\" data-mce-style=\"width: 20%;\"><br data-mce-bogus=\"1\"></td></tr></tbody></table></body></html>",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112536_771386.png",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112538_507784.png",
+	"deliverType": 0,
+	"shareInfoList": [{
+		"id": 2469,
+		"shareType": 1,
+		"title": "韩国天使嫁衣婚纱礼服馆(上海旗舰-分享标题",
+		"description": "韩国天使嫁衣婚纱礼服馆(上海旗舰-分享描述",
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112846_391984.png"
+	}],
+	"province": null,
+	"city": null,
+	"addressDetail": null,
+	"startTime": null,
+	"endTime": null,
+	"offShelfTime": null,
+	"tagIdList": [5],
+	"entryIdList": [7],
+	"skuList": [{
+		"skuId": 67,
+		"skuName": "套餐1",
+		"price": 1,
+		"originPrice": 1000,
+		"postPrice": 1,
+		"limitCount": 10,
+		"inventory": 2222,
+		"order": 1
+	}, {
+		"skuId": 68,
+		"skuName": "套餐2",
+		"price": 1,
+		"originPrice": 3322,
+		"postPrice": 1,
+		"limitCount": 22,
+		"inventory": 33344,
+		"order": 2
+	}],
+	"imageList": [{
+		"id": 70,
+		"order": 1,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112545_446970.jpg"
+	}, {
+		"id": 71,
+		"order": 2,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112548_248284.jpg"
+	}, {
+		"id": 72,
+		"order": 3,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112550_856152.jpg"
+	}, {
+		"id": 73,
+		"order": 4,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112552_494975.jpg"
+	}, {
+		"id": 74,
+		"order": 5,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112554_813342.png"
+	}, {
+		"id": 75,
+		"order": 6,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507112556_475339.jpg"
+	}]
+}

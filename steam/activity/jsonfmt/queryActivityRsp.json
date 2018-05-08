@@ -1,0 +1,55 @@
+{
+	"code": "000000",
+	"message": "成功",
+	"data": {
+		"resourceId": 1469,
+		"resourceTypeId": 12,
+		"title": "城市挑战上海站之【商战豫园】篇",
+		"subTitle": "亲子活动",
+		"cornerMask": "活动2",
+		"vendorIdList": [5],
+		"content": "<!DOCTYPE html></html>",
+		"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180502142625_932476.jpg",
+		"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180502142633_96894.jpg",
+		"deliverType": 0,
+		"shareInfoList": [{
+			"id": 2290,
+			"shareType": 1,
+			"title": "宝贝走天下",
+			"description": "商战豫园",
+			"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180502142909_915147.jpg"
+		}],
+		"province": "上海市",
+		"city": "上海城区",
+		"addressDetail": "豫园",
+		"startTime": 1525241719000,
+		"endTime": 1527747325000,
+		"offShelfTime": null,
+		"tagIdList": null,
+		"entryIdList": [65],
+		"skuList": [{
+			"skuId": 18,
+			"skuName": "系列1",
+			"price": 298.00,
+			"originPrice": 298.00,
+			"postPrice": 0.00,
+			"limitCount": 10,
+			"inventory": 100,
+			"order": 1
+		}, {
+			"skuId": 19,
+			"skuName": "系列2",
+			"price": 298.00,
+			"originPrice": 298.00,
+			"postPrice": 0.00,
+			"limitCount": 10,
+			"inventory": 100,
+			"order": 2
+		}],
+		"imageList": [{
+						"id": 38,
+						"order": 1,
+						"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180502142638_16367.jpg"
+					}]
+	}
+}

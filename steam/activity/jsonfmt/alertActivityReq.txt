@@ -1,0 +1,57 @@
+{
+	"resourceId": 1590,
+	"resourceTypeId": %(resourceTypeId)d,
+	"title": "%(title)s",
+	"subTitle": "%(subTitle)s",
+	"cornerMask": "%(cornerMask)s",
+	"vendorIdList": %(vendorIdList)s,
+	"content": "%(content)s",
+	"thumbUrl": "%(thumbUrl)s",
+	"bannerUrl": "%(bannerUrl)s",
+	"deliverType": %(deliverType)d,
+	"shareInfoList": [{
+                          "id": 2466,
+                          "shareType": %(shareType)d,
+                          "title": "%(shareTitle)s",
+                          "description": "%(shareDescription)s",
+                          "picturePath": "%(sharePicturePath)s"
+                      }],
+	"province": "%(province)s",
+	"city": "%(city)s",
+	"addressDetail": "%(addressDetail)s",
+	"startTime": 1296000000,
+	"endTime": 2592000000,
+	"offShelfTime": 2764800000,
+	"tagIdList": %(tagIdList)s,
+	"entryIdList": %(entryIdList)s,
+	"skuList": [{
+                      "skuId": 1,
+                      "skuName": "%(skuName1)s",
+                      "price": "%(price1)s",
+                      "originPrice": "%(originPrice1)s",
+                      "postPrice": "%(postPrice1)s",
+                      "limitCount": "%(limitCount1)s",
+                      "inventory": "%(inventory1)s",
+                      "order": 1
+                  },
+                 {
+                       "skuId": 2,
+                      "skuName": "%(skuName2)s",
+                      "price": "%(price2)s",
+                      "originPrice": "%(originPrice2)s",
+                      "postPrice": "%(postPrice2)s",
+                      "limitCount": "%(limitCount2)s",
+                      "inventory": "%(inventory2)s",
+                      "order": 2
+                  }],
+        "imageList": [{
+                            "id": 67,
+                            "order": 1,
+                            "picturePath": "%(imgListpicturePath1)s"
+                        },
+                        {
+                            "id": 68,
+                            "order": 2,
+                            "picturePath": "%(imgListpicturePath2)s"
+                        }]
+}

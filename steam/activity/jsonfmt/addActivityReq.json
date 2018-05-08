@@ -1,0 +1,55 @@
+{
+	"resourceId": "",
+	"title": "QUEEN'S PALACE高级定制馆-自动化",
+	"subTitle": "QUEEN'S PALACE高级定制馆-活动副标题",
+	"deliverType": 0,
+	"vendorIdList": [3],
+	"resourceTypeId": 12,
+	"content": "<!DOCTYPE html><html><head></head><body><p>fQueen’s Palace于2011年9月创立，是一家国内高级定制婚纱礼服奢侈品牌。自品牌创立以来，Queen’s Palace在沪上高定婚纱品牌的殿堂一直雄踞顶端，专注于婚纱定制的每一处细节。</p></body></html>",
+	"shareInfoList": [{
+                        "shareType": 1,
+                        "title": "QUEEN'S PALACE高级定制馆-分享标题",
+                        "description": "QUEEN'S PALACE高级定制馆-分享描述",
+                        "picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101830_796382.jpg"
+                      }],
+	"province": "重庆市",
+	"city": "重庆郊县",
+	"addressDetail": "肇嘉浜路356号(襄阳南路路口)",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101738_928360.jpg",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101741_710087.jpg",
+	"imageList": [{
+                      "picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101747_909470.jpg",
+                      "order": 1
+                  },
+                  {
+                      "picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101749_880315.jpg",
+                      "order": 2
+                  }],
+	"startTime": 1296000000,
+	"endTime": 2592000000,
+	"cornerMask": "商品",
+	"offShelfTime": 2764800000,
+	"entryIdList": [7],
+	"tagIdList": [2],
+	"skuList": [{
+                      "skuName": "套餐1",
+                      "skuId": null,
+                      "order": 1,
+                      "price": "0.01",
+                      "originPrice": "1000",
+                      "inventory": "1000",
+                      "limitCount": "2",
+                      "postPrice": "0.01"
+                  },
+                  {
+                      "skuName": "套餐2",
+                      "skuId": null,
+                      "order": 2,
+                      "price": "0.02",
+                      "originPrice": "1200",
+                      "inventory": "2000",
+                      "limitCount": "3",
+                      "postPrice": "0.01"
+                  }],
+	"state": 1
+}

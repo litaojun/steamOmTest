@@ -1,0 +1,16 @@
+{
+	"code": "000000",
+	"message": "成功",
+	"currentPage": 1,
+	"pageSize": 10,
+	"data": [{
+                  "resourceId": 1468,
+                  "resourceTypeId": 11,
+                  "title": "神经元智造家套件 可编程电子积木 儿童益智玩具",
+                  "saleNum": 0,
+                  "state": 0,
+                  "saleOut": false,
+                  "outOfTime": false
+              }],
+	"itemCounts": 1
+}
