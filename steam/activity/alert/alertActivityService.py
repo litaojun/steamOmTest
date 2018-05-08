@@ -16,6 +16,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import alertActivityurl
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.add.addActivityService import ActivityAddService
+from steam.activity.search.searchActivityService import ActivitySearchService
 
 class ActivityAlertService(UopService):
     '''
@@ -33,6 +34,8 @@ class ActivityAlertService(UopService):
 	                         "x-token":"admin"
                          }
         self.activityAddSer = ActivityAddService(kwargs=kwargs)
+        self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
+
 
     @decorator("preInterfaceAddOneArticle")
     def addArticle(self):
@@ -40,8 +43,18 @@ class ActivityAlertService(UopService):
 
 
 
-    def alertActivity(self):
-        resid = self.getArticleIdByTitle(self.activityAddReqjson["title"])
+    def alertActivity(self,kwargs=None):
+        rsp = self.searchActSer.queryActivity()
+        resid = self.searchActSer.getFirstActivityIdByRsp(queryRsp=rsp)
+        #resid = self.getArticleIdByTitle(self.activityAddReqjson["title"])
+        querySer = ActivityQueryService(kwargs={"resourceId":resid})
+        oneActivityRsp = querySer.queryOneActivity()
+        idskuss = querySer.getSkuListByFormat(size=kwargs["skulist"])
+        idSkusvalue = querySer.getIdValueListByRsp(ids=idskuss,rsp=oneActivityRsp)
+        idimgs = querySer.getImageListByFormat(size=kwargs["imglist"])
+        idimgvalues = querySer.getIdValueListByRsp(ids=idimgs,rsp=oneActivityRsp)
+        idshares = querySer.getShareListByFormat(size=1)
+        idsharevalues = querySer.getIdValueListByRsp(ids=idshares,rsp=oneActivityRsp)
         self.activityAddReqjson["resourceId"] = resid
         addArticleRsp = requests.post(
 		                                   url=alertActivityurl,
@@ -58,7 +71,7 @@ class ActivityAlertService(UopService):
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getActivityIdByTitle(self,title = None):
-        articleQs = ActivityQueryService(kwargs={"title":title,"resourceTypeId":self.activityAddReqjson["resourceTypeId"]})
+        articleQs = ActivitySearchService(kwargs={"title":title,"resourceTypeId":self.activityAddReqjson["resourceTypeId"]})
         queryRsp = articleQs.queryArtcle()
         rssid = articleQs.getFirstActivityIdByRsp(queryRsp = queryRsp)
         return rssid
