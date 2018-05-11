@@ -41,6 +41,9 @@ class ActivitySearchService(UopService):
     def getFirstActivityIdByRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="data.0.resourceId")
 
+    def getRetcodeByActRsp(self,queryRsp = None):
+        return query_json(json_content=json.loads(queryRsp), query="code")
+
 if __name__ == "__main__":
     queryJsonData = {"currentPage":1,"pageSize":10,"resourceTypeId":12,"title":"城市挑战上海站之【商战豫园】篇"}
     aqs = ActivitySearchService(kwargs=queryJsonData)

@@ -12,7 +12,7 @@
 
 from opg.util.uopService import decorator,UopService
 import requests,json
-from opg.util.utils import query_json
+from opg.util.utils import query_json,setValue_json
 from steam.util.configurl import alertActivityurl
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.add.addActivityService import ActivityAddService
@@ -29,7 +29,7 @@ class ActivityAlertService(UopService):
         """
         super(ActivityAlertService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\alertActivityReq.txt")
         self.rsp = None
-        self.activityAddReqjson = self.reqjsondata
+        self.activityAlertReqjson = self.reqjsondata
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
@@ -55,10 +55,11 @@ class ActivityAlertService(UopService):
         idimgvalues = querySer.getIdValueListByRsp(ids=idimgs,rsp=oneActivityRsp)
         idshares = querySer.getShareListByFormat(size=1)
         idsharevalues = querySer.getIdValueListByRsp(ids=idshares,rsp=oneActivityRsp)
-        self.activityAddReqjson["resourceId"] = resid
+        self.activityAlertReqjson["resourceId"] = resid
+        self.alertReqIdToValue(skulist=idSkusvalue,imglist=idimgvalues,sharelist=idsharevalues)
         addArticleRsp = requests.post(
 		                                   url=alertActivityurl,
-		                                   json=self.activityAddReqjson,
+		                                   json=self.activityAlertReqjson,
 		                                   headers=self.jsonheart,
 		                                   verify=False
                                       )
@@ -66,13 +67,24 @@ class ActivityAlertService(UopService):
         print("addArticleRsp = %s" % addArticleRsp.text)
         return addArticleRsp.text
 
-    def getRetcodeByArticleRsp(self,articleRsp = None):
+    def alertReqIdToValue(self,skulist = [],imglist = [],sharelist = []):
+        self.idToValueByFormat(formatstr="skuList.%d.skuId",idlist=skulist)
+        self.idToValueByFormat(formatstr="imageList.%d.id", idlist=imglist)
+        self.idToValueByFormat(formatstr="shareInfoList.%d.id", idlist=sharelist)
+
+
+    def idToValueByFormat(self,formatstr = "" ,idlist = []):
+        for i,idvalue in enumerate(idlist):
+            setValue_json(json_content=self.activityAlertReqjson,query=formatstr % i,setvalue=idvalue)
+
+
+    def getRetcodeByActivityRsp(self,articleRsp = None):
         print("articleRsp=" + str(articleRsp))
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getActivityIdByTitle(self,title = None):
-        articleQs = ActivitySearchService(kwargs={"title":title,"resourceTypeId":self.activityAddReqjson["resourceTypeId"]})
-        queryRsp = articleQs.queryArtcle()
+        articleQs = ActivitySearchService(kwargs={"title":title,"resourceTypeId":self.activityAlertReqjson["resourceTypeId"]})
+        queryRsp = articleQs.queryActivity()
         rssid = articleQs.getFirstActivityIdByRsp(queryRsp = queryRsp)
         return rssid
 
@@ -117,13 +129,16 @@ if __name__ == "__main__":
 					"inventory2": "2000",
 					"limitCount2": "3",
 					"postPrice2": "0.01",
-					"state": 1
+					"state": 1,
+	                "skulist":2,
+	                "imglist":2,
+	                "sharelist":1
 				}
    activitySer = ActivityAlertService(kwargs=reqdata)
    #addrsp = activitySer.addArticle()
    activityid = activitySer.getActivityIdByTitle(title=reqdata['title'])
-   articleQs = ActivityQueryService(kwargs={"title": reqdata['title'], "resourceTypeId":reqdata["resourceTypeId"]})
-   queryRsp = articleQs.queryArtcle()
-   query_json(json_content= queryRsp,query="")
-   alertRsp = activitySer.alertActivity()
-   retcode  = activitySer.getRetcodeByArticleRsp(articleRsp = alertRsp)
+   #articleQs = ActivityQueryService(kwargs={"title": reqdata['title'], "resourceTypeId":reqdata["resourceTypeId"]})
+   #queryRsp = articleQs.queryOneActivity()
+   # query_json(json_content= queryRsp,query="")
+   alertRsp = activitySer.alertActivity(kwargs=reqdata)
+   retcode  = activitySer.getRetcodeByActivityRsp(articleRsp = alertRsp)

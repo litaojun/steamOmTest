@@ -1,1 +1,1 @@
-{"resourceId":%(resourceId)d}
+{"resourceId":"%(resourceId)s"}

@@ -67,29 +67,32 @@ class ActivityQueryService(UopService):
             idvls.append(idvlaue)
         return idvls
 
-    def getAllAlertId(self,queryRsp = None,skuLen = 2,imageLen =2):
-        """
-                data.shareInfoList.0.id
-                data.skuList.0.skuId
-                data.skuList.1.skuId
-                data.imageList.0.id
-                data.imageList.1.id
-                data.imageList.2.id
-                data.imageList.3.id
-                data.imageList.4.id
-                data.imageList.5.id
-        :param queryRsp:
-        :return:
-        """
-        idlist = []
-        idls = ["data.shareInfoList.0.id"]
-        skulist = ["data.skuList.%d.skuId" % i for i in range(skuLen)]
-        imagelist = ["data.imageList.%d.id" % i for i in range(imageLen)]
-        idls.append(skulist)
-        idls.append(imagelist)
-        for idtag in idls:
-            resouceId = query_json(json_content=json.loads(queryRsp), query=idtag)
-            idlist.append(resouceId)
+    def getRetcodeByOneactRsp(self,oneActRsp = None):
+        return query_json(json_content=json.loads(oneActRsp), query="code")
+
+    # def getAllAlertId(self,queryRsp = None,skuLen = 2,imageLen =2):
+    #     """
+    #             data.shareInfoList.0.id
+    #             data.skuList.0.skuId
+    #             data.skuList.1.skuId
+    #             data.imageList.0.id
+    #             data.imageList.1.id
+    #             data.imageList.2.id
+    #             data.imageList.3.id
+    #             data.imageList.4.id
+    #             data.imageList.5.id
+    #     :param queryRsp:
+    #     :return:
+    #     """
+    #     idlist = []
+    #     idls = ["data.shareInfoList.0.id"]
+    #     skulist = ["data.skuList.%d.skuId" % i for i in range(skuLen)]
+    #     imagelist = ["data.imageList.%d.id" % i for i in range(imageLen)]
+    #     idls.append(skulist)
+    #     idls.append(imagelist)
+    #     for idtag in idls:
+    #         resouceId = query_json(json_content=json.loads(queryRsp), query=idtag)
+    #         idlist.append(resouceId)
 
 if __name__ == "__main__":
 

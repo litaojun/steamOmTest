@@ -12,7 +12,7 @@
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import addActivityurl,queryActivityurl
+from steam.util.configurl import addActivityurl,queryIdActivityurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from steam.activity.query.queryActivityService import ActivityQueryService
