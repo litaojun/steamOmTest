@@ -33,6 +33,6 @@ class ActivityAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\activity\\activityaddcase.xlsx",
+					casefilepath="\\steamcase\\testactivity\\activityaddcase.xlsx",
 					testclse=ActivityAddTest
 				)

@@ -25,7 +25,7 @@ class ActivityAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityAddService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\addActivityReq.txt")
+        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = "\\steam\\activity\jsonfmt\\addActivityReq.txt")
         self.rsp = None
         self.activityAddReqjson = self.reqjsondata
         self.jsonheart = {
@@ -111,7 +111,6 @@ if __name__ == "__main__":
 					"state": 1
 				}
    actSer = ActivityAddService(reqjson)
-  # rsp = actSer.addActivity()
    rsp = "{\"code\": \"000000\",\"message\": \"成功\",\"data\": {\"resourceId\": 1590}}"
    code = actSer.getRetcodeByActivityRsp(response = rsp)
    ssid = actSer.getActivityIdByRsp(rsp)
