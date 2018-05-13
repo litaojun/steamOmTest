@@ -3,31 +3,31 @@
     <mysql>
         <name>tearDBdel_t_content_picture_byTitle</name>
         <opertype>delete</opertype>
-        <sql>delete p.* from t_content_picture p where EXISTS(select 1 from t_resource r where r.title = "%(title)s" and p.resource_id = r.id);</sql>
+        <sql>delete p.* from t_content_picture p where EXISTS(select 1 from t_resource r where r.title = "%(title)s"  and r.resource_type_id = "%(resourceTypeId)s" and  p.resource_id = r.id);</sql>
 	    <desc>删除活动关联图片</desc>
     </mysql>
     <mysql>
         <name>tearDBdel_t_sku_byTitle</name>
         <opertype>delete</opertype>
-        <sql>delete s.* from t_sku s where EXISTS(select 1 from t_resource r where r.title = "%(title)s" and s.resource_id = r.id) ;</sql>
+        <sql>delete s.* from t_sku s where EXISTS(select 1 from t_resource r where r.title = "%(title)s"  and r.resource_type_id = "%(resourceTypeId)s"  and s.resource_id = r.id) ;</sql>
 	    <desc>删除活动SKU数据</desc>
     </mysql>
     <mysql>
         <name>tearDBdel_t_vendor_rel_byTitle</name>
         <opertype>delete</opertype>
-        <sql>delete vl.* from t_vendor_rel vl where EXISTS(select 1 from t_resource r where r.title = "%(title)s" and vl.resource_id = r.id) ;</sql>
+        <sql>delete vl.* from t_vendor_rel vl where EXISTS(select 1 from t_resource r where r.title = "%(title)s"  and r.resource_type_id = "%(resourceTypeId)s"  and vl.resource_id = r.id) ;</sql>
 	    <desc>删除活动分类信息数据</desc>
     </mysql>
     <mysql>
         <name>tearDBdel_t_tag_rel_byTitle</name>
         <opertype>delete</opertype>
-        <sql>delete tl.* from t_tag_rel tl where EXISTS(select 1 from t_resource r where r.title = "%(title)s" and tl.resource_id = r.id) ;</sql>
+        <sql>delete tl.* from t_tag_rel tl where EXISTS(select 1 from t_resource r where r.title = "%(title)s"  and r.resource_type_id = "%(resourceTypeId)s"  and tl.resource_id = r.id) ;</sql>
 	    <desc>删除活动标签信息数据</desc>
     </mysql>
     <mysql>
         <name>tearDBdel_t_resource_byTitle</name>
         <opertype>delete</opertype>
-        <sql>delete r.* from t_resource r where r.title = "%(title)s" and r.resource_type_id = 12;</sql>
+        <sql>delete r.* from t_resource r where r.title = "%(title)s"   and r.resource_type_id = "%(resourceTypeId)s" ;</sql>
 	    <desc>删除活动表</desc>
     </mysql>
 </uop>
