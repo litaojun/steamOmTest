@@ -44,6 +44,6 @@ class GoodsUnPublishTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\goods\\activityunpublishcase.xlsx",
+				          casefilepath="\\steamcase\\goods\\goodsunpublishcase.xlsx",
 				          testclse=GoodsUnPublishTest
 			           )

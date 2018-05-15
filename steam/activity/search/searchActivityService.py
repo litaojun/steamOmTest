@@ -45,7 +45,7 @@ class ActivitySearchService(UopService):
         return query_json(json_content=json.loads(queryRsp), query="code")
 
 if __name__ == "__main__":
-    queryJsonData = {"currentPage":1,"pageSize":10,"resourceTypeId":12,"title":"城市挑战上海站之【商战豫园】篇"}
+    queryJsonData = {"currentPage":1,"pageSize":10,"resourceTypeId":12,"title":"QUEENS PALACE高级定制馆C-自动化"}
     aqs = ActivitySearchService(kwargs=queryJsonData)
     queryResultRsp = aqs.queryActivity()
     rsid = aqs.getFirstActivityIdByRsp(queryRsp=queryResultRsp)

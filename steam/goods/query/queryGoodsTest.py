@@ -46,6 +46,6 @@ class GoodsQueryTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\goods\\activityquerycase.xlsx",
+				          casefilepath="\\steamcase\\goods\\goodsquerycase.xlsx",
 				          testclse=GoodsQueryTest
 			           )

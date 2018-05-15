@@ -50,7 +50,7 @@ class ActivityPublishService(UopService):
 if __name__ == "__main__":
    reqdata = {
 	            "resourceId": "22",
-                "title": "QUEEN'S PALACE高级定制馆1-自动化",
+                "title": "QUEENS PALACE高级定制馆C-自动化",
 	            "resourceTypeId":12
               }
    pubActSer = ActivityPublishService(kwargs=reqdata)

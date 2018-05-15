@@ -102,7 +102,7 @@ if __name__ == "__main__":
                        "imglist":1,
                        "sharelist":1,
                        "resourceTypeId":11,
-                       "title":"神经元智造家套件 可编程电子积木 儿童益智玩具"
+                       "title":"QUEENS PALACE高级定制馆C-自动化"
                       }
     aqs = ActivityQueryService(kwargs=queryJsonData)
     aqs.getSkuListByFormat(size=2)

@@ -27,7 +27,7 @@ class ActivityAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityAlertService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\alertActivityReq.txt")
+        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\alertActivityReq.txt")
         self.rsp = None
         self.activityAlertReqjson = self.reqjsondata
         self.jsonheart = {
@@ -37,7 +37,7 @@ class ActivityAlertService(UopService):
         self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
 
 
-    @decorator("preInterfaceAddOneArticle")
+    @decorator("preInterfaceAddOneActivity")
     def addArticle(self):
         self.activityAddSer.addActivity()
 
@@ -92,7 +92,7 @@ class ActivityAlertService(UopService):
 if __name__ == "__main__":
    reqdata = {
 					"resourceId": "",
-					"title": "QUEEN'S PALACE高级定制馆1-自动化",
+					"title": "QUEENS PALACE高级定制馆1-自动化",
 					"subTitle": "QUEEN'S PALACE高级定制馆-活动副标题",
 					"deliverType": 0,
 					"vendorIdList": [3],
@@ -135,7 +135,7 @@ if __name__ == "__main__":
 	                "sharelist":1
 				}
    activitySer = ActivityAlertService(kwargs=reqdata)
-   #addrsp = activitySer.addArticle()
+   addrsp = activitySer.addArticle()
    activityid = activitySer.getActivityIdByTitle(title=reqdata['title'])
    #articleQs = ActivityQueryService(kwargs={"title": reqdata['title'], "resourceTypeId":reqdata["resourceTypeId"]})
    #queryRsp = articleQs.queryOneActivity()

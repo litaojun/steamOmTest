@@ -33,6 +33,6 @@ class GoodsAlertTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\goods\\activityalertcase.xlsx",
+					casefilepath="\\steamcase\\goods\\goodsalertcase.xlsx",
 					testclse=GoodsAlertTest
 				)

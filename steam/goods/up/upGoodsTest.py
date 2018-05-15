@@ -34,7 +34,7 @@ class GoodsPublishTest(ParametrizedTestCase):
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
           rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          queryReqJson = {"resourceId":rssid}
+          queryReqJson = {"resourceId":rssid,"resourceTypeId":11}
           queryActSer = ActivityPublishService(kwargs=queryReqJson)
           oneActRsp = queryActSer.publishActivitySer()
           code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
@@ -43,6 +43,6 @@ class GoodsPublishTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\goods\\activitypublishcase.xlsx",
+				          casefilepath="\\steamcase\\goods\\goodspublishcase.xlsx",
 				          testclse=GoodsPublishTest
 			           )

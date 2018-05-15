@@ -35,6 +35,7 @@ class ActivityUnPublishService(UopService):
                          }
         #self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"],"title": kwargs["title"]})
 
+
     def unPublishActivitySer(self):
         pubActivityRsp = requests.post(
 										    url=downActivityurl,
@@ -50,7 +51,7 @@ class ActivityUnPublishService(UopService):
 if __name__ == "__main__":
    reqdata = {
 	            "resourceId": "22",
-                "title": "QUEEN'S PALACE高级定制馆1-自动化",
+                "title": "QUEENS PALACE高级定制馆C-自动化",
 	            "resourceTypeId":12
               }
    pubActSer = ActivityUnPublishService(kwargs=reqdata)
