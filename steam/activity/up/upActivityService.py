@@ -17,6 +17,7 @@ from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.search.searchActivityService import ActivitySearchService
+from steam.util.reqFormatPath import fxt,activityUpReq
 class ActivityPublishService(UopService):
     '''
         活动新增
@@ -26,7 +27,7 @@ class ActivityPublishService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityPublishService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\publishActivityReq.txt")
+        super(ActivityPublishService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityUpReq))
         self.rsp = None
         #self.publisActUrl = upActivityurl + self.reqjsondata
         self.activityUpReqjson = self.reqjsondata

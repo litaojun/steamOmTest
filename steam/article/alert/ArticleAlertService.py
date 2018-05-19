@@ -16,7 +16,7 @@ from steam.util.configurl import alertArtcleurl
 from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from steam.article.add.ArticleAddService import ArticleAddService
-
+from steam.util.reqFormatPath import fxt,articleAlertReq
 class ArticleAlertService(UopService):
     '''
         分类新增
@@ -26,7 +26,7 @@ class ArticleAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ArticleAlertService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\article\jsonfmt\\alertArticleReq.txt")
+        super(ArticleAlertService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleAlertReq))
         self.rsp = None
         self.articleReqjson = self.reqjsondata
         # self.articleReqjson = {

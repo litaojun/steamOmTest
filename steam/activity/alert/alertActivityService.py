@@ -17,7 +17,7 @@ from steam.util.configurl import alertActivityurl
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.add.addActivityService import ActivityAddService
 from steam.activity.search.searchActivityService import ActivitySearchService
-
+from steam.util.reqFormatPath import fxt,activityAlertReq
 class ActivityAlertService(UopService):
     '''
         分类新增
@@ -27,7 +27,7 @@ class ActivityAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile="\\steam\\activity\jsonfmt\\alertActivityReq.txt")
+        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile=fxt.join(activityAlertReq))
         self.rsp = None
         self.activityAlertReqjson = self.reqjsondata
         self.jsonheart = {

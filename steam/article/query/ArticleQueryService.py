@@ -13,6 +13,7 @@ from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import queryArticleurl
+from steam.util.reqFormatPath import fxt,articleQueryReq
 
 class ArticleQueryService(UopService):
     '''
@@ -23,7 +24,7 @@ class ArticleQueryService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\article\jsonfmt\\queryArticleReq.txt")
+        super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleQueryReq))
         self.rsp = None
         # if "title" in kwargs:
         #      self.queryArticleUrl = queryArticleurl + "&title=" + kwargs["title"]

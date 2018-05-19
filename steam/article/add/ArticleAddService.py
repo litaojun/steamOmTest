@@ -16,6 +16,7 @@ from steam.util.configurl import addArticleurl
 from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
+from steam.util.reqFormatPath import  fxt,articleAddReq
 class ArticleAddService(UopService):
     '''
         分类新增
@@ -25,7 +26,7 @@ class ArticleAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ArticleAddService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\article\jsonfmt\\addArticleReq.txt")
+        super(ArticleAddService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleAddReq))
         self.rsp = None
         self.articleReqjson = self.reqjsondata
         self.jsonheart = {

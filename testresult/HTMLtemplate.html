@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>steam亲子教育</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-05-15 11:59:14</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:22.934293</p>
-<p class='attribute'><strong>Status:</strong> Pass 26 Failure 1 Error 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-05-19 16:10:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:16.414177</p>
+<p class='attribute'><strong>Status:</strong> Pass 20 Failure 2 Error 9</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -416,31 +416,61 @@ pt3.3:
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='errorClass'>
     <td>/steam-resource/admin/product/query-activity</td>
     <td>6</td>
+    <td>0</td>
+    <td>0</td>
     <td>6</td>
-    <td>0</td>
-    <td>0</td>
     <td><a href="javascript:showClassDetail('c4',6)">Detail</a></td>
 </tr>
 
-<tr id='pt4.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        error</a>
 
-    <div id='div_pt4.1' class="popup_window">
+    <div id='div_ft4.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.1: 
+ft4.1: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -449,22 +479,52 @@ pt4.1:
     </td>
 </tr>
 
-<tr id='pt4.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.2' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        error</a>
 
-    <div id='div_pt4.2' class="popup_window">
+    <div id='div_ft4.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.2: 
+ft4.2: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -473,22 +533,52 @@ pt4.2:
     </td>
 </tr>
 
-<tr id='pt4.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.3' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        error</a>
 
-    <div id='div_pt4.3' class="popup_window">
+    <div id='div_ft4.3' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.3: 
+ft4.3: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -497,22 +587,52 @@ pt4.3:
     </td>
 </tr>
 
-<tr id='pt4.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.4' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.4')" >
+        error</a>
 
-    <div id='div_pt4.4' class="popup_window">
+    <div id='div_ft4.4' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.4').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.4: 
+ft4.4: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -521,22 +641,52 @@ pt4.4:
     </td>
 </tr>
 
-<tr id='pt4.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.5' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.5')" >
+        error</a>
 
-    <div id='div_pt4.5' class="popup_window">
+    <div id='div_ft4.5' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.5').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.5: 
+ft4.5: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -545,22 +695,52 @@ pt4.5:
     </td>
 </tr>
 
-<tr id='pt4.6' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='ft4.6' class='none'>
+    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.6')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.6')" >
+        error</a>
 
-    <div id='div_pt4.6' class="popup_window">
+    <div id='div_ft4.6' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.6').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.6').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt4.6: 
+ft4.6: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
+    json_content = json_content[key]
+KeyError: 'code'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
+    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
+    return query_json(json_content=json.loads(oneActRsp), query="code")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
 
         </pre>
     </div>
@@ -849,11 +1029,11 @@ pt11.1:
         <pre>
         
 ft12.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
+  File "D:\work\pythonwork\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
     self.assertTrue(rspcode == self.expectdata["code"])
 AssertionError: False is not true
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
+  File "D:\work\pythonwork\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
     self.assertTrue(rspcode == self.expectdata["code"])
 AssertionError: False is not true
 
@@ -956,15 +1136,15 @@ pt14.1:
         <pre>
         
 ft15.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
+  File "D:\work\pythonwork\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
     rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\schemajson.py", line 68, in wrapper
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\schemajson.py", line 68, in wrapper
     jsondata = kwargs["response"]
 KeyError: 'response'
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
+  File "D:\work\pythonwork\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
     rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\schemajson.py", line 68, in wrapper
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\schemajson.py", line 68, in wrapper
     jsondata = kwargs["response"]
 KeyError: 'response'
 
@@ -1034,41 +1214,41 @@ pt16.1:
         <pre>
         
 ft17.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 40, in query_json
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
     json_content = json_content[key]
 KeyError: 'data'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
+  File "D:\work\pythonwork\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
     articlersp = self.articleSer.delClassfiy()
-  File "D:\litaojun\workspace\steamOmTest\steam\article\delete\delArticleService.py", line 77, in delClassfiy
+  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 78, in delClassfiy
     resid = self.getArticleIdByTitle(title,resourceTypeId)
-  File "D:\litaojun\workspace\steamOmTest\steam\article\delete\delArticleService.py", line 89, in getArticleIdByTitle
+  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 90, in getArticleIdByTitle
     rssid = articleQs.getFirstResourceIdByRsp(queryRsp=queryRsp)
-  File "D:\litaojun\workspace\steamOmTest\steam\article\query\ArticleQueryService.py", line 44, in getFirstResourceIdByRsp
+  File "D:\work\pythonwork\steamOmTest\steam\article\query\ArticleQueryService.py", line 45, in getFirstResourceIdByRsp
     return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
     raise Exception("failed to query json when extracting response!")
 Exception: failed to query json when extracting response!
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 40, in query_json
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
     json_content = json_content[key]
 KeyError: 'data'
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
+  File "D:\work\pythonwork\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
     articlersp = self.articleSer.delClassfiy()
-  File "D:\litaojun\workspace\steamOmTest\steam\article\delete\delArticleService.py", line 77, in delClassfiy
+  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 78, in delClassfiy
     resid = self.getArticleIdByTitle(title,resourceTypeId)
-  File "D:\litaojun\workspace\steamOmTest\steam\article\delete\delArticleService.py", line 89, in getArticleIdByTitle
+  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 90, in getArticleIdByTitle
     rssid = articleQs.getFirstResourceIdByRsp(queryRsp=queryRsp)
-  File "D:\litaojun\workspace\steamOmTest\steam\article\query\ArticleQueryService.py", line 44, in getFirstResourceIdByRsp
+  File "D:\work\pythonwork\steamOmTest\steam\article\query\ArticleQueryService.py", line 45, in getFirstResourceIdByRsp
     return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
     raise Exception("failed to query json when extracting response!")
 Exception: failed to query json when extracting response!
 
@@ -1082,20 +1262,20 @@ Exception: failed to query json when extracting response!
 
 <tr class='errorClass'>
     <td>/steam-featured/homeConfig/createConfig</td>
-    <td>1</td>
+    <td>2</td>
     <td>0</td>
-    <td>0</td>
     <td>1</td>
-    <td><a href="javascript:showClassDetail('c18',1)">Detail</a></td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c18',2)">Detail</a></td>
 </tr>
 
 <tr id='ft18.1' class='none'>
-    <td class='errorCase'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
+    <td class='failCase'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.1')" >
-        error</a>
+        fail</a>
 
     <div id='div_ft18.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
@@ -1105,37 +1285,83 @@ Exception: failed to query json when extracting response!
         <pre>
         
 ft18.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 48, in tearDown
-    self.myservice.handlingInterface(interfacels)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 151, in handlingInterface
-    rst = list(map(f,interacels))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 150, in &lt;lambda&gt;
-    f = lambda x:self.ifacedict[x]()
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 19, in wrapper
-    fun(*args, **kwargs)
-  File "D:\litaojun\workspace\steamOmTest\steam\operposition\add\addOperPsnService.py", line 47, in delOperPosition
-    rssid = operpsnqySer.getFirstResourceIdByRsp(rspdata)
-  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 47, in getFirstResourceIdByRsp
-    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 42, in query_json
-    raise Exception("response content is in text format! failed to query key {}!".format(key))
-Exception: response content is in text format! failed to query key targets!
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\add\addOperPsnTest.py", line 33, in testOperpsnAddNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
 Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 48, in tearDown
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\add\addOperPsnTest.py", line 33, in testOperpsnAddNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft18.2' class='none'>
+    <td class='errorCase'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.2')" >
+        error</a>
+
+    <div id='div_ft18.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft18.2: Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\unit\parametrized.py", line 48, in tearDown
     self.myservice.handlingInterface(interfacels)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 151, in handlingInterface
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 151, in handlingInterface
     rst = list(map(f,interacels))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 150, in &lt;lambda&gt;
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 150, in &lt;lambda&gt;
     f = lambda x:self.ifacedict[x]()
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 19, in wrapper
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 19, in wrapper
     fun(*args, **kwargs)
-  File "D:\litaojun\workspace\steamOmTest\steam\operposition\add\addOperPsnService.py", line 47, in delOperPosition
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\add\addOperPsnService.py", line 47, in delOperPosition
     rssid = operpsnqySer.getFirstResourceIdByRsp(rspdata)
-  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 47, in getFirstResourceIdByRsp
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 47, in getFirstResourceIdByRsp
     return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 42, in query_json
-    raise Exception("response content is in text format! failed to query key {}!".format(key))
-Exception: response content is in text format! failed to query key targets!
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\pythonwork\unittestExBaseb\opg\unit\parametrized.py", line 48, in tearDown
+    self.myservice.handlingInterface(interfacels)
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 151, in handlingInterface
+    rst = list(map(f,interacels))
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 150, in &lt;lambda&gt;
+    f = lambda x:self.ifacedict[x]()
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\uopService.py", line 19, in wrapper
+    fun(*args, **kwargs)
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\add\addOperPsnService.py", line 47, in delOperPosition
+    rssid = operpsnqySer.getFirstResourceIdByRsp(rspdata)
+  File "D:\work\pythonwork\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 47, in getFirstResourceIdByRsp
+    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
+  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
 
 
         </pre>
@@ -1194,10 +1420,10 @@ pt19.1:
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>30</td>
-    <td>26</td>
-    <td>1</td>
-    <td>3</td>
+    <td>31</td>
+    <td>20</td>
+    <td>2</td>
+    <td>9</td>
     <td>&nbsp;</td>
 </tr>
 </table>

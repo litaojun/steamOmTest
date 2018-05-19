@@ -15,6 +15,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import addActivityurl,queryIdActivityurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
+from opg.util.isSystemType import  getfileopertr
 from steam.activity.query.queryActivityService import ActivityQueryService
 class ActivityAddService(UopService):
     '''
@@ -25,7 +26,9 @@ class ActivityAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = "\\steam\\activity\jsonfmt\\addActivityReq.txt")
+        fxt = getfileopertr()
+        reqMatPath = fxt.join(["","steam","activity","jsonfmt","addActivityReq.txt"])
+        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = reqMatPath)
         self.rsp = None
         self.activityAddReqjson = self.reqjsondata
         self.jsonheart = {

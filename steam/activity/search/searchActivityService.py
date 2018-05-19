@@ -13,7 +13,7 @@ from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import searchActivityurl
-
+from steam.util.reqFormatPath import fxt,activitySearchReq
 class ActivitySearchService(UopService):
     '''
         查询分类
@@ -23,7 +23,7 @@ class ActivitySearchService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivitySearchService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\\jsonfmt\\searchActivityReq.txt")
+        super(ActivitySearchService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activitySearchReq))
         self.rsp = None
         self.activityQueryReqjson = self.reqjsondata
         self.jsonheart = {

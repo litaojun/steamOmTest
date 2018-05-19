@@ -16,6 +16,7 @@ from steam.util.configurl import delArticleurl,addArticleurl
 from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.article.query.ArticleQueryService import ArticleQueryService
+from steam.util.reqFormatPath import fxt,articleDelReq
 class ArticleDelService(UopService):
     '''
         分类新增
@@ -25,7 +26,7 @@ class ArticleDelService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ArticleDelService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\article\jsonfmt\\delArticleReq.txt")
+        super(ArticleDelService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleDelReq))
 
         # self.articleReqjson = {
 			# 				        "title": kwargs["title"],  # 奥林匹克大赛2017年12月北京赛区

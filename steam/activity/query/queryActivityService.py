@@ -13,7 +13,7 @@ from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
-
+from steam.util.reqFormatPath import fxt,activityQueryReq
 class ActivityQueryService(UopService):
     '''
         查询分类
@@ -23,7 +23,7 @@ class ActivityQueryService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityQueryService, self).__init__("", "", kwargs,reqjsonfile="\\steam\\activity\\jsonfmt\\queryActivityReq.txt")
+        super(ActivityQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityQueryReq))
         self.rsp = None
         #self.activityQueryReqjson = self.reqjsondata
         self.queryIdActivityurl =queryIdActivityurl +  self.reqjsondata
