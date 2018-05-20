@@ -17,7 +17,7 @@ from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.util.reqFormatPath import fxt,activityDownReq
+from steam.util.reqFormatPath import fxt,activityDownReq,activityDownRspFmt
 class ActivityUnPublishService(UopService):
     '''
         活动新增

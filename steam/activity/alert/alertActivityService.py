@@ -17,7 +17,7 @@ from steam.util.configurl import alertActivityurl
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.add.addActivityService import ActivityAddService
 from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.util.reqFormatPath import fxt,activityAlertReq
+from steam.util.reqFormatPath import fxt,activityAlertReq,activityAlertRspFmt
 class ActivityAlertService(UopService):
     '''
         分类新增

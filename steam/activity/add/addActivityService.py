@@ -16,6 +16,7 @@ from steam.util.configurl import addActivityurl,queryIdActivityurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from opg.util.isSystemType import  getfileopertr
+from steam.util.reqFormatPath import fxt,activityAddReq,activityAddRspFmt
 from steam.activity.query.queryActivityService import ActivityQueryService
 class ActivityAddService(UopService):
     '''
@@ -59,7 +60,7 @@ class ActivityAddService(UopService):
         print("addArticleRsp = %s" % addActivityRsp.text)
         return addActivityRsp.text
 
-    @check_rspdata(filepath="\\steam\\activity\\jsonfmt\\addActivityRspFmt.json")
+    @check_rspdata(filepath=fxt.join(activityAddRspFmt))
     def getRetcodeByActivityRsp(self,response = None):
         print("activityRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")

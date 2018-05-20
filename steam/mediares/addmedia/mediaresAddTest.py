@@ -28,7 +28,7 @@ class MediaresAddTest(ParametrizedTestCase):
       def testMediaresAddNor(self):
           articlersp = self.articleSer.addArticle()
           print("articlersp====" + str(articlersp))
-          rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
+          rspcode = self.articleSer.getRetcodeByArticleRsp(response=articlersp)
           expectCode = self.expectdata["code"]
           self.assertEqual(rspcode,expectCode)
           #self.assertTrue(rspcode == expectCode)

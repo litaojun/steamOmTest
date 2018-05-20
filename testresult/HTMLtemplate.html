@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>steam亲子教育</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-05-19 16:10:02</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:16.414177</p>
-<p class='attribute'><strong>Status:</strong> Pass 20 Failure 2 Error 9</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-05-20 08:33:45</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:16.276567</p>
+<p class='attribute'><strong>Status:</strong> Pass 29 Failure 1 Error 1</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -416,331 +416,31 @@ pt3.3:
     </td>
 </tr>
 
-<tr class='errorClass'>
-    <td>/steam-resource/admin/product/query-activity</td>
-    <td>6</td>
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/up-activity</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>6</td>
-    <td><a href="javascript:showClassDetail('c4',6)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
 </tr>
 
-<tr id='ft4.1' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
 
-    <div id='div_ft4.1' class="popup_window">
+    <div id='div_pt4.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft4.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft4.2' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
-        error</a>
-
-    <div id='div_ft4.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4.2: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft4.3' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
-        error</a>
-
-    <div id='div_ft4.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4.3: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft4.4' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.4')" >
-        error</a>
-
-    <div id='div_ft4.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4.4: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft4.5' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.5')" >
-        error</a>
-
-    <div id='div_ft4.5' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.5').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4.5: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft4.6' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.6')" >
-        error</a>
-
-    <div id='div_ft4.6' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.6').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft4.6: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\up\upGoodsTest.py", line 40, in queryActivityDetail
-    code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\up\upActivityService.py", line 49, in getRetcodeByUpactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
+pt4.1: 
 
         </pre>
     </div>
@@ -750,12 +450,12 @@ Exception: failed to query json when extracting response!
 </tr>
 
 <tr class='passClass'>
-    <td>/steam-resource/admin/product/page-activity</td>
-    <td>2</td>
-    <td>2</td>
+    <td>/steam-resource/admin/product/query-activity</td>
+    <td>4</td>
+    <td>4</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c5',2)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c5',4)">Detail</a></td>
 </tr>
 
 <tr id='pt5.1' class='hiddenRow'>
@@ -806,17 +506,65 @@ pt5.2:
     </td>
 </tr>
 
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+        pass</a>
+
+    <div id='div_pt5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.3: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+        pass</a>
+
+    <div id='div_pt5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.4: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr class='passClass'>
-    <td>/steam-media/media/addMedia-article</td>
-    <td>1</td>
-    <td>1</td>
+    <td>/steam-resource/admin/product/page-activity</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c6',2)">Detail</a></td>
 </tr>
 
 <tr id='pt6.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -839,8 +587,32 @@ pt6.1:
     </td>
 </tr>
 
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        pass</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.2: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr class='passClass'>
-    <td>/steam-media/media/updateMedia-article</td>
+    <td>/steam-media/media/addMedia-article</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -849,7 +621,7 @@ pt6.1:
 </tr>
 
 <tr id='pt7.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_alert_1_修改文章正常</div></td>
+    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -873,7 +645,7 @@ pt7.1:
 </tr>
 
 <tr class='passClass'>
-    <td>/resource-service/resource/addEntry</td>
+    <td>/steam-media/media/updateMedia-article</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -882,7 +654,7 @@ pt7.1:
 </tr>
 
 <tr id='pt8.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>classify_add_1_新增一个分类正常</div></td>
+    <td class='none'><div class='testcase'>media_alert_1_修改文章正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -906,7 +678,7 @@ pt8.1:
 </tr>
 
 <tr class='passClass'>
-    <td>/resource-service/resource/modifyEntry</td>
+    <td>/resource-service/resource/addEntry</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -915,7 +687,7 @@ pt8.1:
 </tr>
 
 <tr id='pt9.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>classify_alert_1_修改一个分类正常</div></td>
+    <td class='none'><div class='testcase'>classify_add_1_新增一个分类正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -939,7 +711,7 @@ pt9.1:
 </tr>
 
 <tr class='passClass'>
-    <td>/resource-service/resource/removeEntry</td>
+    <td>/resource-service/resource/modifyEntry</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -948,7 +720,7 @@ pt9.1:
 </tr>
 
 <tr id='pt10.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>classify_del_1_删除一个分类</div></td>
+    <td class='none'><div class='testcase'>classify_alert_1_修改一个分类正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -972,7 +744,7 @@ pt10.1:
 </tr>
 
 <tr class='passClass'>
-    <td>/match-service/match/createMatch</td>
+    <td>/resource-service/resource/removeEntry</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -981,7 +753,7 @@ pt10.1:
 </tr>
 
 <tr id='pt11.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>match_add_1_新增一个作品视频正常</div></td>
+    <td class='none'><div class='testcase'>classify_del_1_删除一个分类</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1004,39 +776,31 @@ pt11.1:
     </td>
 </tr>
 
-<tr class='failClass'>
-    <td>/match-service/match/updateMatchById</td>
+<tr class='passClass'>
+    <td>/match-service/match/createMatch</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
-    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
 </tr>
 
-<tr id='ft12.1' class='none'>
-    <td class='failCase'><div class='testcase'>match_alert_1_修改一个赛事正常</div></td>
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>match_add_1_新增一个作品视频正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.1')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
 
-    <div id='div_ft12.1' class="popup_window">
+    <div id='div_pt12.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft12.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
-    self.assertTrue(rspcode == self.expectdata["code"])
-AssertionError: False is not true
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\competition\update\competitionAlertTest.py", line 32, in testMatchAlertNor
-    self.assertTrue(rspcode == self.expectdata["code"])
-AssertionError: False is not true
-
+pt12.1: 
 
         </pre>
     </div>
@@ -1046,7 +810,7 @@ AssertionError: False is not true
 </tr>
 
 <tr class='passClass'>
-    <td>/match-service/match/deleteMatch</td>
+    <td>/match-service/match/updateMatchById</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -1055,7 +819,7 @@ AssertionError: False is not true
 </tr>
 
 <tr id='pt13.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>match_del_1_删除一个作品视频正常</div></td>
+    <td class='none'><div class='testcase'>match_alert_1_修改一个赛事正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1079,7 +843,7 @@ pt13.1:
 </tr>
 
 <tr class='passClass'>
-    <td>/steam-resource/admin/product/add-goods</td>
+    <td>/match-service/match/deleteMatch</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -1088,7 +852,7 @@ pt13.1:
 </tr>
 
 <tr id='pt14.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
+    <td class='none'><div class='testcase'>match_del_1_删除一个作品视频正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1111,43 +875,31 @@ pt14.1:
     </td>
 </tr>
 
-<tr class='errorClass'>
-    <td>/steam-media/media/addMedia</td>
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/add-goods</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td><a href="javascript:showClassDetail('c15',1)">Detail</a></td>
 </tr>
 
-<tr id='ft15.1' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_新增一个视频作品正常</div></td>
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft15.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        pass</a>
 
-    <div id='div_ft15.1' class="popup_window">
+    <div id='div_pt15.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft15.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft15.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
-    rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\schemajson.py", line 68, in wrapper
-    jsondata = kwargs["response"]
-KeyError: 'response'
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\mediares\addmedia\mediaresAddTest.py", line 31, in testMediaresAddNor
-    rspcode = self.articleSer.getRetcodeByArticleRsp(articleRsp=articlersp)
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\schemajson.py", line 68, in wrapper
-    jsondata = kwargs["response"]
-KeyError: 'response'
-
+pt15.1: 
 
         </pre>
     </div>
@@ -1157,7 +909,7 @@ KeyError: 'response'
 </tr>
 
 <tr class='passClass'>
-    <td>/steam-media/media/updateMedia</td>
+    <td>/steam-resource/admin/product/up-goods</td>
     <td>1</td>
     <td>1</td>
     <td>0</td>
@@ -1166,7 +918,7 @@ KeyError: 'response'
 </tr>
 
 <tr id='pt16.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_alert_1_修改一个作品视频正常</div></td>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1189,69 +941,97 @@ pt16.1:
     </td>
 </tr>
 
-<tr class='errorClass'>
-    <td>/steam-media/media/deleteMedia</td>
+<tr class='passClass'>
+    <td>/steam-media/media/addMedia</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td><a href="javascript:showClassDetail('c17',1)">Detail</a></td>
 </tr>
 
-<tr id='ft17.1' class='none'>
-    <td class='errorCase'><div class='testcase'>media_del_1_删除一个作品视频正常</div></td>
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个视频作品正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft17.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        pass</a>
 
-    <div id='div_ft17.1' class="popup_window">
+    <div id='div_pt17.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft17.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft17.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'data'
+pt17.1: 
 
-During handling of the above exception, another exception occurred:
+        </pre>
+    </div>
+    <!--css div popup end-->
 
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
-    articlersp = self.articleSer.delClassfiy()
-  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 78, in delClassfiy
-    resid = self.getArticleIdByTitle(title,resourceTypeId)
-  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 90, in getArticleIdByTitle
-    rssid = articleQs.getFirstResourceIdByRsp(queryRsp=queryRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\article\query\ArticleQueryService.py", line 45, in getFirstResourceIdByRsp
-    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'data'
+    </td>
+</tr>
 
-During handling of the above exception, another exception occurred:
+<tr class='passClass'>
+    <td>/steam-media/media/updateMedia</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">Detail</a></td>
+</tr>
 
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\mediares\delete\mediaresDelTest.py", line 30, in testMediaresDelNor
-    articlersp = self.articleSer.delClassfiy()
-  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 78, in delClassfiy
-    resid = self.getArticleIdByTitle(title,resourceTypeId)
-  File "D:\work\pythonwork\steamOmTest\steam\article\delete\delArticleService.py", line 90, in getArticleIdByTitle
-    rssid = articleQs.getFirstResourceIdByRsp(queryRsp=queryRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\article\query\ArticleQueryService.py", line 45, in getFirstResourceIdByRsp
-    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_alert_1_修改一个作品视频正常</div></td>
+    <td colspan='5' align='center'>
 
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        pass</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/deleteMedia</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',1)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_del_1_删除一个作品视频正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        pass</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: 
 
         </pre>
     </div>
@@ -1266,25 +1046,25 @@ Exception: failed to query json when extracting response!
     <td>0</td>
     <td>1</td>
     <td>1</td>
-    <td><a href="javascript:showClassDetail('c18',2)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c20',2)">Detail</a></td>
 </tr>
 
-<tr id='ft18.1' class='none'>
+<tr id='ft20.1' class='none'>
     <td class='failCase'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.1')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft20.1')" >
         fail</a>
 
-    <div id='div_ft18.1' class="popup_window">
+    <div id='div_ft20.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft20.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft18.1: Traceback (most recent call last):
+ft20.1: Traceback (most recent call last):
   File "D:\work\pythonwork\steamOmTest\steam\operposition\add\addOperPsnTest.py", line 33, in testOperpsnAddNor
     self.assertTrue(rspcode == self.expectdata["code"])
 AssertionError: False is not true
@@ -1301,22 +1081,22 @@ AssertionError: False is not true
     </td>
 </tr>
 
-<tr id='ft18.2' class='none'>
+<tr id='ft20.2' class='none'>
     <td class='errorCase'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.2')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft20.2')" >
         error</a>
 
-    <div id='div_ft18.2' class="popup_window">
+    <div id='div_ft20.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft20.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft18.2: Traceback (most recent call last):
+ft20.2: Traceback (most recent call last):
   File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 38, in query_json
     json_content = json_content[int(key)]
 IndexError: list index out of range
@@ -1377,25 +1157,25 @@ Exception: failed to query json when extracting response!
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c19',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c21',1)">Detail</a></td>
 </tr>
 
-<tr id='pt19.1' class='hiddenRow'>
+<tr id='pt21.1' class='hiddenRow'>
     <td class='none'><div class='testcase'>operpsn_del_1_删除一个赛事</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt21.1')" >
         pass</a>
 
-    <div id='div_pt19.1' class="popup_window">
+    <div id='div_pt21.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt21.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt19.1: 
+pt21.1: 
 
         </pre>
     </div>
@@ -1410,10 +1190,10 @@ pt19.1:
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c20',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c22',1)">Detail</a></td>
 </tr>
 
-<tr id='pt20.1' class='hiddenRow'>
+<tr id='pt22.1' class='hiddenRow'>
     <td class='none'><div class='testcase'>operpsn_query_1_删除一个赛事</div></td>
     <td colspan='5' align='center'>pass</td>
 </tr>
@@ -1421,9 +1201,9 @@ pt19.1:
 <tr id='total_row'>
     <td>Total</td>
     <td>31</td>
-    <td>20</td>
-    <td>2</td>
-    <td>9</td>
+    <td>29</td>
+    <td>1</td>
+    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

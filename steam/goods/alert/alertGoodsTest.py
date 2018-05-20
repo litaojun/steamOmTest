@@ -18,7 +18,7 @@ class GoodsAlertTest(ParametrizedTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-resource/admin/product/update-activity"
+      __interfaceName__ = "/steam-resource/admin/product/update-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsAlertTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

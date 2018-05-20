@@ -13,7 +13,7 @@ from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import queryArticleurl
-from steam.util.reqFormatPath import fxt,articleQueryReq
+from steam.util.reqFormatPath import fxt,articleQueryReq,articleQueryRspFmt
 
 class ArticleQueryService(UopService):
     '''

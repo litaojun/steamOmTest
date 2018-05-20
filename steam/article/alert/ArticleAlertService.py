@@ -16,7 +16,7 @@ from steam.util.configurl import alertArtcleurl
 from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from steam.article.add.ArticleAddService import ArticleAddService
-from steam.util.reqFormatPath import fxt,articleAlertReq
+from steam.util.reqFormatPath import fxt,articleAlertReq,articleAlertRspFmt
 class ArticleAlertService(UopService):
     '''
         分类新增

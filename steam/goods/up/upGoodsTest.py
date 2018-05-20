@@ -21,7 +21,7 @@ class GoodsPublishTest(ParametrizedTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/query-activity"
+      __interfaceName__ = "/steam-resource/admin/product/up-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsPublishTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
@@ -34,7 +34,7 @@ class GoodsPublishTest(ParametrizedTestCase):
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
           rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          queryReqJson = {"resourceId":rssid,"resourceTypeId":11}
+          queryReqJson = {"resourceId":rssid}
           queryActSer = ActivityPublishService(kwargs=queryReqJson)
           oneActRsp = queryActSer.publishActivitySer()
           code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)

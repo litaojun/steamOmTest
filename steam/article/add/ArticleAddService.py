@@ -16,7 +16,7 @@ from steam.util.configurl import addArticleurl
 from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import  fxt,articleAddReq
+from steam.util.reqFormatPath import  fxt,articleAddReq,articleAddRspFmt
 class ArticleAddService(UopService):
     '''
         分类新增
@@ -57,7 +57,7 @@ class ArticleAddService(UopService):
         print("addArticleRsp = %s" % addArticleRsp.text)
         return addArticleRsp.text
 
-    @check_rspdata(filepath="\\steam\\article\jsonfmt\\addArticleRspFmt.json")
+    @check_rspdata(filepath=fxt.join(articleAddRspFmt))
     def getRetcodeByArticleRsp(self,response = None):
         print("articleRsp=" + str(response))
         a = type(response)

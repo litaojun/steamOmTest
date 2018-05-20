@@ -16,7 +16,7 @@ from steam.util.configurl import delArticleurl,addArticleurl
 from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.article.query.ArticleQueryService import ArticleQueryService
-from steam.util.reqFormatPath import fxt,articleDelReq
+from steam.util.reqFormatPath import fxt,articleDelReq,articleDelRspFmt
 class ArticleDelService(UopService):
     '''
         分类新增

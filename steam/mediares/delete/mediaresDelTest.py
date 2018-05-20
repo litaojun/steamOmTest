@@ -27,7 +27,7 @@ class MediaresDelTest(ParametrizedTestCase):
           self.setService(self.articleSer)
 
       def testMediaresDelNor(self):
-          articlersp = self.articleSer.delClassfiy()
+          articlersp = self.articleSer.delClassfiy(title = self.inputdata["title"],resourceTypeId = self.inputdata["resourceTypeId"])
           rspcode = self.articleSer.getRetcodeByArticleRsp (articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
