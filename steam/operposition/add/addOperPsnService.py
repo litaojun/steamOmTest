@@ -41,6 +41,7 @@ class OperpsnAddService(UopService):
                          }
 
     @decorator("tearInterfaceDelOneOperPsn")
+    @decorator("preInterfaceDelOneOperPsn")
     def delOperPosition(self):
         operpsnqySer = OperpsnQueryService(self.addOperPsnReqjson)
         rspdata = operpsnqySer.queryOperpsnListdata()
