@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>steam亲子教育</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-05-20 09:18:15</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:15.428841</p>
-<p class='attribute'><strong>Status:</strong> Pass 25 Failure 1 Error 3</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-05-20 09:51:02</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:15.551667</p>
+<p class='attribute'><strong>Status:</strong> Pass 27 Failure 1 Error 1</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -410,61 +410,31 @@ pt5.1:
     </td>
 </tr>
 
-<tr class='errorClass'>
+<tr class='passClass'>
     <td>/steam-resource/admin/product/down-activity</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
 </tr>
 
-<tr id='ft6.1' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
 
-    <div id='div_ft6.1' class="popup_window">
+    <div id='div_pt6.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft6.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityTest.py", line 41, in queryActivityDetail
-    code = queryActSer.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityService.py", line 50, in getRetcodeByDownactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityTest.py", line 41, in queryActivityDetail
-    code = queryActSer.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityService.py", line 50, in getRetcodeByDownactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
+pt6.1: 
 
         </pre>
     </div>
@@ -935,61 +905,31 @@ pt20.1:
     </td>
 </tr>
 
-<tr class='errorClass'>
+<tr class='passClass'>
     <td>/steam-resource/admin/product/down-goods</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td><a href="javascript:showClassDetail('c21',1)">Detail</a></td>
 </tr>
 
-<tr id='ft21.1' class='none'>
-    <td class='errorCase'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+<tr id='pt21.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft21.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt21.1')" >
+        pass</a>
 
-    <div id='div_ft21.1' class="popup_window">
+    <div id='div_pt21.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft21.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt21.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft21.1: Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\down\downGoodsTest.py", line 41, in queryActivityDetail
-    code = queryActSer.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityService.py", line 50, in getRetcodeByDownactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-Traceback (most recent call last):
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 40, in query_json
-    json_content = json_content[key]
-KeyError: 'code'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "D:\work\pythonwork\steamOmTest\steam\goods\down\downGoodsTest.py", line 41, in queryActivityDetail
-    code = queryActSer.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
-  File "D:\work\pythonwork\steamOmTest\steam\activity\down\downActivityService.py", line 50, in getRetcodeByDownactRsp
-    return query_json(json_content=json.loads(oneActRsp), query="code")
-  File "D:\work\pythonwork\unittestExBaseb\opg\util\utils.py", line 44, in query_json
-    raise Exception("failed to query json when extracting response!")
-Exception: failed to query json when extracting response!
-
+pt21.1: 
 
         </pre>
     </div>
@@ -1258,9 +1198,9 @@ pt26.1:
 <tr id='total_row'>
     <td>Total</td>
     <td>29</td>
-    <td>25</td>
+    <td>27</td>
     <td>1</td>
-    <td>3</td>
+    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>
