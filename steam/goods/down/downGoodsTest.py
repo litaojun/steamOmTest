@@ -22,7 +22,7 @@ class GoodsUnPublishTest(ParametrizedTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/query-goods"
+      __interfaceName__ = "/steam-resource/admin/product/down-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsUnPublishTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

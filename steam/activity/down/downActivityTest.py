@@ -22,7 +22,7 @@ class ActivityUnPublishTest(ParametrizedTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/query-activity"
+      __interfaceName__ = "/steam-resource/admin/product/down-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityUnPublishTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
