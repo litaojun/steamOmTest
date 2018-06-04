@@ -31,7 +31,8 @@ class OperpsnAddService(UopService):
 							        "title": kwargs['title'],
 							        "picPath": kwargs['picPath'],
 							        "listOrder": kwargs['listOrder'],
-							        "itemId": kwargs['itemId'],
+	                                "oldListOrder": 0,
+							        "resourceId": kwargs['itemId'],
 	                                "position": kwargs['position'],
 	                                "displayType": kwargs['displayType']
 							        #"picturePath": kwargs['displayType']
@@ -41,7 +42,6 @@ class OperpsnAddService(UopService):
                          }
 
     @decorator("tearInterfaceDelOneOperPsn")
-    @decorator("preInterfaceDelOneOperPsn")
     def delOperPosition(self):
         operpsnqySer = OperpsnQueryService(self.addOperPsnReqjson)
         rspdata = operpsnqySer.queryOperpsnListdata()
@@ -78,12 +78,13 @@ class OperpsnAddService(UopService):
 
 if __name__ == "__main__":
    addOperPsnReqjson = {
-							"title": "让MakeX成为青少年释放自我的舞台",
+							"title": "风靡全球的少儿编程",
 							"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg",
-							"listOrder":1,
-							"itemId":181,
-	                        "position": "03",
-	                        "displayType": "2"
+							"listOrder":3,
+							"itemId":2027,
+	                        "position": "02",
+	                        "displayType": "2",
+	                        "oldListOrder": 0,
 						}
    operpsnSer = OperpsnAddService(addOperPsnReqjson)
    rsp = operpsnSer.addOperPosition()

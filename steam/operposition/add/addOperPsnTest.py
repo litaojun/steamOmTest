@@ -16,7 +16,7 @@ from steam.operposition.add.addOperPsnService import OperpsnAddService
 
 class OperpsnAddTest(ParametrizedTestCase):
       '''
-            admin新增分类
+            admin新增首页配置
       '''
       __interfaceName__ = "/steam-featured/homeConfig/createConfig"
       def __init__(self, methodName='runTest', param=None):

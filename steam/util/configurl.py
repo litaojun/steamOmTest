@@ -22,7 +22,7 @@ addArticleurl =  base_url + "/steam-media/media/addMedia"
 delArticleurl =  base_url + "/steam-media/media/deleteMedia"
 alertArtcleurl = base_url + "/steam-media/media/updateMedia"
 queryArticleurl = base_url + "/steam-media/media/queryMedias?currentPage=1&pageSize=10"
-addOperpositionurl = base_url +"/steam-featured/homeConfig/createConfig"
+addOperpositionurl = base_url +"/featured-admin/index/configs/createConfig"
 delOperpositionurl = base_url +"/steam-featured/homeConfig/removeIndexConfig"
 queryHomeConfigurl =  base_url + "/steam-featured/homeConfig/listData?pageNo=1&pageSize=20" #position=03&title=ffff
 alertOperpositionurl =  base_url + "/steam-featured/homeConfig/modifyIndexConfig"
