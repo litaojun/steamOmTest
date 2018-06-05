@@ -9,6 +9,8 @@
 @file: mediaresQueryTest.py 
 @time: 2018/4/23 17:02 
 """
+import sys
+sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from opg.unit.testcaseRunMgr import runTest
 
 def func():
@@ -21,4 +23,5 @@ class Main():
 
 
 if __name__ == "__main__":
+
 	testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况")

@@ -31,3 +31,7 @@ articleAddRspFmt     = ["","steam","article","jsonfmt","addArticleRspFmt.json"]
 articleAlertRspFmt   = ["","steam","article","jsonfmt","alertArticleRspFmt.json"]
 articleDelRspFmt     = ["","steam","article","jsonfmt","delArticleRspFmt.json"]
 articleQueryRspFmt   = ["","steam","article","jsonfmt","queryArticleRspFmt.json"]
+homeConfigQueryReq = fxt.join(["","steam","home","jsonfmt","homeCnfQueryReq.txt"])
+homeConfigQueryRspFmt = fxt.join(["","steam","home","jsonfmt","homeCnfQueryReq.json"])
+weixinUserLoginReq = fxt.join(["","steam","user","jsonfmt","weixinUserLoginReq.txt"])
+weixinUserLoginRspFmt = fxt.join(["","steam","user","jsonfmt","weixinUserLoginReq.json"])

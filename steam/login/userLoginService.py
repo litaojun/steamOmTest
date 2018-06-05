@@ -26,6 +26,6 @@ class UserLoginService(UopService):
         print("input name is %s" % name)
 
 if __name__ == "__main__":
-	a = UserLoginService()
-	userLoginMbe = getattr(UserLoginService,"userLoginMobile")
-	userLoginMbe(a,"litaojun")
+   a = UserLoginService()
+   userLoginMbe = getattr(UserLoginService,"userLoginMobile")
+   userLoginMbe(a,"litaojun")

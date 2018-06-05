@@ -32,6 +32,9 @@ searchActivityurl = base_url + "/steam-resource/admin/product/page"
 upActivityurl = base_url + "/steam-resource/admin/product/publish"
 downActivityurl = base_url + "/steam-resource/admin/product/unPublish"
 queryIdActivityurl = base_url + "/steam-resource/admin/product/query"
+homeConfigQueryurl = base_url + "/featured/index/configs/queryShowConfigs"
+weixinUserLoginurl = base_url + "/passport/memberLogin"
+weixinUserVerifyCodeurl = base_url + "/passport/verifyCode"
 
 if __name__ == "__main__":
 	pass  
