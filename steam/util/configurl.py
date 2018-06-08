@@ -35,6 +35,7 @@ queryIdActivityurl = base_url + "/steam-resource/admin/product/query"
 homeConfigQueryurl = base_url + "/featured/index/configs/queryShowConfigs"
 weixinUserLoginurl = base_url + "/passport/memberLogin"
 weixinUserVerifyCodeurl = base_url + "/passport/verifyCode"
+hotPositonUrl = base_url + "/featured/index/configs/pageQueryPositionShows"
 
 if __name__ == "__main__":
 	pass  

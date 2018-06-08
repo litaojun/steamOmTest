@@ -14,10 +14,10 @@
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinUserLoginurl
+from steam.util.configurl import weixinUserVerifyCodeurl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from opg.util.redisUtil import redisOper
+from steam.util.reqFormatPath import weixinUserVerfiyCodeReq,weixinUserVerfiyCodeRspFmt
+from opg.util.redisUtil import RedisOper
 class WeixinUserVerfiyCodeService(UopService):
     '''
         微信端用户登录
@@ -27,34 +27,49 @@ class WeixinUserVerfiyCodeService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(WeixinUserVerfiyCodeService, self).__init__("", "", kwargs , reqjsonfile = weixinUserLoginReq)
+        super(WeixinUserVerfiyCodeService, self).__init__("", "", kwargs , reqjsonfile = weixinUserVerfiyCodeReq)
         self.rsp = None
         self.userVerfiyCodeReqjson = self.reqjsondata
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
 
-    def weixinUserLogin(self):
-        weixinUserLoginRsp = requests.get(
-                                        url=weixinUserLoginurl,
-                                        json=self.weixinUserLoginReqjson,
-                                        headers=self.jsonheart,
-                                        verify=False
-                                      )
+    def sendUserVerifyCode(self):
+        weixinUserLoginRsp = requests.post(
+                                                url=weixinUserVerifyCodeurl,
+                                                json=self.userVerfiyCodeReqjson,
+                                                headers=self.jsonheart,
+                                                verify=False
+                                              )
         self.rsp = weixinUserLoginRsp.text
         print("homePageCnfRsp = %s" % weixinUserLoginRsp.text)
         return weixinUserLoginRsp.text
 
-    @check_rspdata(filepath=weixinUserLoginRspFmt)
+    @check_rspdata(filepath=weixinUserVerfiyCodeRspFmt)
     def getRetcodeByUserLoginRsp(self,response = None):
+        """
+        :param response:
+        :return:
+        """
         print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
+    def getVerfiyCodeFromRedisByPhone(self,phoneNum = ""):
+        if phoneNum is None or phoneNum =="":
+            phoneNum = self.userVerfiyCodeReqjson["phoneNo"]
+        curRedis = RedisOper()
+        verfiyCode = curRedis.getSteamVerCodeByPhone(phone=phoneNum)
+        return verfiyCode
+
 if __name__ == "__main__":
    args = {
-              "loginName":"18916899938",
+              "phoneNo":"18916899938",
               "loginType":"NM",
               "password":""
           }
-   weixinUserLoginSer =  WeixinUserLoginService(kwargs=args)
-   weixinUserLoginSer.weixinUserLogin()
+   weixinUserVerfiyCodeSer =  WeixinUserVerfiyCodeService(kwargs=args)
+   rsp = weixinUserVerfiyCodeSer.sendUserVerifyCode()
+   retcode = weixinUserVerfiyCodeSer.getRetcodeByUserLoginRsp(response=rsp)
+   if retcode == "000000":
+       vercode = weixinUserVerfiyCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=args["phoneNo"])
+       print("verfiycode=%s" % vercode)

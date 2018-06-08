@@ -1,0 +1,22 @@
+{
+  "code": "000000",
+  "message": "",
+  "data": {
+    "memberId": "0e399155-0a89-40e7-8177-e032984bf87c",
+    "memberInfo": {
+      "memberName": "李涛军",
+      "nickname": "李涛军",
+      "phone": "18916899938",
+      "gender": "male",
+      "rqparameter": null,
+      "avatar": "http://thirdwx.qlogo.cn/mmopen/Z4jwcPPgOp8XJ9kQ9sUMHG8GwPibcMjfYhgTJLVmNnjQ1VicMzhmPgtbHJgz2Yh33AXSNImFHwfO2LdfzOFm3xArcxPKOngkhO/132",
+      "signUp": true,
+      "wxInfo": {
+        "openId": "oJ3wwxEfb2GdQhmKpSCvmFOp-u84",
+        "follow": true,
+        "followTime": "2018-06-04 16:54:19"
+      }
+    },
+    "pointInfo": null
+  }
+}

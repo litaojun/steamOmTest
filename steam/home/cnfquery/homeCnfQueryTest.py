@@ -14,8 +14,9 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
 from opg.unit.testcaseRunMgr import runTestOneCls
+from steam.util.steamLog import SteamTestCase
 
-class HomeCnfQueryTest(ParametrizedTestCase):
+class HomeCnfQueryTest(SteamTestCase):
       '''
             用户进入公众号首页，获取运营位数据
       '''
@@ -34,6 +35,6 @@ class HomeCnfQueryTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\homepage\\homepagecnfcase.xlsx",
-					testclse=HomeCnfQueryTest
+					casefilepath =  "\\steamcase\\homepage\\homepagecnfcase.xlsx",
+					testclse     =  HomeCnfQueryTest
 				)

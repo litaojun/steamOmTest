@@ -1,0 +1,208 @@
+{
+  "$id": "homeCnfQueryRspjson",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "showInfos": {
+      "$id": "/properties/showInfos",
+      "type": "array",
+      "items": {
+        "$id": "/properties/showInfos/items",
+        "type": "object",
+        "properties": {
+          "position": {
+            "$id": "/properties/showInfos/items/properties/position",
+            "type": "string",
+            "title": "The Position Schema ",
+            "default": "",
+            "examples": [
+              "01"
+            ]
+          },
+          "showSummaryInfos": {
+            "$id": "/properties/showInfos/items/properties/showSummaryInfos",
+            "type": "array",
+            "items": {
+              "$id": "/properties/showInfos/items/properties/showSummaryInfos/items",
+              "type": "object",
+              "properties": {
+                "position": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/position",
+                  "type": "string",
+                  "title": "The Position Schema ",
+                  "default": "",
+                  "examples": [
+                    "01"
+                  ]
+                },
+                "thumbUrl": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/thumbUrl",
+                  "type": "string",
+                  "title": "The Thumburl Schema ",
+                  "default": "",
+                  "examples": [
+                    "http://uat-steam.opg.cn/_static/admin/images/resource/20180516105957_803708.jpg"
+                  ]
+                },
+                "bannerUrl": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/bannerUrl",
+                  "type": "string",
+                  "title": "The Bannerurl Schema ",
+                  "default": "",
+                  "examples": [
+                    "http://uat-steam.opg.cn/_static/admin/images/resource/20180516105957_803708.jpg"
+                  ]
+                },
+                "resourceId": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/resourceId",
+                  "type": "integer",
+                  "title": "The Resourceid Schema ",
+                  "default": 0,
+                  "examples": [
+                    1466
+                  ]
+                },
+                "title": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/title",
+                  "type": "string",
+                  "title": "The Title Schema ",
+                  "default": "",
+                  "examples": [
+                    "创客教育儿童早教学习 可编程智能机器人"
+                  ]
+                },
+                "subHead": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/subHead",
+                  "type": "null",
+                  "title": "The Subhead Schema ",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "activityAddress": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/activityAddress",
+                  "type": "null",
+                  "title": "The Activityaddress Schema ",
+                  "default": null,
+                  "examples": [
+                    null
+                  ]
+                },
+                "holdingTime": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/holdingTime",
+                  "type": "integer",
+                  "title": "The Holdingtime Schema ",
+                  "default": 0,
+                  "examples": [
+                    0
+                  ]
+                },
+                "originalPrice": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/originalPrice",
+                  "type": "number",
+                  "title": "The Originalprice Schema ",
+                  "default": 0,
+                  "examples": [
+                    989
+                  ]
+                },
+                "minPrice": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/minPrice",
+                  "type": "number",
+                  "title": "The Minprice Schema ",
+                  "default": 0,
+                  "examples": [
+                    0.009999999776482582
+                  ]
+                },
+                "state": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/state",
+                  "type": "boolean",
+                  "title": "The State Schema ",
+                  "default": false,
+                  "examples": [
+                    true
+                  ]
+                },
+                "specificType": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/specificType",
+                  "type": "string",
+                  "title": "The Specifictype Schema ",
+                  "default": "",
+                  "examples": [
+                    "机器人"
+                  ]
+                },
+                "resourceType": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/resourceType",
+                  "type": "integer",
+                  "title": "The Resourcetype Schema ",
+                  "default": 0,
+                  "examples": [
+                    11
+                  ]
+                },
+                "collects": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/collects",
+                  "type": "integer",
+                  "title": "The Collects Schema ",
+                  "default": 0,
+                  "examples": [
+                    0
+                  ]
+                },
+                "visits": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/visits",
+                  "type": "integer",
+                  "title": "The Visits Schema ",
+                  "default": 0,
+                  "examples": [
+                    65
+                  ]
+                },
+                "sales": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/sales",
+                  "type": "integer",
+                  "title": "The Sales Schema ",
+                  "default": 0,
+                  "examples": [
+                    10
+                  ]
+                },
+                "collectState": {
+                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/collectState",
+                  "type": "integer",
+                  "title": "The Collectstate Schema ",
+                  "default": 0,
+                  "examples": [
+                    2
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

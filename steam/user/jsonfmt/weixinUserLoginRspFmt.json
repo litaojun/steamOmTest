@@ -1,0 +1,152 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        ""
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "$id": "/properties/data/properties/memberId",
+          "type": "string",
+          "title": "The Memberid Schema ",
+          "default": "",
+          "examples": [
+            "0e399155-0a89-40e7-8177-e032984bf87c"
+          ]
+        },
+        "memberInfo": {
+          "$id": "/properties/data/properties/memberInfo",
+          "type": "object",
+          "properties": {
+            "memberName": {
+              "$id": "/properties/data/properties/memberInfo/properties/memberName",
+              "type": "string",
+              "title": "The Membername Schema ",
+              "default": "",
+              "examples": [
+                "李涛军"
+              ]
+            },
+            "nickname": {
+              "$id": "/properties/data/properties/memberInfo/properties/nickname",
+              "type": "string",
+              "title": "The Nickname Schema ",
+              "default": "",
+              "examples": [
+                "李涛军"
+              ]
+            },
+            "phone": {
+              "$id": "/properties/data/properties/memberInfo/properties/phone",
+              "type": "string",
+              "title": "The Phone Schema ",
+              "default": "",
+              "examples": [
+                "18916899938"
+              ]
+            },
+            "gender": {
+              "$id": "/properties/data/properties/memberInfo/properties/gender",
+              "type": "string",
+              "title": "The Gender Schema ",
+              "default": "",
+              "examples": [
+                "male"
+              ]
+            },
+            "rqparameter": {
+              "$id": "/properties/data/properties/memberInfo/properties/rqparameter",
+              "type": "null",
+              "title": "The Rqparameter Schema ",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "avatar": {
+              "$id": "/properties/data/properties/memberInfo/properties/avatar",
+              "type": "string",
+              "title": "The Avatar Schema ",
+              "default": "",
+              "examples": [
+                "http://thirdwx.qlogo.cn/mmopen/Z4jwcPPgOp8XJ9kQ9sUMHG8GwPibcMjfYhgTJLVmNnjQ1VicMzhmPgtbHJgz2Yh33AXSNImFHwfO2LdfzOFm3xArcxPKOngkhO/132"
+              ]
+            },
+            "signUp": {
+              "$id": "/properties/data/properties/memberInfo/properties/signUp",
+              "type": "boolean",
+              "title": "The Signup Schema ",
+              "default": false,
+              "examples": [
+                true
+              ]
+            },
+            "wxInfo": {
+              "$id": "/properties/data/properties/memberInfo/properties/wxInfo",
+              "type": "object",
+              "properties": {
+                "openId": {
+                  "$id": "/properties/data/properties/memberInfo/properties/wxInfo/properties/openId",
+                  "type": "string",
+                  "title": "The Openid Schema ",
+                  "default": "",
+                  "examples": [
+                    "oJ3wwxEfb2GdQhmKpSCvmFOp-u84"
+                  ]
+                },
+                "follow": {
+                  "$id": "/properties/data/properties/memberInfo/properties/wxInfo/properties/follow",
+                  "type": "boolean",
+                  "title": "The Follow Schema ",
+                  "default": false,
+                  "examples": [
+                    true
+                  ]
+                },
+                "followTime": {
+                  "$id": "/properties/data/properties/memberInfo/properties/wxInfo/properties/followTime",
+                  "type": "string",
+                  "title": "The Followtime Schema ",
+                  "default": "",
+                  "examples": [
+                    "2018-06-04 16:54:19"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "pointInfo": {
+          "$id": "/properties/data/properties/pointInfo",
+          "type": "null",
+          "title": "The Pointinfo Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        }
+      }
+    }
+  }
+}

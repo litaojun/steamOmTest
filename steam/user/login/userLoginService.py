@@ -17,7 +17,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import weixinUserLoginurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from opg.util.redisUtil import redisOper
+from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 class WeixinUserLoginService(UopService):
     '''
         微信端用户登录
@@ -33,17 +33,24 @@ class WeixinUserLoginService(UopService):
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
+        self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
     def weixinUserLogin(self):
-        weixinUserLoginRsp = requests.get(
-                                        url=weixinUserLoginurl,
-                                        json=self.weixinUserLoginReqjson,
-                                        headers=self.jsonheart,
-                                        verify=False
+        # rsp = self.userVerfiyCodeSer.sendUserVerifyCode()
+        # verifyCode = self.userVerfiyCodeSer.getVerfiyCodeFromRedisByPhone()
+        weixinUserLoginRsp = requests.post(
+                                            url=weixinUserLoginurl,
+                                            json=self.weixinUserLoginReqjson,
+                                            headers=self.jsonheart,
+                                            verify=False
                                       )
         self.rsp = weixinUserLoginRsp.text
         print("homePageCnfRsp = %s" % weixinUserLoginRsp.text)
         return weixinUserLoginRsp.text
+
+
+    def getMemberIdFromRsp(self,response=None):
+        return query_json(json_content=json.loads(response), query="data.memberId")
 
     @check_rspdata(filepath=weixinUserLoginRspFmt)
     def getRetcodeByUserLoginRsp(self,response = None):
@@ -52,9 +59,15 @@ class WeixinUserLoginService(UopService):
 
 if __name__ == "__main__":
    args = {
-              "loginName":"18916899938",
+              "phoneNo":"18916899938",
               "loginType":"NM",
-              "password":""
+              "verfiyCode":""
           }
+   userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=args)
+   verifyRsp = userVerfiyCodeSer.sendUserVerifyCode()
+   vercode = userVerfiyCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=args["phoneNo"])
+   args["verfiyCode"] = vercode
    weixinUserLoginSer =  WeixinUserLoginService(kwargs=args)
-   weixinUserLoginSer.weixinUserLogin()
+   rsp = weixinUserLoginSer.weixinUserLogin()
+   memberId = weixinUserLoginSer.getMemberIdFromRsp(response=rsp)
+   print("%s,%s,%s,%s")
