@@ -17,12 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import homeConfigQueryurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homeConfigQueryReq,homeConfigQueryRspFmt
-pagetype = "0"
-def selectFmtPath(sign = "0"):
-    filepath = homeConfigQueryRspFmt
-    if sign == "0":
-        filepath = homeConfigQueryRspFmt
-    return filepath
+from opg.util.httptools import httpGet
+from opg.util.lginfo import  logger
 
 class HomeCnfQueryService(UopService):
     '''
@@ -41,11 +37,10 @@ class HomeCnfQueryService(UopService):
                          }
 
     def queryHomePageCnf(self):
-        homePageCnfRsp = requests.get(
+        #logger.info("http request data: %s" % )
+        homePageCnfRsp =  httpGet(
                                         url=homeConfigQueryurl+self.homeCnfQueryReqjson,
-                                        #json=self.homeCnfQueryReqjson,
-                                        headers=self.jsonheart,
-                                        verify=False
+                                        headers=self.jsonheart
                                       )
         self.rsp = homePageCnfRsp.text
         print("homePageCnfRsp = %s" % homePageCnfRsp.text)

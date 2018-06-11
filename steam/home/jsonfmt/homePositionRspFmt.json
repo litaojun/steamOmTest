@@ -143,7 +143,10 @@
               },
               "originalPrice": {
                 "$id": "/properties/showInfoPage/properties/targets/items/properties/originalPrice",
-                "type": "null",
+                "anyof":{
+                           "type": "null",
+                           "type": "number"
+                          },
                 "title": "The Originalprice Schema ",
                 "default": null,
                 "examples": [
@@ -152,7 +155,7 @@
               },
               "minPrice": {
                 "$id": "/properties/showInfoPage/properties/targets/items/properties/minPrice",
-                "type": "null",
+                "type": "number",
                 "title": "The Minprice Schema ",
                 "default": null,
                 "examples": [

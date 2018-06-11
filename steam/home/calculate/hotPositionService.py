@@ -43,7 +43,7 @@ class HomeHotPositionService(UopService):
         print("homePageCnfRsp = %s" % hotPositionRsp.text)
         return hotPositionRsp.text
 
-    #@check_rspdata(filepath=homePositionRspFmt)
+    @check_rspdata(filepath=homePositionRspFmt)
     def getRetcodeByActivityRsp(self,response = None):
         print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")

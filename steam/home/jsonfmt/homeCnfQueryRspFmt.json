@@ -56,7 +56,10 @@
                 },
                 "thumbUrl": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/thumbUrl",
-                  "type": "string",
+                  "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
                   "title": "The Thumburl Schema ",
                   "default": "",
                   "examples": [
@@ -65,7 +68,10 @@
                 },
                 "bannerUrl": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/bannerUrl",
-                  "type": "string",
+                  "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
                   "title": "The Bannerurl Schema ",
                   "default": "",
                   "examples": [
@@ -92,7 +98,10 @@
                 },
                 "subHead": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/subHead",
-                  "type": "null",
+                  "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
                   "title": "The Subhead Schema ",
                   "default": null,
                   "examples": [
@@ -117,18 +126,12 @@
                     0
                   ]
                 },
-                "originalPrice": {
-                  "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/originalPrice",
-                  "type": "number",
-                  "title": "The Originalprice Schema ",
-                  "default": 0,
-                  "examples": [
-                    989
-                  ]
-                },
                 "minPrice": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/minPrice",
-                  "type": "number",
+                  "anyof":{
+                              "type": "null",
+                              "type": "number"
+                            },
                   "title": "The Minprice Schema ",
                   "default": 0,
                   "examples": [
@@ -146,7 +149,10 @@
                 },
                 "specificType": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/specificType",
-                  "type": "string",
+                  "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
                   "title": "The Specifictype Schema ",
                   "default": "",
                   "examples": [

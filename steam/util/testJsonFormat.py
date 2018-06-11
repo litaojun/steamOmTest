@@ -17,7 +17,7 @@ from jsonschema import Draft4Validator
 from functools import wraps
 from jsonschema import FormatChecker
 from jsonschema import ValidationError
-from steam.util.reqFormatPath import homeConfigQueryRspFmt,fxt
+from steam.util.reqFormatPath import homeConfigQueryRspFmt,fxt,homePositionRspFmt
 def loadjson(filepath = ""):
     file = os.getcwd() + filepath
     activitiesInfoScma = loadJsonFile(file)
@@ -30,5 +30,5 @@ def compare(a,b):
     validator.validate(jsonb)
 
 if __name__ == "__main__":
-    t = fxt.join(["","steam","home","jsonfmt","homeCnfQueryRsp.json"])
-    compare(a = homeConfigQueryRspFmt,b=t)
+    t = fxt.join(["","steam","home","jsonfmt","homePositionRsp.json"])
+    compare(a = homePositionRspFmt,b = t)
