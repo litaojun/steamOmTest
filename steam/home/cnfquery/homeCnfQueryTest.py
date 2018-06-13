@@ -20,7 +20,7 @@ class HomeCnfQueryTest(SteamTestCase):
       '''
             用户进入公众号首页，获取运营位数据
       '''
-      __interfaceName__ = "/featured/index/configs/queryShowConfigs"
+      __interfaceName__ = "/featured/index/configs/queryShowConfigs-home"
       def __init__(self, methodName='runTest', param=None):
           super(HomeCnfQueryTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
@@ -32,6 +32,7 @@ class HomeCnfQueryTest(SteamTestCase):
           userHomeCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
           retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userHomeCnfRsp)
           self.assertTrue(retcode == self.expectdata["code"])
+
 
 if __name__ == "__main__":
    runTestOneCls(

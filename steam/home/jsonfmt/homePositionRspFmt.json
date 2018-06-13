@@ -155,7 +155,10 @@
               },
               "minPrice": {
                 "$id": "/properties/showInfoPage/properties/targets/items/properties/minPrice",
-                "type": "number",
+                "anyof":{
+                              "type": "number",
+                              "type":null
+                          },
                 "title": "The Minprice Schema ",
                 "default": null,
                 "examples": [

@@ -11,6 +11,7 @@
 """
 from opg.util.uopService import decorator,UopService
 import requests,json
+from opg.util.httptools import httpPost
 from opg.util.utils import query_json
 from steam.util.configurl import addActivityurl,queryIdActivityurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
@@ -49,16 +50,9 @@ class ActivityAddService(UopService):
         return delclassfiyRsp.text
 
     def addActivity(self):
-        addActivityRsp = requests.post(
-		                                   url=addActivityurl,
-		                                   json=self.activityAddReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        #self.articleReqjson[""] = self.getArticleIdByRsp(addArticleRsp)
-        self.rsp = addActivityRsp.text
-        print("addArticleRsp = %s" % addActivityRsp.text)
-        return addActivityRsp.text
+        addActivityRsp = httpPost(url=addActivityurl,reqJsonData=self.activityAddReqjson,headers= self.jsonheart)
+        self.rsp = addActivityRsp
+        return addActivityRsp
 
     @check_rspdata(filepath=fxt.join(activityAddRspFmt))
     def getRetcodeByActivityRsp(self,response = None):

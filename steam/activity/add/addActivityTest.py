@@ -16,7 +16,7 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 
 class ActivityAddTest(ParametrizedTestCase):
       '''
-            新增文章
+            新增活动
       '''
       __interfaceName__ = "/steam-resource/admin/product/add-activity"
       def __init__(self, methodName='runTest', param=None):
@@ -33,6 +33,6 @@ class ActivityAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\testactivity\\activityaddcase.xlsx",
-					testclse=ActivityAddTest
+					casefilepath = "\\steamcase\\testactivity\\activityaddcase.xlsx",
+					testclse     = ActivityAddTest
 				)

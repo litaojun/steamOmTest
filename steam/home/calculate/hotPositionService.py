@@ -17,6 +17,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import hotPositonUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homePositionReq,homePositionRspFmt
+from opg.util.httptools import httpGet
 class HomeHotPositionService(UopService):
     '''
         首页热门推荐计算内容
@@ -26,7 +27,7 @@ class HomeHotPositionService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(HomeHotPositionService, self).__init__("", "", kwargs , reqjsonfile = homePositionReq)
+        super(HomeHotPositionService, self).__init__("weixin", "cnfDataDb.xml", kwargs , reqjsonfile = homePositionReq)
         self.rsp = None
         self.homeHotPostionReqjson = self.reqjsondata
         self.jsonheart = {
@@ -34,26 +35,32 @@ class HomeHotPositionService(UopService):
                          }
 
     def queryHomeHotPosition(self):
-        hotPositionRsp = requests.get(
-                                        url=hotPositonUrl+self.homeHotPostionReqjson,
-                                        headers=self.jsonheart,
-                                        verify=False
-                                      )
-        self.rsp = hotPositionRsp.text
-        print("homePageCnfRsp = %s" % hotPositionRsp.text)
-        return hotPositionRsp.text
+        hotPositionRsp =  httpGet(
+                                        url     = hotPositonUrl+self.homeHotPostionReqjson,
+                                        headers = self.jsonheart
+                                  )
+        self.rsp = hotPositionRsp
+        return hotPositionRsp
 
     @check_rspdata(filepath=homePositionRspFmt)
     def getRetcodeByActivityRsp(self,response = None):
-        print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
+
+    def getAllCalculateData(self,response = None):
+        infosQuery = "showInfoPage.targets"
+        curinfos = query_json(json_content=json.loads(response), query=infosQuery)
+        return curinfos
+
 
 if __name__ == "__main__":
     kwargs = {
                 "phoneNo":"18916899938",
-                "memberId":"0e399155-0a89-40e7-8177-e032984bf87c"
+                "memberId":"0e399155-0a89-40e7-8177-e032984bf87c",
+                 "position":"03"
              }
     hotPositionSer = HomeHotPositionService(kwargs = kwargs)
     hotRsp = hotPositionSer.queryHomeHotPosition()
     retcode = hotPositionSer.getRetcodeByActivityRsp(response=hotRsp)
+    curinfos = hotPositionSer.getAllCalculateData(response=hotRsp)
     print(retcode)
+    print(curinfos)
