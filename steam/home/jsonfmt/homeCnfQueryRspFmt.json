@@ -110,7 +110,10 @@
                 },
                 "activityAddress": {
                   "$id": "/properties/showInfos/items/properties/showSummaryInfos/items/properties/activityAddress",
-                  "type": "null",
+                   "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
                   "title": "The Activityaddress Schema ",
                   "default": null,
                   "examples": [

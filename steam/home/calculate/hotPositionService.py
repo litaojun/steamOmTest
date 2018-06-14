@@ -27,7 +27,7 @@ class HomeHotPositionService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(HomeHotPositionService, self).__init__("weixin", "cnfDataDb.xml", kwargs , reqjsonfile = homePositionReq)
+        super(HomeHotPositionService, self).__init__(module="weixin",filename= "cnfDataDb.xml", sqlvaluedict=kwargs , reqjsonfile = homePositionReq)
         self.rsp = None
         self.homeHotPostionReqjson = self.reqjsondata
         self.jsonheart = {
@@ -51,6 +51,8 @@ class HomeHotPositionService(UopService):
         curinfos = query_json(json_content=json.loads(response), query=infosQuery)
         return curinfos
 
+    def getAllCnfListData(self,response = None):
+        return self.getAllCalculateData(response=response)
 
 if __name__ == "__main__":
     kwargs = {

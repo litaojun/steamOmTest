@@ -32,7 +32,9 @@ class HomeCnfQueryTest(SteamTestCase):
           userHomeCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
           retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userHomeCnfRsp)
           self.assertTrue(retcode == self.expectdata["code"])
-
+          self.assertTrue(self.homeCnfQuerySer.compareData(response=userHomeCnfRsp,
+                                                           removePositionLs=["05","07"],
+                                                           configSqlStr = "select_t_sku_HomePage"))
 
 if __name__ == "__main__":
    runTestOneCls(

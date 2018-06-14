@@ -20,22 +20,28 @@ from steam.util.reqFormatPath import homeConfigQueryReq,homeConfigQueryRspFmt
 from opg.util.httptools import httpGet
 from opg.util.lginfo import  logger
 import operator as op
-from decimal import Decimal
 class HomeCnfQueryService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs):
+    def __init__(self, kwargs,modul="weixin",filename= "cnfDataDb.xml"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(HomeCnfQueryService, self).__init__("weixin", "cnfDataDb.xml", kwargs , reqjsonfile = homeConfigQueryReq)
+        super(HomeCnfQueryService, self).__init__(modul, filename, kwargs , reqjsonfile = homeConfigQueryReq)
         self.rsp = None
         self.homeCnfQueryReqjson = self.reqjsondata
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
+        self.pgdc = {
+                    "01":6,  #首页轮播图
+                    "02":5,  #首页今日推荐
+                    "05":7,  #首页分类
+                    "07":4,  #首页动态
+                    "10":1   #首页单独运营位
+                }
 
     def queryHomePageCnf(self):
         homePageCnfRsp =  httpGet(
@@ -67,7 +73,7 @@ class HomeCnfQueryService(UopService):
         return retdata
 
     def dataFilterFields(self,dictData = {},fields = []):
-        allFields = ["collectState","sales","visits","collects","state","holdingTime","activityAddress","subHead"]
+        allFields = ["collectState","sales","visits","collects","state","holdingTime","activityAddress","subHead",'minPrice', 'originalPrice']
         if fields is not None and len(fields) > 0:
             allFields = fields
         positionKeys = dictData.keys()
@@ -79,18 +85,13 @@ class HomeCnfQueryService(UopService):
                     del_json_data(dictData,queryStr)
         return dictData
 
-
-    def getDbHomePageData(self):
-        homePageDbDataList = self.selectAllDataBySqlName("select_t_sku_HomePage")
+    def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
+        homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)
         dbDataDict = {}
-        fields = ['resourceId','specificType','bannerUrl','thumbUrl','resourceType','title','position','minPrice','originalPrice']
+        #fields = ['resourceId','specificType','bannerUrl','thumbUrl','resourceType','title','position','minPrice','originalPrice']
+        fields = ['resourceId', 'specificType', 'bannerUrl', 'thumbUrl', 'resourceType', 'title', 'position']
         tranDictList = []
         for data in homePageDbDataList:
-            print(data[7],data[8])
-            if data[7] is not None:
-               data[7] = float(str(data[7]))
-            if data[8] is not None:
-               data[8] = float(str(data[8]))
             tranDictList.append(dict(zip(fields,data)))
         for homeData in tranDictList:
             positionKey = homeData["position"]
@@ -98,17 +99,26 @@ class HomeCnfQueryService(UopService):
                 dbDataDict[positionKey].append(homeData)
             else:
                 dbDataDict[positionKey] = [homeData]
+        for data in dbDataDict:
+            dbDataDict[data] = dbDataDict[data][0:self.pgdc[data]]
         return dbDataDict
 
-    def compareData(self,response = None):
+
+
+    def compareData(self,response = None,removePositionLs = [],configSqlStr = "select_t_sku_HomePage"):
+        """
+        :param response: 获取配置信息的json内容
+        :param positionLs: 配置页删除的position列表
+        :return:
+        """
+        filtls = removePositionLs
         pageDataDict = self.getAllCnfListData(response = response)
+        for p in filtls:
+            del pageDataDict[p]
         pageDict = self.dataFilterFields(dictData=pageDataDict)
-        dbDataDict = self.getDbHomePageData()
-        page01 = pageDict["01"]
-        db01 = dbDataDict["01"]
-        for i,data in enumerate(page01):
-            cmpRstSign = op.eq(data,db01[i])
-            print(cmpRstSign)
+        dbDataDict = self.getDbPageDataBySql(configSqlStr = configSqlStr)
+        sign = op.eq(dbDataDict, pageDict)
+        return sign
 
 if __name__ == "__main__":
     kwargs = {
