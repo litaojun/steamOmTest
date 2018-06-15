@@ -32,6 +32,10 @@ class HotPositionTest(SteamTestCase):
           userHomeHotRsp = self.homeHotSer.queryHomeHotPosition()
           retcode = self.homeHotSer.getRetcodeByActivityRsp(response=userHomeHotRsp)
           self.assertTrue(retcode == self.expectdata["code"])
+          self.assertTrue(self.homeHotSer.compareSerData(response=userHomeHotRsp,
+                                                         position=self.inputdata["position"],
+                                                         configSqlStr = "select_t_sku_HomePage",
+                                                         calSqlStr = "select_t_resource_calculate"))
 
 if __name__ == "__main__":
    runTestOneCls(

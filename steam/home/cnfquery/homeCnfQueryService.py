@@ -24,12 +24,12 @@ class HomeCnfQueryService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs,modul="weixin",filename= "cnfDataDb.xml"):
+    def __init__(self, kwarg={},modul="weixin",filename= "cnfDataDb.xml",reqjsonfile = homeConfigQueryReq):
         """
             :param entryName:
             :param picturePath:
         """
-        super(HomeCnfQueryService, self).__init__(modul, filename, kwargs , reqjsonfile = homeConfigQueryReq)
+        super(HomeCnfQueryService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.rsp = None
         self.homeCnfQueryReqjson = self.reqjsondata
         self.jsonheart = {
@@ -99,9 +99,11 @@ class HomeCnfQueryService(UopService):
                 dbDataDict[positionKey].append(homeData)
             else:
                 dbDataDict[positionKey] = [homeData]
-        for data in dbDataDict:
-            dbDataDict[data] = dbDataDict[data][0:self.pgdc[data]]
         return dbDataDict
+
+    def filterLenByOrder(self,dictData = {}):
+        for data in dictData:
+            dictData[data] = dictData[data][0:self.pgdc[data]]
 
 
 
@@ -117,6 +119,7 @@ class HomeCnfQueryService(UopService):
             del pageDataDict[p]
         pageDict = self.dataFilterFields(dictData=pageDataDict)
         dbDataDict = self.getDbPageDataBySql(configSqlStr = configSqlStr)
+        self.filterLenByOrder(dictData=dbDataDict)
         sign = op.eq(dbDataDict, pageDict)
         return sign
 

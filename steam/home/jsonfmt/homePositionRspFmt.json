@@ -125,7 +125,10 @@
               },
               "activityAddress": {
                 "$id": "/properties/showInfoPage/properties/targets/items/properties/activityAddress",
-                "type": "null",
+                "onlyof":{
+                              "type": "null",
+                              "type": "null"
+                            },
                 "title": "The Activityaddress Schema ",
                 "default": null,
                 "examples": [
@@ -145,7 +148,7 @@
                 "$id": "/properties/showInfoPage/properties/targets/items/properties/originalPrice",
                 "anyof":{
                            "type": "null",
-                           "type": "number"
+                           "type": "string"
                           },
                 "title": "The Originalprice Schema ",
                 "default": null,

@@ -18,7 +18,9 @@ from steam.util.configurl import hotPositonUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homePositionReq,homePositionRspFmt
 from opg.util.httptools import httpGet
-class HomeHotPositionService(UopService):
+from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
+import operator as op
+class HomeHotPositionService(HomeCnfQueryService):
     '''
         首页热门推荐计算内容
     '''
@@ -27,7 +29,10 @@ class HomeHotPositionService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(HomeHotPositionService, self).__init__(module="weixin",filename= "cnfDataDb.xml", sqlvaluedict=kwargs , reqjsonfile = homePositionReq)
+        super(HomeHotPositionService, self).__init__(modul       = "weixin",
+                                                     filename    = "cnfDataDb.xml",
+                                                     kwarg       = kwargs,
+                                                     reqjsonfile = homePositionReq)
         self.rsp = None
         self.homeHotPostionReqjson = self.reqjsondata
         self.jsonheart = {
@@ -46,13 +51,29 @@ class HomeHotPositionService(UopService):
     def getRetcodeByActivityRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
-    def getAllCalculateData(self,response = None):
+    def getAllCalculateDataByRsp(self,response = None):
         infosQuery = "showInfoPage.targets"
         curinfos = query_json(json_content=json.loads(response), query=infosQuery)
         return curinfos
 
     def getAllCnfListData(self,response = None):
-        return self.getAllCalculateData(response=response)
+        return self.getAllCalculateDataByRsp(response=response)
+
+    def compareSerData(self,response=None,position="01",configSqlStr="select_t_sku_HomePage",calSqlStr = "select_t_resource_calculate"):
+        rspDataLs = self.getAllCalculateDataByRsp(response=response)
+        #self.dataFilterFields(dictData=rspDataLs)
+        cnfDbdata = self.getDbPageDataBySql(configSqlStr=configSqlStr)
+        calculateData = self.getDbPageDataBySql(configSqlStr=calSqlStr)
+        a = rspDataLs[0:len(cnfDbdata)]
+        x = cnfDbdata[position]
+        sign = op.eq(a,x)
+        b = rspDataLs[len(cnfDbdata):10]
+        c = calculateData[position][0,len(b)]
+        csign = op.eq(b,c)
+        return sign & csign
+
+
+
 
 if __name__ == "__main__":
     kwargs = {
@@ -63,6 +84,8 @@ if __name__ == "__main__":
     hotPositionSer = HomeHotPositionService(kwargs = kwargs)
     hotRsp = hotPositionSer.queryHomeHotPosition()
     retcode = hotPositionSer.getRetcodeByActivityRsp(response=hotRsp)
-    curinfos = hotPositionSer.getAllCalculateData(response=hotRsp)
+    curinfos = hotPositionSer.getAllCnfListData(response=hotRsp)
+    a = hotPositionSer.getDbPageDataBySql(configSqlStr="select_t_sku_HomePage")
+    b = hotPositionSer.getDbPageDataBySql(configSqlStr="select_t_resource_calculate")
     print(retcode)
     print(curinfos)
