@@ -36,12 +36,12 @@ class HomeCnfQueryService(UopService):
 	                         "x-token":"admin"
                          }
         self.pgdc = {
-                    "01":6,  #首页轮播图
-                    "02":5,  #首页今日推荐
-                    "05":7,  #首页分类
-                    "07":4,  #首页动态
-                    "10":1   #首页单独运营位
-                }
+                        "01":6,  #首页轮播图
+                        "02":5,  #首页今日推荐
+                        "05":7,  #首页分类
+                        "07":4,  #首页动态
+                        "10":1   #首页单独运营位
+                    }
 
     def queryHomePageCnf(self):
         homePageCnfRsp =  httpGet(
@@ -84,6 +84,17 @@ class HomeCnfQueryService(UopService):
                     queryStr = "%s.%d.%s" % (key,i,field)
                     del_json_data(dictData,queryStr)
         return dictData
+
+    def dataListFilterFields(self, listData={}, fields=[]):
+        allFields = ["collectState", "sales", "visits", "collects", "state", "holdingTime", "activityAddress",
+                     "subHead", 'minPrice', 'originalPrice']
+        if fields is not None and len(fields) > 0:
+            allFields = fields
+        totalLen = len(listData)
+        for i in range(totalLen):
+             for field in allFields:
+                  del listData[i][field]
+        return listData
 
     def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
         homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)

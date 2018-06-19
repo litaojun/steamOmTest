@@ -27,7 +27,6 @@ def b(num=1):
     return t
 if __name__ =="__main__":
     x = b(2)
-    print(x)
     fun = lambda x: fun(x - 2) + fun(x - 1) if x >= 3 else 1
     num = sum([ fun(i) for i in range(1,6)])
     print(num)

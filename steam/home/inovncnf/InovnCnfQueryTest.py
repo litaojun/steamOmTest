@@ -18,7 +18,7 @@ from steam.util.steamLog import SteamTestCase
 
 class InovnCnfQueryTest(SteamTestCase):
       '''
-            用户进入公众号发现页，获取运营位数据
+            用户进入公众号奥林匹克页，获取运营位数据
       '''
       __interfaceName__ = "/featured/index/configs/queryShowConfigs-invoen"
       def __init__(self, methodName='runTest', param=None):

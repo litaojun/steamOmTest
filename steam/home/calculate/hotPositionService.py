@@ -61,15 +61,18 @@ class HomeHotPositionService(HomeCnfQueryService):
 
     def compareSerData(self,response=None,position="01",configSqlStr="select_t_sku_HomePage",calSqlStr = "select_t_resource_calculate"):
         rspDataLs = self.getAllCalculateDataByRsp(response=response)
+        rspDataLs = self.dataListFilterFields(listData=rspDataLs)
         #self.dataFilterFields(dictData=rspDataLs)
+        #获取DB配置数据
         cnfDbdata = self.getDbPageDataBySql(configSqlStr=configSqlStr)
+        #获取DB计算数据
         calculateData = self.getDbPageDataBySql(configSqlStr=calSqlStr)
-        a = rspDataLs[0:len(cnfDbdata)]
-        x = cnfDbdata[position]
-        sign = op.eq(a,x)
-        b = rspDataLs[len(cnfDbdata):10]
-        c = calculateData[position][0,len(b)]
-        csign = op.eq(b,c)
+        a = cnfDbdata[position]
+        b = rspDataLs[0:len(a)]
+        sign = op.eq(a,b)
+        c = rspDataLs[len(cnfDbdata):10]
+        d = calculateData[position][0:len(c)]
+        csign = op.eq(c,d)
         return sign & csign
 
 
