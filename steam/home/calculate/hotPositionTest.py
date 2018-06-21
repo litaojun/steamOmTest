@@ -20,7 +20,7 @@ class HotPositionTest(SteamTestCase):
       '''
             首页热门推荐计算内容
       '''
-      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-home"
+      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-homehot"
       def __init__(self, methodName='runTest', param=None):
           super(HotPositionTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
@@ -38,7 +38,14 @@ class HotPositionTest(SteamTestCase):
                                                          calSqlStr = "select_t_resource_calculate"))
 
 if __name__ == "__main__":
-   runTestOneCls(
-					casefilepath =  "\\steamcase\\homepage\\homehotpositioncase.xlsx",
-					testclse     =  HotPositionTest
-				)
+   # runTestOneCls(
+	# 				casefilepath =  "\\steamcase\\homepage\\homehotpositioncase.xlsx",
+	# 				testclse     =  HotPositionTest
+	# 			)
+   sign = issubclass(HotPositionTest, ParametrizedTestCase)
+   print(sign)
+   a = str(HotPositionTest)
+   print(a)
+   print(HotPositionTest.__name__)
+   a = HotPositionTest.__name__
+   print(a.endswith("Test"))

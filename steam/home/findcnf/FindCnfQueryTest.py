@@ -20,7 +20,7 @@ class FindCnfQueryTest(SteamTestCase):
       '''
             用户进入公众号发现页，获取运营位数据
       '''
-      __interfaceName__ = "/featured/index/configs/queryShowConfigs-find"
+      __interfaceName__ = "/featured/index/configs/queryShowConfigs-findcnf"
       def __init__(self, methodName='runTest', param=None):
           super(FindCnfQueryTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

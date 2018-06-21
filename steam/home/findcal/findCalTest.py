@@ -19,7 +19,7 @@ class FindCalTest(SteamTestCase):
       '''
             首页发现页-热门内容-计算内容
       '''
-      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-home"
+      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-findcal"
       def __init__(self, methodName='runTest', param=None):
           super(FindCalTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

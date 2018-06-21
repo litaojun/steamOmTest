@@ -20,7 +20,7 @@ class InovnCalTest(SteamTestCase):
       '''
             创新大赛页面计算内容
       '''
-      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-home"
+      __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-inovncal"
       def __init__(self, methodName='runTest', param=None):
           super(InovnCalTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
