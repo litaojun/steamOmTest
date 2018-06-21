@@ -15,7 +15,6 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.home.calculate.hotPositionService import HomeHotPositionService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-
 class FindCalTest(SteamTestCase):
       '''
             首页发现页-热门内容-计算内容

@@ -37,7 +37,7 @@ class HomeCnfQueryService(UopService):
                          }
         self.pgdc = {
                         "01":6,  #首页轮播图
-                        "02":5,  #首页今日推荐
+                        "02":6,  #首页今日推荐,应该为5个，但前端现状了，未出现BUG
                         "05":7,  #首页分类
                         "07":4,  #首页动态
                         "10":1   #首页单独运营位
@@ -56,7 +56,7 @@ class HomeCnfQueryService(UopService):
         print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
-    def getAllCnfListData(self,response = None):
+    def getAllCnfListDataFromRSP(self,response = None):
         """
             :param response:
             :return:
@@ -72,29 +72,25 @@ class HomeCnfQueryService(UopService):
             retdata[curposition] = curinfos
         return retdata
 
-    def dataFilterFields(self,dictData = {},fields = []):
-        allFields = ["collectState","sales","visits","collects","state","holdingTime","activityAddress","subHead",'minPrice', 'originalPrice']
-        if fields is not None and len(fields) > 0:
-            allFields = fields
-        positionKeys = dictData.keys()
-        for key in positionKeys:
-            totalLen = len(dictData[key])
-            for i in range(totalLen):
-                for field in allFields:
-                    queryStr = "%s.%d.%s" % (key,i,field)
-                    del_json_data(dictData,queryStr)
-        return dictData
+    def dataDictFilterFields(self,dictData = {},fields = []):
+        rdt = {}
+        for key in dictData.keys():
+            lsdata = self.dataListFilterFields(listData=dictData[key],fields=fields)
+            rdt[key] = lsdata
+        return rdt
 
-    def dataListFilterFields(self, listData={}, fields=[]):
-        allFields = ["collectState", "sales", "visits", "collects", "state", "holdingTime", "activityAddress",
-                     "subHead", 'minPrice', 'originalPrice']
+    def dataListFilterFields(self, listData=[], fields=[]):
+        retls = []
+        #allFields = ["collectState", "sales", "visits", "collects", "state", "holdingTime", "activityAddress", "subHead", 'minPrice', 'originalPrice']
+        allFields = ["resourceId"]
         if fields is not None and len(fields) > 0:
             allFields = fields
-        totalLen = len(listData)
-        for i in range(totalLen):
+        for i in range(len(listData)):
+             dicta = {}
              for field in allFields:
-                  del listData[i][field]
-        return listData
+                dicta[field] = listData[i][field]
+             retls.append(dicta)
+        return retls
 
     def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
         homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)
@@ -112,6 +108,7 @@ class HomeCnfQueryService(UopService):
                 dbDataDict[positionKey] = [homeData]
         return dbDataDict
 
+    #根据需求，每个运营位显示最大数量截取
     def filterLenByOrder(self,dictData = {}):
         for data in dictData:
             dictData[data] = dictData[data][0:self.pgdc[data]]
@@ -125,12 +122,13 @@ class HomeCnfQueryService(UopService):
         :return:
         """
         filtls = removePositionLs
-        pageDataDict = self.getAllCnfListData(response = response)
+        pageDataDict = self.getAllCnfListDataFromRSP(response = response)
         for p in filtls:
             del pageDataDict[p]
-        pageDict = self.dataFilterFields(dictData=pageDataDict)
+        pageDict = self.dataDictFilterFields(dictData=pageDataDict)
         dbDataDict = self.getDbPageDataBySql(configSqlStr = configSqlStr)
         self.filterLenByOrder(dictData=dbDataDict)
+        dbDataDict = self.dataDictFilterFields(dictData=dbDataDict)
         sign = op.eq(dbDataDict, pageDict)
         return sign
 
@@ -143,13 +141,13 @@ if __name__ == "__main__":
     homeCnfSer = HomeCnfQueryService(kwargs=kwargs)
     homeRsp = homeCnfSer.queryHomePageCnf()
     retcode = homeCnfSer.getRetcodeByActivityRsp(response=homeRsp)
-    retdata = homeCnfSer.getAllCnfListData(response=homeRsp)
+    retdata = homeCnfSer.getAllCnfListDataFromRSP(response=homeRsp)
     data01 = retdata['01']
     data02 = retdata['02']
     data05 = retdata['05']
     data07 = retdata['07']
     data10 = retdata['10']
-    homeCnfSer.dataFilterFields(dictData=retdata,fields=[])
+    homeCnfSer.dataDictFilterFields(dictData=retdata,fields=[])
     homeCnfSer.compareData(response=homeRsp)
     print(retdata)
     print("retcode=%s" % retcode)

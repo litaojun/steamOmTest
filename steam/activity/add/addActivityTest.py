@@ -10,7 +10,6 @@
 @time: 2018/5/9 15:43 
 """
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
