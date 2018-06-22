@@ -21,7 +21,5 @@ class Main():
 	def __init__(self):
 		pass
 
-
 if __name__ == "__main__":
-
 	testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况")

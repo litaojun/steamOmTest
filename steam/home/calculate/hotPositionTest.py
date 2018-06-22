@@ -38,10 +38,10 @@ class HotPositionTest(SteamTestCase):
                                                          calSqlStr = "select_t_resource_calculate"))
 
 if __name__ == "__main__":
-   # runTestOneCls(
-	# 				casefilepath =  "\\steamcase\\homepage\\homehotpositioncase.xlsx",
-	# 				testclse     =  HotPositionTest
-	# 			)
+   runTestOneCls(
+					casefilepath =  "\\steamcase\\homepage\\homehotpositioncase.xlsx",
+					testclse     =  HotPositionTest
+				)
    sign = issubclass(HotPositionTest, ParametrizedTestCase)
    print(sign)
    a = str(HotPositionTest)

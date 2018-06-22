@@ -35,7 +35,7 @@ class InovnCalTest(SteamTestCase):
           self.assertTrue(self.homeHotSer.compareSerData(response=userHomeHotRsp,
                                                          position=self.inputdata["position"],
                                                          configSqlStr = "select_t_sku_HomePage",
-                                                         calSqlStr = "select_t_resource_calculate"))
+                                                         calSqlStr = "select_t_resource_calculate"),"busss")
 
 if __name__ == "__main__":
    runTestOneCls(
