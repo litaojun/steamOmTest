@@ -1,0 +1,18 @@
+{
+	"loginName": "%(phoneNo)s",
+	"loginType": "NM",
+	"password": "%(verfiyCode)s",
+	"inviterId": "",
+	"partnerInfo": {
+						"partnerName": "WX",
+						"partnerMemberId": "oJ3wwxEfb2GdQhmKpSCvmFOp-u84"
+					},
+	"adInfo": {
+					"source": "",
+					"medium": "",
+					"campaign": "",
+					"content": "",
+					"term": "",
+					"sourceType": ""
+				}
+}
