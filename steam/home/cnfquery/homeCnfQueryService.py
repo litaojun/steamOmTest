@@ -40,7 +40,8 @@ class HomeCnfQueryService(UopService):
                         "02":6,  #首页今日推荐,应该为5个，但前端现状了，未出现BUG
                         "05":7,  #首页分类
                         "07":4,  #首页动态
-                        "10":1   #首页单独运营位
+                        "10":1,   #首页单独运营
+                        "09":10
                     }
 
     def queryHomePageCnf(self):

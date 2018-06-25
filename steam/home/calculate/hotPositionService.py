@@ -65,9 +65,11 @@ class HomeHotPositionService(HomeCnfQueryService):
         #self.dataFilterFields(dictData=rspDataLs)
         #获取DB配置数据
         cnfDbdata = self.getDbPageDataBySql(configSqlStr=configSqlStr)
+        self.filterLenByOrder(dictData=cnfDbdata)
         cnfDbdata = self.dataDictFilterFields(dictData=cnfDbdata)
         #获取DB计算数据
         calculateData = self.getDbPageDataBySql(configSqlStr=calSqlStr)
+
         calculateData = self.dataDictFilterFields(dictData=calculateData)
         a = cnfDbdata[position]
         b = rspDataLs[0:len(a)]
