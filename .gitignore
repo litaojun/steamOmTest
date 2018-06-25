@@ -32,7 +32,6 @@
 ###############
 .gitignore
 *.exe
-*.txt
 *.def
 *.dsp
 *.lib
@@ -68,7 +67,6 @@
 ###############
 *.bat
 
-#########����ģʽ############
 !/plutommi/Customer/CustResource/PLUTO_MMI/
 !/plutommi/Customer/LcdResource/MainLcd128X160/
 !/plutommi/Customer/Images/PLUTO128X160/image.zip
