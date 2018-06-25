@@ -41,7 +41,9 @@ class HomeCnfQueryService(UopService):
                         "05":7,  #首页分类
                         "07":4,  #首页动态
                         "10":1,   #首页单独运营
-                        "09":10
+                        "09":10, #发现页热门推荐
+                        "03":10  #首页更多精彩
+
                     }
 
     def queryHomePageCnf(self):
