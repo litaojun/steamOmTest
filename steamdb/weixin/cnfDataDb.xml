@@ -5,7 +5,7 @@
         <opertype>select</opertype>
         <sql>
 		   select r.id resourceId,r.corner_mask specificType ,tsc.PIC_PATH bannerUrl,tsc.PIC_PATH thumbUrl,r.resource_type_id resourceType,r.title,tsc.POSITION position,min(s.price) minPrice ,max(s.price) originalPrice
-		   from t_resource r LEFT JOIN t_sku s on r.id = s.resource_id and s.state =0,testltj.t_show_config tsc
+		   from t_resource r LEFT JOIN t_sku s on r.id = s.resource_id and s.state =0,allin.t_show_config tsc
 		   where  ((r.state = 0 and r.resource_type_id in(1,2)) or 
 				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0) ) or 
 				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0)  and EXISTS(select 1 from t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
@@ -24,7 +24,7 @@
 			where ((r.state = 0 and r.resource_type_id in(1,2)) or 
 				  (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0 and s.state = 0) ) or 
 				  (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0 and s.state = 0)  and EXISTS(select 1 from t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
-				  and not EXISTS(select 1 from testltj.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id ) 
+				  and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )
 			group by r.id order by visistnum desc;
 		</sql>
 	    <desc>按照访问量从高到低计算</desc>
