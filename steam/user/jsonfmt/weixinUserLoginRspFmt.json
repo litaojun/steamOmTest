@@ -126,7 +126,7 @@
                 },
                 "followTime": {
                   "$id": "/properties/data/properties/memberInfo/properties/wxInfo/properties/followTime",
-                  "type": "string",
+                  "type": null,
                   "title": "The Followtime Schema ",
                   "default": "",
                   "examples": [
