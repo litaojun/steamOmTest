@@ -38,7 +38,7 @@ class OperpsnQueryService(UopService):
                          }
 
     def queryOperpsnListdata(self):
-        queryResult = requests.get(url = self.queryHomeConfigurl)
+        queryResult = requests.get(url = self.queryHomeConfigurl,verify = False)
         return  queryResult.text
 
     def getRetCodeByRsp(self,queryRsp = None):

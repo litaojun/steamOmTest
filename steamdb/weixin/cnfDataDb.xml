@@ -29,4 +29,17 @@
 		</sql>
 	    <desc>按照访问量从高到低计算</desc>
     </mysql>
+	<mysql>
+        <name>select_t_resource_calculate_inovn</name>
+        <opertype>select</opertype>
+        <sql>
+		    select r.id resourceId,r.corner_mask specificType ,r.banner_url bannerUrl,r.banner_url thumbUrl,r.resource_type_id resourceType,r.title,"%(position)s" position,min(s.price) minPrice,max(price) originalPrice,(count(1) + r.base_visit_count) visistnum
+            from t_resource r left join t_visit v   on  v.resource_id = r.id  LEFT JOIN t_sku s on s.resource_id = r.id
+            where r.state = 0 and r.resource_type_id in(1,2)
+                  and r.match_id = 1
+		          and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )
+group by r.id order by visistnum desc;
+		</sql>
+	    <desc>创新大赛推荐位按照访问量从高到低计算</desc>
+    </mysql>
 </uop>
