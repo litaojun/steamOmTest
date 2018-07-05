@@ -91,7 +91,10 @@
         },
         "link": {
           "$id": "/properties/data/properties/link",
-          "type": "null",
+           "anyof":{
+                               "type": "string",
+                               "type":"null"
+                            },
           "title": "The Link Schema ",
           "default": null,
           "examples": [

@@ -17,6 +17,7 @@ from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from steam.util.reqFormatPath import fxt,articleDelReq,articleDelRspFmt
+from opg.util.httptools import httpGet,httpPost
 class ArticleDelService(UopService):
     '''
         分类新增
@@ -65,13 +66,10 @@ class ArticleDelService(UopService):
 
     def delArticleByResourceId(self,articleid):
         self.delArticleIdJson["resourceId"] = articleid
-        delArticleRsp = requests.post(
-									        url=delArticleurl,
-									        json=self.delArticleIdJson,
-									        headers=self.jsonheart,
-									        verify=False
-								        )
-        return delArticleRsp.text
+        delArticleRsp = httpPost(url=delArticleurl,
+                                 headers=self.jsonheart,
+                                 reqJsonData=self.delArticleIdJson)
+        return delArticleRsp
 
     def delClassfiy(self,title = "",resourceTypeId = None):
         #resid = self.getArticleIdByTitle(self.articleReqjson["title"])

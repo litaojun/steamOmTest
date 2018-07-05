@@ -9,7 +9,7 @@
 @file: alertActivityService.py 
 @time: 2018/5/7 13:57 
 """
-
+from opg.util.httptools import httpGet,httpPost
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json,setValue_json
@@ -36,12 +36,9 @@ class ActivityAlertService(UopService):
         self.activityAddSer = ActivityAddService(kwargs=kwargs)
         self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
 
-
     @decorator("preInterfaceAddOneActivity")
     def addArticle(self):
         self.activityAddSer.addActivity()
-
-
 
     def alertActivity(self,kwargs=None):
         rsp = self.searchActSer.queryActivity()
@@ -57,15 +54,12 @@ class ActivityAlertService(UopService):
         idsharevalues = querySer.getIdValueListByRsp(ids=idshares,rsp=oneActivityRsp)
         self.activityAlertReqjson["resourceId"] = resid
         self.alertReqIdToValue(skulist=idSkusvalue,imglist=idimgvalues,sharelist=idsharevalues)
-        addArticleRsp = requests.post(
-		                                   url=alertActivityurl,
-		                                   json=self.activityAlertReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        self.rsp = addArticleRsp.text
-        print("addArticleRsp = %s" % addArticleRsp.text)
-        return addArticleRsp.text
+        addArticleRsp = httpPost(url=alertActivityurl,
+                                 headers=self.jsonheart,
+                                 reqJsonData=self.activityAlertReqjson)
+        self.rsp = addArticleRsp
+        print("addArticleRsp = %s" % addArticleRsp)
+        return addArticleRsp
 
     def alertReqIdToValue(self,skulist = [],imglist = [],sharelist = []):
         self.idToValueByFormat(formatstr="skuList.%d.skuId",idlist=skulist)

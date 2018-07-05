@@ -18,6 +18,7 @@ from steam.util.configurl import weixinUserLoginurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
+from opg.util.httptools import httpGet,httpPost
 class WeixinUserLoginService(UopService):
     '''
         微信端用户登录
@@ -33,20 +34,14 @@ class WeixinUserLoginService(UopService):
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
+        kwargs["scenes"] = "OTP"
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
     def weixinUserLogin(self):
-        # rsp = self.userVerfiyCodeSer.sendUserVerifyCode()
-        # verifyCode = self.userVerfiyCodeSer.getVerfiyCodeFromRedisByPhone()
-        weixinUserLoginRsp = requests.post(
-                                            url=weixinUserLoginurl,
-                                            json=self.weixinUserLoginReqjson,
-                                            headers=self.jsonheart,
-                                            verify=False
-                                      )
-        self.rsp = weixinUserLoginRsp.text
-        print("homePageCnfRsp = %s" % weixinUserLoginRsp.text)
-        return weixinUserLoginRsp.text
+        self.rsp = httpPost(url=weixinUserLoginurl,
+                            headers=self.jsonheart,
+                            reqJsonData=self.weixinUserLoginReqjson)
+        return self.rsp
 
 
     def getMemberIdFromRsp(self,response=None):

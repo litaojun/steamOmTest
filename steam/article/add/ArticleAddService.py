@@ -17,6 +17,7 @@ from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import  fxt,articleAddReq,articleAddRspFmt
+from opg.util.httptools import httpGet,httpPost
 class ArticleAddService(UopService):
     '''
         分类新增
@@ -36,26 +37,19 @@ class ArticleAddService(UopService):
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
         articleid = self.getArticleIdByRsp(self.rsp)
-        delclassfiyRsp = requests.post(
-									        url=delArticleurl,
-									        json={"resourceId": articleid},
-									        headers=self.jsonheart,
-									        verify=False
-								      )
-        print("delclassfiyRsp = %s" % delclassfiyRsp.text)
-        return delclassfiyRsp.text
+        delclassfiyRsp = httpPost(url=delArticleurl,
+                                  headers=self.jsonheart,
+                                  reqJsonData={"resourceId": articleid})
+        print("delclassfiyRsp = %s" % delclassfiyRsp)
+        return delclassfiyRsp
 
     def addArticle(self):
-        addArticleRsp = requests.post(
-		                                   url=addArticleurl,
-		                                   json=self.articleReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        #self.articleReqjson[""] = self.getArticleIdByRsp(addArticleRsp)
-        self.rsp = addArticleRsp.text
-        print("addArticleRsp = %s" % addArticleRsp.text)
-        return addArticleRsp.text
+        addArticleRsp = httpPost(url=addArticleurl,
+                                 headers=self.jsonheart,
+                                 reqJsonData=self.articleReqjson)
+        self.rsp = addArticleRsp
+        print("addArticleRsp = %s" % addArticleRsp)
+        return addArticleRsp
 
     @check_rspdata(filepath=fxt.join(articleAddRspFmt))
     def getRetcodeByArticleRsp(self,response = None):

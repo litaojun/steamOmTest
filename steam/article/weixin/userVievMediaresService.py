@@ -11,9 +11,9 @@
 @file: userVievMediaresService.py 
 @time: 2018/7/4 17:01 
 """
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.utils import query_json,del_json_data
+from opg.util.uopService import UopService
+import json
+from opg.util.utils import query_json
 from steam.util.configurl import userViewMediaresUrl,userCancelThumbUpUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMediaresRspFmt
@@ -44,8 +44,10 @@ class UserViewMediaresService(UopService):
 
     @check_rspdata(filepath=weixinUserViewMediaresRspFmt)
     def getRetcodeByRsp(self,response = None):
-        print("ThumbUpRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
+
+    def getCollectsNumByRsp(self,response = None):
+        return query_json(json_content=json.loads(response), query="data.collects")
 
 if  __name__ == "__main__":
     kwarg = {
@@ -56,3 +58,5 @@ if  __name__ == "__main__":
     rsp = uvms.userViewMediares()
     retcode = uvms.getRetcodeByRsp(response=rsp)
     print(retcode)
+    collNum = uvms.getCollectsNumByRsp(response=rsp)
+    print(collNum)

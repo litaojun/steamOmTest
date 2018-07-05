@@ -37,26 +37,23 @@ class UserThumbUpService(UopService):
                          }
 
     def userThumbUp(self):
-        userThumbUpRsp =  httpPost(
+        self.rsp =  httpPost(
                                         url     = userThumbUpUrl,
                                         headers = self.jsonheart,
                                         reqJsonData = self.userThumbUpReqjson
                                   )
-        self.rsp = userThumbUpRsp
-        return userThumbUpRsp
+        return self.rsp
 
     def userCancelThumbUp(self):
-        userCancelThumbUpRsp =  httpPost(
+        self.rsp =  httpPost(
                                         url     = userCancelThumbUpUrl,
                                         headers = self.jsonheart,
                                         reqJsonData = self.userThumbUpReqjson
-                                  )
-        self.rsp = userCancelThumbUpRsp
-        return userCancelThumbUpRsp
+                             )
+        return  self.rsp
 
     @check_rspdata(filepath=weixinUserThumbUpRspFmt)
     def getRetcodeByThumbUpRsp(self,response = None):
-        print("ThumbUpRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
 if  __name__ == "__main__":

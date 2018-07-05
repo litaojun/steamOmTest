@@ -57,6 +57,7 @@ class SteamTestCase(ParametrizedTestCase):
             if inputData["phoneNo"] in SteamTestCase.memberIdDict:
                 inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]]
             else:
+                inputData["scenes"] = "OTP"
                 userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
                 sedCodeRsp = userVerCodeSer.sendUserVerifyCode()
                 retcode = userVerCodeSer.getRetcodeByUserLoginRsp(response=sedCodeRsp)

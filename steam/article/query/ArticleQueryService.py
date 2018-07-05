@@ -14,7 +14,7 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import queryArticleurl
 from steam.util.reqFormatPath import fxt,articleQueryReq,articleQueryRspFmt
-
+from opg.util.httptools import httpGet
 class ArticleQueryService(UopService):
     '''
         查询分类
@@ -26,20 +26,14 @@ class ArticleQueryService(UopService):
         """
         super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleQueryReq))
         self.rsp = None
-        # if "title" in kwargs:
-        #      self.queryArticleUrl = queryArticleurl + "&title=" + kwargs["title"]
-        # self.queryArticleUrl = self.queryArticleUrl + "&resourceTypeId=" + str(kwargs["resourceTypeId"])
         self.queryArticleUrl = queryArticleurl + self.reqjsondata
-
-        # if "resourceTypeId"
-        # resourceTypeId = 2
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
 
     def queryArtcle(self):
-        queryResult = requests.get(url = self.queryArticleUrl)
-        return  queryResult.text
+        queryResultrsp = httpGet(url=queryArticleurl,headers={})
+        return  queryResultrsp
 
     def getFirstResourceIdByRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")

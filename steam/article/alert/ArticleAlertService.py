@@ -17,6 +17,7 @@ from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.util.reqFormatPath import fxt,articleAlertReq,articleAlertRspFmt
+from opg.util.httptools import httpGet,httpPost
 class ArticleAlertService(UopService):
     '''
         分类新增
@@ -61,27 +62,21 @@ class ArticleAlertService(UopService):
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
         articleId = self.getArticleIdByTitle(title = self.articleReqjson["title"])
-        delclassfiyRsp = requests.post(
-									        url  = delArticleurl,
-									        json = {"resourceId": articleId},
-									        headers = self.jsonheart,
-									        verify = False
-								      )
-        print("delclassfiyRsp = %s" % delclassfiyRsp.text)
-        return delclassfiyRsp.text
+        delclassfiyRsp = httpPost(url=delArticleurl,
+                                 headers=self.jsonheart,
+                                 reqJsonData={"resourceId": articleId})
+        print("delclassfiyRsp = %s" % delclassfiyRsp)
+        return delclassfiyRsp
 
     def alertArticle(self):
         resid = self.getArticleIdByTitle(self.articleReqjson["title"])
         self.articleReqjson["resourceId"] = resid
-        addArticleRsp = requests.post(
-		                                   url=alertArtcleurl,
-		                                   json=self.articleReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        self.rsp = addArticleRsp.text
-        print("addArticleRsp = %s" % addArticleRsp.text)
-        return addArticleRsp.text
+        addArticleRsp = httpPost(url=alertArtcleurl,
+                                 headers=self.jsonheart,
+                                 reqJsonData=self.articleReqjson)
+        self.rsp = addArticleRsp
+        print("addArticleRsp = %s" % addArticleRsp)
+        return addArticleRsp
 
     def getRetcodeByArticleRsp(self,articleRsp = None):
         print("articleRsp=" + str(articleRsp))

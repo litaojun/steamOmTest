@@ -14,6 +14,7 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
 from steam.util.reqFormatPath import fxt,activityQueryReq
+from opg.util.httptools import httpGet,httpPost
 class ActivityQueryService(UopService):
     '''
         查询分类
@@ -41,8 +42,8 @@ class ActivityQueryService(UopService):
             pass
 
     def queryOneActivity(self):
-        queryResult = requests.get(url = self.queryIdActivityurl )
-        return queryResult.text
+        queryResult = httpGet(url=self.queryIdActivityurl,headers={})
+        return queryResult
 
     def getListIdByFormat(self,formatstr = "" ,size = 2):
         idls = [formatstr % i for i in range(size)]
@@ -70,29 +71,6 @@ class ActivityQueryService(UopService):
     def getRetcodeByOneactRsp(self,oneActRsp = None):
         return query_json(json_content=json.loads(oneActRsp), query="code")
 
-    # def getAllAlertId(self,queryRsp = None,skuLen = 2,imageLen =2):
-    #     """
-    #             data.shareInfoList.0.id
-    #             data.skuList.0.skuId
-    #             data.skuList.1.skuId
-    #             data.imageList.0.id
-    #             data.imageList.1.id
-    #             data.imageList.2.id
-    #             data.imageList.3.id
-    #             data.imageList.4.id
-    #             data.imageList.5.id
-    #     :param queryRsp:
-    #     :return:
-    #     """
-    #     idlist = []
-    #     idls = ["data.shareInfoList.0.id"]
-    #     skulist = ["data.skuList.%d.skuId" % i for i in range(skuLen)]
-    #     imagelist = ["data.imageList.%d.id" % i for i in range(imageLen)]
-    #     idls.append(skulist)
-    #     idls.append(imagelist)
-    #     for idtag in idls:
-    #         resouceId = query_json(json_content=json.loads(queryRsp), query=idtag)
-    #         idlist.append(resouceId)
 
 if __name__ == "__main__":
 
