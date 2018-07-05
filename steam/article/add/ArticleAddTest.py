@@ -9,7 +9,6 @@
 @file: ArticleAddTest.py 
 @time: 2018/4/20 17:42
 """
-
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.article.add.ArticleAddService import ArticleAddService
 from opg.unit.testcaseRunMgr import runTestOneCls

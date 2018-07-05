@@ -1,1 +1,1 @@
-?resourceId=%(resourceId)s&memberId=%(memberId)
+?resourceId=%(resourceId)s&memberId=%(memberId)s

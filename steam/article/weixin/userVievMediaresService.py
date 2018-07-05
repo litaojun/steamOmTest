@@ -14,7 +14,7 @@
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json,del_json_data
-from steam.util.configurl import userThumbUpUrl,userCancelThumbUpUrl
+from steam.util.configurl import userViewMediaresUrl,userCancelThumbUpUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMediaresRspFmt
 from opg.util.httptools import httpGet,httpPost
@@ -35,15 +35,24 @@ class UserViewMediaresService(UopService):
                          }
 
     def userViewMediares(self):
-        userThumbUpRsp =  httpPost(
-                                        url     = userThumbUpUrl,
-                                        headers = self.jsonheart,
-                                        reqJsonData = self.userThumbUpReqjson
-                                  )
-        self.rsp = userThumbUpRsp
-        return userThumbUpRsp
+        userViewMediaresRsp =  httpGet(
+                                            url     = userViewMediaresUrl + self.userThumbUpReqjson,
+                                            headers = self.jsonheart
+                                        )
+        self.rsp = userViewMediaresRsp
+        return userViewMediaresRsp
 
     @check_rspdata(filepath=weixinUserViewMediaresRspFmt)
-    def getRetcodeByThumbUpRsp(self,response = None):
+    def getRetcodeByRsp(self,response = None):
         print("ThumbUpRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
+
+if  __name__ == "__main__":
+    kwarg = {
+                "resourceId": "2104",
+                "memberId": "09c1316f-b304-46b1-96ff-c9ebbd93a617"
+            }
+    uvms = UserViewMediaresService(kwarg=kwarg)
+    rsp = uvms.userViewMediares()
+    retcode = uvms.getRetcodeByRsp(response=rsp)
+    print(retcode)

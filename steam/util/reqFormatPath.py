@@ -41,5 +41,5 @@ weixinUserVerfiyCodeReq = fxt.join(["","steam","user","jsonfmt","weixinUserVerif
 weixinUserVerfiyCodeRspFmt = fxt.join(["","steam","user","jsonfmt","weixinUserVerifyCodeRspFmt.json"])
 weixinUserThumbUpReq = fxt.join(["","steam","user","jsonfmt","weixinUserThumbUpReq.txt"])
 weixinUserThumbUpRspFmt = fxt.join(["","steam","user","jsonfmt","weixinUserThumbUpRspFmt.json"])
-weixinUserViewMediaresReq = fxt.join(["","steam","user","jsonfmt","weixinUserViewMediaresReq.txt"])
+weixinUserViewMediaresReq = fxt.join(["","steam","article","jsonfmt","weixinUserViewMediaresReq.txt"])
 weixinUserViewMediaresRspFmt = fxt.join(["","steam","article","jsonfmt","weixinUserViewMediaresRspFmt.json"])
