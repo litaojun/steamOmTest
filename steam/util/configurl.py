@@ -36,6 +36,9 @@ homeConfigQueryurl = base_url + "/featured/index/configs/queryShowConfigs"
 weixinUserLoginurl = base_url + "/passport/memberLogin"
 weixinUserVerifyCodeurl = base_url + "/passport/verifyCode"
 hotPositonUrl = base_url + "/featured/index/configs/pageQueryPositionShows"
+userThumbUpUrl = base_url + "/resource-service/resource/thumbUp"
+userCancelThumbUpUrl = base_url + "/resource-service/resource/cancelThumbUp"
+userViewMediaresUrl = base_url + "/steam-media/media/getMediaDetailByID"
 
 if __name__ == "__main__":
 	pass  

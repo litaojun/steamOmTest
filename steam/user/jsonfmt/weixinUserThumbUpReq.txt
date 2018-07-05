@@ -1,0 +1,4 @@
+{
+   "resourceId":"%(resourceId)s",
+   "memberId":"%(memberId)s"
+}
