@@ -36,14 +36,16 @@ class UserThumbUpService(UopService):
 	                         "x-token":"admin"
                          }
 
+    @decorator(["tearInterfaceUserThumbUp","preInterfaceUserThumbUp"])
     def userThumbUp(self):
         self.rsp =  httpPost(
-                                        url     = userThumbUpUrl,
-                                        headers = self.jsonheart,
-                                        reqJsonData = self.userThumbUpReqjson
-                                  )
+                                        url     =   userThumbUpUrl,
+                                        headers =    self.jsonheart,
+                                        reqJsonData =  self.userThumbUpReqjson
+                            )
         return self.rsp
 
+    @decorator(["preInterfaceCancelThumbUp","tearInterfaceCancelThumbUp"])
     def userCancelThumbUp(self):
         self.rsp =  httpPost(
                                         url     = userCancelThumbUpUrl,
