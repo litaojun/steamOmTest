@@ -1,0 +1,230 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "$id": "/properties/data/properties/orderId",
+          "type": "string",
+          "title": "The Orderid Schema ",
+          "default": "",
+          "examples": [
+            "15311306036200000005112"
+          ]
+        },
+        "title": {
+          "$id": "/properties/data/properties/title",
+          "type": "string",
+          "title": "The Title Schema ",
+          "default": "",
+          "examples": [
+            "昆明、大理、洱海骑行、丽江、泸沽湖、香格里拉、7日轻奢之旅"
+          ]
+        },
+        "skuName": {
+          "$id": "/properties/data/properties/skuName",
+          "type": "string",
+          "title": "The Skuname Schema ",
+          "default": "",
+          "examples": [
+            "活动时间：8月4日-20日\t"
+          ]
+        },
+        "resourceId": {
+          "$id": "/properties/data/properties/resourceId",
+          "type": "integer",
+          "title": "The Resourceid Schema ",
+          "default": 0,
+          "examples": [
+            1767
+          ]
+        },
+        "resourceTypeId": {
+          "$id": "/properties/data/properties/resourceTypeId",
+          "type": "integer",
+          "title": "The Resourcetypeid Schema ",
+          "default": 0,
+          "examples": [
+            12
+          ]
+        },
+        "state": {
+          "$id": "/properties/data/properties/state",
+          "type": "integer",
+          "title": "The State Schema ",
+          "default": 0,
+          "examples": [
+            11
+          ]
+        },
+        "price": {
+          "$id": "/properties/data/properties/price",
+          "type": "number",
+          "title": "The Price Schema ",
+          "default": 0,
+          "examples": [
+            0.009999999776482582
+          ]
+        },
+        "payPrice": {
+          "$id": "/properties/data/properties/payPrice",
+          "type": "number",
+          "title": "The Payprice Schema ",
+          "default": 0,
+          "examples": [
+            0.009999999776482582
+          ]
+        },
+        "postPrice": {
+          "$id": "/properties/data/properties/postPrice",
+          "type": "number",
+          "title": "The Postprice Schema ",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "num": {
+          "$id": "/properties/data/properties/num",
+          "type": "integer",
+          "title": "The Num Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "thumbUrl": {
+          "$id": "/properties/data/properties/thumbUrl",
+          "type": "string",
+          "title": "The Thumburl Schema ",
+          "default": "",
+          "examples": [
+            "http://uat-steam.opg.cn/_static/admin/images/resource/20180523163530_594379.png"
+          ]
+        },
+        "dateStr": {
+          "$id": "/properties/data/properties/dateStr",
+          "type": "string",
+          "title": "The Datestr Schema ",
+          "default": "",
+          "examples": [
+            "2018-08-03~2018-08-10"
+          ]
+        },
+        "addressDesc": {
+          "$id": "/properties/data/properties/addressDesc",
+          "type": "string",
+          "title": "The Addressdesc Schema ",
+          "default": "",
+          "examples": [
+            "云南省昆明市"
+          ]
+        },
+        "timeLeft": {
+          "$id": "/properties/data/properties/timeLeft",
+          "anyof":{
+                     "type": "number",
+                     "type":"null"
+                    },
+          "title": "The Timeleft Schema ",
+          "default": 0,
+          "examples": [
+            3485649
+          ]
+        },
+        "payTime": {
+          "$id": "/properties/data/properties/payTime",
+          "type": "null",
+          "title": "The Paytime Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "createTime": {
+          "$id": "/properties/data/properties/createTime",
+          "type": "integer",
+          "title": "The Createtime Schema ",
+          "default": 0,
+          "examples": [
+            1531130603000
+          ]
+        },
+        "remark": {
+          "$id": "/properties/data/properties/remark",
+          "type": "string",
+          "title": "The Remark Schema ",
+          "default": "",
+          "examples": [
+            ""
+          ]
+        },
+        "ticketNo": {
+          "$id": "/properties/data/properties/ticketNo",
+          "type": "null",
+          "title": "The Ticketno Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "deliverAddress": {
+          "$id": "/properties/data/properties/deliverAddress",
+          "type": "object",
+          "properties": {
+            "name": {
+              "$id": "/properties/data/properties/deliverAddress/properties/name",
+              "type": "string",
+              "title": "The Name Schema ",
+              "default": "",
+              "examples": [
+                "李陶军"
+              ]
+            },
+            "address": {
+              "$id": "/properties/data/properties/deliverAddress/properties/address",
+              "type": "string",
+              "title": "The Address Schema ",
+              "default": "",
+              "examples": [
+                "上海市市辖区长宁区 鹤永路580"
+              ]
+            }
+          }
+        },
+        "express": {
+          "$id": "/properties/data/properties/express",
+          "type": "null",
+          "title": "The Express Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        }
+      }
+    }
+  }
+}

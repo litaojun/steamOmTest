@@ -1,0 +1,312 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "resourceId": {
+          "$id": "/properties/data/properties/resourceId",
+          "type": "integer",
+          "title": "The Resourceid Schema ",
+          "default": 0,
+          "examples": [
+            1762
+          ]
+        },
+        "resourceTypeId": {
+          "$id": "/properties/data/properties/resourceTypeId",
+          "type": "integer",
+          "title": "The Resourcetypeid Schema ",
+          "default": 0,
+          "examples": [
+            11
+          ]
+        },
+        "title": {
+          "$id": "/properties/data/properties/title",
+          "type": "string",
+          "title": "The Title Schema ",
+          "default": "",
+          "examples": [
+            "鲨鱼公园简单机械（7-12岁）主题课程【8课时】"
+          ]
+        },
+        "images": {
+          "$id": "/properties/data/properties/images",
+          "type": "array",
+          "items": {
+            "$id": "/properties/data/properties/images/items",
+            "type": "string",
+            "title": "The 0th Schema ",
+            "default": "",
+            "examples": [
+              "http://uat-steam.opg.cn/_static/admin/images/resource/20180524110704_837808.png",
+              "http://uat-steam.opg.cn/_static/admin/images/resource/20180524110711_398785.png"
+            ]
+          }
+        },
+        "thumbUrl": {
+          "$id": "/properties/data/properties/thumbUrl",
+          "type": "string",
+          "title": "The Thumburl Schema ",
+          "default": "",
+          "examples": [
+            "http://uat-steam.opg.cn/_static/admin/images/resource/20180524110643_501902.png"
+          ]
+        },
+        "bannerUrl": {
+          "$id": "/properties/data/properties/bannerUrl",
+          "type": "string",
+          "title": "The Bannerurl Schema ",
+          "default": "",
+          "examples": [
+            "http://uat-steam.opg.cn/_static/admin/images/resource/20180524110726_464520.png"
+          ]
+        },
+        "content": {
+          "$id": "/properties/data/properties/content",
+          "type": "string",
+          "title": "The Content Schema ",
+          "default": "",
+          "examples": [
+            "<p><span style=\"font-size: 12pt;\" data-mce-style=\"font-size: 12pt;\">“简单机械”课程是鲨鱼公园STEAM在线大一系列主题课程，适合8-12岁的儿童。孩子们将会从器材的使用过程中找到支点、动力、阻力，学习机械功以及机械效率，学会理解物理学抽象思维方式。</span></p><p><img class=\"wscnph\" src=\"http://uat-steam.opg.cn/_static/admin/images/resource/20180518153723_480047.jpg\" data-mce-src=\"../_static/admin/images/resource/20180518153723_480047.jpg\"></p>"
+          ]
+        },
+        "totalSaleNum": {
+          "$id": "/properties/data/properties/totalSaleNum",
+          "type": "integer",
+          "title": "The Totalsalenum Schema ",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "minPrice": {
+          "$id": "/properties/data/properties/minPrice",
+          "type": "number",
+          "title": "The Minprice Schema ",
+          "default": 0,
+          "examples": [
+            199
+          ]
+        },
+        "maxPrice": {
+          "$id": "/properties/data/properties/maxPrice",
+          "type": "number",
+          "title": "The Maxprice Schema ",
+          "default": 0,
+          "examples": [
+            199
+          ]
+        },
+        "dateStr": {
+          "$id": "/properties/data/properties/dateStr",
+          "anyof":{
+                  "type": "string",
+                  "type": "null"
+                  },
+          "title": "The Datestr Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "address": {
+          "$id": "/properties/data/properties/address",
+          "type": "string",
+          "title": "The Address Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "addressDetail": {
+          "$id": "/properties/data/properties/addressDetail",
+          "type": "string",
+          "title": "The Addressdetail Schema ",
+          "default": null,
+          "examples": [
+            null
+          ]
+        },
+        "outOfTime": {
+          "$id": "/properties/data/properties/outOfTime",
+          "type": "boolean",
+          "title": "The Outoftime Schema ",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "saleOut": {
+          "$id": "/properties/data/properties/saleOut",
+          "type": "boolean",
+          "title": "The Saleout Schema ",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "deliverType": {
+          "$id": "/properties/data/properties/deliverType",
+          "type": "integer",
+          "title": "The Delivertype Schema ",
+          "default": 0,
+          "examples": [
+            0
+          ]
+        },
+        "shareInfoList": {
+          "$id": "/properties/data/properties/shareInfoList",
+          "type": "array",
+          "items": {
+            "$id": "/properties/data/properties/shareInfoList/items",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$id": "/properties/data/properties/shareInfoList/items/properties/id",
+                "type": "integer",
+                "title": "The Id Schema ",
+                "default": 0,
+                "examples": [
+                  2811
+                ]
+              },
+              "shareType": {
+                "$id": "/properties/data/properties/shareInfoList/items/properties/shareType",
+                "type": "integer",
+                "title": "The Sharetype Schema ",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "title": {
+                "$id": "/properties/data/properties/shareInfoList/items/properties/title",
+                "type": "string",
+                "title": "The Title Schema ",
+                "default": "",
+                "examples": [
+                  "简单机械（7-12岁）主题课程【8课时】"
+                ]
+              },
+              "description": {
+                "$id": "/properties/data/properties/shareInfoList/items/properties/description",
+                "type": "string",
+                "title": "The Description Schema ",
+                "default": "",
+                "examples": [
+                  "简单机械（7-12岁）主题课程【8课时】"
+                ]
+              },
+              "shareImgUrl": {
+                "$id": "/properties/data/properties/shareInfoList/items/properties/shareImgUrl",
+                "type": "string",
+                "title": "The Shareimgurl Schema ",
+                "default": "",
+                "examples": [
+                  "http://uat-steam.opg.cn/_static/admin/images/resource/20180524110651_717591.png"
+                ]
+              }
+            }
+          }
+        },
+        "skuList": {
+          "$id": "/properties/data/properties/skuList",
+          "type": "array",
+          "items": {
+            "$id": "/properties/data/properties/skuList/items",
+            "type": "object",
+            "properties": {
+              "skuId": {
+                "$id": "/properties/data/properties/skuList/items/properties/skuId",
+                "type": "integer",
+                "title": "The Skuid Schema ",
+                "default": 0,
+                "examples": [
+                  255
+                ]
+              },
+              "skuName": {
+                "$id": "/properties/data/properties/skuList/items/properties/skuName",
+                "type": "string",
+                "title": "The Skuname Schema ",
+                "default": "",
+                "examples": [
+                  "简单机械（7-12岁）主题课程"
+                ]
+              },
+              "price": {
+                "$id": "/properties/data/properties/skuList/items/properties/price",
+                "type": "number",
+                "title": "The Price Schema ",
+                "default": 0,
+                "examples": [
+                  199
+                ]
+              },
+              "postPrice": {
+                "$id": "/properties/data/properties/skuList/items/properties/postPrice",
+                "type": "number",
+                "title": "The Postprice Schema ",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "limitCount": {
+                "$id": "/properties/data/properties/skuList/items/properties/limitCount",
+                "type": "integer",
+                "title": "The Limitcount Schema ",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "inventory": {
+                "$id": "/properties/data/properties/skuList/items/properties/inventory",
+                "type": "integer",
+                "title": "The Inventory Schema ",
+                "default": 0,
+                "examples": [
+                  1000
+                ]
+              }
+            }
+          }
+        },
+        "state": {
+          "$id": "/properties/data/properties/state",
+          "type": "string",
+          "title": "The State Schema ",
+          "default": "",
+          "examples": [
+            "00"
+          ]
+        }
+      }
+    }
+  }
+}

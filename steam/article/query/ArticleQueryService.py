@@ -32,7 +32,7 @@ class ArticleQueryService(UopService):
                          }
 
     def queryArtcle(self):
-        queryResultrsp = httpGet(url=queryArticleurl,headers={})
+        queryResultrsp = httpGet(url=self.queryArticleUrl,headers={})
         return  queryResultrsp
 
     def getFirstResourceIdByRsp(self,queryRsp = None):

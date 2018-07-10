@@ -1,0 +1,10 @@
+{
+	"resourceId": "%(resourceId)s",
+	"skuId": "%(skuId)s",
+	"addressId": "%(addressId)s",
+	"payPrice": "%(payPrice)s",
+	"num": %(num)s,
+	"remark": "",
+	"returnUrl": "http://uat-steam.opg.cn/om/index.html",
+	"payChannelId": 100000
+}

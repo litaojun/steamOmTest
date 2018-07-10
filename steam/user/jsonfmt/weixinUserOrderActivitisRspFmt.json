@@ -1,0 +1,134 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "$id": "/properties/data/properties/orderId",
+          "type": "string",
+          "title": "The Orderid Schema ",
+          "default": "",
+          "examples": [
+            "15311264911770000005153"
+          ]
+        },
+        "needPay": {
+          "$id": "/properties/data/properties/needPay",
+          "type": "boolean",
+          "title": "The Needpay Schema ",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "payInfo": {
+          "$id": "/properties/data/properties/payInfo",
+          "type": "object",
+          "properties": {
+            "type": {
+              "$id": "/properties/data/properties/payInfo/properties/type",
+              "type": "integer",
+              "title": "The Type Schema ",
+              "default": 0,
+              "examples": [
+                1
+              ]
+            },
+            "officialValue": {
+              "$id": "/properties/data/properties/payInfo/properties/officialValue",
+              "type": "object",
+              "properties": {
+                "appId": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/appId",
+                  "type": "string",
+                  "title": "The Appid Schema ",
+                  "default": "",
+                  "examples": [
+                    "wxa5365dbeaa4265ac"
+                  ]
+                },
+                "timeStamp": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/timeStamp",
+                  "type": "string",
+                  "title": "The Timestamp Schema ",
+                  "default": "",
+                  "examples": [
+                    "1531126491"
+                  ]
+                },
+                "nonceStr": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/nonceStr",
+                  "type": "string",
+                  "title": "The Noncestr Schema ",
+                  "default": "",
+                  "examples": [
+                    "1187e86691154310b3db7e1e8bc7333a"
+                  ]
+                },
+                "prePackage": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/prePackage",
+                  "type": "string",
+                  "title": "The Prepackage Schema ",
+                  "default": "",
+                  "examples": [
+                    "prepay_id=wx09165451747371a184a876922194995050"
+                  ]
+                },
+                "signType": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/signType",
+                  "type": "string",
+                  "title": "The Signtype Schema ",
+                  "default": "",
+                  "examples": [
+                    "MD5"
+                  ]
+                },
+                "paySign": {
+                  "$id": "/properties/data/properties/payInfo/properties/officialValue/properties/paySign",
+                  "type": "string",
+                  "title": "The Paysign Schema ",
+                  "default": "",
+                  "examples": [
+                    "8DF64EA206BB6D7A20E3E817E7E216C1"
+                  ]
+                }
+              }
+            },
+            "h5Value": {
+              "$id": "/properties/data/properties/payInfo/properties/h5Value",
+              "type": "null",
+              "title": "The H5value Schema ",
+              "default": null,
+              "examples": [
+                null
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

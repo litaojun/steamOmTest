@@ -1,0 +1,59 @@
+#!/usr/bin/env python  
+# encoding: utf-8  
+
+""" 
+@version: v1.0 
+@author: Lieb 
+@license: Apache Licence  
+@contact: 2750416737@qq.com 
+@site: http://blog.csdn.net/hqzxsc2006 
+@software: PyCharm 
+@file: userCancelOrderActivityService.py 
+@time: 2018/7/9 18:23 
+"""
+from opg.util.uopService import decorator,UopService
+import json
+from opg.util.utils import query_json
+from steam.util.configurl import userCancelOrderActivityUrl
+from opg.util.schemajson import check_rspdata
+from steam.util.reqFormatPath import weixinUserCancelOrderActivityReq,weixinUserCancelOrderActivityRspFmt
+from opg.util.httptools import httpGet,httpPost
+class UserCancelOrderActivityService(UopService):
+    '''
+        首页配置数据
+    '''
+    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserCancelOrderActivityReq):
+        """
+            :param entryName:
+            :param picturePath:
+        """
+        super(UserCancelOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
+        self.userCancelOrderActivityReqjson = self.reqjsondata
+        self.jsonheart = {
+	                         "x-token":"admin",
+                             "memberId":kwarg["memberId"]
+                         }
+
+    @decorator(["tearInterfaceUserThumbUp"])
+    def userCancelOrderActivity(self):
+        self.rsp =  httpPost(
+                                        url     =   userCancelOrderActivityUrl,
+                                        headers =    self.jsonheart,
+                                        reqJsonData =  self.userCancelOrderActivityReqjson
+                            )
+        return self.rsp
+
+
+    @check_rspdata(filepath=weixinUserCancelOrderActivityRspFmt)
+    def getRetcodeByOrderRsp(self,response = None):
+        return query_json(json_content=json.loads(response), query="code")
+
+if __name__ == "__main__":
+    kwarg = {
+                "orderId": "15311885444040000005112",
+                "memberId": "e99abfeb-1ae5-41d8-a422-63bc108026d4"
+            }
+    ucoas  = UserCancelOrderActivityService(kwarg=kwarg)
+    rsp = ucoas.userCancelOrderActivity()
+    retcode = ucoas.getRetcodeByOrderRsp(response=rsp)
+    print(retcode)

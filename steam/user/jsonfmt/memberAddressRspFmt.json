@@ -1,0 +1,144 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "200"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "请求成功"
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "array",
+      "items": {
+        "$id": "/properties/data/items",
+        "type": "object",
+        "properties": {
+          "id": {
+            "$id": "/properties/data/items/properties/id",
+            "type": "string",
+            "title": "The Id Schema ",
+            "default": "",
+            "examples": [
+              "b9a6e45e-8355-11e8-9033-02a7e93155ea"
+            ]
+          },
+          "memberId": {
+            "$id": "/properties/data/items/properties/memberId",
+            "type": "string",
+            "title": "The Memberid Schema ",
+            "default": "",
+            "examples": [
+              "e99abfeb-1ae5-41d8-a422-63bc108026d4"
+            ]
+          },
+          "phone": {
+            "$id": "/properties/data/items/properties/phone",
+            "type": "string",
+            "title": "The Phone Schema ",
+            "default": "",
+            "examples": [
+              "18916899938"
+            ]
+          },
+          "consignee": {
+            "$id": "/properties/data/items/properties/consignee",
+            "type": "string",
+            "title": "The Consignee Schema ",
+            "default": "",
+            "examples": [
+              "李陶军"
+            ]
+          },
+          "province": {
+            "$id": "/properties/data/items/properties/province",
+            "type": "string",
+            "title": "The Province Schema ",
+            "default": "",
+            "examples": [
+              "上海市"
+            ]
+          },
+          "city": {
+            "$id": "/properties/data/items/properties/city",
+            "type": "string",
+            "title": "The City Schema ",
+            "default": "",
+            "examples": [
+              "市辖区"
+            ]
+          },
+          "county": {
+            "$id": "/properties/data/items/properties/county",
+            "type": "string",
+            "title": "The County Schema ",
+            "default": "",
+            "examples": [
+              "长宁区"
+            ]
+          },
+          "address": {
+            "$id": "/properties/data/items/properties/address",
+            "type": "string",
+            "title": "The Address Schema ",
+            "default": "",
+            "examples": [
+              "鹤永路580"
+            ]
+          },
+          "addressCode": {
+            "$id": "/properties/data/items/properties/addressCode",
+            "type": "string",
+            "title": "The Addresscode Schema ",
+            "default": "",
+            "examples": [
+              "310000,310100,310105"
+            ]
+          },
+          "state": {
+            "$id": "/properties/data/items/properties/state",
+            "type": "string",
+            "title": "The State Schema ",
+            "default": "",
+            "examples": [
+              "00"
+            ]
+          },
+          "isDefault": {
+            "$id": "/properties/data/items/properties/isDefault",
+            "type": "string",
+            "title": "The Isdefault Schema ",
+            "default": "",
+            "examples": [
+              "00"
+            ]
+          },
+          "createTime": {
+            "$id": "/properties/data/items/properties/createTime",
+            "type": "string",
+            "title": "The Createtime Schema ",
+            "default": "",
+            "examples": [
+              "2018-07-09 16:54:44"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

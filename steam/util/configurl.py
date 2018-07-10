@@ -39,6 +39,11 @@ hotPositonUrl = base_url + "/featured/index/configs/pageQueryPositionShows"
 userThumbUpUrl = base_url + "/resource-service/resource/thumbUp"
 userCancelThumbUpUrl = base_url + "/resource-service/resource/cancelThumbUp"
 userViewMediaresUrl = base_url + "/steam-media/media/getMediaDetailByID"
-
+userViewActivityUrl =  base_url + "/steam-resource/product/detail"
+userOrderActivityUrl = base_url + "/order-service/order/submitAndPay"
+userCancelOrderActivityUrl = base_url + "/order-service/order/cancel"
+userDetailOrderActivityUrl = base_url + "/order-service/order/detail"
+userListOrderActivityUrl = base_url + "/order-service/order"
+memberAddressUrl = base_url + "/member-service/address/memberId"
 if __name__ == "__main__":
 	pass  

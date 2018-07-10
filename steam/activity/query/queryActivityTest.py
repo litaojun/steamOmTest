@@ -46,6 +46,6 @@ class ActivityQueryTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\activity\\activityquerycase.xlsx",
-				          testclse=ActivityQueryTest
+				          casefilepath =  "\\steamcase\\activity\\activityquerycase.xlsx",
+				          testclse     =  ActivityQueryTest
 			           )

@@ -1,0 +1,29 @@
+{
+	"code": "000000",
+	"message": "成功",
+	"data": {
+		"orderId": "15311306036200000005112",
+		"title": "昆明、大理、洱海骑行、丽江、泸沽湖、香格里拉、7日轻奢之旅",
+		"skuName": "活动时间：8月4日-20日\t",
+		"resourceId": 1767,
+		"resourceTypeId": 12,
+		"state": 11,
+		"price": 0.01,
+		"payPrice": 0.01,
+		"postPrice": 0.00,
+		"num": 1,
+		"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180523163530_594379.png",
+		"dateStr": "2018-08-03~2018-08-10",
+		"addressDesc": "云南省昆明市",
+		"timeLeft": 3485649,
+		"payTime": null,
+		"createTime": 1531130603000,
+		"remark": "",
+		"ticketNo": null,
+		"deliverAddress": {
+								"name": "李陶军",
+								"address": "上海市市辖区长宁区 鹤永路580"
+						     },
+		"express": null
+	}
+}

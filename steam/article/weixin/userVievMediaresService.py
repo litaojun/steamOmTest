@@ -18,6 +18,9 @@ from steam.util.configurl import userViewMediaresUrl,userCancelThumbUpUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMediaresRspFmt
 from opg.util.httptools import httpGet,httpPost
+from steam.article.query.ArticleQueryService import ArticleQueryService
+
+
 class UserViewMediaresService(UopService):
     '''
         首页配置数据
@@ -38,7 +41,7 @@ class UserViewMediaresService(UopService):
         userViewMediaresRsp =  httpGet(
                                             url     = userViewMediaresUrl + self.userThumbUpReqjson,
                                             headers = self.jsonheart
-                                        )
+                                       )
         self.rsp = userViewMediaresRsp
         return userViewMediaresRsp
 
@@ -51,9 +54,14 @@ class UserViewMediaresService(UopService):
 
 if  __name__ == "__main__":
     kwarg = {
-                "resourceId": "2104",
-                "memberId": "09c1316f-b304-46b1-96ff-c9ebbd93a617"
+                "memberId": "09c1316f-b304-46b1-96ff-c9ebbd93a617",
+                "title": "OM的诞生与发展",
+                "resourceTypeId": 2
             }
+    aqs = ArticleQueryService(kwargs=kwarg)
+    queryResultRsp = aqs.queryArtcle()
+    rsid = aqs.getFirstResourceIdByRsp(queryRsp=queryResultRsp)
+    kwarg["resourceId"] = rsid
     uvms = UserViewMediaresService(kwarg=kwarg)
     rsp = uvms.userViewMediares()
     retcode = uvms.getRetcodeByRsp(response=rsp)
