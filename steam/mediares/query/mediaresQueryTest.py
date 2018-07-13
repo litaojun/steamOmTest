@@ -12,10 +12,18 @@
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from opg.unit.testcaseRunMgr import runTest
+from opg.unit.flaskRunMgr import runTest
+import threading
+from flask import Flask, jsonify,request
+from flask import Blueprint
 
+bapp = Blueprint('mediares', __name__)
 def func():
 	pass
 
+@bapp.route('/testcase/runSteamTest', methods=['GET'])
+def get_tasks():
+	return "ssas"
 
 class Main():
 	def __init__(self):

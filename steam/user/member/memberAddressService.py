@@ -42,11 +42,17 @@ class MemberAddressService(UopService):
         return self.rsp
 
     def getMemberAddressIdFromRsp(self,response=None):
+        if response is None:
+            response = self.memberAddressReq()
         return query_json(json_content=json.loads(response), query="data.0.id")
 
     @check_rspdata(filepath=memberAddressRspFmt)
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
+
+    def setInPutData(self):
+        memberAddrId  = self.getMemberAddressIdFromRsp()
+        self.sqlvaluedict["addressId"] = memberAddrId
 
 if __name__ == "__main__":
     kwargs = {

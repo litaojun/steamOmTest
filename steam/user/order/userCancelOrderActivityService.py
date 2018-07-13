@@ -18,6 +18,7 @@ from steam.util.configurl import userCancelOrderActivityUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserCancelOrderActivityReq,weixinUserCancelOrderActivityRspFmt
 from opg.util.httptools import httpGet,httpPost
+from steam.user.order.userOrederActivityService import UserOrderActivityService
 class UserCancelOrderActivityService(UopService):
     '''
         首页配置数据
@@ -29,10 +30,6 @@ class UserCancelOrderActivityService(UopService):
         """
         super(UserCancelOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userCancelOrderActivityReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin",
-                             "memberId":kwarg["memberId"]
-                         }
 
     @decorator(["tearInterfaceUserThumbUp"])
     def userCancelOrderActivity(self):
@@ -43,6 +40,11 @@ class UserCancelOrderActivityService(UopService):
                             )
         return self.rsp
 
+    @decorator(["preInterfaceUserOrderActivtiy"])
+    def userOrderActivity(self):
+        uos = UserOrderActivityService(kwarg=self.sqlvaluedict)
+        rsp = uos.userOrderActivity()
+        self.userCancelOrderActivityReqjson["orderId"] = uos.getOrderIdFromRsp(response=rsp)
 
     @check_rspdata(filepath=weixinUserCancelOrderActivityRspFmt)
     def getRetcodeByOrderRsp(self,response = None):

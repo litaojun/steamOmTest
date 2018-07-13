@@ -74,4 +74,4 @@ class ClassfiyAlertService(UopService):
         return query_json(json_content=json.loads(rsp), query="code")
 
 if __name__ == "__main__":
-	pass  
+   pass

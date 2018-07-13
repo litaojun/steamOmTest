@@ -18,6 +18,7 @@ from steam.util.configurl import userDetailOrderActivityUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserDetailOrderActivityReq,weixinUserDetailOrderActivityRspFmt
 from opg.util.httptools import httpGet,httpPost
+from steam.user.order.userOrederActivityService import UserOrderActivityService
 class UserDetailOrderActivityService(UopService):
     '''
         首页配置数据
@@ -29,12 +30,7 @@ class UserDetailOrderActivityService(UopService):
         """
         super(UserDetailOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userDetailOrderActivityReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin",
-                             "memberId":kwarg["memberId"]
-                         }
 
-    @decorator(["tearInterfaceUserThumbUp"])
     def userDetailOrderActivity(self):
         self.rsp =  httpPost(
                                         url     =   userDetailOrderActivityUrl,
@@ -46,6 +42,12 @@ class UserDetailOrderActivityService(UopService):
     @check_rspdata(filepath=weixinUserDetailOrderActivityRspFmt)
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
+
+    @decorator(["preInterfaceUserOrderActivtiy"])
+    def userOrderActivity(self):
+        uos = UserOrderActivityService(kwarg=self.sqlvaluedict)
+        rsp = uos.userOrderActivity()
+        self.userDetailOrderActivityReqjson["orderId"] = uos.getOrderIdFromRsp(response=rsp)
 
 if __name__ == "__main__":
     kwarg = {

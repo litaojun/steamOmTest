@@ -31,9 +31,6 @@ class ClassfiyAddService(UopService):
 							        "entryName": kwargs['entryName'],
 							        "picturePath": kwargs['picturePath'],
 						       }
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
 
     @decorator("tearInterfaceDelOneEntry")
     def delClassfiy(self):
@@ -63,7 +60,15 @@ class ClassfiyAddService(UopService):
         return query_json(json_content=json.loads(classfiyRsp), query="code")
 
     def getEntryIdByRsp(self,classfiyRsp = None):
-	    return query_json(json_content=json.loads(classfiyRsp), query="data")
+        return query_json(json_content=json.loads(classfiyRsp), query="data")
 
 if __name__ == "__main__":
-   pass
+   args = {
+             "entryName":"litaojun",
+             "picturePath":"www.sohu.com"
+          }
+   clsAddSer = ClassfiyAddService(kwargs=args)
+   rsp = clsAddSer.addClassfiy()
+   retcode = clsAddSer.getRetcodeByClassfiyRsp(classfiyRsp= rsp)
+   print(rsp)
+   clsAddSer.delClassfiy()

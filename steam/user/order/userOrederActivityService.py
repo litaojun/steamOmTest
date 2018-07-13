@@ -17,9 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userOrderActivityUrl,userCancelThumbUpUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserOrderActivityReq,weixinUserOrderActivityRspFmt
-from opg.util.httptools import httpGet,httpPost
-from opg.util.lginfo import  logger
-import operator as op
+from opg.util.httptools import httpPost
+#from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
 class UserOrderActivityService(UopService):
     '''
         首页配置数据
@@ -31,12 +30,8 @@ class UserOrderActivityService(UopService):
         """
         super(UserOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userThOrderActivityReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin",
-                             "memberId":kwarg["memberId"]
-                         }
 
-    @decorator(["tearInterfaceUserThumbUp"])
+    @decorator(["tearInterfaceUserOrderActivity","preInterfaceUserOrderActivity"])
     def userOrderActivity(self):
         self.rsp =  httpPost(
                                         url     =   userOrderActivityUrl,
@@ -45,10 +40,24 @@ class UserOrderActivityService(UopService):
                             )
         return self.rsp
 
-
     @check_rspdata(filepath=weixinUserOrderActivityRspFmt)
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
+
+    def getOrderIdFromRsp(self,response = None):
+        if response is None:
+            response = self.userOrderActivity()
+        return query_json(json_content=json.loads(response), query="data.orderId")
+
+    # def detailOrderActivtiy(self):
+    #     orderId = self.getOrderIdFromRsp(response=self.rsp)
+    #     self.sqlvaluedict["orderId"] = orderId
+    #     userDetailOrdSer = UserDetailOrderActivityService(kwarg=self.sqlvaluedict)
+    #     rsp = userDetailOrdSer.userDetailOrderActivity()
+    #     retcode = UserDetailOrderActivityService.getRetcodeByOrderRsp(response=rsp)
+    #     return retcode
+
+
 
 if __name__ == "__main__":
     kwarg = {
@@ -57,8 +66,9 @@ if __name__ == "__main__":
               "addressId":"b9a6e45e-8355-11e8-9033-02a7e93155ea",
               "payPrice":"0.01",
               "num":1,
-             "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4"
-           }
+              "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
+              "resourceTypeId": 12,
+            }
     userOrderAct = UserOrderActivityService(kwarg=kwarg)
     rsp = userOrderAct.userOrderActivity()
     print(rsp)

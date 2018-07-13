@@ -31,10 +31,6 @@ class UserListOrderActivityService(UopService):
         """
         super(UserListOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userListOrderActivityReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin",
-                             "memberId":kwarg["memberId"]
-                         }
 
     @decorator(["tearInterfaceUserThumbUp"])
     def userListOrderActivity(self):
@@ -72,11 +68,6 @@ class UserListOrderActivityService(UopService):
             orderId = data["orderId"]
             d[orderId] = data
         return  d
-
-
-
-
-
 
 
 if __name__ == "__main__":
