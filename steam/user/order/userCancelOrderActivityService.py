@@ -31,7 +31,7 @@ class UserCancelOrderActivityService(UopService):
         super(UserCancelOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userCancelOrderActivityReqjson = self.reqjsondata
 
-    @decorator(["tearInterfaceUserThumbUp"])
+    @decorator(["tearInterfaceUserCancelOrderActivity"])
     def userCancelOrderActivity(self):
         self.rsp =  httpPost(
                                         url     =   userCancelOrderActivityUrl,

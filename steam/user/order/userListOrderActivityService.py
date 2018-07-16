@@ -32,7 +32,6 @@ class UserListOrderActivityService(UopService):
         super(UserListOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userListOrderActivityReqjson = self.reqjsondata
 
-    @decorator(["tearInterfaceUserThumbUp"])
     def userListOrderActivity(self):
         self.rsp =  httpPost(
                                         url     =   userListOrderActivityUrl,
