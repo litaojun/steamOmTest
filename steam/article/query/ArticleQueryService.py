@@ -25,11 +25,11 @@ class ArticleQueryService(UopService):
         :param picturePath:
         """
         super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleQueryReq))
-        self.rsp = None
+        # self.rsp = None
         self.queryArticleUrl = queryArticleurl + self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
 
     def queryArtcle(self):
         queryResultrsp = httpGet(url=self.queryArticleUrl,headers={})

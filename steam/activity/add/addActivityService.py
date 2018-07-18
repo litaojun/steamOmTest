@@ -29,13 +29,8 @@ class ActivityAddService(UopService):
         :param picturePath:
         """
         fxt = getfileopertr()
-        reqMatPath = fxt.join(["","steam","activity","jsonfmt","addActivityReq.txt"])
-        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = reqMatPath)
-        self.rsp = None
+        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = "addActivityReq")
         self.activityAddReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
 
     @decorator("tearInterfaceDelOneArticle")
     def delActivity(self):
@@ -46,23 +41,21 @@ class ActivityAddService(UopService):
 									        headers=self.jsonheart,
 									        verify=False
 								      )
-        print("delclassfiyRsp = %s" % delclassfiyRsp.text)
         return delclassfiyRsp.text
 
     def addActivity(self):
-        addActivityRsp = httpPost(url=addActivityurl,reqJsonData=self.activityAddReqjson,headers= self.jsonheart)
+        addActivityRsp = httpPost(url=addActivityurl,
+								  reqJsonData=self.activityAddReqjson,
+								  headers= self.jsonheart)
         self.rsp = addActivityRsp
         return addActivityRsp
 
-    @check_rspdata(filepath=fxt.join(activityAddRspFmt))
+    #@check_rspdata(filepath=fxt.join(activityAddRspFmt))
+    @check_rspdata(filepath="addActivityRspFmt")
     def getRetcodeByActivityRsp(self,response = None):
-        print("activityRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
     def getActivityIdByRsp(self,activityRsp = None):
-        # articleQs = ActivityQueryService(kwargs={"title":self.articleReqjson["title"],"resourceTypeId":self.articleReqjson["resourceTypeId"]})
-        # queryRsp = articleQs.queryArtcle()
-        # rssid = articleQs.getFirstActivityIdByRsp(queryRsp = queryRsp)
         rssid = query_json(json_content=json.loads(activityRsp), query="data.resourceId")
         return rssid
 

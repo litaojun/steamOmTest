@@ -1,9 +1,0 @@
-steam:
-   activity:
-        jsonfmt:addActivityReq
-   article:
-        jsonfmt:
-   home:
-      jsonfmt:
-   user:
-      jsonfmt:

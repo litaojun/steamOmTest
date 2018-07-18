@@ -16,22 +16,25 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
+from steam.util.testJsonFormat import initInput
 from steam.user.order.userListOrderActivityService import UserListOrderActivityService
 class UserListOrderActivityTest(SteamTestCase):
       '''
             点赞
       '''
       __interfaceName__ = "/order-service/order"
+      @initInput(services=[],
+                 curser=UserListOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserListOrderActivityTest,self).__init__(methodName,param)
           # ActivitySearchService(kwargs=self.inputdata).setInPutData()
           # MemberAddressService(kwargs=self.inputdata).setInPutData()
-          self.userListOrderSer = UserListOrderActivityService(self.inputdata)
-          self.setService(self.userListOrderSer)
+          # self.userListOrderSer = UserListOrderActivityService(self.inputdata)
+          # self.setService(self.userListOrderSer)
 
       def userListOrderActivity(self):
-          userListOrderRsp = self.userListOrderSer.userListOrderActivity()
-          retcode = self.userListOrderSer.getRetcodeByListOrderRsp(response=userListOrderRsp)
+          userListOrderRsp = self.myservice.userListOrderActivity()
+          retcode = self.myservice.getRetcodeByListOrderRsp(response=userListOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

@@ -9,7 +9,8 @@
 @file: configurl.py 
 @time: 2018/4/18 14:40 
 """
-
+from opg.util.fileOper import walk_dir_test
+import os
 base_url = "https://uat-steam-api.opg.cn"
 addentryurl = base_url + "/resource-service/resource/addEntry"
 alertentryurl = base_url +"/resource-service/resource/modifyEntry"
@@ -46,4 +47,14 @@ userDetailOrderActivityUrl = base_url + "/order-service/order/detail"
 userListOrderActivityUrl = base_url + "/order-service/order"
 memberAddressUrl = base_url + "/member-service/address/memberId"
 if __name__ == "__main__":
-	pass  
+	als = walk_dir_test(dir=os.getcwd(),sign="Req",endstr=".txt")
+	print(als)
+	a = [os.path.basename(path) for path in als]
+	print(a)
+	als = walk_dir_test(dir=os.getcwd(),sign="Fmt",endstr=".json")
+	print(als)
+	mt = {}
+	a = [(os.path.basename(path).split(".")[0],path) for path in als]
+	for cs in a:
+		mt[cs[0]] = cs[1]
+	print(str(mt))

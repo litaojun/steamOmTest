@@ -10,14 +10,14 @@
 @time: 2018/4/20 16:17 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import addArticleurl
 from steam.util.configurl import delArticleurl
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import  fxt,articleAddReq,articleAddRspFmt
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 class ArticleAddService(UopService):
     '''
         分类新增
@@ -28,11 +28,11 @@ class ArticleAddService(UopService):
         :param picturePath:
         """
         super(ArticleAddService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleAddReq))
-        self.rsp = None
+        # self.rsp = None
         self.articleReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
 
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
@@ -40,7 +40,6 @@ class ArticleAddService(UopService):
         delclassfiyRsp = httpPost(url=delArticleurl,
                                   headers=self.jsonheart,
                                   reqJsonData={"resourceId": articleid})
-        print("delclassfiyRsp = %s" % delclassfiyRsp)
         return delclassfiyRsp
 
     def addArticle(self):
@@ -48,14 +47,10 @@ class ArticleAddService(UopService):
                                  headers=self.jsonheart,
                                  reqJsonData=self.articleReqjson)
         self.rsp = addArticleRsp
-        print("addArticleRsp = %s" % addArticleRsp)
         return addArticleRsp
 
     @check_rspdata(filepath=fxt.join(articleAddRspFmt))
     def getRetcodeByArticleRsp(self,response = None):
-        print("articleRsp=" + str(response))
-        a = type(response)
-        print(a)
         return query_json(json_content=json.loads(response), query="code")
 
     def getArticleIdByRsp(self,articleRsp = None):

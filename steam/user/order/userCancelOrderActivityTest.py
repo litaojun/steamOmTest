@@ -11,27 +11,32 @@
 @file: userCancelOrderActivityTest.py 
 @time: 2018/7/11 10:09 
 """
-from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userCancelOrderActivityService import UserCancelOrderActivityService
+from steam.util.testJsonFormat import initInput
+from steam.user.order.userOrederActivityService import UserOrderActivityService
+
 class UserCancelOrderActivityTest(SteamTestCase):
       '''
-            点赞
+            取消点赞
       '''
       __interfaceName__ = "/order-service/order/cancel"
+      @initInput(services=[ActivitySearchService,
+                           MemberAddressService],
+                 curser=UserCancelOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelOrderActivityTest,self).__init__(methodName,param)
-          ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          MemberAddressService(kwargs=self.inputdata).setInPutData()
-          self.userCanclOrderSer = UserCancelOrderActivityService(self.inputdata)
-          self.setService(self.userCanclOrderSer)
+          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
+          # MemberAddressService(kwargs=self.inputdata).setInPutData()
+          # self.userCanclOrderSer = UserCancelOrderActivityService(kwarg = self.inputdata)
+          # self.setService(self.userCanclOrderSer)
 
       def userCancelOrderActivity(self):
-          userCancelOrderRsp = self.userCanclOrderSer.userCancelOrderActivity()
-          retcode = self.userCanclOrderSer.getRetcodeByOrderRsp(response=userCancelOrderRsp)
+          userCancelOrderRsp = self.myservice.userCancelOrderActivity()
+          retcode = self.myservice.getRetcodeByOrderRsp(response=userCancelOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

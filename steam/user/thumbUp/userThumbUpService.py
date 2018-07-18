@@ -24,17 +24,13 @@ class UserThumbUpService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserThumbUpReq):
+    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = "weixinUserThumbUpReq"):
         """
             :param entryName:
             :param picturePath:
         """
         super(UserThumbUpService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        self.rsp = None
         self.userThumbUpReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
 
     @decorator(["tearInterfaceUserThumbUp","preInterfaceUserThumbUp"])
     def userThumbUp(self):
@@ -54,7 +50,7 @@ class UserThumbUpService(UopService):
                              )
         return  self.rsp
 
-    @check_rspdata(filepath=weixinUserThumbUpRspFmt)
+    @check_rspdata(filepath="weixinUserThumbUpRspFmt")
     def getRetcodeByThumbUpRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 

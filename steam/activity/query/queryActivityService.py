@@ -25,12 +25,12 @@ class ActivityQueryService(UopService):
         :param picturePath:
         """
         super(ActivityQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityQueryReq))
-        self.rsp = None
+        # self.rsp = None
         #self.activityQueryReqjson = self.reqjsondata
         self.queryIdActivityurl =queryIdActivityurl +  self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
         #self.initReqJsonIdData(kwargs)
 
     def initReqJsonIdData(self,kwargs):

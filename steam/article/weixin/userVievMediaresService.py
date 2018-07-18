@@ -31,11 +31,11 @@ class UserViewMediaresService(UopService):
             :param picturePath:
         """
         super(UserViewMediaresService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        self.rsp = None
+        # self.rsp = None
         self.userThumbUpReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
 
     def userViewMediares(self):
         userViewMediaresRsp =  httpGet(

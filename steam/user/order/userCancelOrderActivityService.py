@@ -16,14 +16,13 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userCancelOrderActivityUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserCancelOrderActivityReq,weixinUserCancelOrderActivityRspFmt
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 from steam.user.order.userOrederActivityService import UserOrderActivityService
 class UserCancelOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserCancelOrderActivityReq):
+    def __init__(self, kwarg = {},modul = "",filename = "",reqjsonfile = "weixinUserCancelOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
@@ -31,7 +30,7 @@ class UserCancelOrderActivityService(UopService):
         super(UserCancelOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
         self.userCancelOrderActivityReqjson = self.reqjsondata
 
-    @decorator(["tearInterfaceUserCancelOrderActivity"])
+    # @decorator(["tearInterfaceUserCancelOrderActivity"])
     def userCancelOrderActivity(self):
         self.rsp =  httpPost(
                                         url     =   userCancelOrderActivityUrl,
@@ -42,11 +41,12 @@ class UserCancelOrderActivityService(UopService):
 
     @decorator(["preInterfaceUserOrderActivtiy"])
     def userOrderActivity(self):
-        uos = UserOrderActivityService(kwarg=self.sqlvaluedict)
+        uos = UserOrderActivityService(kwargs=self.sqlvaluedict)
         rsp = uos.userOrderActivity()
         self.userCancelOrderActivityReqjson["orderId"] = uos.getOrderIdFromRsp(response=rsp)
 
-    @check_rspdata(filepath=weixinUserCancelOrderActivityRspFmt)
+    #@check_rspdata(filepath=weixinUserCancelOrderActivityRspFmt)
+    @check_rspdata(filepath="weixinUserCancelOrderActivitisRspFmt")
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 

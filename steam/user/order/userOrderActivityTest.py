@@ -16,21 +16,25 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
+from steam.util.testJsonFormat import initInput
+
 class UserOrderActivityTest(SteamTestCase):
       '''
             点赞
       '''
       __interfaceName__ = "/order-service/order/submitAndPay"
+      @initInput(services=[ActivitySearchService,MemberAddressService],
+                 curser=UserOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserOrderActivityTest,self).__init__(methodName,param)
-          ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          MemberAddressService(kwargs=self.inputdata).setInPutData()
-          self.userOrderSer = UserOrderActivityService(self.inputdata)
-          self.setService(self.userOrderSer)
+          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
+          # MemberAddressService(kwargs=self.inputdata).setInPutData()
+          # self.userOrderSer = UserOrderActivityService(self.inputdata)
+          # self.setService(self.userOrderSer)
 
       def userOrderActivity(self):
-          userOrderRsp = self.userOrderSer.userOrderActivity()
-          retcode = self.userOrderSer.getRetcodeByOrderRsp(response=userOrderRsp)
+          userOrderRsp = self.myservice.userOrderActivity()
+          retcode = self.myservice.getRetcodeByOrderRsp(response=userOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

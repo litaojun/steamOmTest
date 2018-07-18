@@ -24,12 +24,12 @@ class UserListOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserListOrderActivityReq):
+    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserListOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserListOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
+        super(UserListOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
         self.userListOrderActivityReqjson = self.reqjsondata
 
     def userListOrderActivity(self):
@@ -40,7 +40,7 @@ class UserListOrderActivityService(UopService):
                             )
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserListOrderActivityRspFmt)
+    @check_rspdata(filepath="weixinUserListOrderActivitisRspFmt")
     def getRetcodeByListOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 

@@ -29,6 +29,18 @@ def compare(a,b):
     validator = Validator(jsona)
     validator.validate(jsonb)
 
+def initInput(services=[],curser=None):
+    def _call(fun):
+        def __call(*args,**kwargs):
+            fun(*args, **kwargs)
+            sf = args[0]
+            for ser in services:
+                ser(kwargs=sf.inputdata).setInPutData()
+            sf.myservice = curser(kwargs = sf.inputdata)
+            sf.setService(sf.myservice)
+        return __call
+    return _call
+
 if __name__ == "__main__":
     t = fxt.join(["","steam","home","jsonfmt","homePositionRsp.json"])
     compare(a = homePositionRspFmt,b = t)

@@ -10,10 +10,8 @@
 @time: 2018/5/9 17:44 
 """
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
 from steam.activity.alert.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
 class ActivityAlertTest(ParametrizedTestCase):
       '''
             新增文章
@@ -21,8 +19,6 @@ class ActivityAlertTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-resource/admin/product/update-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivityAlertService(self.inputdata)
           self.setService(self.activitySer)
 

@@ -18,21 +18,23 @@ from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userCancelOrderActivityService import UserCancelOrderActivityService
 from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
+from steam.util.testJsonFormat import initInput
 class UserDetailOrderActivityTest(SteamTestCase):
       '''
             点赞
       '''
       __interfaceName__ = "/order-service/order/detail"
+      @initInput(services=[ActivitySearchService,MemberAddressService],curser=UserDetailOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserDetailOrderActivityTest,self).__init__(methodName,param)
-          ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          MemberAddressService(kwargs=self.inputdata).setInPutData()
-          self.userDetailOrderSer = UserDetailOrderActivityService(kwarg=self.inputdata)
-          self.setService(self.userDetailOrderSer)
+          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
+          # MemberAddressService(kwargs=self.inputdata).setInPutData()
+          # self.userDetailOrderSer = UserDetailOrderActivityService(kwarg=self.inputdata)
+          # self.setService(self.userDetailOrderSer)
 
       def userDetailOrderActivity(self):
-          userDetailOrderRsp = self.userDetailOrderSer.userDetailOrderActivity()
-          retcode = self.userDetailOrderSer.getRetcodeByOrderRsp(response=userDetailOrderRsp)
+          userDetailOrderRsp = self.myservice.userDetailOrderActivity()
+          retcode = self.myservice.getRetcodeByOrderRsp(response=userDetailOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

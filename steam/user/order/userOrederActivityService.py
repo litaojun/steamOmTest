@@ -23,12 +23,12 @@ class UserOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserOrderActivityReq):
+    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
+        super(UserOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
         self.userThOrderActivityReqjson = self.reqjsondata
 
     @decorator(["tearInterfaceUserOrderActivity","preInterfaceUserOrderActivity"])
@@ -40,7 +40,7 @@ class UserOrderActivityService(UopService):
                             )
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserOrderActivityRspFmt)
+    @check_rspdata(filepath="weixinUserOrderActivitisRspFmt")
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
@@ -48,16 +48,6 @@ class UserOrderActivityService(UopService):
         if response is None:
             response = self.userOrderActivity()
         return query_json(json_content=json.loads(response), query="data.orderId")
-
-    # def detailOrderActivtiy(self):
-    #     orderId = self.getOrderIdFromRsp(response=self.rsp)
-    #     self.sqlvaluedict["orderId"] = orderId
-    #     userDetailOrdSer = UserDetailOrderActivityService(kwarg=self.sqlvaluedict)
-    #     rsp = userDetailOrdSer.userDetailOrderActivity()
-    #     retcode = UserDetailOrderActivityService.getRetcodeByOrderRsp(response=rsp)
-    #     return retcode
-
-
 
 if __name__ == "__main__":
     kwarg = {
@@ -69,6 +59,6 @@ if __name__ == "__main__":
               "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
               "resourceTypeId": 12,
             }
-    userOrderAct = UserOrderActivityService(kwarg=kwarg)
+    userOrderAct = UserOrderActivityService(kwargs=kwarg)
     rsp = userOrderAct.userOrderActivity()
     print(rsp)

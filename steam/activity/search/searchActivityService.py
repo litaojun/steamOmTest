@@ -26,11 +26,11 @@ class ActivitySearchService(UopService):
         :param picturePath:
         """
         super(ActivitySearchService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activitySearchReq))
-        self.rsp = None
+        # self.rsp = None
         self.activityQueryReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
 
     def queryActivity(self):
         queryResult = requests.post(url = searchActivityurl,

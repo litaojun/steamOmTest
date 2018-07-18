@@ -31,11 +31,11 @@ class UserViewActivityService(UopService):
             :param picturePath:
         """
         super(UserViewActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        self.rsp = None
+        # self.rsp = None
         self.userViewActivityReqjson = userViewActivityUrl + self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
 
     def userViewActivity(self):
         userViewActivityRsp =  httpGet(

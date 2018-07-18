@@ -28,12 +28,12 @@ class ActivityPublishService(UopService):
         :param picturePath:
         """
         super(ActivityPublishService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityUpReq))
-        self.rsp = None
+        # self.rsp = None
         #self.publisActUrl = upActivityurl + self.reqjsondata
         self.activityUpReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
         #self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"],"title": kwargs["title"]})
 
     def publishActivitySer(self):

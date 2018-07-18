@@ -28,11 +28,11 @@ class ActivityAlertService(UopService):
         :param picturePath:
         """
         super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile=fxt.join(activityAlertReq))
-        self.rsp = None
+        # self.rsp = None
         self.activityAlertReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        # self.jsonheart = {
+	     #                     "x-token":"admin"
+        #                  }
         self.activityAddSer = ActivityAddService(kwargs=kwargs)
         self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
 
