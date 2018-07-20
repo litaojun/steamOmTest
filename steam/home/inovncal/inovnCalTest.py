@@ -23,8 +23,6 @@ class InovnCalTest(SteamTestCase):
       __interfaceName__ = "/featured/index/configs/pageQueryPositionShows-inovncal"
       def __init__(self, methodName='runTest', param=None):
           super(InovnCalTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.homeHotSer = HomeHotPositionService(self.inputdata)
           self.setService(self.homeHotSer)
 

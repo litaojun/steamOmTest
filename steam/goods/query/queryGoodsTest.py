@@ -25,8 +25,6 @@ class GoodsQueryTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-resource/admin/product/query-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsQueryTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 

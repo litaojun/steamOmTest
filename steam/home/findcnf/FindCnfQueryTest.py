@@ -23,8 +23,6 @@ class FindCnfQueryTest(SteamTestCase):
       __interfaceName__ = "/featured/index/configs/queryShowConfigs-findcnf"
       def __init__(self, methodName='runTest', param=None):
           super(FindCnfQueryTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.homeCnfQuerySer = HomeCnfQueryService(self.inputdata)
           self.setService(self.homeCnfQuerySer)
 

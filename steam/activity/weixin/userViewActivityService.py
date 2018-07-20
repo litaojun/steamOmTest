@@ -25,17 +25,13 @@ class UserViewActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserViewActivityReq):
+    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = "weixinUserViewActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
         super(UserViewActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        # self.rsp = None
         self.userViewActivityReqjson = userViewActivityUrl + self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
 
     def userViewActivity(self):
         userViewActivityRsp =  httpGet(

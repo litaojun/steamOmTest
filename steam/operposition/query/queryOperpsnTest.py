@@ -21,8 +21,6 @@ class OperpsnQueryTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-featured/homeConfig/listData"
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnQueryTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.operpsnQuerySer = OperpsnQueryService(self.inputdata)
           self.setService(self.operpsnQuerySer)
 

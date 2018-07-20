@@ -23,8 +23,6 @@ class GoodsSearchTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-resource/admin/product/page-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsSearchTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 

@@ -1,0 +1,9 @@
+https://uat-steam-api.opg.cn/steam-resource/resource/uploadImages
+
+{
+	"code": "000000",
+	"message": "成功",
+	"data": {
+		"links": ["http://uat-steam.opg.cn/_static/admin/images/resource/20180720142714_267655.jpg"]
+	}
+}

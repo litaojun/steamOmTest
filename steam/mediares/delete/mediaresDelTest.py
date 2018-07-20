@@ -21,8 +21,6 @@ class MediaresDelTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-media/media/deleteMedia"
       def __init__(self, methodName='runTest', param=None):
           super(MediaresDelTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.articleSer = ArticleDelService(self.inputdata)
           self.setService(self.articleSer)
 

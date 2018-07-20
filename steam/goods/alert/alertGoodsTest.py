@@ -21,8 +21,6 @@ class GoodsAlertTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-resource/admin/product/update-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsAlertTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivityAlertService(self.inputdata)
           self.setService(self.activitySer)
 

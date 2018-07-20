@@ -21,8 +21,6 @@ class GoodsAddTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-resource/admin/product/add-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsAddTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivityAddService(self.inputdata)
           self.setService(self.activitySer)
 

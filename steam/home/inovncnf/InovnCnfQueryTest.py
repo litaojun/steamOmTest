@@ -23,8 +23,6 @@ class InovnCnfQueryTest(SteamTestCase):
       __interfaceName__ = "/featured/index/configs/queryShowConfigs-invoencnf"
       def __init__(self, methodName='runTest', param=None):
           super(InovnCnfQueryTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.homeCnfQuerySer = HomeCnfQueryService(self.inputdata)
           self.setService(self.homeCnfQuerySer)
 

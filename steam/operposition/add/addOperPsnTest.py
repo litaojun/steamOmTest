@@ -21,8 +21,6 @@ class OperpsnAddTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-featured/homeConfig/createConfig"
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnAddTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.operpsnSer = OperpsnAddService(self.inputdata)
           self.setService(self.operpsnSer)
 

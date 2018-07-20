@@ -13,12 +13,10 @@ from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.httptools import httpPost
 from opg.util.utils import query_json
-from steam.util.configurl import addActivityurl,queryIdActivityurl
-from steam.article.query.ArticleQueryService import ArticleQueryService
+from steam.util.configurl import addActivityurl
 from opg.util.schemajson import check_rspdata
 from opg.util.isSystemType import  getfileopertr
-from steam.util.reqFormatPath import fxt,activityAddReq,activityAddRspFmt
-from steam.activity.query.queryActivityService import ActivityQueryService
+
 class ActivityAddService(UopService):
     '''
         活动新增
@@ -28,7 +26,6 @@ class ActivityAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        fxt = getfileopertr()
         super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = "addActivityReq")
         self.activityAddReqjson = self.reqjsondata
 
@@ -44,8 +41,8 @@ class ActivityAddService(UopService):
         return delclassfiyRsp.text
 
     def addActivity(self):
-        addActivityRsp = httpPost(url=addActivityurl,
-								  reqJsonData=self.activityAddReqjson,
+        addActivityRsp = httpPost(url         = addActivityurl,
+								  reqJsonData = self.activityAddReqjson,
 								  headers= self.jsonheart)
         self.rsp = addActivityRsp
         return addActivityRsp

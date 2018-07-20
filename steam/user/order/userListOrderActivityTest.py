@@ -27,10 +27,6 @@ class UserListOrderActivityTest(SteamTestCase):
                  curser=UserListOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserListOrderActivityTest,self).__init__(methodName,param)
-          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          # MemberAddressService(kwargs=self.inputdata).setInPutData()
-          # self.userListOrderSer = UserListOrderActivityService(self.inputdata)
-          # self.setService(self.userListOrderSer)
 
       def userListOrderActivity(self):
           userListOrderRsp = self.myservice.userListOrderActivity()

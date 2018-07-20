@@ -47,8 +47,8 @@ class ActivitySearchService(UopService):
         if self.rsp is None:
             self.rsp  = self.queryActivity()
         actId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        self.sqlvaluedict["resourceId"] = actId
-        userViewActSer = UserViewActivityService(kwarg=self.sqlvaluedict )
+        self.inputKV["resourceId"] = actId
+        userViewActSer = UserViewActivityService(kwarg=self.inputKV )
         sku = userViewActSer.getSkuByName(skuName=skuName)
         return sku
 
@@ -58,11 +58,11 @@ class ActivitySearchService(UopService):
     def getSkuPayPriceBySkuName(self,skuName=""):
         return self.gesku()["skuName"]
     def setInPutData(self):
-        sku = self.getSku(skuName=self.sqlvaluedict["skuName"])
+        sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        self.sqlvaluedict["skuId"] = sku["skuId"]
-        self.sqlvaluedict["resourceId"] = resourceId
-        self.sqlvaluedict["payPrice"] = sku["price"]
+        self.inputKV["skuId"] = sku["skuId"]
+        self.inputKV["resourceId"] = resourceId
+        self.inputKV["payPrice"] = sku["price"]
 
 
     def getRetcodeByActRsp(self,queryRsp = None):

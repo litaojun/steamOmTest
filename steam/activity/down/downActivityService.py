@@ -28,14 +28,7 @@ class ActivityUnPublishService(UopService):
         :param picturePath:
         """
         super(ActivityUnPublishService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityDownReq))
-        # self.rsp = None
-        #self.publisActUrl = upActivityurl + self.reqjsondata
         self.activityDownReqjson = self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
-        #self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"],"title": kwargs["title"]})
-
 
     def unPublishActivitySer(self):
         pubActivityRsp = requests.post(

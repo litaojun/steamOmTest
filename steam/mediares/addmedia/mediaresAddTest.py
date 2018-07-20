@@ -20,8 +20,6 @@ class MediaresAddTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-media/media/addMedia"
       def __init__(self, methodName='runTest', param=None):
           super(MediaresAddTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.articleSer = ArticleAddService(self.inputdata)
           self.setService(self.articleSer)
 

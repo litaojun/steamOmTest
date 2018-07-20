@@ -20,17 +20,13 @@ from steam.util.testJsonFormat import initInput
 
 class UserOrderActivityTest(SteamTestCase):
       '''
-            点赞
+            用户订购活动
       '''
       __interfaceName__ = "/order-service/order/submitAndPay"
       @initInput(services=[ActivitySearchService,MemberAddressService],
                  curser=UserOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserOrderActivityTest,self).__init__(methodName,param)
-          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          # MemberAddressService(kwargs=self.inputdata).setInPutData()
-          # self.userOrderSer = UserOrderActivityService(self.inputdata)
-          # self.setService(self.userOrderSer)
 
       def userOrderActivity(self):
           userOrderRsp = self.myservice.userOrderActivity()

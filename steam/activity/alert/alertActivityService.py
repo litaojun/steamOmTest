@@ -24,15 +24,11 @@ class ActivityAlertService(UopService):
     '''
     def __init__(self, kwargs):
         """
-        :param entryName:
-        :param picturePath:
+            :param entryName:
+            :param picturePath:
         """
-        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile=fxt.join(activityAlertReq))
-        # self.rsp = None
+        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile="alertActivityReq")
         self.activityAlertReqjson = self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
         self.activityAddSer = ActivityAddService(kwargs=kwargs)
         self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
 
@@ -65,7 +61,6 @@ class ActivityAlertService(UopService):
         self.idToValueByFormat(formatstr="skuList.%d.skuId",idlist=skulist)
         self.idToValueByFormat(formatstr="imageList.%d.id", idlist=imglist)
         self.idToValueByFormat(formatstr="shareInfoList.%d.id", idlist=sharelist)
-
 
     def idToValueByFormat(self,formatstr = "" ,idlist = []):
         for i,idvalue in enumerate(idlist):

@@ -20,8 +20,6 @@ class OperpsnDelTest(ParametrizedTestCase):
       __interfaceName__ = "/resource-service/resource/removeEntry"
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnDelTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.classfiySer = ClassfiyDelService(self.inputdata)
           self.setService(self.classfiySer)
 

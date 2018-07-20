@@ -52,7 +52,7 @@ class MemberAddressService(UopService):
 
     def setInPutData(self):
         memberAddrId  = self.getMemberAddressIdFromRsp()
-        self.sqlvaluedict["addressId"] = memberAddrId
+        self.inputKV["addressId"] = memberAddrId
 
 if __name__ == "__main__":
     kwargs = {

@@ -20,8 +20,6 @@ class OperpsnAlertTest(ParametrizedTestCase):
       __interfaceName__ = "/steam-featured/homeConfig/removeIndexConfig"
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnAlertTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.operpsnSer = OperpsnAlertService(self.inputdata)
           self.setService(self.operpsnSer)
 

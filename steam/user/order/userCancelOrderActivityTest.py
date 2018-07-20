@@ -29,10 +29,7 @@ class UserCancelOrderActivityTest(SteamTestCase):
                  curser=UserCancelOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelOrderActivityTest,self).__init__(methodName,param)
-          # ActivitySearchService(kwargs=self.inputdata).setInPutData()
-          # MemberAddressService(kwargs=self.inputdata).setInPutData()
-          # self.userCanclOrderSer = UserCancelOrderActivityService(kwarg = self.inputdata)
-          # self.setService(self.userCanclOrderSer)
+
 
       def userCancelOrderActivity(self):
           userCancelOrderRsp = self.myservice.userCancelOrderActivity()
