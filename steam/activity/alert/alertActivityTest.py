@@ -12,6 +12,7 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.alert.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
+
 class ActivityAlertTest(ParametrizedTestCase):
       '''
             新增文章
