@@ -12,13 +12,12 @@
 @time: 2018/7/10 16:08 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import memberAddressUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import memberAddressReq,memberAddressRspFmt
-from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
-from opg.util.httptools import httpGet,httpPost
+from steam.util.reqFormatPath import memberAddressRspFmt
+from opg.util.httptools import httpGet
 class MemberAddressService(UopService):
     '''
         微信端用户登录
@@ -29,12 +28,7 @@ class MemberAddressService(UopService):
             :param picturePath:
         """
         super(MemberAddressService, self).__init__("", "", kwargs )
-        self.rsp = None
         self.memberAddressReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin",
-                             "memberId":kwargs["memberId"]
-                         }
 
     def memberAddressReq(self):
         self.rsp = httpGet(url     = memberAddressUrl,

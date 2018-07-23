@@ -41,7 +41,7 @@ class UserCancelOrderActivityService(UopService):
 
     @decorator(["preInterfaceUserOrderActivtiy"])
     def userOrderActivity(self):
-        uos = UserOrderActivityService(kwargs=self.sqlvaluedict)
+        uos = UserOrderActivityService(kwargs=self.inputKV)
         rsp = uos.userOrderActivity()
         self.userCancelOrderActivityReqjson["orderId"] = uos.getOrderIdFromRsp(response=rsp)
 

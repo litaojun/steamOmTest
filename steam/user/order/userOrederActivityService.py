@@ -34,8 +34,8 @@ class UserOrderActivityService(UopService):
     @decorator(["tearInterfaceUserOrderActivity","preInterfaceUserOrderActivity"])
     def userOrderActivity(self):
         self.rsp =  httpPost(
-                                        url     =   userOrderActivityUrl,
-                                        headers =    self.jsonheart,
+                                        url     =   userOrderActivityUrl ,
+                                        headers =    self.jsonheart      ,
                                         reqJsonData =  self.userThOrderActivityReqjson
                             )
         return self.rsp

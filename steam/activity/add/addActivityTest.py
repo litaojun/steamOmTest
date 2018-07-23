@@ -12,7 +12,6 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
-import unittest
 
 class ActivityAddTest(ParametrizedTestCase):
       '''
