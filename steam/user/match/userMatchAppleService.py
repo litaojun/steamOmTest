@@ -14,7 +14,7 @@
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinUserLoginurl
+from steam.util.configurl import userMatchAppleUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from opg.util.httptools import httpGet,httpPost
@@ -27,27 +27,35 @@ class UserMatchAppleService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "UserMatchAppleRspFmt")
-        self.userMacthAppleReqjson = self.reqjsondata
+        super(UserMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "userMatchAppleReq")
 
-    def weixinUserLogin(self):
-        self.rsp = httpPost(url=weixinUserLoginurl,
+    def userMatchApple(self):
+        self.rsp = httpPost(url=userMatchAppleUrl,
                             headers=self.jsonheart,
-                            reqJsonData=self.weixinUserLoginReqjson)
+                            reqJsonData=self.reqjsondata)
         return self.rsp
 
-
-    def getMemberIdFromRsp(self,response=None):
-        return query_json(json_content=json.loads(response), query="data.memberId")
-
-    @check_rspdata(filepath=weixinUserLoginRspFmt)
-    def getRetcodeByUserLoginRsp(self,response = None):
-        print("homePageCnfRsp=" + str(response))
+    @check_rspdata(filepath = "userMatchAppleRspFmt")
+    def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
 if __name__ == "__main__":
    args = {
-              "phoneNo":"18916899938",
-              "loginType":"NM",
-              "verfiyCode":""
-          }
+            "matchId": 22,
+            "subMatchId": 23,
+            "subjectIdList": [1, 4, 6],
+            "contactName": "李陶军",
+            "contactPhone": "18916899938",
+            "studentName": "李陶军",
+            "province": "上海",
+            "city": "上海市",
+            "country": "黄浦区",
+            "group": "幼儿园",
+            "school": "文庙路幼儿园",
+            "nationality": "",
+            "subMatchName": "亲子擂台赛初赛",
+            "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4"
+        }
+   umps = UserMatchAppleService(kwargs=args)
+   rsp = umps.userMatchApple()
+   print(rsp)

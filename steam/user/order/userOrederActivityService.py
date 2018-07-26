@@ -16,9 +16,7 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userOrderActivityUrl,userCancelThumbUpUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserOrderActivityReq,weixinUserOrderActivityRspFmt
 from opg.util.httptools import httpPost
-#from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
 class UserOrderActivityService(UopService):
     '''
         首页配置数据

@@ -20,7 +20,7 @@ from steam.util.reqFormatPath import memberAddressRspFmt
 from opg.util.httptools import httpGet
 class MemberAddressService(UopService):
     '''
-        微信端用户登录
+        微信端用户新增一个地址
     '''
     def __init__(self, kwargs):
         """
@@ -28,7 +28,6 @@ class MemberAddressService(UopService):
             :param picturePath:
         """
         super(MemberAddressService, self).__init__("", "", kwargs )
-        self.memberAddressReqjson = self.reqjsondata
 
     def memberAddressReq(self):
         self.rsp = httpGet(url     = memberAddressUrl,
@@ -39,6 +38,17 @@ class MemberAddressService(UopService):
         if response is None:
             response = self.memberAddressReq()
         return query_json(json_content=json.loads(response), query="data.0.id")
+
+    def getMemberAddressIdByNameOrTel(self,response = None,conName="",conTel=""):
+        if response is None:
+            response = self.memberAddressReq()
+        id = None
+        adsLs = query_json(json_content=json.loads(response), query="data")
+        for address in adsLs:
+            if address["consignee"] == conName and address["phone"] == conTel:
+                id = address["id"]
+                break
+        return id
 
     @check_rspdata(filepath=memberAddressRspFmt)
     def getRetcodeByRsp(self,response = None):

@@ -1,0 +1,15 @@
+{
+	"matchId": %(matchId)d,
+	"subMatchId": %(subMatchId)d,
+	"subjectIdList": [1, 4, 6],
+	"contactName": "%(contactName)s",
+	"contactPhone": "%(contactPhone)s",
+	"studentName": "%(studentName)s",
+	"province": "%(province)s",
+	"city": "%(city)s",
+	"country": "%(country)s",
+	"group": "%(group)s",
+	"school": "%(school)s",
+	"nationality": "",
+	"subMatchName": "%(subMatchName)s"
+}

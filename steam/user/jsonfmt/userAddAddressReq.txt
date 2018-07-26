@@ -1,0 +1,10 @@
+{
+	"consignee": "%(consignee)s",
+	"phone": "%(phone)s",
+	"address": "%(address)s",
+	"addressCode": "110000,110100,110101",
+	"province": "%(province)s",
+	"city": "市辖区",
+	"county": "东城区",
+	"isDefault": "01"
+}

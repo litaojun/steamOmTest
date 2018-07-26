@@ -25,14 +25,10 @@ class ArticleQueryService(UopService):
         :param picturePath:
         """
         super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleQueryReq))
-        # self.rsp = None
-        self.queryArticleUrl = queryArticleurl + self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
 
     def queryArtcle(self):
-        queryResultrsp = httpGet(url=self.queryArticleUrl,headers={})
+        queryResultrsp = httpGet(url= queryArticleurl + self.reqjsondata,
+                                 headers=self.jsonheart)
         return  queryResultrsp
 
     def getFirstResourceIdByRsp(self,queryRsp = None):

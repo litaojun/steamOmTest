@@ -1,0 +1,102 @@
+{
+	"code": "000000",
+	"message": "成功",
+	"state": 0,
+	"applyState": 1,
+	"subMatchList": [{
+						"matchId": 23,
+						"matchName": "亲子擂台赛初赛",
+						"applyStartTime": 1528768136000,
+						"applyEndTime": 1532966400000,
+						"state": 1,
+						"subjectList": [{
+											"id": 0,
+											"name": "竖立的伞骨架"
+										}, {
+											"id": 1,
+											"name": "低空飞行"
+										}, {
+											"id": 2,
+											"name": "纸绳拖重"
+										}, {
+											"id": 3,
+											"name": "智能服装秀"
+										}, {
+											"id": 4,
+											"name": "我心目中的“智能社区”创意大比拼"
+										}, {
+											"id": 5,
+											"name": "创意装置打靶"
+										}, {
+											"id": 6,
+											"name": "爱心小发明"
+										}, {
+											"id": 7,
+											"name": "纸车跑圈"
+										}]
+					},
+					{
+						"matchId": 24,
+						"matchName": "亲子擂台专场",
+						"applyStartTime": 1528960994000,
+						"applyEndTime": 1532966400000,
+						"state": 1,
+						"subjectList": [{
+											"id": 0,
+											"name": "竖立的伞骨架"
+										}, {
+											"id": 1,
+											"name": "低空飞行"
+										}, {
+											"id": 2,
+											"name": "纸绳拖重"
+										}, {
+											"id": 3,
+											"name": "智能服装秀"
+										}, {
+											"id": 4,
+											"name": "我心目中的“智能社区”创意大比拼"
+										}, {
+											"id": 5,
+											"name": "创意装置打靶"
+										}, {
+											"id": 6,
+											"name": "爱心小发明"
+										}, {
+											"id": 7,
+											"name": "纸车跑圈"
+										}]
+					},
+					{
+						"matchId": 25,
+						"matchName": "国际家庭专场",
+						"applyStartTime": 1529566004000,
+						"applyEndTime": 1532966400000,
+						"state": 1,
+						"subjectList": [{
+											"id": 0,
+											"name": "竖立的伞骨架"
+										}, {
+											"id": 1,
+											"name": "低空飞行"
+										}, {
+											"id": 2,
+											"name": "纸绳拖重"
+										}, {
+											"id": 3,
+											"name": "智能服装秀"
+										}, {
+											"id": 4,
+											"name": "我心目中的“智能社区”创意大比拼"
+										}, {
+											"id": 5,
+											"name": "创意装置打靶"
+										}, {
+											"id": 6,
+											"name": "爱心小发明"
+										}, {
+											"id": 7,
+											"name": "纸车跑圈"
+										}]
+					}]
+}

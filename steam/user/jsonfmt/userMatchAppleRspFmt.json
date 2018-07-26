@@ -1,0 +1,35 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "applyId": {
+      "$id": "/properties/applyId",
+      "type": "string",
+      "title": "The Applyid Schema ",
+      "default": "",
+      "examples": [
+        "0000440"
+      ]
+    }
+  }
+}

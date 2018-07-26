@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-07-20 16:56:42</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00.017002</p>
-<p class='attribute'><strong>Status:</strong> Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-07-26 11:44:56</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.865086</p>
+<p class='attribute'><strong>Status:</strong> Pass 1</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -221,55 +221,31 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>/order-service/order/cancel</td>
+<tr class='passClass'>
+    <td>/member-service/address-del</td>
+    <td>1</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>order_cancel_1_用户点赞文章</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>user_del_address_1_用户新增地址</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 38, in setUp
-    self.myservice.handlingInterface(interfacels)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 179, in handlingInterface
-    rst = list(map(f,interacels))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 178, in &lt;lambda&gt;
-    f = lambda x:self.ifacedict[x]()
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
-    rsp = fun(*args, **kwargs)
-  File "D:\litaojun\workspace\steamOmTest\steam\user\order\userCancelOrderActivityService.py", line 44, in userOrderActivity
-    uos = UserOrderActivityService(kwargs=self.sqlvaluedict)
-AttributeError: 'UserCancelOrderActivityService' object has no attribute 'sqlvaluedict'
-Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 38, in setUp
-    self.myservice.handlingInterface(interfacels)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 179, in handlingInterface
-    rst = list(map(f,interacels))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 178, in &lt;lambda&gt;
-    f = lambda x:self.ifacedict[x]()
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
-    rsp = fun(*args, **kwargs)
-  File "D:\litaojun\workspace\steamOmTest\steam\user\order\userCancelOrderActivityService.py", line 44, in userOrderActivity
-    uos = UserOrderActivityService(kwargs=self.sqlvaluedict)
-AttributeError: 'UserCancelOrderActivityService' object has no attribute 'sqlvaluedict'
-
+pt1.1: 
 
         </pre>
     </div>
@@ -281,9 +257,9 @@ AttributeError: 'UserCancelOrderActivityService' object has no attribute 'sqlval
 <tr id='total_row'>
     <td>Total</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>
