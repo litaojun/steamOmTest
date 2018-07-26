@@ -8,37 +8,36 @@
 @contact: 2750416737@qq.com 
 @site: http://blog.csdn.net/hqzxsc2006 
 @software: PyCharm 
-@file: userMatchAppleService.py 
-@time: 2018/7/23 14:14 
+@file: userCancelMatchAppleService.py 
+@time: 2018/7/26 15:34 
 """
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import userMatchAppleUrl
+from steam.util.configurl import userCancelMatchAppleUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from opg.util.httptools import httpGet,httpPost
-class UserMatchAppleService(UopService):
+from opg.util.httptools import httpPost
+class UserCancelMatchAppleService(UopService):
     '''
-        微信端用户登录
+        微信端用户取消报名
     '''
     def __init__(self, kwargs):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "userMatchAppleReq")
+        super(UserCancelMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "userCancelMatchAppleReq")
 
-    def userMatchApple(self):
-        self.rsp = httpPost(url=userMatchAppleUrl,
+    def userCancelMatchApple(self):
+        self.rsp = httpPost(url=userCancelMatchAppleUrl,
                             headers=self.jsonheart,
                             reqJsonData=self.reqjsondata)
         return self.rsp
 
-    @check_rspdata(filepath = "userMatchAppleRspFmt")
+    @check_rspdata(filepath = "userCancelMatchAppleRspFmt")
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
-
 
 if __name__ == "__main__":
    args = {
@@ -57,6 +56,6 @@ if __name__ == "__main__":
             "subMatchName": "亲子擂台赛初赛",
             "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4"
         }
-   umps = UserMatchAppleService(kwargs=args)
-   rsp = umps.userMatchApple()
+   umps = UserCancelMatchAppleService(kwargs=args)
+   rsp = umps.userCancelMatchApple()
    print(rsp)

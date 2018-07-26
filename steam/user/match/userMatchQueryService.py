@@ -20,7 +20,7 @@ from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from opg.util.httptools import httpGet,httpPost
 class UserMatchQueryService(UopService):
     '''
-        微信端用户登录
+        微信端用户报名
     '''
     def __init__(self, kwargs):
         """

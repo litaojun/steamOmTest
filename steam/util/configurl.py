@@ -49,7 +49,9 @@ memberAddressUrl = base_url + "/member-service/address/memberId"
 userAddAddressUrl = base_url + "/member-service/address"
 userDelAddressUrl = base_url + "/member-service/address"
 userMatchAppleUrl = base_url + "/match-service/member/apply"
+userCancelMatchAppleUrl = base_url + "/match-service/member/apply/cancel"
 userMatchQueryUrl = base_url + "/match-service/member/wa/query"
+userMatchAppleQueryUrl = base_url + "/match-service/member/mp/query"
 if __name__ == "__main__":
 	als = walk_dir_test(dir=os.getcwd(),sign="Req",endstr=".txt")
 	print(als)
