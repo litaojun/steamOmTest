@@ -16,7 +16,6 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userMatchAppleQueryUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from opg.util.httptools import httpPost
 class UserMatchAppleQueryService(UopService):
     '''
@@ -34,6 +33,21 @@ class UserMatchAppleQueryService(UopService):
                             headers=self.jsonheart,
                             reqJsonData=self.reqjsondata)
         return self.rsp
+
+    def getMatchNameDict(self,response = None):
+        if response is None:
+           response = self.userMatchAppleQuery()
+        userAppleMatchLs = query_json(json_content=json.loads(response),query="applyInfoList")
+        return dict([(x["matchName"], x) for x in userAppleMatchLs])
+
+
+    #查询用户报名赛事的报名ID
+    def getUserAppleIdByMatchName(self,response = None,matchName = None):
+        appleId = None
+        matchDict = self.getMatchNameDict(response=response)
+        if matchName in matchDict:
+             appleId = matchDict[matchName]["applyId"]
+        return appleId
 
     @check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):

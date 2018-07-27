@@ -29,6 +29,7 @@ class UserMatchQueryService(UopService):
         """
         super(UserMatchQueryService, self).__init__("", "", kwargs , reqjsonfile = "userMatchQueryReq")
 
+
     def userMatchQuery(self):
         self.rsp = httpPost(url=userMatchQueryUrl,
                             headers=self.jsonheart,
@@ -40,8 +41,21 @@ class UserMatchQueryService(UopService):
         return query_json(json_content=json.loads(response), query="code")
 
     def getMatchTitleIds(self,response = None):
-        titleLs = query_json(json_content=response,query="subMatchList.0.subjectList")
-        return [x["id"] for x in titleLs]
+        if response is None:
+            response = self.userMatchQuery()
+        matchTitleLs = query_json(json_content=json.loads(response), query="subMatchList.0.subjectList")
+        return [x["id"] for x in matchTitleLs]
+
+    def getNameMatchIdDict(self,response = None):
+        if response is None:
+            response = self.userMatchQuery()
+        titleLs = query_json(json_content=json.loads(response), query="subMatchList")
+        return dict([(x["matchName"],x) for x in titleLs])
+
+    def setInPutData(self):
+        if "subMatchName" in self.inputKV:
+            allMatchDict = self.getNameMatchIdDict(response=self.rsp)
+            self.inputKV["subMatchId"]=allMatchDict[self.inputKV["subMatchName"]]["matchId"]
 
 if __name__ == "__main__":
    args = {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>preDBupdate_t_match_start_add_1</name>
+        <opertype>update</opertype>
+        <sql>update t_match m set m.apply_start_time = DATE_ADD(now(),interval 1 day) ,m.apply_end_time = DATE_ADD(now(),interval 2 day) where  m.parent_id = %(matchId)d and m.match_name = "%(subMatchName)s";</sql>
+	    <desc>赛事未开始</desc>
+    </mysql>
+    <mysql>
+        <name>preDBupdate_t_match_end_del_2</name>
+        <opertype>update</opertype>
+        <sql>update t_match m set m.apply_start_time = DATE_SUB(now(),interval 1 day) ,m.apply_end_time = DATE_SUB(now(),interval 2 day) where  m.parent_id = %(matchId)d and m.match_name = "%(subMatchName)s";</sql>
+	    <desc>赛事已结束</desc>
+    </mysql>
+    <mysql>
+        <name>preDBupdate_t_match</name>
+        <opertype>update</opertype>
+        <sql>update t_match m set m.apply_start_time = DATE_SUB(now(),interval 1 day) ,m.apply_end_time = DATE_ADD(now(),interval 2 day) where  m.parent_id = %(matchId)d and m.match_name = "%(subMatchName)s";</sql>
+	    <desc>赛事正常</desc>
+    </mysql>
+    <mysql>
+        <name>preDBdelete_t_apply_question</name>
+        <opertype>delete</opertype>
+        <sql>DELETE aq.* from t_apply_question aq where EXISTS(select 1 from t_apply a where a.member_id = "%(memberId)s" and aq.apply_id = a.id);</sql>
+	    <desc>删除报名关联的赛题信息</desc>
+    </mysql>
+    <mysql>
+        <name>preDBdelete_t_apply</name>
+        <opertype>delete</opertype>
+        <sql>DELETE a.* from t_apply a where a.member_id = "%(memberId)s";</sql>
+	    <desc>删除报名信息</desc>
+    </mysql>
+
+</uop>

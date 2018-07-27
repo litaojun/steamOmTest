@@ -27,15 +27,20 @@ class UserMatchAppleService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "userMatchAppleReq")
+        super(UserMatchAppleService, self).__init__(module = "weixin",
+                                                    filename= "matchDb.xml",
+                                                    sqlvaluedict = kwargs ,
+                                                    reqjsonfile = "userMatchAppleReq",
+                                                    dbName="match")
 
+    @decorator(["preInterfaceUserMatch"])
     def userMatchApple(self):
-        self.rsp = httpPost(url=userMatchAppleUrl,
-                            headers=self.jsonheart,
-                            reqJsonData=self.reqjsondata)
+        self.rsp = httpPost(url    = userMatchAppleUrl,
+                            headers = self.jsonheart,
+                            reqJsonData = self.reqjsondata)
         return self.rsp
 
-    @check_rspdata(filepath = "userMatchAppleRspFmt")
+    #@check_rspdata(filepath = "userMatchAppleRspFmt")
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
