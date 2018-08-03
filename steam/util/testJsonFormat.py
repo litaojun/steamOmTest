@@ -13,11 +13,7 @@
 """
 import  os ,json
 from opg.util.schemajson import loadJsonFile,Validator
-from jsonschema import Draft4Validator
-from functools import wraps
-from jsonschema import FormatChecker
-from jsonschema import ValidationError
-from steam.util.reqFormatPath import homeConfigQueryRspFmt,fxt,homePositionRspFmt
+from steam.util.reqFormatPath import fxt,homePositionRspFmt
 def loadjson(filepath = ""):
     file = os.getcwd() + filepath
     activitiesInfoScma = loadJsonFile(file)

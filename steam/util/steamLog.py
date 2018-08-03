@@ -14,6 +14,7 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
+from steam.admin.login.userLoginService import UserLoginService
 
 class SteamTestCase(ParametrizedTestCase):
     '''
@@ -45,6 +46,8 @@ class SteamTestCase(ParametrizedTestCase):
                       memberId = userLoginSer.getMemberIdFromRsp(response = rsp)
                       inputData["memberId"] = memberId
                       SteamTestCase.memberIdDict[inputData["phoneNo"]] = memberId
+        token = UserLoginService.getTokenData()
+        inputData["token"] = token
         return inputData
 
 if __name__ == "__main__":

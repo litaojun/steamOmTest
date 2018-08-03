@@ -21,7 +21,7 @@ class ActivityPublishTest(ParametrizedTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/up-activity"
+      __interfaceName__ = "/operation-manage/product/publish-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
@@ -29,7 +29,7 @@ class ActivityPublishTest(ParametrizedTestCase):
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 
-      def queryActivityDetail(self):
+      def publishActivityTest(self):
           activityRsp = self.activitySer.queryActivity()
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])

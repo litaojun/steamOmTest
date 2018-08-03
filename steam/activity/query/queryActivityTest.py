@@ -12,8 +12,6 @@
 
 
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
-from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.activity.query.queryActivityService import ActivityQueryService
@@ -40,9 +38,6 @@ class ActivityQueryTest(ParametrizedTestCase):
           oneActRsp = queryActSer.queryOneActivity()
           code = queryActSer.getRetcodeByOneactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])
-
-
-
 
 if __name__ == "__main__":
           runTestOneCls(

@@ -18,7 +18,7 @@ class GoodsAddTest(ParametrizedTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-resource/admin/product/add-goods"
+      __interfaceName__ = "/operation-manage/product/add-goods"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsAddTest,self).__init__(methodName,param)
           self.activitySer = ActivityAddService(self.inputdata)

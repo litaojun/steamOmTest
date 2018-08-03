@@ -15,9 +15,9 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 
 class ActivityAlertTest(ParametrizedTestCase):
       '''
-            新增文章
+            新增活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/update-activity"
+      __interfaceName__ = "/operation-manage/product/update-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
           self.activitySer = ActivityAlertService(self.inputdata)

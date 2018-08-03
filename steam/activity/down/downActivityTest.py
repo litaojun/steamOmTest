@@ -9,26 +9,22 @@
 @file: downActivityTest.py 
 @time: 2018/5/10 17:48 
 """
-
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
-from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.down.downActivityService import ActivityUnPublishService
 
 class ActivityUnPublishTest(ParametrizedTestCase):
       '''
-            根据ID搜索活动
+            根据ID下架活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/down-activity"
+      __interfaceName__ = "/operation-manage/product/unPublish-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityUnPublishTest,self).__init__(methodName,param)
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 
-      def queryActivityDetail(self):
+      def upPublishActivityTest(self):
           activityRsp = self.activitySer.queryActivity()
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])

@@ -12,12 +12,13 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
+from steam.util.steamLog import SteamTestCase
 
-class ActivityAddTest(ParametrizedTestCase):
+class ActivityAddTest(SteamTestCase):
       '''
             新增活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/add-activity"
+      __interfaceName__ = "/operation-manage/product/add"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAddTest,self).__init__(methodName,param)
           self.activitySer = ActivityAddService(self.inputdata)
@@ -30,6 +31,6 @@ class ActivityAddTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath = "\\steamcase\\testactivity\\activityaddcase.xlsx",
+					casefilepath = "\\steamcase\\activity\\activityaddcase.xlsx",
 					testclse     = ActivityAddTest
 				)

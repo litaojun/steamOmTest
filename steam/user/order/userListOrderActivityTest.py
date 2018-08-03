@@ -11,16 +11,13 @@
 @file: userListOrderActivityTest.py 
 @time: 2018/7/11 10:10 
 """
-from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.testJsonFormat import initInput
 from steam.user.order.userListOrderActivityService import UserListOrderActivityService
 class UserListOrderActivityTest(SteamTestCase):
       '''
-            点赞
+            用户查询订单列表
       '''
       __interfaceName__ = "/order-service/order"
       @initInput(services=[],

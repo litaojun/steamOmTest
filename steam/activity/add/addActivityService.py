@@ -15,7 +15,6 @@ from opg.util.httptools import httpPost
 from opg.util.utils import query_json
 from steam.util.configurl import addActivityurl
 from opg.util.schemajson import check_rspdata
-from opg.util.isSystemType import  getfileopertr
 
 class ActivityAddService(UopService):
     '''
@@ -41,9 +40,9 @@ class ActivityAddService(UopService):
         return delclassfiyRsp.text
 
     def addActivity(self):
-        addActivityRsp = httpPost(url         = addActivityurl,
-								  reqJsonData = self.activityAddReqjson,
-								  headers= self.jsonheart)
+        addActivityRsp = httpPost(url         =  addActivityurl,
+								  reqJsonData =  self.activityAddReqjson,
+								  headers     =  self.jsonheart)
         self.rsp = addActivityRsp
         return addActivityRsp
 
@@ -53,8 +52,8 @@ class ActivityAddService(UopService):
         return query_json(json_content=json.loads(response), query="code")
 
     def getActivityIdByRsp(self,activityRsp = None):
-        rssid = query_json(json_content=json.loads(activityRsp), query="data.resourceId")
-        return rssid
+        rssId = query_json(json_content=json.loads(activityRsp), query="data.resourceId")
+        return rssId
 
 if __name__ == "__main__":
    reqjson = {

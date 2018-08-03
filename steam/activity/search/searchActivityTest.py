@@ -9,7 +9,6 @@
 @file: searchActivityTest.py 
 @time: 2018/5/10 16:38 
 """
-
 from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService

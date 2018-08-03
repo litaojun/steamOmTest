@@ -10,11 +10,12 @@
 @time: 2018/5/7 17:33 
 """
 from opg.util.uopService import UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import searchActivityurl
 from steam.util.reqFormatPath import fxt,activitySearchReq
 from steam.activity.weixin.userViewActivityService import  UserViewActivityService
+from opg.util.httptools import httpPost,httpGet
 
 class ActivitySearchService(UopService):
     '''
@@ -22,23 +23,18 @@ class ActivitySearchService(UopService):
     '''
     def __init__(self,kwargs):
         """
-        :param entryName:
-        :param picturePath:
+            :param entryName:
+            :param picturePath:
         """
         super(ActivitySearchService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activitySearchReq))
-        # self.rsp = None
         self.activityQueryReqjson = self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
 
     def queryActivity(self):
-        queryResult = requests.post(url = searchActivityurl,
-                                    json=self.activityQueryReqjson,
-                                    headers=self.jsonheart,
-                                    verify=False
-                                    )
-        return queryResult.text
+        queryResult = httpGet(
+                                  url=searchActivityurl+self.reqjsondata,
+                                  headers=self.jsonheart
+                             )
+        return queryResult
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="data.0.resourceId")
@@ -53,17 +49,17 @@ class ActivitySearchService(UopService):
         return sku
 
     def getSkuIdBySkuName(self,skuName =""):
-        return self.gesku()["skuName"]
+        return self.getSku()["skuName"]
 
     def getSkuPayPriceBySkuName(self,skuName=""):
-        return self.gesku()["skuName"]
+        return self.getSku()["skuName"]
+
     def setInPutData(self):
         sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
         self.inputKV["skuId"] = sku["skuId"]
         self.inputKV["resourceId"] = resourceId
         self.inputKV["payPrice"] = sku["price"]
-
 
     def getRetcodeByActRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="code")

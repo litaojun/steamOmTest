@@ -10,28 +10,22 @@
 @time: 2018/5/7 14:06 
 """
 from opg.util.uopService import UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
 from steam.util.reqFormatPath import fxt,activityQueryReq
 from opg.util.httptools import httpGet,httpPost
 class ActivityQueryService(UopService):
     '''
-        查询分类
+        查询活动文章
     '''
     def __init__(self,kwargs):
         """
-        :param entryName:
-        :param picturePath:
+            :param entryName:
+            :param picturePath:
         """
         super(ActivityQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityQueryReq))
-        # self.rsp = None
-        #self.activityQueryReqjson = self.reqjsondata
         self.queryIdActivityurl =queryIdActivityurl +  self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
-        #self.initReqJsonIdData(kwargs)
 
     def initReqJsonIdData(self,kwargs):
         skuIdLs = self.getSkuListByFormat(size = kwargs['skulist'])
@@ -81,7 +75,7 @@ if __name__ == "__main__":
                        "sharelist":1,
                        "resourceTypeId":11,
                        "title":"QUEENS PALACE高级定制馆C-自动化"
-                      }
+                    }
     aqs = ActivityQueryService(kwargs=queryJsonData)
     aqs.getSkuListByFormat(size=2)
     queryResultRsp = aqs.queryOneActivity()

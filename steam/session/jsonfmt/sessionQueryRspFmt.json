@@ -1,0 +1,141 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "pageContext": {
+      "$id": "/properties/pageContext",
+      "type": "object",
+      "properties": {
+        "itemCounts": {
+          "$id": "/properties/pageContext/properties/itemCounts",
+          "type": "integer",
+          "title": "The Itemcounts Schema ",
+          "default": 0,
+          "examples": [
+            12
+          ]
+        },
+        "currentPage": {
+          "$id": "/properties/pageContext/properties/currentPage",
+          "type": "integer",
+          "title": "The Currentpage Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "pageSize": {
+          "$id": "/properties/pageContext/properties/pageSize",
+          "type": "integer",
+          "title": "The Pagesize Schema ",
+          "default": 0,
+          "examples": [
+            10
+          ]
+        },
+        "pageCounts": {
+          "$id": "/properties/pageContext/properties/pageCounts",
+          "type": "integer",
+          "title": "The Pagecounts Schema ",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "targets": {
+          "$id": "/properties/pageContext/properties/targets",
+          "type": "array",
+          "items": {
+            "$id": "/properties/pageContext/properties/targets/items",
+            "type": "object",
+            "properties": {
+              "matchId": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/matchId",
+                "type": "integer",
+                "title": "The Matchid Schema ",
+                "default": 0,
+                "examples": [
+                  1025
+                ]
+              },
+              "matchName": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/matchName",
+                "type": "string",
+                "title": "The Matchname Schema ",
+                "default": "",
+                "examples": [
+                  "第11届世界奥林匹克大赛湖北场次"
+                ]
+              },
+              "state": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/state",
+                "type": "integer",
+                "title": "The State Schema ",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              },
+              "applyStartTime": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/applyStartTime",
+                "type": "integer",
+                "title": "The Applystarttime Schema ",
+                "default": 0,
+                "examples": [
+                  1532925382000
+                ]
+              },
+              "applyEndTime": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/applyEndTime",
+                "type": "integer",
+                "title": "The Applyendtime Schema ",
+                "default": 0,
+                "examples": [
+                  1533270987000
+                ]
+              },
+              "applyNum": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/applyNum",
+                "type": "integer",
+                "title": "The Applynum Schema ",
+                "default": 0,
+                "examples": [
+                  0
+                ]
+              },
+              "limitCount": {
+                "$id": "/properties/pageContext/properties/targets/items/properties/limitCount",
+                "type": "integer",
+                "title": "The Limitcount Schema ",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

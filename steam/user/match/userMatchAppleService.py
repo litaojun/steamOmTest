@@ -12,12 +12,10 @@
 @time: 2018/7/23 14:14 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import userMatchAppleUrl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 class UserMatchAppleService(UopService):
     '''
         微信端用户登录
@@ -27,11 +25,13 @@ class UserMatchAppleService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchAppleService, self).__init__(module = "weixin",
-                                                    filename= "matchDb.xml",
-                                                    sqlvaluedict = kwargs ,
-                                                    reqjsonfile = "userMatchAppleReq",
-                                                    dbName="match")
+        super(UserMatchAppleService, self).__init__(
+                                                     module = "weixin",
+                                                     filename= "matchDb.xml",
+                                                     sqlvaluedict = kwargs ,
+                                                     reqjsonfile = "userMatchAppleReq",
+                                                     dbName="match"
+                                                    )
 
     @decorator(["preInterfaceUserMatch"])
     def userMatchApple(self):

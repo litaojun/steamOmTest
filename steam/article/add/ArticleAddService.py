@@ -28,11 +28,7 @@ class ArticleAddService(UopService):
         :param picturePath:
         """
         super(ArticleAddService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleAddReq))
-        # self.rsp = None
         self.articleReqjson = self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
 
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):

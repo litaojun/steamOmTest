@@ -11,7 +11,6 @@
 @file: userDetailOrderTest.py 
 @time: 2018/7/11 10:09 
 """
-from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService

@@ -26,7 +26,6 @@ class ClassfiyAddService(UopService):
         :param picturePath:
         """
         super(ClassfiyAddService, self).__init__("", "", kwargs)
-        self.rsp = None
         self.classfiyReqjson = {
 							        "entryName": kwargs['entryName'],
 							        "picturePath": kwargs['picturePath'],
@@ -41,7 +40,6 @@ class ClassfiyAddService(UopService):
 									        headers=self.jsonheart,
 									        verify=False
 								      )
-        print("delclassfiyRsp = %s" % delclassfiyRsp.text)
         return delclassfiyRsp.text
 
     def addClassfiy(self):
@@ -52,11 +50,9 @@ class ClassfiyAddService(UopService):
 		                                   verify=False
                                       )
         self.rsp = addclassfiyRsp.text
-        print("addclassfiyrsp = %s" % addclassfiyRsp.text)
         return addclassfiyRsp.text
 
     def getRetcodeByClassfiyRsp(self,classfiyRsp = None):
-        print("classfiyRsp" + str(classfiyRsp))
         return query_json(json_content=json.loads(classfiyRsp), query="code")
 
     def getEntryIdByRsp(self,classfiyRsp = None):

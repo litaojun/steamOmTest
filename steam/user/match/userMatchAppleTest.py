@@ -16,6 +16,7 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from steam.util.testJsonFormat import initInput
 from steam.user.match.userMatchQueryService import UserMatchQueryService
+import time
 class UserMatchAppleTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
@@ -27,9 +28,11 @@ class UserMatchAppleTest(SteamTestCase):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):
+          time.sleep(20)
           rsp = self.myservice.userMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+          self.assertTrue(retcode == self.expectdata["code"],
+                          msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 
 if  __name__ == "__main__":
     runTestOneCls(
