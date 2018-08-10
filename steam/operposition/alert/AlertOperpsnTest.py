@@ -12,8 +12,8 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.operposition.alert.AlertOperpsnService import OperpsnAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class OperpsnAlertTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class OperpsnAlertTest(SteamTestCase):
       '''
             admin新增分类
       '''
@@ -25,7 +25,6 @@ class OperpsnAlertTest(ParametrizedTestCase):
 
       def testOperpsnAlertNor(self):
           operrsp = self.operpsnSer.alertOperpsn()
-          print("operrsp====" + str(operrsp))
           rspcode = self.operpsnSer.getRetCodeOperpsnRsp(rsp=operrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 

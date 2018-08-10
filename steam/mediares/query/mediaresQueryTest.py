@@ -13,8 +13,6 @@ import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from opg.unit.testcaseRunMgr import runTest
 #from opg.unit.flaskRunMgr import runTest
-import threading
-from flask import Flask, jsonify,request
 from flask import Blueprint
 #https://www.cnblogs.com/freely/p/8022923.html
 bapp = Blueprint('mediares', __name__)

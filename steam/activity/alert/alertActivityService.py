@@ -30,7 +30,8 @@ class ActivityAlertService(UopService):
         super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile="alertActivityReq")
         self.activityAlertReqjson = self.reqjsondata
         self.activityAddSer = ActivityAddService(kwargs=kwargs)
-        self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
+        #self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
+        self.searchActSer = ActivitySearchService(kwargs=kwargs)
 
     @decorator("preInterfaceAddOneActivity")
     def addArticle(self):
@@ -39,8 +40,8 @@ class ActivityAlertService(UopService):
     def alertActivity(self,kwargs=None):
         rsp = self.searchActSer.queryActivity()
         resid = self.searchActSer.getFirstActivityIdByRsp(queryRsp=rsp)
-        #resid = self.getArticleIdByTitle(self.activityAddReqjson["title"])
-        querySer = ActivityQueryService(kwargs={"resourceId":resid})
+        self.inputKV["resourceId"] = resid
+        querySer = ActivityQueryService(kwargs=self.inputKV)
         oneActivityRsp = querySer.queryOneActivity()
         idskuss = querySer.getSkuListByFormat(size=kwargs["skulist"])
         idSkusvalue = querySer.getIdValueListByRsp(ids=idskuss,rsp=oneActivityRsp)

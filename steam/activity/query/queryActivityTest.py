@@ -9,22 +9,18 @@
 @file: queryActivityTest.py 
 @time: 2018/5/10 16:38 
 """
-
-
 from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.activity.query.queryActivityService import ActivityQueryService
-
-class ActivityQueryTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
       __interfaceName__ = "/steam-resource/admin/product/query-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityQueryTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 
@@ -33,8 +29,8 @@ class ActivityQueryTest(ParametrizedTestCase):
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
           rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          queryReqJson = {"resourceId":rssid}
-          queryActSer = ActivityQueryService(kwargs=queryReqJson)
+          self.inputdata["resourceId"] = rssid
+          queryActSer = ActivityQueryService(kwargs=self.inputdata)
           oneActRsp = queryActSer.queryOneActivity()
           code = queryActSer.getRetcodeByOneactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])

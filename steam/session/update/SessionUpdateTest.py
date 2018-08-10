@@ -15,15 +15,14 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.session.update.SessionUpdateService import SessionUpdateService
 from steam.util.testJsonFormat import initInput
-from steam.user.match.userMatchQueryService import UserMatchQueryService
 import time
 class SessionUpdateTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       '''
       __interfaceName__ = "/match-service/member/apply"
-      @initInput(services=[],
-                 curser=SessionUpdateService)
+      @initInput(services = [],
+                 curser   = SessionUpdateService)
       def __init__(self, methodName='runTest', param=None):
           super(SessionUpdateTest,self).__init__(methodName,param)
 

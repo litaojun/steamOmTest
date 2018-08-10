@@ -10,13 +10,12 @@
 @time: 2018/5/9 15:43
 """
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
 class GoodsAddTest(ParametrizedTestCase):
       '''
-            新增文章
+            新增商品
       '''
       __interfaceName__ = "/operation-manage/product/add-goods"
       def __init__(self, methodName='runTest', param=None):

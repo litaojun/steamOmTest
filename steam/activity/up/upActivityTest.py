@@ -10,11 +10,8 @@
 @time: 2018/5/10 17:54 
 """
 from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
-from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.up.upActivityService import ActivityPublishService
 
 class ActivityPublishTest(ParametrizedTestCase):

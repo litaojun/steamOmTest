@@ -36,6 +36,6 @@ class UserMatchAppleTest(SteamTestCase):
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userMatchApplecase.xlsx",
-                        testclse = UserMatchAppleTest
+                        casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
+                        testclse      =  UserMatchAppleTest
                  )

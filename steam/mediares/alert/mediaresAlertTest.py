@@ -12,8 +12,8 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.article.alert.ArticleAlertService import ArticleAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class MediaresAlertTest(ParametrizedTestCase):
+from steam.util.steamLog import  SteamTestCase
+class MediaresAlertTest(SteamTestCase):
       '''
             修改作品
       '''

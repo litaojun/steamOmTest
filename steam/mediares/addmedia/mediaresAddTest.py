@@ -9,11 +9,11 @@
 @file: mediaresAddTest.py 
 @time: 2018/4/23 17:01 
 """
-from opg.unit.parametrized import ParametrizedTestCase
+from steam.util.steamLog import SteamTestCase
 from steam.article.add.ArticleAddService import ArticleAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
-class MediaresAddTest(ParametrizedTestCase):
+class MediaresAddTest(SteamTestCase):
       '''
             新增文章
       '''

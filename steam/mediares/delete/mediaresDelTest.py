@@ -13,8 +13,8 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from steam.article.delete.delArticleService import ArticleDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class MediaresDelTest(ParametrizedTestCase):
+from steam.util.steamLog import  SteamTestCase
+class MediaresDelTest(SteamTestCase):
       '''
             admin删除分类
       '''

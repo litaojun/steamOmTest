@@ -38,25 +38,28 @@ class WeixinUserLoginService(UopService):
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
     def weixinUserLogin(self):
-        self.rsp = httpPost(url=weixinUserLoginurl,
-                            headers=self.jsonheart,
-                            reqJsonData=self.weixinUserLoginReqjson)
+        self.rsp = httpPost(url         = weixinUserLoginurl,
+                            headers     = self.jsonheart,
+                            reqJsonData = self.weixinUserLoginReqjson)
         return self.rsp
 
 
     def getMemberIdFromRsp(self,response=None):
         return query_json(json_content=json.loads(response), query="data.memberId")
 
+    def getTokenFromRsp(self,response = None):
+        return query_json(json_content=json.loads(response), query="token")
+
     @check_rspdata(filepath=weixinUserLoginRspFmt)
     def getRetcodeByUserLoginRsp(self,response = None):
-        print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
 if __name__ == "__main__":
    args = {
               "phoneNo":"18916899938",
               "loginType":"NM",
-              "verfiyCode":""
+              "verfiyCode":"",
+              "scenes":"OTP"
           }
    userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=args)
    verifyRsp = userVerfiyCodeSer.sendUserVerifyCode()

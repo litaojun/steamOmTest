@@ -43,11 +43,14 @@ class SteamTestCase(ParametrizedTestCase):
                    rsp = userLoginSer.weixinUserLogin()
                    code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
                    if code  == "000000":
-                      memberId = userLoginSer.getMemberIdFromRsp(response = rsp)
-                      inputData["memberId"] = memberId
-                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = memberId
-        token = UserLoginService.getTokenData()
-        inputData["token"] = token
+                      # memberId = userLoginSer.getMemberIdFromRsp(response = rsp)
+                      # inputData["memberId"] = memberId
+                      token = userLoginSer.getTokenFromRsp(response=rsp)
+                      inputData["token"] = token
+                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = token
+        else:
+             token = UserLoginService.getTokenData()
+             inputData["token"] = token
         return inputData
 
 if __name__ == "__main__":

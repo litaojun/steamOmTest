@@ -54,7 +54,8 @@ if __name__ == "__main__":
             "school": "文庙路幼儿园",
             "nationality": "",
             "subMatchName": "亲子擂台赛初赛",
-            "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4"
+            "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
+            "token":"69a42b2f9ebd4275a04a602648d857c1"
         }
    umps = UserCancelMatchAppleService(kwargs=args)
    rsp = umps.userCancelMatchApple()

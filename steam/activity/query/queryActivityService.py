@@ -36,7 +36,7 @@ class ActivityQueryService(UopService):
             pass
 
     def queryOneActivity(self):
-        queryResult = httpGet(url=self.queryIdActivityurl,headers={})
+        queryResult = httpGet(url=self.queryIdActivityurl,headers=self.jsonheart)
         return queryResult
 
     def getListIdByFormat(self,formatstr = "" ,size = 2):

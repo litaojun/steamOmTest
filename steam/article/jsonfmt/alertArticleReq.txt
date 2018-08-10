@@ -8,12 +8,14 @@
   "thumbUrl": "%(thumbUrl)s",
   "bannerUrl": "%(bannerUrl)s",
   "content": "%(content)s",
-  "baseVisits": "%(baseVisits)s",
+  "baseVisits": %(baseVisits)d,
   "baseCollects": %(baseCollects)d,
   "tags": %(tags)s,
   "entryIds": %(entryIds)s,
-  "state": "%(state)s",
+  "status": "W",
   "shareTitle": "%(shareTitle)s",
   "shareImgUrl": "%(shareImgUrl)s",
+  "link": None ,
+  "shareType": 0,
   "shareDescription": "%(shareDescription)s"
 }

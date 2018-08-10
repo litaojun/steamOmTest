@@ -26,7 +26,7 @@ class ActivityAddTest(SteamTestCase):
 
       def addActivity(self):
           addActRsp = self.activitySer.addActivity()
-          retcode = self.activitySer.getRetcodeByActivityRsp(response=addActRsp)
+          retcode   = self.activitySer.getRetcodeByActivityRsp(response = addActRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":

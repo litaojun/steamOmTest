@@ -10,13 +10,12 @@
 @time: 2018/4/23 15:27 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
-from steam.util.configurl import delArticleurl,addArticleurl
-from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
+from steam.util.configurl import delArticleurl
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.article.query.ArticleQueryService import ArticleQueryService
-from steam.util.reqFormatPath import fxt,articleDelReq,articleDelRspFmt
+from steam.util.reqFormatPath import fxt,articleDelReq
 from opg.util.httptools import httpGet,httpPost
 class ArticleDelService(UopService):
     '''
@@ -29,11 +28,11 @@ class ArticleDelService(UopService):
         """
         super(ArticleDelService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleDelReq))
         self.delArticleIdJson = self.reqjsondata
-        self.articleSer = ArticleAddService(kwargs = kwargs)
+        #self.articleSer = ArticleAddService(kwargs = self.inputKV)
 
     @decorator("preInterfaceAddOneArticle")
     def addOneArticle(self):
-        articlersp = self.articleSer.addArticle()
+        ArticleAddService(kwargs=self.inputKV).addArticle()
         # articleid = self.articleSer.getArticleIdByRsp()
 
     def delArticleByResourceId(self,articleid):
@@ -44,10 +43,8 @@ class ArticleDelService(UopService):
         return delArticleRsp
 
     def delClassfiy(self,title = "",resourceTypeId = None):
-        #resid = self.getArticleIdByTitle(self.articleReqjson["title"])
         resid = self.getArticleIdByTitle(title,resourceTypeId)
         delarticleRsp = self.delArticleByResourceId(resid)
-        print("delarticleRsp = %s" % delarticleRsp)
         return delarticleRsp
 
     def getRetcodeByArticleRsp(self, articleRsp=None):
@@ -55,7 +52,7 @@ class ArticleDelService(UopService):
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getArticleIdByTitle(self, title="",resourceTypeId = None):
-         articleQs = ArticleQueryService(kwargs={"title": title,"resourceTypeId":resourceTypeId})
+         articleQs = ArticleQueryService(kwargs = self.inputKV)
          queryRsp = articleQs.queryArtcle()
          rssid = articleQs.getFirstResourceIdByRsp(queryRsp=queryRsp)
          return rssid

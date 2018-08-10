@@ -9,13 +9,13 @@
 @file: addOperPsnService.py 
 @time: 2018/4/25 14:06 
 """
-
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import addOperpositionurl
 from steam.util.configurl import delOperpositionurl
 from steam.operposition.query.queryOperpsnService import OperpsnQueryService
+
 class OperpsnAddService(UopService):
     '''
         分类新增
@@ -25,32 +25,19 @@ class OperpsnAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(OperpsnAddService, self).__init__("", "", kwargs)
-        self.rsp = None
-        self.addOperPsnReqjson = {
-							        "title": kwargs['title'],
-							        "picPath": kwargs['picPath'],
-							        "listOrder": kwargs['listOrder'],
-	                                "oldListOrder": 0,
-							        "resourceId": kwargs['itemId'],
-	                                "position": kwargs['position'],
-	                                "displayType": kwargs['displayType']
-							        #"picturePath": kwargs['displayType']
-						         }
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        super(OperpsnAddService, self).__init__("", "", kwargs,reqjsonfile="userOperAddReq")
+
 
     @decorator("tearInterfaceDelOneOperPsn")
     def delOperPosition(self):
-        operpsnqySer = OperpsnQueryService(self.addOperPsnReqjson)
+        operpsnqySer = OperpsnQueryService(self.inputKV)
         rspdata = operpsnqySer.queryOperpsnListdata()
         rssid = operpsnqySer.getFirstResourceIdByRsp(rspdata)
         delOperpsnRsp = requests.post(
-									    url=delOperpositionurl,
-									    json={"ids":[rssid]},
-									    headers=self.jsonheart,
-									    verify=False
+									    url  =  delOperpositionurl,
+									    json = {"ids":[rssid]},
+									    headers = self.jsonheart,
+									    verify  =  False
 								      )
         print("delOperpsnRsp = %s" % delOperpsnRsp.text)
         return delOperpsnRsp.text
@@ -58,34 +45,33 @@ class OperpsnAddService(UopService):
     def addOperPosition(self):
         addOperpositionfiyRsp = requests.post(
 				                                   url=addOperpositionurl,
-				                                   json=self.addOperPsnReqjson,
+				                                   json=self.reqjsondata,
 				                                   headers=self.jsonheart,
 				                                   verify=False
 		                                      )
         self.rsp = addOperpositionfiyRsp.text
-        print("addOperpositionfiyRsp = %s" % addOperpositionfiyRsp.text)
         return addOperpositionfiyRsp.text
 
     def getRetcodeByOperpsnRsp(self,operpsnRsp = None):
-        #print("classfiyRsp" + str(operpsnRsp))
         return query_json(json_content=json.loads(operpsnRsp), query="code")
 
     def getOperpsnIdByTitle(self,title = "",position = ""):
-        operQuerySer = OperpsnQueryService(self.addOperPsnReqjson)
+        operQuerySer = OperpsnQueryService(self.inputKV)
         rsplistdataRsp = operQuerySer.queryOperpsnListdata()
         rssid = operQuerySer.getFirstResourceIdByRsp(rsplistdataRsp)
         return rssid
 
 if __name__ == "__main__":
    addOperPsnReqjson = {
-							"title": "风靡全球的少儿编程",
-							"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg",
-							"listOrder":3,
-							"itemId":2027,
-	                        "position": "02",
-	                        "displayType": "2",
-	                        "oldListOrder": 0,
-						}
+							"title"        :   "风靡全球的少儿编程",
+							"picPath"      : "http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg",
+							"listOrder"    :  3,
+							"resourceId"   :  2027,
+	                        "position"     : "03",
+	                        "displayType"  : "2",
+	                        "oldListOrder" : 0,
+                            "token": "69a42b2f9ebd4275a04a602648d857c1"
+					   }
    operpsnSer = OperpsnAddService(addOperPsnReqjson)
    rsp = operpsnSer.addOperPosition()
    code = operpsnSer.getRetcodeByOperpsnRsp(operpsnRsp=rsp)

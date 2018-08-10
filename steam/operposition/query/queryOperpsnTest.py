@@ -13,8 +13,8 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.operposition.query.queryOperpsnService import OperpsnQueryService
-
-class OperpsnQueryTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class OperpsnQueryTest(SteamTestCase):
       '''
             admin删除分类
       '''

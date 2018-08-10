@@ -30,9 +30,6 @@ class WeixinUserVerfiyCodeService(UopService):
         super(WeixinUserVerfiyCodeService, self).__init__("", "", kwargs , reqjsonfile = weixinUserVerfiyCodeReq)
         self.rsp = None
         self.userVerfiyCodeReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
 
     def sendUserVerifyCode(self):
         weixinUserLoginRsp = requests.post(

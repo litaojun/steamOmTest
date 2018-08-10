@@ -19,27 +19,24 @@ from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMediaresRspFmt
 from opg.util.httptools import httpGet,httpPost
 from steam.article.query.ArticleQueryService import ArticleQueryService
-
+from steam.user.login.userLoginService import WeixinUserLoginService
 
 class UserViewMediaresService(UopService):
     '''
-        首页配置数据
+        用户端通过文章ID浏览详情页面
     '''
     def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserViewMediaresReq):
         """
-            :param entryName:
-            :param picturePath:
+        :param kwarg:
+        :param modul:
+        :param filename:
+        :param reqjsonfile:
         """
         super(UserViewMediaresService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        # self.rsp = None
-        self.userThumbUpReqjson = self.reqjsondata
-        # self.jsonheart = {
-	     #                     "x-token":"admin"
-        #                  }
 
     def userViewMediares(self):
         userViewMediaresRsp =  httpGet(
-                                            url     = userViewMediaresUrl + self.userThumbUpReqjson,
+                                            url     = userViewMediaresUrl + self.reqjsondata,
                                             headers = self.jsonheart
                                        )
         self.rsp = userViewMediaresRsp
@@ -56,7 +53,8 @@ if  __name__ == "__main__":
     kwarg = {
                 "memberId": "09c1316f-b304-46b1-96ff-c9ebbd93a617",
                 "title": "OM的诞生与发展",
-                "resourceTypeId": 2
+                "resourceTypeId": 2,
+                "token":""
             }
     aqs = ArticleQueryService(kwargs=kwarg)
     queryResultRsp = aqs.queryArtcle()

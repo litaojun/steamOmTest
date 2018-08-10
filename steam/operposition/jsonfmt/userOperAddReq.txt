@@ -1,0 +1,9 @@
+{
+	"title": "%(title)s",
+	"picPath": "%(picPath)s",
+	"position": "%(position)s",
+	"oldListOrder": 0,
+	"listOrder": 0,
+	"displayType": "%(displayType)s",
+	"resourceId": %(resourceId)d
+}

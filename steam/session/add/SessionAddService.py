@@ -43,7 +43,6 @@ class SessionAddService(UopService):
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
-
 if __name__ == "__main__":
    argcs = {
                     "matchId": "需要服务器分配ID",

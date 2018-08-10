@@ -1,1 +1,3 @@
-{"resourceId":1026}
+{
+   "resourceId":%(resourceId)d
+}

@@ -13,8 +13,8 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.operposition.add.addOperPsnService import OperpsnAddService
-
-class OperpsnAddTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class OperpsnAddTest(SteamTestCase):
       '''
             admin新增首页配置
       '''
@@ -26,10 +26,8 @@ class OperpsnAddTest(ParametrizedTestCase):
 
       def testOperpsnAddNor(self):
           operpsnrsp = self.operpsnSer.addOperPosition()
-          print("testclsrsp====" + str(operpsnrsp))
           rspcode = self.operpsnSer.getRetcodeByOperpsnRsp(operpsnrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
-
 
 if __name__ == "__main__":
    runTestOneCls(

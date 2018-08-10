@@ -31,13 +31,13 @@ class ActivitySearchService(UopService):
 
     def queryActivity(self):
         queryResult = httpGet(
-                                  url=searchActivityurl+self.reqjsondata,
-                                  headers=self.jsonheart
+                                  url     =  searchActivityurl+self.reqjsondata,
+                                  headers = self.jsonheart
                              )
         return queryResult
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
-        return query_json(json_content=json.loads(queryRsp), query="data.0.resourceId")
+        return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
 
     def getSku(self,skuName):
         if self.rsp is None:

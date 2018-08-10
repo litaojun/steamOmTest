@@ -9,19 +9,16 @@
 @file: searchActivityTest.py 
 @time: 2018/5/10 16:38 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
+from steam.util.steamLog import SteamTestCase
 from steam.activity.search.searchActivityService import ActivitySearchService
-
-class ActivitySearchTest(ParametrizedTestCase):
+class ActivitySearchTest(SteamTestCase):
       '''
             根据名称搜索活动
       '''
       __interfaceName__ = "/steam-resource/admin/product/search-activity"
       def __init__(self, methodName='runTest', param=None):
           super(ActivitySearchTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.activitySer = ActivitySearchService(self.inputdata)
           self.setService(self.activitySer)
 
@@ -32,6 +29,6 @@ class ActivitySearchTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\activity\\activitysearchcase.xlsx",
-				          testclse=ActivitySearchTest
+				          casefilepath = "\\steamcase\\activity\\activitysearchcase.xlsx",
+				          testclse     = ActivitySearchTest
 			           )

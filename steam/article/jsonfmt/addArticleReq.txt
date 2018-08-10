@@ -4,7 +4,7 @@
 	"content": "%(content)s",
 	"cornerMask": "%(cornerMask)s",
 	"vendorId": %(vendorId)d,
-	"baseVisits": "%(baseVisits)s",
+	"baseVisits": %(baseVisits)d,
 	"baseCollects": %(baseCollects)d,
 	"shareTitle": "%(shareTitle)s",
 	"thumbUrl": "%(thumbUrl)s",
@@ -15,5 +15,5 @@
 	"entryIds": %(entryIds)s,
 	"matchId": %(matchId)d,
 	"resourceTypeId": %(resourceTypeId)d,
-	"state": "%(state)s"
+	"status": "W"
 }

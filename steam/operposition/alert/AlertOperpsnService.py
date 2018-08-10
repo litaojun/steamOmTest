@@ -24,30 +24,15 @@ class OperpsnAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(OperpsnAlertService, self).__init__("", "", kwargs)
-        self.operpsnAlertReqjson = {
-								        "title": kwargs['title'],
-								        "picPath": kwargs['picPath'],
-								        "listOrder": kwargs['listOrder'],
-	                                    "oldListOrder": kwargs['oldListOrder'],
-								        "itemId": kwargs['itemId'],
-								        "position": kwargs['position'],
-								        "displayType": kwargs['displayType'],
-	                                    "id":kwargs['id']
-                                    }
+        super(OperpsnAlertService, self).__init__("", "", kwargs,reqjsonfile="userOperAlertReq")
 
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
-        self.rsp = None
-        self.operpsnAddSer = OperpsnAddService(self.operpsnAlertReqjson)
+        self.operpsnAddSer = OperpsnAddService(self.inputKV)
 
     @decorator("preInterfaceAddOneOperpsn")
     def addOneOperpsn(self):
         operpsnAddRsp = self.operpsnAddSer.addOperPosition()
         self.rsp = operpsnAddRsp
-        self.operpsnAlertReqjson["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
-        print("alertOperpsnId = %s" % self.operpsnAlertReqjson["id"])
+        self.reqjsondata["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
 
     @decorator("tearInterfaceDelOneOperpsn")
     def delOperpsn(self):
@@ -58,17 +43,15 @@ class OperpsnAlertService(UopService):
 								        headers=self.jsonheart,
 								        verify=False
 							        )
-        print("delOperpsnRsp = %s" % delOperpsnRsp.text)
         return delOperpsnRsp.text
-    #@decorator("addClassfiyService")
+
     def alertOperpsn(self):
         addOperpsnRsp = requests.post(
-		                                url=alertOperpositionurl,
-		                                json=self.operpsnAlertReqjson,
-		                                headers=self.jsonheart,
-		                                verify=False
+		                                url     = alertOperpositionurl,
+		                                json    = self.reqjsondata,
+		                                headers = self.jsonheart,
+		                                verify  = False
                                       )
-        print("addclassfiyrsp = %s" % addOperpsnRsp.text)
         return addOperpsnRsp.text
 
     def getRetCodeOperpsnRsp(self,rsp):
@@ -76,20 +59,22 @@ class OperpsnAlertService(UopService):
 
 if __name__ == "__main__":
    alertjson = {
-					"title": "Makeblock 2017 品牌视频",
-					"picPath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112224_258421.jpg",
-					"position": "03",
-					"oldListOrder": 1,
-					"listOrder": 1,
-					"displayType": "1",
-					"itemId": 121,
-					"id": 52
-				}
+					"title"         :  "Makeblock 2017 品牌视频",
+					"picPath"       : "http://uat-steam.opg.cn/_static/admin/images/resource/20180425112224_258421.jpg",
+					"position"      : "03",
+					"oldListOrder"  : 1,
+					"listOrder"     : 1,
+					"displayType"   : "1",
+                    "resourceId"    : 121,
+					"itemId"         : 121,
+					"id"              :  52,
+                    "token"          :  "69a42b2f9ebd4275a04a602648d857c1"
+			    }
    operAlertSer = OperpsnAlertService(alertjson)
    addrsp = operAlertSer.addOneOperpsn()
    alertRsp = operAlertSer.alertOperpsn()
    print(alertRsp)
-   code = operAlertSer.getRetCodeAlertRsp(alertRsp)
+   code = operAlertSer.getRetCodeOperpsnRsp(alertRsp)
    print("code=%s" % code)
    delRsp = operAlertSer.delOperpsn()
    print("delRsp=%s" % delRsp)

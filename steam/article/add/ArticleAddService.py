@@ -20,7 +20,7 @@ from steam.util.reqFormatPath import  fxt,articleAddReq,articleAddRspFmt
 from opg.util.httptools import httpPost
 class ArticleAddService(UopService):
     '''
-        分类新增
+        管理后台新增文章视频
     '''
     def __init__(self, kwargs):
         """
@@ -33,16 +33,16 @@ class ArticleAddService(UopService):
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
         articleid = self.getArticleIdByRsp(self.rsp)
-        delclassfiyRsp = httpPost(url=delArticleurl,
-                                  headers=self.jsonheart,
-                                  reqJsonData={"resourceId": articleid})
+        delclassfiyRsp = httpPost(url         = delArticleurl,
+                                  headers     = self.jsonheart,
+                                  reqJsonData = {"resourceId": articleid})
         return delclassfiyRsp
 
     def addArticle(self):
-        addArticleRsp = httpPost(url=addArticleurl,
-                                 headers=self.jsonheart,
-                                 reqJsonData=self.articleReqjson)
-        self.rsp = addArticleRsp
+        addArticleRsp = httpPost(url         = addArticleurl,
+                                 headers     = self.jsonheart,
+                                 reqJsonData = self.reqjsondata)
+        self.rsp      = addArticleRsp
         return addArticleRsp
 
     @check_rspdata(filepath=fxt.join(articleAddRspFmt))
@@ -50,7 +50,7 @@ class ArticleAddService(UopService):
         return query_json(json_content=json.loads(response), query="code")
 
     def getArticleIdByRsp(self,articleRsp = None):
-        articleQs = ArticleQueryService(kwargs={"title":self.articleReqjson["title"],"resourceTypeId":self.articleReqjson["resourceTypeId"]})
+        articleQs = ArticleQueryService(kwargs=self.inputKV)
         queryRsp = articleQs.queryArtcle()
         rssid = articleQs.getFirstResourceIdByRsp(queryRsp = queryRsp)
         return rssid

@@ -17,13 +17,10 @@ from steam.util.reqFormatPath import fxt,articleQueryReq,articleQueryRspFmt
 from opg.util.httptools import httpGet
 class ArticleQueryService(UopService):
     '''
-        查询分类
+        管理员分页搜索
     '''
     def __init__(self, kwargs):
-        """
-        :param entryName:
-        :param picturePath:
-        """
+
         super(ArticleQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleQueryReq))
 
     def queryArtcle(self):

@@ -12,8 +12,8 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class OperpsnDelTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class OperpsnDelTest(SteamTestCase):
       '''
             admin删除分类
       '''

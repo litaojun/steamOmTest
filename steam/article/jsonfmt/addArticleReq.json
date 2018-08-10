@@ -16,7 +16,27 @@
  "entryIds": [64],
  "matchId": 20,
  "resourceTypeId": 2,
- "state": "00"
+ "state": "W"
+}
+-----------------
+{
+	"title": "ff",
+	"subtitle": "ff",
+	"content": "<p>fffffffffffff</p>",
+	"cornerMask": "",
+	"vendorId": 26,
+	"baseVisits": 0,
+	"baseCollects": 0,
+	"shareTitle": "ff",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180809102731_909111.jpg",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180809102729_306512.jpg",
+	"shareDescription": "ff",
+	"shareImgUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180809102735_553701.jpg",
+	"tags": [],
+	"entryIds": [],
+	"matchId": 1073,
+	"resourceTypeId": 2,
+	"status": "W"
 }
 //{"code":"000000","message":"成功","data":null}
 

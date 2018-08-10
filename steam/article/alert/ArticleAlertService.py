@@ -20,21 +20,20 @@ from steam.util.reqFormatPath import fxt,articleAlertReq,articleAlertRspFmt
 from opg.util.httptools import httpGet,httpPost
 class ArticleAlertService(UopService):
     '''
-        分类新增
+        管理后台修改文章视频
     '''
     def __init__(self, kwargs):
         """
         :param entryName:
         :param picturePath:
         """
-        super(ArticleAlertService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(articleAlertReq))
-        # self.rsp = None
+        super(ArticleAlertService, self).__init__("", "", kwargs,reqjsonfile = fxt.join(articleAlertReq))
         self.articleReqjson = self.reqjsondata
-        self.artcleAddSer = ArticleAddService(kwargs=self.articleReqjson)
+        #self.artcleAddSer   = ArticleAddService(kwargs = self.articleReqjson)
 
     @decorator("preInterfaceAddOneArticle")
     def addArticle(self):
-        self.artcleAddSer.addArticle()
+        ArticleAddService(kwargs=self.inputKV).addArticle()
 
     @decorator("tearInterfaceDelOneArticle")
     def delArticle(self):
@@ -42,11 +41,10 @@ class ArticleAlertService(UopService):
         delclassfiyRsp = httpPost(url=delArticleurl,
                                  headers=self.jsonheart,
                                  reqJsonData={"resourceId": articleId})
-        print("delclassfiyRsp = %s" % delclassfiyRsp)
         return delclassfiyRsp
 
     def alertArticle(self):
-        resid = self.getArticleIdByTitle(self.articleReqjson["title"])
+        resid = self.getArticleIdByTitle()
         self.articleReqjson["resourceId"] = resid
         addArticleRsp = httpPost(url=alertArtcleurl,
                                  headers=self.jsonheart,
@@ -60,7 +58,7 @@ class ArticleAlertService(UopService):
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getArticleIdByTitle(self,title = None):
-        articleQs = ArticleQueryService(kwargs={"title":title,"resourceTypeId":self.articleReqjson["resourceTypeId"]})
+        articleQs = ArticleQueryService(kwargs=self.inputKV)
         queryRsp = articleQs.queryArtcle()
         rssid = articleQs.getFirstResourceIdByRsp(queryRsp = queryRsp)
         return rssid
