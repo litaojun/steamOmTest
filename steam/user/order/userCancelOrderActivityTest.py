@@ -18,13 +18,15 @@ from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userCancelOrderActivityService import UserCancelOrderActivityService
 from steam.util.testJsonFormat import initInput
 from steam.user.order.userOrederActivityService import UserOrderActivityService
-
+from steam.user.weixin.userViewActivityService import UserViewActivityService
+from steam.user.search.weixinSearchService import WeixinSearchService
 class UserCancelOrderActivityTest(SteamTestCase):
       '''
             取消点赞
       '''
       __interfaceName__ = "/order-service/order/cancel"
-      @initInput(services=[ActivitySearchService,
+      @initInput(services=[WeixinSearchService,
+                           UserViewActivityService,
                            MemberAddressService],
                  curser=UserCancelOrderActivityService)
       def __init__(self, methodName='runTest', param=None):

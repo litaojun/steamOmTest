@@ -13,8 +13,8 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.article.add.ArticleAddService import ArticleAddService
 from steam.activity.alert.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class GoodsAlertTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class GoodsAlertTest(SteamTestCase):
       '''
             新增文章
       '''

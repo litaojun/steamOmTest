@@ -1,0 +1,6 @@
+{
+	"currentPage": %(currentPage)d,
+	"pageSize": 10000,
+	"key": null,
+	"state": null
+}

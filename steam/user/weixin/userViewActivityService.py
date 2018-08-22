@@ -25,50 +25,41 @@ class UserViewActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = "weixinUserViewActivitisReq"):
+    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserViewActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserViewActivityService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        self.userViewActivityReqjson = userViewActivityUrl + self.reqjsondata
+        super(UserViewActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
 
     def userViewActivity(self):
-        userViewActivityRsp =  httpGet(
-                                            url     = self.userViewActivityReqjson,
-                                            headers = self.jsonheart
-                                       )
-        self.rsp = userViewActivityRsp
-        return userViewActivityRsp
+        self.rsp =  httpGet(
+                                  url     = userViewActivityUrl + self.reqjsondata,
+                                  headers = self.jsonheart
+                            )
+        return self.rsp
 
     @check_rspdata(filepath=weixinUserViewActivityRspFmt)
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
     def getSkuDict(self,response = None):
-        d = {}
         skuList = query_json(json_content=json.loads(response), query="data.skuList")
-        if skuList is not None:
-            lensku = len(skuList)
-            for i in range(lensku):
-                data = query_json(json_content=json.loads(response), query = "data.skuList.%d" % i)
-                d[data["skuName"]] = data
-        return d
+        return dict([(sku["skuName"],sku) for sku in skuList])
 
     def getSkuByName(self,dt = None,response = None,skuName = ""):
-        if response is None:
-            if self.rsp is None:
-                self.rsp = self.userViewActivity()
-            response =  self.rsp
-        if dt is None:
-            dt = self.getSkuDict(response=self.rsp)
-        if skuName in dt:
-            return dt[skuName]
-        else:
-            return  None
+        return self.getSkuDict(response=response)["skuName"]
 
     def getCollectsNumByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="data.collects")
+
+    def setInPutData(self):
+        if self.rsp is None:
+            self.rsp = self.userViewActivity()
+        skuNmIdDict = self.getSkuDict(response = self.rsp)
+        if self.inputKV.get("skuName") is not None :
+             self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
+             self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
 
 if  __name__ == "__main__":
     # kwarg = {

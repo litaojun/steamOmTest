@@ -55,7 +55,7 @@ class WeixinUserVerfiyCodeService(UopService):
         if phoneNum is None or phoneNum =="":
             phoneNum = self.userVerfiyCodeReqjson["phoneNo"]
         curRedis = RedisOper()
-        verfiyCode = curRedis.getSteamVerCodeByPhone(phone=phoneNum,scenes=self.reqjsondata["scenes"])
+        verfiyCode = curRedis.getSteamVerCodeByPhone(phone=phoneNum,scenes=self.inputKV["scenes"])
         return verfiyCode
 
 if __name__ == "__main__":

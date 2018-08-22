@@ -9,29 +9,26 @@
 @file: delClassifyTest.py 
 @time: 2018/4/18 19:06 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class ClassfiyDelTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class ClassfiyDelTest(SteamTestCase):
       '''
             admin删除分类
       '''
       __interfaceName__ = "/resource-service/resource/removeEntry"
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyDelTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.classfiySer = ClassfiyDelService(self.inputdata)
           self.setService(self.classfiySer)
 
       def testClassfiyDelNor(self):
-          clsrsp = self.classfiySer.delClassfiy()
-          rspcode = self.classfiySer.getRetcodeByClassfiyRsp(classfiyRsp=clsrsp)
+          clsrsp  = self.classfiySer.delClassfiy()
+          rspcode = self.classfiySer.getRetcodeByClassfiyRsp(classfiyRsp = clsrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\classify\\addclassify\\classifydeletecase.xlsx",
-                    testclse = ClassfiyDelTest
+                    casefilepath = "\\steamcase\\classify\\classifydeletecase.xlsx",
+                    testclse     = ClassfiyDelTest
                  )

@@ -11,14 +11,15 @@
 @file: userLoginService.py 
 @time: 2018/6/5 14:33 
 """
-from opg.util.uopService import decorator,UopService
-import requests,json
+from opg.util.uopService import UopService
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import weixinUserLoginurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from opg.util.httptools import httpGet,httpPost
+from steam.user.login.QueryMemberIdService import QueryMemberIdService
 class WeixinUserLoginService(UopService):
     '''
         微信端用户登录
@@ -31,9 +32,6 @@ class WeixinUserLoginService(UopService):
         super(WeixinUserLoginService, self).__init__("", "", kwargs , reqjsonfile = weixinUserLoginReq)
         self.rsp = None
         self.weixinUserLoginReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
         kwargs["scenes"] = "OTP"
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
@@ -42,7 +40,6 @@ class WeixinUserLoginService(UopService):
                             headers     = self.jsonheart,
                             reqJsonData = self.weixinUserLoginReqjson)
         return self.rsp
-
 
     def getMemberIdFromRsp(self,response=None):
         return query_json(json_content=json.loads(response), query="data.memberId")
@@ -56,7 +53,7 @@ class WeixinUserLoginService(UopService):
 
 if __name__ == "__main__":
    args = {
-              "phoneNo":"18916899938",
+              "phoneNo":"14988822212",
               "loginType":"NM",
               "verfiyCode":"",
               "scenes":"OTP"
@@ -67,5 +64,11 @@ if __name__ == "__main__":
    args["verfiyCode"] = vercode
    weixinUserLoginSer =  WeixinUserLoginService(kwargs=args)
    rsp = weixinUserLoginSer.weixinUserLogin()
-   memberId = weixinUserLoginSer.getMemberIdFromRsp(response=rsp)
-   print("%s,%s,%s,%s")
+   print("login rsp=%s" % rsp)
+   token = weixinUserLoginSer.getTokenFromRsp(response=rsp)
+   print("token is %s" % (token))
+   args["token"] = token
+   a = QueryMemberIdService(kwargs = args)
+   rsp = a.userMemberIdReq()
+   memberId = a.getMemberIdFromRsp(response=rsp)
+   print("memberId is %s" % (memberId))

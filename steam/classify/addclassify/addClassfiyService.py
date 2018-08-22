@@ -14,6 +14,7 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import addentryurl
 from steam.util.configurl import delEntryurl
+from opg.util.httptools import httpPost
 # from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 
 class ClassfiyAddService(UopService):
@@ -25,11 +26,10 @@ class ClassfiyAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ClassfiyAddService, self).__init__("", "", kwargs)
-        self.classfiyReqjson = {
-							        "entryName": kwargs['entryName'],
-							        "picturePath": kwargs['picturePath'],
-						       }
+        super(ClassfiyAddService, self).__init__(module       = "",
+                                                 filename     = "",
+                                                 sqlvaluedict = kwargs,
+                                                 reqjsonfile  = "addClassfiyReq")
 
     @decorator("tearInterfaceDelOneEntry")
     def delClassfiy(self):
@@ -43,14 +43,10 @@ class ClassfiyAddService(UopService):
         return delclassfiyRsp.text
 
     def addClassfiy(self):
-        addclassfiyRsp = requests.post(
-		                                   url=addentryurl,
-		                                   json=self.classfiyReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        self.rsp = addclassfiyRsp.text
-        return addclassfiyRsp.text
+        self.rsp = httpPost(url         = addentryurl,
+                            headers     = self.jsonheart,
+                            reqJsonData = self.reqjsondata)
+        return self.rsp
 
     def getRetcodeByClassfiyRsp(self,classfiyRsp = None):
         return query_json(json_content=json.loads(classfiyRsp), query="code")

@@ -17,46 +17,42 @@ from steam.util.configurl import delMatchurl
 from steam.competition.add.competitionService import MatchAddService
 class MatchDelService(UopService):
     '''
-        分类新增
+        admin删除赛事场次
     '''
     def __init__(self, kwargs):
         """
         :param entryName:
         :param picturePath:
         """
-        super(MatchDelService, self).__init__("", "", kwargs)
-        self.matchReqjson = {
-							        "matchName": kwargs['matchName']
-						    }
-        self.delMatchIdJson = {"matchId":29}
-        self.jsonheart =  {
-	                         "x-token":"admin"
-                          }
-        self.matchser = MatchAddService(self.matchReqjson)
-
+        super(MatchDelService, self).__init__(
+                                                  module = "",
+                                                  filename= "",
+                                                  sqlvaluedict = kwargs,
+                                                  reqjsonfile="competitionDelReq"
+                                             )
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
-        matchrsp = self.matchser.addMatch()
-        self.delMatchIdJson["matchId"] = self.matchser.getMatchIdByRsp(matchrsp)
+        matchAddSer = MatchAddService(self.inputKV)
+        matchrsp    = matchAddSer.addMatch()
+        matchId     = matchAddSer.getMatchIdByRsp(matchrsp)
+        self.reqjsondata["matchId"] = matchId
+        self.inputKV["matchId"]     = matchId
 
     def delMatchById(self,matchId):
-        self.delMatchIdJson["matchId"] = matchId
         delclassfiyRsp = requests.post(
 									     url     = delMatchurl,
-									     json    = self.delMatchIdJson,
+									     json    = self.reqjsondata,
 									     headers = self.jsonheart,
 									     verify  = False
 								       )
-	    
 
     def delMatch(self):
         delmatchRsp = requests.post(
 		                                   url     = delMatchurl,
-		                                   json    = self.delMatchIdJson,
+		                                   json    = self.reqjsondata,
 		                                   headers = self.jsonheart,
 		                                   verify  = False
                                       )
-        print("addclassfiyrsp = %s" % delmatchRsp.text)
         return delmatchRsp.text
 
     def getRetcodeByMatchRsp(self, matchRsp=None):

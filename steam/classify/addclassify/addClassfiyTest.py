@@ -12,8 +12,8 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class ClassfiyAddTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class ClassfiyAddTest(SteamTestCase):
       '''
             admin新增分类
       '''
@@ -27,13 +27,12 @@ class ClassfiyAddTest(ParametrizedTestCase):
 
       def testClassfiyAddNor(self):
           clsrsp = self.classfiySer.addClassfiy()
-          print("testclsrsp====" + str(clsrsp))
           rspcode = self.classfiySer.getRetcodeByClassfiyRsp(classfiyRsp=clsrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\classify\\addclassify\\classifyaddcase.xlsx",
+                    casefilepath = "\\steamcase\\classify\\classifyaddcase.xlsx",
                     testclse = ClassfiyAddTest
                  )

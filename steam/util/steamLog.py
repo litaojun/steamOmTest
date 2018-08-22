@@ -15,7 +15,7 @@ from opg.unit.parametrized import ParametrizedTestCase
 from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from steam.admin.login.userLoginService import UserLoginService
-
+from steam.user.login.QueryMemberIdService import QueryMemberIdService
 class SteamTestCase(ParametrizedTestCase):
     '''
           用户进入公众号首页，获取运营位数据
@@ -30,7 +30,8 @@ class SteamTestCase(ParametrizedTestCase):
         inputData = super(SteamTestCase, self).getInputData()
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.memberIdDict:
-                inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]]
+                inputData["token"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
+                inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
             else:
                 inputData["scenes"] = "OTP"
                 userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
@@ -43,11 +44,13 @@ class SteamTestCase(ParametrizedTestCase):
                    rsp = userLoginSer.weixinUserLogin()
                    code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
                    if code  == "000000":
-                      # memberId = userLoginSer.getMemberIdFromRsp(response = rsp)
-                      # inputData["memberId"] = memberId
                       token = userLoginSer.getTokenFromRsp(response=rsp)
                       inputData["token"] = token
-                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = token
+                      qmIdSer = QueryMemberIdService(kwargs=inputData)
+                      rsp = qmIdSer.userMemberIdReq()
+                      memberId = qmIdSer.getMemberIdFromRsp(response=rsp)
+                      inputData["memberId"] = memberId
+                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
         else:
              token = UserLoginService.getTokenData()
              inputData["token"] = token

@@ -9,7 +9,6 @@
 @file: addActivityTest.py 
 @time: 2018/5/9 15:43 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase

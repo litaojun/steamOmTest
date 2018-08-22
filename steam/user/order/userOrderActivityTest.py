@@ -15,15 +15,18 @@ from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
+from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.testJsonFormat import initInput
-
+from steam.user.weixin.userViewActivityService import UserViewActivityService
 class UserOrderActivityTest(SteamTestCase):
       '''
             用户订购活动
       '''
       __interfaceName__ = "/order-service/order/submitAndPay"
-      @initInput(services = [ActivitySearchService,MemberAddressService],
+      @initInput(services = [WeixinSearchService,
+                             UserViewActivityService,
+                             MemberAddressService],
                  curser = UserOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserOrderActivityTest,self).__init__(methodName,param)

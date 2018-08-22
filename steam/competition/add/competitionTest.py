@@ -9,25 +9,22 @@
 @file: competitionTest.py 
 @time: 2018/4/17 14:36 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.competition.add.competitionService import MatchAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class MatchAddTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class MatchAddTest(SteamTestCase):
       '''
-            admin新增分类
+            admin新增赛事场次
       '''
       __interfaceName__ = "/match-service/match/createMatch"
       def __init__(self, methodName='runTest', param=None):
           super(MatchAddTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
-          self.matchSer = MatchAddService(self.inputdata)
+          self.matchSer   = MatchAddService(self.inputdata)
           self.setService(self.matchSer)
 
       def testMatchAddNor(self):
           matchrsp = self.matchSer.addMatch()
-          rspcode = self.matchSer.getRetcodeByMatchRsp(matchrsp)
+          rspcode  = self.matchSer.getRetcodeByMatchRsp(matchrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 

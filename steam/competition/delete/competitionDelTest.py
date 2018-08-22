@@ -10,17 +10,15 @@
 @time: 2018/4/19 18:32 
 """
 from steam.competition.delete.competitionDelService import MatchDelService
-from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-class MatchDelTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class MatchDelTest(SteamTestCase):
       '''
-            admin删除分类
+           admin删除赛事场次
       '''
       __interfaceName__ = "/match-service/match/deleteMatch"
       def __init__(self, methodName='runTest', param=None):
           super(MatchDelTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.matchDelSer = MatchDelService(self.inputdata)
           self.setService(self.matchDelSer)
 

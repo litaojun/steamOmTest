@@ -9,30 +9,26 @@
 @file: competitionAlertTest.py 
 @time: 2018/4/20 15:06 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.competition.update.competitionAlertService import CompetitionAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class CompetitionAlertTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class CompetitionAlertTest(SteamTestCase):
       '''
-            admin新增分类
+            admin修改赛事场次
       '''
       __interfaceName__ = "/match-service/match/updateMatchById"
       def __init__(self, methodName='runTest', param=None):
           super(CompetitionAlertTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.matchSer = CompetitionAlertService(self.inputdata)
           self.setService(self.matchSer)
 
       def testMatchAlertNor(self):
           matchrsp = self.matchSer.alertMatch()
-          print("matchrsp====" + str(matchrsp))
-          rspcode = self.matchSer.getRetCodeAlertRsp(rsp = matchrsp)
+          rspcode  = self.matchSer.getRetCodeAlertRsp(rsp = matchrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
                     casefilepath = "\\steamcase\\competition\\competitionalertcase.xlsx",
                     testclse = CompetitionAlertTest
-                 )
+                )

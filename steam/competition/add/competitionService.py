@@ -16,39 +16,35 @@ from steam.util.configurl import addMatchurl,delMatchurl
 
 class MatchAddService(UopService):
     '''
-        增加赛事
+        admin新增赛事场次
     '''
     def __init__(self, kwargs):
         """
-        :param entryName:
-        :param picturePath:
+            :param entryName:
+            :param picturePath:
         """
-        super(MatchAddService, self).__init__("", "", kwargs)
-        self.rsp = None
-        self.matchReqjson = {
-							        "matchName": kwargs['matchName']
-						    }
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        super(MatchAddService, self).__init__(module = "",
+                                              filename= "",
+                                              sqlvaluedict = kwargs,
+                                              reqjsonfile="competitionAddReq")
 
     @decorator("tearInterfaceDelOneMatch")
     def delMatch(self):
-        matchId = self.getMatchIdByRsp(matchRsp = self.rsp)
+        matchId     = self.getMatchIdByRsp(matchRsp = self.rsp)
         addmatchRsp = requests.post(
-									        url = delMatchurl,
-									        json = {"matchId":matchId},
+									        url     = delMatchurl,
+									        json    = {"matchId":matchId},
 									        headers = self.jsonheart,
-									        verify = False
+									        verify  = False
 								    )
         return addmatchRsp.text
 
     def addMatch(self):
         addmatchRsp = requests.post(
-		                                   url=addMatchurl,
-		                                   json=self.matchReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
+		                                   url     = addMatchurl,
+		                                   json    = self.reqjsondata,
+		                                   headers = self.jsonheart,
+		                                   verify  =  False
                                     )
         self.rsp = addmatchRsp.text
         return addmatchRsp.text
@@ -62,7 +58,7 @@ class MatchAddService(UopService):
 
     def getMatchIdByRsp(self,matchRsp = None):
         """
-	    :param matchRsp:
-	    :return:
+            :param matchRsp:
+            :return:
 	    """
         return query_json(json_content=json.loads(matchRsp), query="matchId")

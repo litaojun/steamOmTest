@@ -57,6 +57,7 @@ hotPositonUrl      =  base_url       +  "/featured/index/configs/pageQueryPositi
 #通行证服务   STEAM通行证微服务REST接口文档v1.0.0.docx
 weixinUserLoginurl      = base_url      + "/member/login/memberLogin"
 weixinUserVerifyCodeurl = base_url      + "/passport/verifyCode"
+weixinUserMemberIdUrl   = base_url      + "/member/login/queryMemberInfo"
 #订单相关  STEAM订单微服务-用户端REST接口文档v1.0.0.docx
 userOrderActivityUrl       = base_url + "/order-service/order/submitAndPay"
 userCancelOrderActivityUrl = base_url + "/order-service/order/cancel"
@@ -73,6 +74,9 @@ sessionUpdateUrl = base_url    + "/match-service/match/updateMatchById"
 sessionQueryUrl  = base_url    + "/match-service/match/subMatchPage"
 #后台登录
 adminLoginUrl = base_url + "/operation-manage/permission/admin/login"
+
+#STEAM搜索微服务REST接口文档v1.2.0.docx
+weixinSearchUrl = base_url + "/steam-search/search/keywordSearch"
 
 if __name__ == "__main__":
 	als = walk_dir_test(dir=os.getcwd(),sign="Req",endstr=".txt")

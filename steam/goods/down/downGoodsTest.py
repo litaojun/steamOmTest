@@ -9,7 +9,7 @@
 @file: downActivityTest.py
 @time: 2018/5/10 17:48
 """
-
+from steam.util.steamLog import SteamTestCase
 from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
@@ -39,6 +39,6 @@ class GoodsUnPublishTest(ParametrizedTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath="\\steamcase\\goods\\goodsunpublishcase.xlsx",
-				          testclse=GoodsUnPublishTest
+				           casefilepath =  "\\steamcase\\goods\\goodsunpublishcase.xlsx",
+				           testclse     =  GoodsUnPublishTest
 			           )

@@ -1,0 +1,123 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "The Code Schema ",
+      "default": "",
+      "examples": [
+        "000000"
+      ]
+    },
+    "message": {
+      "$id": "/properties/message",
+      "type": "string",
+      "title": "The Message Schema ",
+      "default": "",
+      "examples": [
+        "成功"
+      ]
+    },
+    "data": {
+      "$id": "/properties/data",
+      "type": "object",
+      "properties": {
+        "currentPage": {
+          "$id": "/properties/data/properties/currentPage",
+          "type": "integer",
+          "title": "The Currentpage Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "pageSize": {
+          "$id": "/properties/data/properties/pageSize",
+          "type": "integer",
+          "title": "The Pagesize Schema ",
+          "default": 0,
+          "examples": [
+            10000
+          ]
+        },
+        "pageCounts": {
+          "$id": "/properties/data/properties/pageCounts",
+          "type": "integer",
+          "title": "The Pagecounts Schema ",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "itemCounts": {
+          "$id": "/properties/data/properties/itemCounts",
+          "type": "integer",
+          "title": "The Itemcounts Schema ",
+          "default": 0,
+          "examples": [
+            9
+          ]
+        },
+        "targets": {
+          "$id": "/properties/data/properties/targets",
+          "type": "array",
+          "items": {
+            "$id": "/properties/data/properties/targets/items",
+            "type": "object",
+            "properties": {
+              "entryId": {
+                "$id": "/properties/data/properties/targets/items/properties/entryId",
+                "type": "integer",
+                "title": "The Entryid Schema ",
+                "default": 0,
+                "examples": [
+                  65
+                ]
+              },
+              "entryName": {
+                "$id": "/properties/data/properties/targets/items/properties/entryName",
+                "type": "string",
+                "title": "The Entryname Schema ",
+                "default": "",
+                "examples": [
+                  "机器人"
+                ]
+              },
+              "picturePath": {
+                "$id": "/properties/data/properties/targets/items/properties/picturePath",
+                "type": "string",
+                "title": "The Picturepath Schema ",
+                "default": "",
+                "examples": [
+                  "http://uat-steam.opg.cn/_static/admin/images/resource/20180525182545_869836.png"
+                ]
+              },
+              "order": {
+                "$id": "/properties/data/properties/targets/items/properties/order",
+                "type": "integer",
+                "title": "The Order Schema ",
+                "default": 0,
+                "examples": [
+                  1
+                ]
+              },
+              "state": {
+                "$id": "/properties/data/properties/targets/items/properties/state",
+                "type": "string",
+                "title": "The State Schema ",
+                "default": "",
+                "examples": [
+                  "VISIBLE"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

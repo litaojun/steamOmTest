@@ -17,12 +17,17 @@ from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
 from steam.util.testJsonFormat import initInput
+from steam.user.search.weixinSearchService import WeixinSearchService
+from steam.user.weixin.userViewActivityService import  UserViewActivityService
 class UserDetailOrderActivityTest(SteamTestCase):
       '''
             点赞
       '''
       __interfaceName__ = "/order-service/order/detail"
-      @initInput(services=[ActivitySearchService,MemberAddressService],curser=UserDetailOrderActivityService)
+      @initInput(services=[WeixinSearchService,
+                           UserViewActivityService,
+                           MemberAddressService],
+                 curser=UserDetailOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserDetailOrderActivityTest,self).__init__(methodName,param)
 

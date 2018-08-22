@@ -11,7 +11,6 @@
 @file: userCancelThumbUpTest.py 
 @time: 2018/7/6 16:38 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.user.thumbUp.userThumbUpService import UserThumbUpService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
@@ -23,8 +22,6 @@ class UserCancelThumbUpTest(SteamTestCase):
       __interfaceName__ = "/resource-service/resource/cancelThumbUp"
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelThumbUpTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
           self.userTbuSer = UserThumbUpService(self.inputdata)
           self.setService(self.userTbuSer)
 

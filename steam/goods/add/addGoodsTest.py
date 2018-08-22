@@ -12,8 +12,8 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
-
-class GoodsAddTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class GoodsAddTest(SteamTestCase):
       '''
             新增商品
       '''

@@ -23,35 +23,29 @@ class ClassfiyDelService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ClassfiyDelService, self).__init__("", "", kwargs)
-        self.classfiyReqjson = {
-							        "entryName": kwargs['entryName'],
-							        "picturePath": kwargs['picturePath']
-						        }
-        self.delEntryIdJson = {"entryId": 35}
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
-        self.classfiy = ClassfiyAddService(self.classfiyReqjson)
+        super(ClassfiyDelService, self).__init__(module       = "",
+                                                 filename     = "",
+                                                 sqlvaluedict = kwargs,
+                                                 reqjsonfile  = "alertClassfiyReq")
 
     @decorator("preInterfaceAddOneEntry")
     def addOneClassfiy(self):
-        classfiyrsp = self.classfiy.addClassfiy()
-        self.delEntryIdJson["entryId"] = self.classfiy.getEntryIdByRsp(classfiyRsp=classfiyrsp)
+        classfiy    = ClassfiyAddService(self.inputKV)
+        classfiyrsp = classfiy.addClassfiy()
+        self.reqjsondata["entryId"] = classfiy.getEntryIdByRsp(classfiyRsp=classfiyrsp)
 
     def delClassfiyByEntryId(self,entryid):
-        self.delEntryIdJson["entryId"] = entryid
         delclassfiyRsp = requests.post(
-									        url=delEntryurl,
-									        json=self.delEntryIdJson,
-									        headers=self.jsonheart,
-									        verify=False
+									        url     = delEntryurl,
+									        json    = self.reqjsondata,
+									        headers = self.jsonheart,
+									        verify  = False
 								        )
 
     def delClassfiy(self):
         delclassfiyRsp = requests.post(
 		                                   url=delEntryurl,
-		                                   json=self.delEntryIdJson,
+		                                   json=self.reqjsondata,
 		                                   headers=self.jsonheart,
 		                                   verify=False
                                       )

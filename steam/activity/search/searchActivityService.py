@@ -14,12 +14,12 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import searchActivityurl
 from steam.util.reqFormatPath import fxt,activitySearchReq
-from steam.activity.weixin.userViewActivityService import  UserViewActivityService
-from opg.util.httptools import httpPost,httpGet
+from steam.user.weixin.userViewActivityService import  UserViewActivityService
+from opg.util.httptools import httpGet
 
 class ActivitySearchService(UopService):
     '''
-        查询分类
+        管理后台-搜索活动商品
     '''
     def __init__(self,kwargs):
         """
@@ -31,7 +31,7 @@ class ActivitySearchService(UopService):
 
     def queryActivity(self):
         queryResult = httpGet(
-                                  url     =  searchActivityurl+self.reqjsondata,
+                                  url     =  searchActivityurl + self.reqjsondata,
                                   headers = self.jsonheart
                              )
         return queryResult

@@ -30,7 +30,7 @@ class UserThumbUpTest(SteamTestCase):
 
       def userThumbUp(self):
           userThumbUpRsp = self.userTbuSer.userThumbUp()
-          retcode = self.userTbuSer.getRetcodeByThumbUpRsp(response=userThumbUpRsp)
+          retcode        = self.userTbuSer.getRetcodeByThumbUpRsp(response=userThumbUpRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 

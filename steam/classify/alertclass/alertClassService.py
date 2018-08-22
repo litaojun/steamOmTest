@@ -15,6 +15,8 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import alertentryurl,delEntryurl
 from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
+from opg.util.httptools import httpPost
+from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 class ClassfiyAlertService(UopService):
     '''
         分类新增
@@ -24,51 +26,30 @@ class ClassfiyAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ClassfiyAlertService, self).__init__("", "", kwargs)
-        self.classfiyAlertReqjson = {
-		                                 "entryId":11,
-	                                     "entryName":kwargs['entryName'],
-	                                     "picturePath": kwargs['picturePath'],
-	                                     "order":3,
-	                                     "state":kwargs['state']
-                                    }
-        self.classfiyReqjson = {
-							        "entryName": kwargs['entryName'],
-							        "picturePath": kwargs['picturePath']
-						        }
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
-        self.rsp = None
-        self.classfiy = ClassfiyAddService(self.classfiyReqjson)
+        super(ClassfiyAlertService, self).__init__(module       = "",
+                                                   filename     = "",
+                                                   sqlvaluedict = kwargs,
+                                                   reqjsonfile  = "alertClassfiyReq")
 
     @decorator("preInterfaceAddOneEntry")
     def addOneClassfiy(self):
-        classfiyrsp = self.classfiy.addClassfiy()
-        self.rsp = classfiyrsp
-        self.classfiyAlertReqjson["entryId"] = self.classfiy.getEntryIdByRsp(classfiyRsp=classfiyrsp)
+        addClassfiySer = ClassfiyAddService(self.inputKV)
+        classfiyrsp = addClassfiySer.addClassfiy()
+        entryId = addClassfiySer.getEntryIdByRsp(classfiyRsp=classfiyrsp)
+        self.reqjsondata["entryId"] = entryId
+        self.inputKV["entryId"]     = entryId
 
     @decorator("tearInterfaceDelOneEntry")
     def delClassfiy(self):
-        entryId = self.classfiy.getEntryIdByRsp(classfiyRsp=self.rsp)
-        delclassfiyRsp = requests.post(
-										        url=delEntryurl,
-										        json={"entryId": entryId},
-										        headers=self.jsonheart,
-										        verify=False
-									  )
-        print("delclassfiyRsp = %s" % delclassfiyRsp.text)
-        return delclassfiyRsp.text
+        delCfySer = ClassfiyDelService(self.inputKV)
+        delclassfiyRsp = delCfySer.delClassfiy()
+        return delclassfiyRsp
     #@decorator("addClassfiyService")
     def alertClassfiy(self):
-        addclassfiyRsp = requests.post(
-		                                   url=alertentryurl,
-		                                   json=self.classfiyAlertReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
-                                      )
-        print("addclassfiyrsp = %s" % addclassfiyRsp.text)
-        return addclassfiyRsp.text
+        self.rsp = httpPost(url         =  alertentryurl,
+                            headers     =  self.jsonheart,
+                            reqJsonData =  self.reqjsondata)
+        return self.rsp
 
     def getRetCodeAlertRsp(self,rsp):
         return query_json(json_content=json.loads(rsp), query="code")

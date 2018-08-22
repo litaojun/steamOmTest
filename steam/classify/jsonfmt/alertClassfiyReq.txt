@@ -1,0 +1,7 @@
+{
+	"entryId": %(entryId)d,
+	"entryName": "%(entryName)s",
+	"picturePath": "%(picturePath)s",
+	"order": %(entryId)d,
+	"state": "VISIBLE"
+}

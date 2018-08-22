@@ -9,7 +9,6 @@
 @file: alertActivityTest.py 
 @time: 2018/5/9 17:44 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.activity.alert.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
@@ -25,7 +24,7 @@ class ActivityAlertTest(SteamTestCase):
 
       def alertActivityNor(self):
           alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
-          retcode = self.activitySer.getRetcodeByActivityRsp(articleRsp=alertActRsp)
+          retcode     = self.activitySer.getRetcodeByActivityRsp(articleRsp=alertActRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":

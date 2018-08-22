@@ -15,8 +15,8 @@ from steam.article.add.ArticleAddService import ArticleAddService
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
-
-class GoodsSearchTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class GoodsSearchTest(SteamTestCase):
       '''
             根据名称搜索活动
       '''

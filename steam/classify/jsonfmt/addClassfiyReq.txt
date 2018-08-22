@@ -1,0 +1,8 @@
+{
+	"entryId": None,
+	"entryName": "%(entryName)s",
+	"picturePath": "%(picturePath)s",
+	"state": "UNVISIBLE",
+	"fileListThumb": [],
+	"order": 9
+}

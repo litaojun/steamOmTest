@@ -14,55 +14,41 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import delMatchurl,alertMatchurl
 from steam.competition.add.competitionService import MatchAddService
+from steam.competition.delete.competitionDelService import MatchDelService
 class CompetitionAlertService(UopService):
     '''
-        赛事修改
+        admin修改赛事场次
     '''
     def __init__(self, kwargs):
         """
         :param entryName:
         :param picturePath:
         """
-        super(CompetitionAlertService, self).__init__("", "", kwargs)
-        self.competitionAlertReqjson = {
-	                                       "matchId":26,
-	                                       "matchName":kwargs["matchName"]
-                                        }
-        self.competitionReqjson = {
-							          "matchName":kwargs["matchName"]
-						           }
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
-        self.rsp = None
-        self.competitionAddSer = MatchAddService(self.competitionReqjson)
+        super(CompetitionAlertService, self).__init__( module       = "",
+                                                       filename     = "",
+                                                       sqlvaluedict = kwargs,
+                                                       reqjsonfile  = "competitionAddReq")
 
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
-        matchrsp = self.competitionAddSer.addMatch()
-        self.rsp = matchrsp
-        self.competitionAlertReqjson["matchId"] = self.competitionAddSer.getMatchIdByRsp(matchrsp)
+        matchAddSer = MatchAddService(self.inputKV)
+        self.rsp    = matchAddSer.addMatch()
+        matchId     = matchAddSer.getMatchIdByRsp(self.rsp)
+        self.reqjsondata["matchId"] = matchId
+        self.inputKV["matchId"]     = matchId
 
     @decorator("tearInterfaceDelOneMatch")
     def delMatch(self):
-        #entryId = self.classfiy.getEntryIdByRsp(classfiyRsp=self.rsp)
-        delMatchRsp = requests.post(
-										url = delMatchurl ,
-										json = { "matchId":self.competitionAlertReqjson['matchId']},
-										headers = self.jsonheart,
-										verify = False
-									)
-        print("delMatchRsp = %s" % delMatchRsp.text)
-        return delMatchRsp.text
+        delMatchRsp = MatchDelService(self.inputKV).delMatch()
+        return delMatchRsp
     #@decorator("addClassfiyService")
     def alertMatch(self):
         alertMatchRsp = requests.post(
-		                                   url=alertMatchurl,
-		                                   json=self.competitionAlertReqjson,
-		                                   headers=self.jsonheart,
-		                                   verify=False
+		                                   url     = alertMatchurl,
+		                                   json    = self.reqjsondata,
+		                                   headers = self.jsonheart,
+		                                   verify  = False
                                       )
-        print("alertMatchRsp = %s" % alertMatchRsp.text)
         return alertMatchRsp.text
 
     def getRetCodeAlertRsp(self,rsp):

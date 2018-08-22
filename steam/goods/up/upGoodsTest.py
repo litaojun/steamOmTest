@@ -16,8 +16,8 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.activity.query.queryActivityService import ActivityQueryService
 from steam.activity.up.upActivityService import ActivityPublishService
-
-class GoodsPublishTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class GoodsPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''

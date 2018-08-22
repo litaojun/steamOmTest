@@ -20,13 +20,13 @@ class UserCancelMatchAppleTest(SteamTestCase):
             微信端用户取消报名
       '''
       __interfaceName__ = "/match-service/member/apply/cancel"
-      @initInput(services=[],
-                 curser=UserCancelMatchAppleService)
+      @initInput(services = [],
+                 curser   =  UserCancelMatchAppleService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelMatchAppleTest,self).__init__(methodName,param)
 
       def userCancelMatchAppleTest(self):
-          rsp = self.myservice.userCancelMatchApple()
+          rsp     = self.myservice.userCancelMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
