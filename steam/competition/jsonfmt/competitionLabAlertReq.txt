@@ -1,0 +1,9 @@
+{
+	"matchId"   : %(matchId)d,
+	"matchName" : "%(matchName)s",
+	"state"     : 2,
+	"applyStartTime" :  %(applyStartTime)d,
+	"applyEndTime"   :  %(applyEndTime)d,
+	"applyNum"   : 0,
+	"limitCount" : 3
+}

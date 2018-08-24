@@ -15,6 +15,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import delMatchurl,alertMatchurl
 from steam.competition.add.competitionService import MatchAddService
 from steam.competition.delete.competitionDelService import MatchDelService
+from opg.util.timeTool import getTimeIntByInPut
 class CompetitionAlertService(UopService):
     '''
         admin修改赛事场次
@@ -27,7 +28,7 @@ class CompetitionAlertService(UopService):
         super(CompetitionAlertService, self).__init__( module       = "",
                                                        filename     = "",
                                                        sqlvaluedict = kwargs,
-                                                       reqjsonfile  = "competitionAddReq")
+                                                       reqjsonfile  = kwargs["reqjsonfile"])
 
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
@@ -54,5 +55,11 @@ class CompetitionAlertService(UopService):
     def getRetCodeAlertRsp(self,rsp):
         return query_json(json_content=json.loads(rsp), query="code")
 
+    def alertMatchTime(self,s=1,e=1):
+        self.reqjsondata["applyStartTime"] = getTimeIntByInPut(s)
+        self.reqjsondata["applyEndTime"] = getTimeIntByInPut(e)
+        self.alertMatch()
+
+
 if __name__ == "__main__":
-	pass  
+   pass

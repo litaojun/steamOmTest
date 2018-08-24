@@ -37,6 +37,8 @@ uploadImagesurl      = base_url          + "/steam-resource/resource/uploadImage
 addMatchurl       =     base_url     +  "/operation-manage/match/createMatch"
 delMatchurl       =     base_url     +  "/operation-manage/match/deleteMatch"
 alertMatchurl     =     base_url     +  "/operation-manage/match/updateMatchById"
+findMatchUrl      =     base_url     +  "/operation-manage/match/matchPage?currentPage=1&pageSize=10"
+findSubMatchUrl      =     base_url     +  "/operation-manage/match/subMatchPage?currentPage=1&pageSize=10"
 pageQueryMatchUrl =     base_url     +  "/operation-manage/match/matchPage"
 detailMatchUrl    =     base_url     +  "/operation-manage/match/matchDetail"
 appleListMatchUrl =     base_url     +  "/operation-manage/apply/page"

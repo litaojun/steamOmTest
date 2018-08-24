@@ -48,11 +48,11 @@ class MatchDelService(UopService):
 
     def delMatch(self):
         delmatchRsp = requests.post(
-		                                   url     = delMatchurl,
-		                                   json    = self.reqjsondata,
-		                                   headers = self.jsonheart,
+		                                   url     = delMatchurl ,
+		                                   json    = self.reqjsondata ,
+		                                   headers = self.jsonheart ,
 		                                   verify  = False
-                                      )
+                                   )
         return delmatchRsp.text
 
     def getRetcodeByMatchRsp(self, matchRsp=None):

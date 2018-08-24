@@ -14,8 +14,8 @@ from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.activity.down.downActivityService import ActivityUnPublishService
-
-class GoodsUnPublishTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class GoodsUnPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
@@ -30,8 +30,8 @@ class GoodsUnPublishTest(ParametrizedTestCase):
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
           rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          queryReqJson = {"resourceId":rssid}
-          queryActSer = ActivityUnPublishService(kwargs=queryReqJson)
+          self.inputdata["resourceId"] = rssid
+          queryActSer = ActivityUnPublishService(kwargs=self.inputdata)
           oneActRsp = queryActSer.unPublishActivitySer()
           code = queryActSer.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])

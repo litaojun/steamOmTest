@@ -19,17 +19,17 @@ class CompetitionAlertTest(SteamTestCase):
       __interfaceName__ = "/match-service/match/updateMatchById"
       def __init__(self, methodName='runTest', param=None):
           super(CompetitionAlertTest,self).__init__(methodName,param)
-          self.inputdata["reqjsonfile"] = "competitionAlertReq"
+          self.inputdata["reqjsonfile"] = "competitionLabAlertReq"
           self.matchSer                   = CompetitionAlertService(self.inputdata)
           self.setService(self.matchSer)
 
-      def testMatchAlertNor(self):
+      def matchLabAlertReq(self):
           matchrsp = self.matchSer.alertMatch()
           rspcode  = self.matchSer.getRetCodeAlertRsp(rsp = matchrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\competition\\competitionalertcase.xlsx",
+                    casefilepath = "\\steamcase\\competition\\competitionlabalertcase.xlsx",
                     testclse = CompetitionAlertTest
                 )

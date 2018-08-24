@@ -12,18 +12,18 @@
 from steam.competition.add.competitionService import MatchAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-class MatchAddTest(SteamTestCase):
+class MatchLabAddTest(SteamTestCase):
       '''
             admin新增赛事场次
       '''
       __interfaceName__ = "/match-service/match/createMatch"
       def __init__(self, methodName='runTest', param=None):
-          super(MatchAddTest,self).__init__(methodName,param)
-          self.inputdata["reqjsonfile"] = "competitionAddReq"
-          self.matchSer   =  MatchAddService(self.inputdata)
+          super(MatchLabAddTest,self).__init__(methodName,param)
+          self.inputdata["reqjsonfile"] = "competitionLabAddReq"
+          self.matchSer                   = MatchAddService(self.inputdata)
           self.setService(self.matchSer)
 
-      def testMatchAddNor(self):
+      def matchLabAddReq(self):
           matchrsp = self.matchSer.addMatch()
           rspcode  = self.matchSer.getRetcodeByMatchRsp(matchrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
@@ -32,5 +32,5 @@ class MatchAddTest(SteamTestCase):
 if __name__ == "__main__":
    runTestOneCls(
                     casefilepath =  "\\steamcase\\competition\\competitionaddcase.xlsx",
-                    testclse     =  MatchAddTest
+                    testclse     =  MatchLabAddTest
                 )

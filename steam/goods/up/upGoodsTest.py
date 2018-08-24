@@ -32,8 +32,8 @@ class GoodsPublishTest(SteamTestCase):
           code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
           rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          queryReqJson = {"resourceId":rssid}
-          queryActSer = ActivityPublishService(kwargs=queryReqJson)
+          self.inputdata["resourceId"] = rssid
+          queryActSer = ActivityPublishService(kwargs=self.inputdata)
           oneActRsp = queryActSer.publishActivitySer()
           code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])

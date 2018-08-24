@@ -23,10 +23,10 @@ class MatchAddService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(MatchAddService, self).__init__(module = "",
-                                              filename= "",
-                                              sqlvaluedict = kwargs,
-                                              reqjsonfile="competitionAddReq")
+        super(MatchAddService, self).__init__(module   = ""    ,
+                                              filename = ""    ,
+                                              sqlvaluedict = kwargs ,
+                                              reqjsonfile  = kwargs["reqjsonfile"])
 
     @decorator("tearInterfaceDelOneMatch")
     def delMatch(self):

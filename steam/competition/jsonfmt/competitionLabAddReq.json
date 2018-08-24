@@ -1,0 +1,10 @@
+{
+	"matchId": "需要服务器分配ID",
+	"matchName": "付费方式",
+	"applyStartTime": 1534931060000,
+	"applyEndTime": 1535708660000,
+	"limitCount": 444,
+	"parentId": 22,
+	"state": 1,
+	"applyNum": 0
+}
