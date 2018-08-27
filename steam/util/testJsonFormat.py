@@ -11,7 +11,7 @@
 @file: testJsonFormat.py 
 @time: 2018/6/6 16:29 
 """
-import  os ,json
+import  os
 from opg.util.schemajson import loadJsonFile,Validator
 from steam.util.reqFormatPath import fxt,homePositionRspFmt
 def loadjson(filepath = ""):
