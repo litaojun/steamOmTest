@@ -14,6 +14,7 @@
 #!flask/bin/python
 from flask import Flask, jsonify,request
 from steam.mediares.query import mediaresQueryTest
+from flask_cors import *
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 #from opg.unit.testcaseRunMgr import runTest
@@ -21,6 +22,7 @@ from opg.unit.flaskRunMgr import runTest,queryStateByTokenPro,queryTestPlanList,
 import threading
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 app.register_blueprint(mediaresQueryTest.bapp,url_prefix="/mediares")
 from opg.unit.flaskRunMgr import writeStartTestToDb
 tasks = [
