@@ -17,11 +17,12 @@ from steam.mediares.query import mediaresQueryTest
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 #from opg.unit.testcaseRunMgr import runTest
-from opg.unit.flaskRunMgr import runTest
+from opg.unit.flaskRunMgr import runTest,queryStateByTokenPro,queryTestPlanList,queryPlanDetailByInterfaceName
 import threading
+
 app = Flask(__name__)
 app.register_blueprint(mediaresQueryTest.bapp,url_prefix="/mediares")
-
+from opg.unit.flaskRunMgr import writeStartTestToDb
 tasks = [
     {
         'id': 1,
@@ -37,18 +38,40 @@ tasks = [
     }
 ]
 
-@app.route('/testcase/runSteamTest', methods=['GET'])
-def get_tasks():
-    starttime = request.args.get("starttime")
-    t = threading.Thread(target=runTest,
-                         kwargs={
-                                     "title":u"steam亲子教育",
-                                     "description":u"用例测试情况",
-                                     "starTime": starttime
-                                 }
+@app.route('/prop/runtestplan', methods=['GET'])
+def start_tasks():
+    #starttime = request.args.get("starttime")
+    tokenId = writeStartTestToDb()
+    t = threading.Thread(target = runTest,
+                         kwargs = {
+                                         "title":u"steam亲子教育",
+                                         "description":u"用例测试情况",
+                                         #"starTime": starttime
+                                   }
                          )
     t.start()
-    return jsonify({'sign': "000000"})
+    return jsonify({
+                        'sign'  : "000000",
+                        "token" : tokenId
+                   })
+
+@app.route('/prop/queryRunProcess', methods=['GET'])
+def query_run_state():
+    token       = request.args.get("token")
+    projectName = request.args.get("projectname")
+    return jsonify(queryStateByTokenPro(projectName = projectName,
+                                        token       = token))
+
+@app.route('/prop/testplanlist', methods=['GET'])
+def query_planlist():
+    projectName = request.args.get("projectname")
+    return jsonify(queryTestPlanList(projectName = projectName))
+
+@app.route('/prop/testappmap', methods=['GET'])
+def query_plan_CaseRecord():
+    planid = request.args.get("planid")
+    return jsonify(queryPlanDetailByInterfaceName(planId=planid))
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=8181)
