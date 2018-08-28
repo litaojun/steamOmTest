@@ -25,20 +25,6 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 app.register_blueprint(mediaresQueryTest.bapp,url_prefix="/mediares")
 from opg.unit.flaskRunMgr import getRunTestTokenId
-# tasks = [
-#             {
-#                 'id': 1,
-#                 'title': u'Buy groceries',
-#                 'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-#                 'done': False
-#             },
-#             {
-#                 'id': 2,
-#                 'title': u'Learn Python',
-#                 'description': u'Need to find a good Python tutorial on the web',
-#                 'done': False
-#             }
-# ]
 
 @app.route('/prop/runtestplan', methods=['GET'])
 def start_tasks():
