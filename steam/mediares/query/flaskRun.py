@@ -43,7 +43,8 @@ tasks = [
 @app.route('/prop/runtestplan', methods=['GET'])
 def start_tasks():
     #starttime = request.args.get("starttime")
-    tokenId = writeStartTestToDb()
+    projectName = request.args.get("projectname")
+    tokenId = writeStartTestToDb(projectname=projectName)
     t = threading.Thread(target = runTest,
                          kwargs = {
                                          "title":u"steam亲子教育",
