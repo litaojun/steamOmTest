@@ -48,6 +48,7 @@ def start_tasks():
                          kwargs = {
                                          "title":projectName,
                                          "description":"%s-用例测试情况" % projectName,
+                                         "token":tokenId
                                    }
                          )
     t.start()
