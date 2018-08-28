@@ -28,7 +28,7 @@ class UserMatchAppleTest(SteamTestCase):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):
-          time.sleep(230)
+          time.sleep(70)
           rsp = self.myservice.userMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"],
