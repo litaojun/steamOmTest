@@ -57,7 +57,7 @@ class HomeCnfQueryService(UopService):
 
     @check_rspdata(filepath=homeConfigQueryRspFmt)
     def getRetcodeByActivityRsp(self,response = None):
-        print("homePageCnfRsp=" + str(response))
+        #print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
     def getAllCnfListDataFromRSP(self,response = None):
