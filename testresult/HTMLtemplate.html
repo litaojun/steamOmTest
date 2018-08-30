@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>小红巢测试报告</title>
+    <title>steam亲子教育</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
@@ -188,12 +188,12 @@ function showOutput(id, name) {
 --></script>
 
 <div class='heading'>
-<h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-08-24 17:25:27</p>
-<p class='attribute'><strong>Duration:</strong> 0:21:24.384000</p>
-<p class='attribute'><strong>Status:</strong> Pass 2 Failure 3</p>
+<h1>steam亲子教育</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-08-29 15:40:38</p>
+<p class='attribute'><strong>Duration:</strong> 0:03:40.242585</p>
+<p class='attribute'><strong>Status:</strong> Pass 37 Failure 8 Error 5</p>
 
-<p class='description'>用例测试情况</p>
+<p class='description'>steam亲子教育-用例测试情况</p>
 </div>
 
 
@@ -221,36 +221,1544 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
+<tr class='passClass'>
+    <td>/operation-manage/product/add</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>/operation-manage/product/update-activity</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>media_alert_1_修改文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityTest.py", line 26, in alertActivityNor
+    alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityService.py", line 46, in alertActivity
+    idskuss = querySer.getSkuListByFormat(size=kwargs["skulist"])
+AttributeError: 'ActivityQueryService' object has no attribute 'getSkuListByFormat'
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityTest.py", line 26, in alertActivityNor
+    alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityService.py", line 46, in alertActivity
+    idskuss = querySer.getSkuListByFormat(size=kwargs["skulist"])
+AttributeError: 'ActivityQueryService' object has no attribute 'getSkuListByFormat'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/operation-manage/product/publish-activity</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_上架一个活动</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/query-activity</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',1)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/search-activity</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',1)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/operation-manage/product/unPublish-activity</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',1)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_下架一个活动</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/addMedia-article</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',1)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/updateMedia-article</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',1)">Detail</a></td>
+</tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_alert_1_修改文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.1')" >
+        pass</a>
+
+    <div id='div_pt8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/deleteMedia-article</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c9',1)">Detail</a></td>
+</tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_del_1_删除一个文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.1')" >
+        pass</a>
+
+    <div id='div_pt9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>/resource-service/resource/addEntry</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c10',1)">Detail</a></td>
+</tr>
+
+<tr id='ft10.1' class='none'>
+    <td class='failCase'><div class='testcase'>classify_add_1_新增一个分类正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.1')" >
+        fail</a>
+
+    <div id='div_ft10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\addclassify\addClassfiyTest.py", line 31, in testClassfiyAddNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\addclassify\addClassfiyTest.py", line 31, in testClassfiyAddNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>/resource-service/resource/modifyEntry</td>
+    <td>2</td>
+    <td>0</td>
+    <td>1</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c11',2)">Detail</a></td>
+</tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='failCase'><div class='testcase'>classify_alert_1_修改一个分类正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        fail</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\alertclass\alertClassTest.py", line 30, in testClassfiyAlertNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\alertclass\alertClassTest.py", line 30, in testClassfiyAlertNor
+    self.assertTrue(rspcode == self.expectdata["code"])
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.2' class='none'>
+    <td class='errorCase'><div class='testcase'>classify_alert_1_修改一个分类正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.2')" >
+        error</a>
+
+    <div id='div_ft11.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.2: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 44, in tearDown
+    self.myservice.handlingInterface(interfacels)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 181, in handlingInterface
+    rst = list(map(f,interacels))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 180, in &lt;lambda&gt;
+    f = lambda x:self.ifacedict[x]()
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
+    rsp = fun(*args, **kwargs)
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\alertclass\alertClassService.py", line 44, in delClassfiy
+    delCfySer = ClassfiyDelService(self.inputKV)
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\delclassify\delClassifyService.py", line 29, in __init__
+    reqjsonfile  = "alertClassfiyReq")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 71, in __init__
+    self.initReqJsonData(reqjsonfile = reqjsonfile,reqjsondata = self.inputKV)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 90, in initReqJsonData
+    reqdata = reqDataFmt % reqjsondata
+TypeError: %d format: a number is required, not NoneType
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 44, in tearDown
+    self.myservice.handlingInterface(interfacels)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 181, in handlingInterface
+    rst = list(map(f,interacels))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 180, in &lt;lambda&gt;
+    f = lambda x:self.ifacedict[x]()
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
+    rsp = fun(*args, **kwargs)
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\alertclass\alertClassService.py", line 44, in delClassfiy
+    delCfySer = ClassfiyDelService(self.inputKV)
+  File "D:\litaojun\workspace\steamOmTest\steam\classify\delclassify\delClassifyService.py", line 29, in __init__
+    reqjsonfile  = "alertClassfiyReq")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 71, in __init__
+    self.initReqJsonData(reqjsonfile = reqjsonfile,reqjsondata = self.inputKV)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 90, in initReqJsonData
+    reqdata = reqDataFmt % reqjsondata
+TypeError: %d format: a number is required, not NoneType
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/resource-service/resource/removeEntry</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c12',1)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>classify_del_1_删除一个分类</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/match-service/match/createMatch</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c13',1)">Detail</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>match_add_1_新增一个赛事正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        pass</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/match-service/match/updateMatchById</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',1)">Detail</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>match_alert_1_修改一个赛事场次正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        pass</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>/match-service/match/deleteMatch</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c15',1)">Detail</a></td>
+</tr>
+
+<tr id='ft15.1' class='none'>
+    <td class='errorCase'><div class='testcase'>match_del_1_删除一个赛事正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft15.1')" >
+        error</a>
+
+    <div id='div_ft15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft15.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 36, in setUp
+    self.myservice.handlingInterface(interfacels)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 181, in handlingInterface
+    rst = list(map(f,interacels))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 180, in &lt;lambda&gt;
+    f = lambda x:self.ifacedict[x]()
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
+    rsp = fun(*args, **kwargs)
+  File "D:\litaojun\workspace\steamOmTest\steam\competition\delete\competitionDelService.py", line 35, in addOneMatch
+    matchAddSer = MatchAddService(self.inputKV)
+  File "D:\litaojun\workspace\steamOmTest\steam\competition\add\competitionService.py", line 29, in __init__
+    reqjsonfile  = kwargs["reqjsonfile"])
+KeyError: 'reqjsonfile'
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 36, in setUp
+    self.myservice.handlingInterface(interfacels)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 181, in handlingInterface
+    rst = list(map(f,interacels))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 180, in &lt;lambda&gt;
+    f = lambda x:self.ifacedict[x]()
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 22, in wrapper
+    rsp = fun(*args, **kwargs)
+  File "D:\litaojun\workspace\steamOmTest\steam\competition\delete\competitionDelService.py", line 35, in addOneMatch
+    matchAddSer = MatchAddService(self.inputKV)
+  File "D:\litaojun\workspace\steamOmTest\steam\competition\add\competitionService.py", line 29, in __init__
+    reqjsonfile  = kwargs["reqjsonfile"])
+KeyError: 'reqjsonfile'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/operation-manage/product/add-goods</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c16',1)">Detail</a></td>
+</tr>
+
+<tr id='pt16.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.1')" >
+        pass</a>
+
+    <div id='div_pt16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>/steam-resource/admin/product/update-goods</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c17',1)">Detail</a></td>
+</tr>
+
+<tr id='ft17.1' class='none'>
+    <td class='errorCase'><div class='testcase'>media_alert_1_修改文章正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft17.1')" >
+        error</a>
+
+    <div id='div_ft17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft17.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\goods\alert\alertGoodsTest.py", line 28, in alertActivityNor
+    alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityService.py", line 42, in alertActivity
+    resid = self.searchActSer.getFirstActivityIdByRsp(queryRsp=rsp)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\search\searchActivityService.py", line 40, in getFirstActivityIdByRsp
+    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\goods\alert\alertGoodsTest.py", line 28, in alertActivityNor
+    alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\alert\alertActivityService.py", line 42, in alertActivity
+    resid = self.searchActSer.getFirstActivityIdByRsp(queryRsp=rsp)
+  File "D:\litaojun\workspace\steamOmTest\steam\activity\search\searchActivityService.py", line 40, in getFirstActivityIdByRsp
+    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/up-goods</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c18',1)">Detail</a></td>
+</tr>
+
+<tr id='pt18.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.1')" >
+        pass</a>
+
+    <div id='div_pt18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/query-goods</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c19',1)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        pass</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/page-goods</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',1)">Detail</a></td>
+</tr>
+
+<tr id='pt20.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt20.1')" >
+        pass</a>
+
+    <div id='div_pt20.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt20.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt20.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-resource/admin/product/down-goods</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c21',1)">Detail</a></td>
+</tr>
+
+<tr id='pt21.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_查询一个活动正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt21.1')" >
+        pass</a>
+
+    <div id='div_pt21.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt21.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt21.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/featured/index/configs/queryShowConfigs-findcnf</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c22',1)">Detail</a></td>
+</tr>
+
+<tr id='pt22.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>home_page_1_用户浏览发现页-运营位配置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt22.1')" >
+        pass</a>
+
+    <div id='div_pt22.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt22.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt22.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/featured/index/configs/pageQueryPositionShows-findcal</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c23',1)">Detail</a></td>
+</tr>
+
+<tr id='pt23.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>find_page_cal_1_用户浏览发现页-计算推荐内容</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt23.1')" >
+        pass</a>
+
+    <div id='div_pt23.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt23.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt23.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/featured/index/configs/pageQueryPositionShows-homehot</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c24',1)">Detail</a></td>
+</tr>
+
+<tr id='pt24.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>home_page_1_用户浏览首页-热门推荐运营位配置内容</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt24.1')" >
+        pass</a>
+
+    <div id='div_pt24.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt24.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt24.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>/featured/index/configs/queryShowConfigs-home</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c25',1)">Detail</a></td>
+</tr>
+
+<tr id='ft25.1' class='none'>
+    <td class='failCase'><div class='testcase'>home_page_1_用户浏览首页-热门推荐运营位配置内容</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft25.1')" >
+        fail</a>
+
+    <div id='div_ft25.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft25.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft25.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\home\cnfquery\homeCnfQueryTest.py", line 35, in queryHomeCnf
+    configSqlStr = "select_t_sku_HomePage"))
+AssertionError: False is not true
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\home\cnfquery\homeCnfQueryTest.py", line 35, in queryHomeCnf
+    configSqlStr = "select_t_sku_HomePage"))
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/featured/index/configs/queryShowConfigs-invoencnf</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c26',1)">Detail</a></td>
+</tr>
+
+<tr id='pt26.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>home_page_1_用户创新大赛页-计算推荐内容列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt26.1')" >
+        pass</a>
+
+    <div id='div_pt26.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt26.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt26.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/featured/index/configs/pageQueryPositionShows-inovncal</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c27',1)">Detail</a></td>
+</tr>
+
+<tr id='pt27.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>home_page_1_用户浏览创新大赛-计算内容列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt27.1')" >
+        pass</a>
+
+    <div id='div_pt27.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt27.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt27.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/addMedia</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c28',1)">Detail</a></td>
+</tr>
+
+<tr id='pt28.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_add_1_新增一个视频作品正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt28.1')" >
+        pass</a>
+
+    <div id='div_pt28.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt28.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt28.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/updateMedia</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c29',1)">Detail</a></td>
+</tr>
+
+<tr id='pt29.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_alert_1_修改一个作品视频正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt29.1')" >
+        pass</a>
+
+    <div id='div_pt29.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt29.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt29.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-media/media/deleteMedia</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c30',1)">Detail</a></td>
+</tr>
+
+<tr id='pt30.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>media_del_1_删除一个作品视频正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt30.1')" >
+        pass</a>
+
+    <div id='div_pt30.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt30.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt30.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-featured/homeConfig/createConfig</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c31',1)">Detail</a></td>
+</tr>
+
+<tr id='pt31.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>operpsn_add_1_新增一个首页配置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt31.1')" >
+        pass</a>
+
+    <div id='div_pt31.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt31.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt31.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/steam-featured/homeConfig/removeIndexConfig</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c32',1)">Detail</a></td>
+</tr>
+
+<tr id='pt32.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>operpsn_del_1_删除一个赛事</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt32.1')" >
+        pass</a>
+
+    <div id='div_pt32.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt32.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt32.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>/steam-featured/homeConfig/listData</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c33',1)">Detail</a></td>
+</tr>
+
+<tr id='ft33.1' class='none'>
+    <td class='errorCase'><div class='testcase'>operpsn_query_1_查询运营位配置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft33.1')" >
+        error</a>
+
+    <div id='div_ft33.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft33.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft33.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnTest.py", line 30, in testOperpsnQueryNor
+    title = self.operpsnQuerySer.getFirstResourceTitleByRsp(queryRsp=clsrsp)
+  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 42, in getFirstResourceTitleByRsp
+    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.title")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 38, in query_json
+    json_content = json_content[int(key)]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnTest.py", line 30, in testOperpsnQueryNor
+    title = self.operpsnQuerySer.getFirstResourceTitleByRsp(queryRsp=clsrsp)
+  File "D:\litaojun\workspace\steamOmTest\steam\operposition\query\queryOperpsnService.py", line 42, in getFirstResourceTitleByRsp
+    return query_json(json_content=json.loads(queryRsp), query="data.targets.0.title")
+  File "D:\litaojun\workspace\unittestExBase\opg\util\utils.py", line 44, in query_json
+    raise Exception("failed to query json when extracting response!")
+Exception: failed to query json when extracting response!
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/member-service/address/memberId</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c34',1)">Detail</a></td>
+</tr>
+
+<tr id='pt34.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>user_address_1_获取用户地址列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt34.1')" >
+        pass</a>
+
+    <div id='div_pt34.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt34.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt34.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/member-service/address-add</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c35',1)">Detail</a></td>
+</tr>
+
+<tr id='pt35.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>user_add_address_1_用户新增地址</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt35.1')" >
+        pass</a>
+
+    <div id='div_pt35.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt35.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt35.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/order-service/order/cancel</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c36',1)">Detail</a></td>
+</tr>
+
+<tr id='pt36.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>order_cancel_1_用户点赞文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt36.1')" >
+        pass</a>
+
+    <div id='div_pt36.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt36.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt36.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/resource-service/resource/cancelThumbUp</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c37',1)">Detail</a></td>
+</tr>
+
+<tr id='pt37.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>thumb_cancel_1_用户点赞文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt37.1')" >
+        pass</a>
+
+    <div id='div_pt37.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt37.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt37.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/member-service/address-del</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c38',1)">Detail</a></td>
+</tr>
+
+<tr id='pt38.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>user_del_address_1_用户新增地址</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt38.1')" >
+        pass</a>
+
+    <div id='div_pt38.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt38.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt38.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/order-service/order/detail</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c39',1)">Detail</a></td>
+</tr>
+
+<tr id='pt39.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>order_detail_1_用户点赞文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt39.1')" >
+        pass</a>
+
+    <div id='div_pt39.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt39.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt39.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/order-service/order</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c40',1)">Detail</a></td>
+</tr>
+
+<tr id='pt40.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>order_list_1_用户点赞文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt40.1')" >
+        pass</a>
+
+    <div id='div_pt40.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt40.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt40.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr class='failClass'>
     <td>/match-service/member/apply</td>
     <td>5</td>
-    <td>2</td>
-    <td>3</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',5)">Detail</a></td>
+    <td>5</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c41',5)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
+<tr id='ft41.1' class='none'>
     <td class='failCase'><div class='testcase'>match_apple_1_微信用户提交报名信息</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft41.1')" >
         fail</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_ft41.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft41.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+ft41.1: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 AssertionError: False is not true : return code is 000007,and expect code is 000000
 Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 AssertionError: False is not true : return code is 000007,and expect code is 000000
 
@@ -262,22 +1770,30 @@ AssertionError: False is not true : return code is 000007,and expect code is 000
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>match_apple_2_已报名用户再次报名-000001</div></td>
+<tr id='ft41.2' class='none'>
+    <td class='failCase'><div class='testcase'>match_apple_2_已报名用户再次报名-000001</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft41.2')" >
+        fail</a>
 
-    <div id='div_pt1.2' class="popup_window">
+    <div id='div_ft41.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft41.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: 
+ft41.2: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
+    msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+AssertionError: False is not true : return code is 000008,and expect code is 000001
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
+    msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+AssertionError: False is not true : return code is 000008,and expect code is 000001
+
 
         </pre>
     </div>
@@ -286,29 +1802,29 @@ pt1.2:
     </td>
 </tr>
 
-<tr id='ft1.3' class='none'>
+<tr id='ft41.3' class='none'>
     <td class='failCase'><div class='testcase'>match_apple_3_用户报名已结束赛事场次-000006</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft41.3')" >
         fail</a>
 
-    <div id='div_ft1.3' class="popup_window">
+    <div id='div_ft41.3' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft41.3').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.3: Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+ft41.3: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
-AssertionError: False is not true : return code is 000000,and expect code is 000006
+AssertionError: False is not true : return code is 000008,and expect code is 000006
 Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
-AssertionError: False is not true : return code is 000000,and expect code is 000006
+AssertionError: False is not true : return code is 000008,and expect code is 000006
 
 
         </pre>
@@ -318,29 +1834,29 @@ AssertionError: False is not true : return code is 000000,and expect code is 000
     </td>
 </tr>
 
-<tr id='ft1.4' class='none'>
+<tr id='ft41.4' class='none'>
     <td class='failCase'><div class='testcase'>match_apple_4_用户报名未开始赛事场次-000007</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft41.4')" >
         fail</a>
 
-    <div id='div_ft1.4' class="popup_window">
+    <div id='div_ft41.4' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft41.4').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.4: Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+ft41.4: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
-AssertionError: False is not true : return code is 000006,and expect code is 000007
+AssertionError: False is not true : return code is 000008,and expect code is 000007
 Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/user/match/userMatchAppleTest.py", line 35, in userMatchAppleTest
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
     msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
-AssertionError: False is not true : return code is 000006,and expect code is 000007
+AssertionError: False is not true : return code is 000008,and expect code is 000007
 
 
         </pre>
@@ -350,22 +1866,162 @@ AssertionError: False is not true : return code is 000006,and expect code is 000
     </td>
 </tr>
 
-<tr id='pt1.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>match_apple_5_用户报名已满额赛事场次-000008</div></td>
+<tr id='ft41.5' class='none'>
+    <td class='failCase'><div class='testcase'>match_apple_5_用户报名已满额赛事场次-000008</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.5')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft41.5')" >
+        fail</a>
 
-    <div id='div_pt1.5' class="popup_window">
+    <div id='div_ft41.5' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.5').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft41.5').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.5: 
+ft41.5: Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
+    msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+AssertionError: False is not true : return code is 000007,and expect code is 000008
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\steamOmTest\steam\user\match\userMatchAppleTest.py", line 35, in userMatchAppleTest
+    msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+AssertionError: False is not true : return code is 000007,and expect code is 000008
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/match-service/member/mp/query</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c42',1)">Detail</a></td>
+</tr>
+
+<tr id='pt42.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>match_apple_query_1_微信用户查询已报名信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt42.1')" >
+        pass</a>
+
+    <div id='div_pt42.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt42.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt42.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/match-service/member/wa/query</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c43',1)">Detail</a></td>
+</tr>
+
+<tr id='pt43.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>match_query_1_微信用户进入报名页面查询报名场次信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt43.1')" >
+        pass</a>
+
+    <div id='div_pt43.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt43.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt43.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/order-service/order/submitAndPay</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c44',1)">Detail</a></td>
+</tr>
+
+<tr id='pt44.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>order_sub_1_用户下单活动</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt44.1')" >
+        pass</a>
+
+    <div id='div_pt44.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt44.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt44.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>/resource-service/resource/thumbUp</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c45',1)">Detail</a></td>
+</tr>
+
+<tr id='pt45.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>thumb_up_1_用户点赞文章</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt45.1')" >
+        pass</a>
+
+    <div id='div_pt45.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt45.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt45.1: 
 
         </pre>
     </div>
@@ -376,10 +2032,10 @@ pt1.5:
 
 <tr id='total_row'>
     <td>Total</td>
+    <td>50</td>
+    <td>37</td>
+    <td>8</td>
     <td>5</td>
-    <td>2</td>
-    <td>3</td>
-    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

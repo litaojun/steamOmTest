@@ -96,10 +96,13 @@ def query_testCase():
     methonName = request.args.get("methonName")
     caseId = request.args.get("caseId")
     print("%s-%s-%s" % (interface,methonName,caseId))
+    className =  allTestClass[interface].__name__
     if interface in allTestCase:
         if methonName in allTestCase[interface]:
             for testcase in allTestCase[interface][methonName]:
                 if testcase[0] == caseId:
+                    if testcase is not None and len(testcase)==9:
+                       testcase.append(className)
                     return jsonify(testcase)
     return "no data"
 
