@@ -46,7 +46,6 @@
 *.plg
 *.keep
 *.prefs
-*.html
 .idea/
 
 ###############
