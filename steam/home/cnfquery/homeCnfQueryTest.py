@@ -20,12 +20,13 @@ class HomeCnfQueryTest(SteamTestCase):
       '''
             用户进入公众号首页，获取运营位数据
       '''
-      __interfaceName__ = "/featured/index/configs/queryShowConfigs-home"
+      __interfaceName__ = "/featured/index/configs/queryShowConfigs"
       def __init__(self, methodName='runTest', param=None):
           super(HomeCnfQueryTest,self).__init__(methodName,param)
           self.homeCnfQuerySer = HomeCnfQueryService(self.inputdata)
           self.setService(self.homeCnfQuerySer)
 
+      #首页，热门推荐-配置内容
       def queryHomeCnf(self):
           userHomeCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
           retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userHomeCnfRsp)
@@ -33,6 +34,17 @@ class HomeCnfQueryTest(SteamTestCase):
           self.assertTrue(self.homeCnfQuerySer.compareData(response=userHomeCnfRsp,
                                                            removePositionLs=["05","07"],
                                                            configSqlStr = "select_t_sku_HomePage"))
+      #发现页-今日推荐-配置内容
+      def queryFindCnf(self):
+          userFindCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
+          retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userFindCnfRsp)
+          self.assertTrue(retcode == self.expectdata["code"])
+
+      #创新大赛-配置内容
+      def homeInovnCnf(self):
+            userFindCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
+            retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userFindCnfRsp)
+            self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(

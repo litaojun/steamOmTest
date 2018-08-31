@@ -34,6 +34,7 @@ class FindCalTest(SteamTestCase):
                                                          configSqlStr = "select_t_sku_HomePage",
                                                          calSqlStr = "select_t_resource_calculate"))
 
+
 if __name__ == "__main__":
    runTestOneCls(
 					casefilepath =  "\\steamcase\\homepage\\findpositioncase.xlsx",

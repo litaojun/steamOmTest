@@ -12,12 +12,12 @@
 @time: 2018/7/11 15:09 
 """
 #!flask/bin/python
-import copy
 from flask import Flask, jsonify,request
 from steam.mediares.query import mediaresQueryTest
 from flask_cors import *
 import sys
 from flask import render_template
+from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 #from opg.unit.testcaseRunMgr import runTest
 from opg.unit.flaskRunMgr import runTest,queryStateByTokenPro,queryTestPlanList,queryPlanDetailByInterfaceName
@@ -95,7 +95,9 @@ def query_testCase():
     interface = request.args.get("interface")
     methonName = request.args.get("methonName")
     caseId = request.args.get("caseId")
+    planId = request.args.get("planId")
     print("%s-%s-%s" % (interface,methonName,caseId))
+    resultSign = queryTestResultByPlanIdOrCaseId(planId=planId,caseId=caseId)
     className =  allTestClass[interface].__name__
     if interface in allTestCase:
         if methonName in allTestCase[interface]:
@@ -103,6 +105,7 @@ def query_testCase():
                 if testcase[0] == caseId:
                     if testcase is not None and len(testcase)==9:
                        testcase.append(className)
+                       testcase.append(resultSign)
                     return jsonify(testcase)
     return "no data"
 
