@@ -17,7 +17,6 @@ from opg.util.utils import query_json
 from steam.util.configurl import userMatchAppleUrl
 from opg.util.httptools import httpPost
 from steam.admin.login.userLoginService import UserLoginService
-from steam.competition.find.competitionLabFindService import MatchLabFindService
 from steam.competition.update.competitionAlertService import CompetitionAlertService
 class UserMatchAppleService(UopService):
     '''
@@ -59,9 +58,9 @@ class UserMatchAppleService(UopService):
         reqdata["token"]        = token
         reqdata["matchId"]      = self.reqjsondata["subMatchId"]
         reqdata["matchName"]    = self.reqjsondata["subMatchName"]
-        reqdata["applyStartTime"] = 11111111111
-        reqdata["applyEndTime"] = 11111111111
-        reqdata["reqjsonfile"]  = "competitionLabAlertReq"
+        reqdata["applyStartTime"]  = 11111111111
+        reqdata["applyEndTime"]    = 11111111111
+        reqdata["reqjsonfile"]     = "competitionLabAlertReq"
         matchAlertSer = CompetitionAlertService(kwargs = reqdata)
         if self.inputKV["sign"] == "start":
             matchAlertSer.alertMatchTime(s=-1,e=1)

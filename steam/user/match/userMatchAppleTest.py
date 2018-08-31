@@ -28,10 +28,10 @@ class UserMatchAppleTest(SteamTestCase):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):
-          #time.sleep(70)
+          time.sleep(70)
           rsp = self.myservice.userMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
-          self.assertTrue(retcode == self.expectdata["code"],
+          self.assertTrue(retcode == self.expectdata["code"] ,
                           msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 
 if  __name__ == "__main__":
