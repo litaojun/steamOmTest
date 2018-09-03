@@ -17,7 +17,7 @@ class ArticleAddTest(SteamTestCase):
       '''
             管理后台新增文章视频
       '''
-      __interfaceName__ = "/steam-media/media/addMedia-article"
+      __interfaceName__ = "/steam-media/media/addMedia"
       def __init__(self, methodName='runTest', param=None):
           super(ArticleAddTest,self).__init__(methodName,param)
           self.inputdata  =  self.getInputData()

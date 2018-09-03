@@ -18,7 +18,7 @@ class MediaresDelTest(SteamTestCase):
       '''
             admin删除分类
       '''
-      __interfaceName__ = "/steam-media/media/deleteMedia"
+      __interfaceName__ = "/steam-media/media/deleteMediass"
       def __init__(self, methodName='runTest', param=None):
           super(MediaresDelTest,self).__init__(methodName,param)
           self.articleSer = ArticleDelService(self.inputdata)

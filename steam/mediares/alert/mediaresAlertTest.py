@@ -17,7 +17,7 @@ class MediaresAlertTest(SteamTestCase):
       '''
             修改作品
       '''
-      __interfaceName__ = "/steam-media/media/updateMedia"
+      __interfaceName__ = "/steam-media/media/updateMediass"
       def __init__(self, methodName='runTest', param=None):
           super(MediaresAlertTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

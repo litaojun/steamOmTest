@@ -17,7 +17,7 @@ class MediaresAddTest(SteamTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-media/media/addMedia"
+      __interfaceName__ = "/steam-media/media/addMediass"
       def __init__(self, methodName='runTest', param=None):
           super(MediaresAddTest,self).__init__(methodName,param)
           self.articleSer = ArticleAddService(self.inputdata)
