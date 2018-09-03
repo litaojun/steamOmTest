@@ -16,7 +16,7 @@ class ActivitySearchTest(SteamTestCase):
       '''
             根据名称搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/search"
+      __interfaceName__ = "/operation-manage/product/queryProducts"
       def __init__(self, methodName='runTest', param=None):
           super(ActivitySearchTest,self).__init__(methodName,param)
           self.activitySer = ActivitySearchService(self.inputdata)
