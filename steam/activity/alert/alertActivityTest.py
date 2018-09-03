@@ -16,7 +16,7 @@ class ActivityAlertTest(SteamTestCase):
       '''
             新增活动
       '''
-      __interfaceName__ = "/operation-manage/product/update-activity"
+      __interfaceName__ = "/operation-manage/product/update"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
           self.activitySer = ActivityAlertService(self.inputdata)

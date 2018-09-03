@@ -17,7 +17,7 @@ class ActivityUnPublishTest(SteamTestCase):
       '''
             根据ID下架活动
       '''
-      __interfaceName__ = "/operation-manage/product/unPublish-activity"
+      __interfaceName__ = "/operation-manage/product/unPublish"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityUnPublishTest,self).__init__(methodName,param)
           self.activitySer = ActivitySearchService(self.inputdata)

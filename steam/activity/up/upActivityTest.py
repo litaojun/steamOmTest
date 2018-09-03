@@ -18,7 +18,7 @@ class ActivityPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/operation-manage/product/publish-activity"
+      __interfaceName__ = "/operation-manage/product/publish"
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()
