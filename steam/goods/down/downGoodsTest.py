@@ -19,7 +19,7 @@ class GoodsUnPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/down-goods"
+      __interfaceName__ = "/steam-resource/admin/product/down-goodsaa"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsUnPublishTest,self).__init__(methodName,param)
           self.activitySer = ActivitySearchService(self.inputdata)

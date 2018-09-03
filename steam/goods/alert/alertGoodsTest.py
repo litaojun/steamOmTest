@@ -18,7 +18,7 @@ class GoodsAlertTest(SteamTestCase):
       '''
             新增文章
       '''
-      __interfaceName__ = "/steam-resource/admin/product/update-goods"
+      __interfaceName__ = "/steam-resource/admin/product/update-goodsaaaa"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsAlertTest,self).__init__(methodName,param)
           self.activitySer = ActivityAlertService(self.inputdata)

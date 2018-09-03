@@ -20,7 +20,7 @@ class GoodsSearchTest(SteamTestCase):
       '''
             根据名称搜索活动
       '''
-      __interfaceName__ = "/steam-resource/admin/product/page-goods"
+      __interfaceName__ = "/steam-resource/admin/product/page-goodsaa"
       def __init__(self, methodName='runTest', param=None):
           super(GoodsSearchTest,self).__init__(methodName,param)
           self.activitySer = ActivitySearchService(self.inputdata)
