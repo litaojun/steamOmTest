@@ -18,6 +18,7 @@ from steam.util.configurl import userMatchAppleUrl
 from opg.util.httptools import httpPost
 from steam.admin.login.userLoginService import UserLoginService
 from steam.competition.update.competitionAlertService import CompetitionAlertService
+from steam.user.match.appleResetTools import userAppleMatch,userCancelAppleMatch,getTokenReset
 class UserMatchAppleService(UopService):
     '''
         微信端用户登录
@@ -38,8 +39,8 @@ class UserMatchAppleService(UopService):
 
     @decorator(["preInterfaceUserMatch"])
     def userMatchApple(self):
-        self.rsp = httpPost(url         = userMatchAppleUrl ,
-                            headers     = self.jsonheart    ,
+        self.rsp = httpPost(url     = userMatchAppleUrl,
+                            headers = self.jsonheart,
                             reqJsonData = self.reqjsondata)
         return self.rsp
 
@@ -61,6 +62,7 @@ class UserMatchAppleService(UopService):
         reqdata["applyStartTime"]  = 11111111111
         reqdata["applyEndTime"]    = 11111111111
         reqdata["reqjsonfile"]     = "competitionLabAlertReq"
+        reqdata["limitCount"] = self.inputKV["limitCount"]
         matchAlertSer = CompetitionAlertService(kwargs = reqdata)
         if self.inputKV["sign"] == "start":
             matchAlertSer.alertMatchTime(s=-1,e=1)
@@ -68,6 +70,9 @@ class UserMatchAppleService(UopService):
             matchAlertSer.alertMatchTime(s=1, e=2)
         if self.inputKV["sign"] == "end":
             matchAlertSer.alertMatchTime(s=-2, e=-1)
+
+    def resetToken(self):
+        self.jsonheart["token"] = getTokenReset(phoneNo=self.inputKV["phoneNo"])
 
 if __name__ == "__main__":
    args = {

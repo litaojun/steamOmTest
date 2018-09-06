@@ -5,5 +5,5 @@
 	"applyStartTime" :  %(applyStartTime)d,
 	"applyEndTime"   :  %(applyEndTime)d,
 	"applyNum"   : 0,
-	"limitCount" : 3000000
+	"limitCount" : %(limitCount)d
 }

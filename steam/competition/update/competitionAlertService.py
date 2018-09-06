@@ -56,8 +56,11 @@ class CompetitionAlertService(UopService):
         return query_json(json_content=json.loads(rsp), query="code")
 
     def alertMatchTime(self,s=1,e=1):
-        self.reqjsondata["applyStartTime"] = getTimeIntByInPut(s)
-        self.reqjsondata["applyEndTime"] = getTimeIntByInPut(e)
+        starttime = getTimeIntByInPut(s)
+        endtime   =  getTimeIntByInPut(e)
+        self.reqjsondata["applyStartTime"] = starttime
+        self.reqjsondata["applyEndTime"] = endtime
+        print("set - starttime = %s,endtime=%s" % (starttime, endtime))
         self.alertMatch()
 
 

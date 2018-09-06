@@ -55,7 +55,9 @@ class UserMatchQueryService(UopService):
     def setInPutData(self):
         if "subMatchName" in self.inputKV:
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)
-            self.inputKV["subMatchId"]=allMatchDict[self.inputKV["subMatchName"]]["matchId"]
+            matchDict = allMatchDict[self.inputKV["subMatchName"]]
+            self.inputKV["subMatchId"]=matchDict["matchId"]
+            print("get - starttime = %s,endtime=%s" %(matchDict["applyStartTime"],matchDict["applyEndTime"]))
 
 if __name__ == "__main__":
    args = {

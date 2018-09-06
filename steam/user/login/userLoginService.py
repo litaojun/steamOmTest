@@ -51,6 +51,9 @@ class WeixinUserLoginService(UopService):
     def getRetcodeByUserLoginRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
+
+
+
 if __name__ == "__main__":
    args = {
               "phoneNo":"14988822212",

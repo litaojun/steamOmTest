@@ -11,16 +11,17 @@
 @file: userMatchAppleTest.py 
 @time: 2018/7/25 11:19 
 """
+import time
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from steam.util.testJsonFormat import initInput
 from steam.user.match.userMatchQueryService import UserMatchQueryService
-import time
+from steam.user.match.appleResetTools import userAppleMatch,userCancelAppleMatch,userAppleMatchTwo
 class UserMatchAppleTest(SteamTestCase):
-      '''
+      """
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
-      '''
+      """
       __interfaceName__ = "/match-service/member/apply"
       @initInput(services=[UserMatchQueryService],
                  curser=UserMatchAppleService)
@@ -28,11 +29,12 @@ class UserMatchAppleTest(SteamTestCase):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):
-          time.sleep(70)
-          rsp = self.myservice.userMatchApple()
+          # time.sleep(10)
+          userAppleMatchTwo()
+          rsp     = self.myservice.userMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"] ,
-                          msg = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+                          msg     = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 
 if  __name__ == "__main__":
     runTestOneCls(
