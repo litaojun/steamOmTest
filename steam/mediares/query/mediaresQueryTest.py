@@ -27,7 +27,7 @@ class Main():
 		pass
 
 if __name__ == "__main__":
-	#testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况")
+	testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况")
 	import uuid
 	a = uuid.uuid4()
 	print(a)
