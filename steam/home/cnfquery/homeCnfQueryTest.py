@@ -29,21 +29,21 @@ class HomeCnfQueryTest(SteamTestCase):
       #首页，热门推荐-配置内容
       def queryHomeCnf(self):
           userHomeCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
-          retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userHomeCnfRsp)
+          retcode        = self.homeCnfQuerySer.getRetcodeByActivityRsp(response = userHomeCnfRsp)
           self.assertTrue(retcode == self.expectdata["code"])
-          self.assertTrue(self.homeCnfQuerySer.compareData(response=userHomeCnfRsp,
-                                                           removePositionLs=["05","07"],
-                                                           configSqlStr = "select_t_sku_HomePage"))
+          self.assertTrue(self.homeCnfQuerySer.compareData(response         = userHomeCnfRsp,
+                                                           removePositionLs = ["05","07"],
+                                                           configSqlStr     = "select_t_sku_HomePage"))
       #发现页-今日推荐-配置内容
       def queryFindCnf(self):
           userFindCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
-          retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userFindCnfRsp)
+          retcode        = self.homeCnfQuerySer.getRetcodeByActivityRsp(response  = userFindCnfRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
       #创新大赛-配置内容
       def homeInovnCnf(self):
             userFindCnfRsp = self.homeCnfQuerySer.queryHomePageCnf()
-            retcode = self.homeCnfQuerySer.getRetcodeByActivityRsp(response=userFindCnfRsp)
+            retcode        = self.homeCnfQuerySer.getRetcodeByActivityRsp(response = userFindCnfRsp)
             self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":

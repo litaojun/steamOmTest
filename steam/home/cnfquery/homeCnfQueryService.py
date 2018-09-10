@@ -24,17 +24,19 @@ class HomeCnfQueryService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwarg={},modul="weixin",filename= "cnfDataDb.xml",reqjsonfile = homeConfigQueryReq):
+    def __init__(self,
+                 kwarg={},
+                 modul="weixin",
+                 filename= "cnfDataDb.xml",
+                 reqjsonfile = homeConfigQueryReq):
         """
             :param entryName:
             :param picturePath:
         """
-        super(HomeCnfQueryService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
-        self.rsp = None
-        self.homeCnfQueryReqjson = self.reqjsondata
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
+        super(HomeCnfQueryService, self).__init__(module       = modul,
+                                                  filename     = filename,
+                                                  sqlvaluedict = kwarg ,
+                                                  reqjsonfile  = reqjsonfile)
         self.pgdc = {
                         "01":6,  #首页轮播图
                         "02":6,  #首页今日推荐,应该为5个，但前端现状了，未出现BUG
@@ -44,12 +46,11 @@ class HomeCnfQueryService(UopService):
                         "09":10, #发现页热门推荐
                         "03":10, #首页更多精彩
                         "04":10  #创新大赛页
-
                     }
 
     def queryHomePageCnf(self):
         homePageCnfRsp =  httpGet(
-                                        url     = homeConfigQueryurl + self.homeCnfQueryReqjson,
+                                        url     = homeConfigQueryurl + self.reqjsondata,
                                         headers = self.jsonheart
                                   )
         self.rsp = homePageCnfRsp
@@ -60,21 +61,27 @@ class HomeCnfQueryService(UopService):
         #print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
+    #从返回中提取{位置：ID列表}
     def getAllCnfListDataFromRSP(self,response = None):
         """
             :param response:
             :return:
         """
         showInfos = query_json(json_content=json.loads(response), query="showInfos")
-        num = len(showInfos)
-        retdata = {}
-        for i in range(num):
-            positionQuery = "showInfos.%d.position" % i
-            infosQuery = "showInfos.%d.showSummaryInfos" % i
-            curposition = query_json(json_content=json.loads(response), query=positionQuery)
-            curinfos = query_json(json_content=json.loads(response), query=infosQuery)
-            retdata[curposition] = curinfos
-        return retdata
+        return dict([(data["position"],
+                      [ m["resourceId"]
+                                         for i,m in enumerate(data["showSummaryInfos"]) ]
+                      )
+                     for data in showInfos])
+        # num = len(showInfos)
+        # retdata = {}
+        # for i in range(num):
+        #     positionQuery = "showInfos.%d.position" % i
+        #     infosQuery = "showInfos.%d.showSummaryInfos" % i
+        #     curposition = query_json(json_content=json.loads(response), query=positionQuery)
+        #     curinfos = query_json(json_content=json.loads(response), query=infosQuery)
+        #     retdata[curposition] = curinfos
+        # return retdata
 
     def dataDictFilterFields(self,dictData = {},fields = []):
         rdt = {}
@@ -99,17 +106,14 @@ class HomeCnfQueryService(UopService):
     def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
         homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)
         dbDataDict = {}
-        #fields = ['resourceId','specificType','bannerUrl','thumbUrl','resourceType','title','position','minPrice','originalPrice']
         fields = ['resourceId', 'specificType', 'bannerUrl', 'thumbUrl', 'resourceType', 'title', 'position']
-        tranDictList = []
-        for data in homePageDbDataList:
-            tranDictList.append(dict(zip(fields,data)))
-        for homeData in tranDictList:
-            positionKey = homeData["position"]
-            if positionKey in dbDataDict:
-                dbDataDict[positionKey].append(homeData)
+        def funa(x):
+            if dbDataDict[6] in dbDataDict:
+                dbDataDict[x[6]].append(x[0])
             else:
-                dbDataDict[positionKey] = [homeData]
+                dbDataDict[x[6]] = []
+        self.filterLenByOrder(dbDataDict)
+        map(funa,homePageDbDataList)
         return dbDataDict
 
     #根据需求，每个运营位显示最大数量截取
@@ -155,3 +159,5 @@ if __name__ == "__main__":
     homeCnfSer.compareData(response=homeRsp)
     print(retdata)
     print("retcode=%s" % retcode)
+    funa = lambda x:funa(x-2)+funa(x-1) if x>2 else 1
+    funb = lambda x:x+1 if x>10 else x

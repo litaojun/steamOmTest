@@ -34,7 +34,7 @@ class HotPositionTest(SteamTestCase):
           self.assertTrue(self.homeHotSer.compareSerData(response  =   userHomeHotRsp,
                                                          position  =   self.inputdata["position"],
                                                          configSqlStr =  "select_t_sku_HomePage",
-                                                         calSqlStr =  "select_t_resource_calculate"))
+                                                         calSqlStr    =  "select_t_resource_calculate"))
 
        #发现页-热门内容-计算内容
       def queryFindHotConentCnf(self):
