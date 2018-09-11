@@ -65,31 +65,6 @@ class HomeHotPositionService(HomeCnfQueryService):
         end   =  curPage*10
         return op.eq(cnfDataList[start:end],rspDataList)
 
-
-
-
-    def compareSerData(self,response=None,position="01",configSqlStr="select_t_sku_HomePage",calSqlStr = "select_t_resource_calculate"):
-        rspDataLs = self.getAllCalculateDataByRsp(response=response)
-        rspDataLs = self.dataListFilterFields(listData=rspDataLs)
-        #self.dataFilterFields(dictData=rspDataLs)
-        #获取DB配置数据
-        cnfDbdata = self.getDbPageDataBySql(configSqlStr=configSqlStr)
-        self.filterLenByOrder(dictData=cnfDbdata)
-        cnfDbdata = self.dataDictFilterFields(dictData=cnfDbdata)
-        #获取DB计算数据
-        calculateData = self.getDbPageDataBySql(configSqlStr=calSqlStr)
-
-        calculateData = self.dataDictFilterFields(dictData=calculateData)
-        a = cnfDbdata[position]
-        b = rspDataLs[0:len(a)]
-        #比较配置内容
-        sign = op.eq(a,b)
-        c = rspDataLs[len(a):10]
-        d = calculateData[position][0:len(c)]
-        #比较计算内容
-        csign = op.eq(c,d)
-        return sign & csign
-
 if __name__ == "__main__":
     kwargs = {
                 "phoneNo":"18916899938",
