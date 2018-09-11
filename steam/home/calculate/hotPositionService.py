@@ -33,10 +33,6 @@ class HomeHotPositionService(HomeCnfQueryService):
                                                      filename    = "cnfDataDb.xml",
                                                      kwarg       = kwargs,
                                                      reqjsonfile = homePositionReq)
-        self.jsonheart = {
-	                         "x-token":"admin"
-                         }
-
     def queryHomeHotPosition(self):
         self.rsp =  httpGet(
                                         url     = hotPositonUrl+self.reqjsondata,
@@ -48,15 +44,25 @@ class HomeHotPositionService(HomeCnfQueryService):
     def getRetcodeByActivityRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
-    def getAllCalculateDataByRsp(self,response = None):
+    def getAllDataListFromRsp(self,response = None):
         calDataList = query_json(json_content=json.loads(response), query="showInfoPage.targets")
         return [data["resourceId"] for data in calDataList]
 
-    # def getAllPageCalculateData(self,response = None):
-    #     allList = []
-    #     allList.append(self.getAllCalculateDataByRsp(response=response))
-    #     pageCounts = query_json(json_content=json.loads(response), query="showInfoPage.pageCounts")
-    #     for i in range[pageCounts]:
+    def getAllDataListFromDb(self):
+        position = self.inputKV["position"]
+        cnfDataList  = self.getDbPageDataBySql(configSqlStr="select_t_sku_HomePage")
+        calaDataList = self.getDbPageDataBySql(configSqlStr="select_t_resource_calculate_inovn")
+        return cnfDataList[position][0:self.pgdc[position]] + calaDataList[position]
+
+    def compareM(self):
+        curPage = self.inputKV["currentPage"]
+        cnfDataList = self.getAllDataListFromDb()
+        rspDataList = self.getAllDataListFromRsp(response=self.rsp)
+        start = (curPage-1) * 10
+        end   =  curPage*10
+        return op.eq(cnfDataList[start:end],rspDataList)
+
+
 
 
     def compareSerData(self,response=None,position="01",configSqlStr="select_t_sku_HomePage",calSqlStr = "select_t_resource_calculate"):

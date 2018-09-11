@@ -5,15 +5,15 @@
         <opertype>select</opertype>
         <sql>
 		   select r.id resourceId,r.corner_mask specificType ,tsc.PIC_PATH bannerUrl,tsc.PIC_PATH thumbUrl,r.resource_type_id resourceType,r.title,tsc.POSITION position,min(s.price) minPrice ,max(s.price) originalPrice
-		   from resource.t_resource r LEFT JOIN t_sku s on r.id = s.ITEM_ID,allin.t_show_config tsc
-		   where  ((r.state = 0 and r.resource_type_id in(1,2,11,12)) or
-				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from t_sku s where s.ITEM_ID = r.id and s.TOTAL_INVENTORY>0) ) or
-				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from t_sku s where s.ITEM_ID = r.id and s.TOTAL_INVENTORY>0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
+		   from resource.t_resource r LEFT JOIN resource.t_sku s on r.id = s.resource_id,allin.t_show_config tsc
+		   where  ((r.state = 0 and r.resource_type_id in(1,2)) or
+				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0) ) or
+				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
 				   and tsc.POSITION in(%(position)s) and tsc.ITEM_ID = r.id
 		   group by r.id,tsc.POSITION
 		   order by tsc.LIST_ORDER ;
 		</sql>
-	    <desc>微信端运营位配置数据</desc>
+	    <desc>运营位配置数据</desc>
     </mysql>
 	<mysql>
         <name>select_t_resource_calculate</name>
@@ -27,19 +27,19 @@
 				  and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )
 			group by r.id order by visistnum desc;
 		</sql>
-	    <desc>按照访问量从高到低计算</desc>
+	    <desc>首页发现页算法计算数据</desc>
     </mysql>
 	<mysql>
         <name>select_t_resource_calculate_inovn</name>
         <opertype>select</opertype>
         <sql>
 		    select r.id resourceId,r.corner_mask specificType ,r.banner_url bannerUrl,r.banner_url thumbUrl,r.resource_type_id resourceType,r.title,"%(position)s" position,min(s.price) minPrice,max(price) originalPrice,(count(1) + r.base_visit_count) visistnum
-            from t_resource r left join t_visit v   on  v.resource_id = r.id  LEFT JOIN t_sku s on s.resource_id = r.id
-            where r.state = 0 and r.resource_type_id in(1,2)
-                  and r.match_id = 1
-		          and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )
-group by r.id order by visistnum desc;
+			from resource.t_resource r left join resource.t_visit v   on  v.resource_id = r.id  LEFT JOIN t_sku s on s.ITEM_ID = r.id
+			where r.state = 0 and r.resource_type_id in(1,2)
+				  and r.match_id = 1
+					  and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )
+			group by r.id order by visistnum desc
 		</sql>
-	    <desc>创新大赛推荐位按照访问量从高到低计算</desc>
+	    <desc>创新大赛推荐位计算数据</desc>
     </mysql>
 </uop>
