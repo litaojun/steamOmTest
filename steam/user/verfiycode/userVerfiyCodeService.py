@@ -48,7 +48,6 @@ class WeixinUserVerfiyCodeService(UopService):
         :param response:
         :return:
         """
-        print("homePageCnfRsp=" + str(response))
         return query_json(json_content=json.loads(response), query="code")
 
     def getVerfiyCodeFromRedisByPhone(self,phoneNum = ""):

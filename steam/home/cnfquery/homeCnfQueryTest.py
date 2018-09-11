@@ -11,7 +11,6 @@
 @file: homeCnfQueryTest.py 
 @time: 2018/6/5 10:48 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
@@ -32,7 +31,6 @@ class HomeCnfQueryTest(SteamTestCase):
           retcode        = self.homeCnfQuerySer.getRetcodeByActivityRsp(response = userHomeCnfRsp)
           self.assertTrue(retcode == self.expectdata["code"])
           self.assertTrue(self.homeCnfQuerySer.compareData(response         = userHomeCnfRsp,
-                                                           removePositionLs = ["05","07"],
                                                            configSqlStr     = "select_t_sku_HomePage"))
       #发现页-今日推荐-配置内容
       def queryFindCnf(self):

@@ -5,11 +5,11 @@
         <opertype>select</opertype>
         <sql>
 		   select r.id resourceId,r.corner_mask specificType ,tsc.PIC_PATH bannerUrl,tsc.PIC_PATH thumbUrl,r.resource_type_id resourceType,r.title,tsc.POSITION position,min(s.price) minPrice ,max(s.price) originalPrice
-		   from t_resource r LEFT JOIN t_sku s on r.id = s.resource_id and s.state =0,allin.t_show_config tsc
-		   where  ((r.state = 0 and r.resource_type_id in(1,2)) or 
-				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0) ) or 
-				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from t_sku s where s.resource_id = r.id and s.inventory>0)  and EXISTS(select 1 from t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
-				   and tsc.POSITION in(%(position)s) and tsc.ITEM_ID = r.id 
+		   from resource.t_resource r LEFT JOIN t_sku s on r.id = s.ITEM_ID,allin.t_show_config tsc
+		   where  ((r.state = 0 and r.resource_type_id in(1,2,11,12)) or
+				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from t_sku s where s.ITEM_ID = r.id and s.TOTAL_INVENTORY>0) ) or
+				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from t_sku s where s.ITEM_ID = r.id and s.TOTAL_INVENTORY>0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
+				   and tsc.POSITION in(%(position)s) and tsc.ITEM_ID = r.id
 		   group by r.id,tsc.POSITION
 		   order by tsc.LIST_ORDER ;
 		</sql>

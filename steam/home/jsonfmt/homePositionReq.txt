@@ -1,1 +1,1 @@
-?position=%(position)s&memberId=%(memberId)s&currentPage=1&pageSize=10
+?position=%(position)s&memberId=%(memberId)s&currentPage=%(currentPage)d&pageSize=10

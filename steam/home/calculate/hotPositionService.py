@@ -33,31 +33,31 @@ class HomeHotPositionService(HomeCnfQueryService):
                                                      filename    = "cnfDataDb.xml",
                                                      kwarg       = kwargs,
                                                      reqjsonfile = homePositionReq)
-        self.rsp = None
-        self.homeHotPostionReqjson = self.reqjsondata
         self.jsonheart = {
 	                         "x-token":"admin"
                          }
 
     def queryHomeHotPosition(self):
-        hotPositionRsp =  httpGet(
-                                        url     = hotPositonUrl+self.homeHotPostionReqjson,
+        self.rsp =  httpGet(
+                                        url     = hotPositonUrl+self.reqjsondata,
                                         headers = self.jsonheart
                                   )
-        self.rsp = hotPositionRsp
-        return hotPositionRsp
+        return  self.rsp
 
     @check_rspdata(filepath=homePositionRspFmt)
     def getRetcodeByActivityRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
     def getAllCalculateDataByRsp(self,response = None):
-        infosQuery = "showInfoPage.targets"
-        curinfos = query_json(json_content=json.loads(response), query=infosQuery)
-        return curinfos
+        calDataList = query_json(json_content=json.loads(response), query="showInfoPage.targets")
+        return [data["resourceId"] for data in calDataList]
 
-    def getAllCnfListData(self,response = None):
-        return self.getAllCalculateDataByRsp(response=response)
+    # def getAllPageCalculateData(self,response = None):
+    #     allList = []
+    #     allList.append(self.getAllCalculateDataByRsp(response=response))
+    #     pageCounts = query_json(json_content=json.loads(response), query="showInfoPage.pageCounts")
+    #     for i in range[pageCounts]:
+
 
     def compareSerData(self,response=None,position="01",configSqlStr="select_t_sku_HomePage",calSqlStr = "select_t_resource_calculate"):
         rspDataLs = self.getAllCalculateDataByRsp(response=response)
