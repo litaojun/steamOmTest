@@ -50,8 +50,11 @@ class HomeHotPositionService(HomeCnfQueryService):
 
     def getAllDataListFromDb(self):
         position = self.inputKV["position"]
-        cnfDataList  = self.getDbPageDataBySql(configSqlStr="select_t_sku_HomePage")
-        calaDataList = self.getDbPageDataBySql(configSqlStr="select_t_resource_calculate_inovn")
+        configSqlStr = "select_t_resource_calculate"
+        if self.inputKV["position"] == "04":
+            configSqlStr = "select_t_resource_calculate_inovn"
+        cnfDataList  = self.getDbPageDataBySql(configSqlStr = "select_t_sku_HomePage")
+        calaDataList = self.getDbPageDataBySql(configSqlStr = configSqlStr)
         return cnfDataList[position][0:self.pgdc[position]] + calaDataList[position]
 
     def compareM(self):
