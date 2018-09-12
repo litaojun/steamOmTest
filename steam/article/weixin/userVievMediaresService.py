@@ -25,7 +25,10 @@ class UserViewMediaresService(UopService):
     '''
         用户端通过文章ID浏览详情页面
     '''
-    def __init__(self, kwarg={},modul="",filename= "",reqjsonfile = weixinUserViewMediaresReq):
+    def __init__(self, kwarg={},
+                       modul="",
+                       filename= "",
+                       reqjsonfile = weixinUserViewMediaresReq):
         """
         :param kwarg:
         :param modul:

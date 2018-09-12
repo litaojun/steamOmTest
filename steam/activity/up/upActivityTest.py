@@ -9,32 +9,29 @@
 @file: upActivityTest.py 
 @time: 2018/5/10 17:54 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.activity.up.upActivityService import ActivityPublishService
+from steam.util.testJsonFormat import initInput
+from steam.activity.search.searchActivityService import ActivitySearchService
+from steam.activity.query.queryActivityService import ActivityQueryService
+from steam.activity.down.downActivityService import ActivityUnPublishService
 from steam.util.steamLog import SteamTestCase
 class ActivityPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
       __interfaceName__ = "/operation-manage/product/publish"
+
+      @initInput(services = [ActivitySearchService,
+                             ActivityQueryService ],
+                 curser   =  ActivityPublishService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
-          self.inputdata =  self.getInputData()
-          self.expectdata = self.getExpectData()
-          self.activitySer = ActivitySearchService(self.inputdata)
-          self.setService(self.activitySer)
 
       def publishActivityTest(self):
-          activityRsp = self.activitySer.queryActivity()
-          code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
-          self.assertTrue(code == self.expectdata["code"])
-          rssid = self.activitySer.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          self.inputdata["resourceId"] = rssid
-          queryActSer = ActivityPublishService(kwargs=self.inputdata)
-          oneActRsp = queryActSer.publishActivitySer()
-          code = queryActSer.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
+          oneActRsp = self.myservice.publishActivitySer()
+          code      = self.myservice.getRetcodeByUpactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])
 
 

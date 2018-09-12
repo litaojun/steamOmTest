@@ -12,7 +12,6 @@
 from steam.activity.add.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-
 class ActivityAddTest(SteamTestCase):
       '''
             新增活动

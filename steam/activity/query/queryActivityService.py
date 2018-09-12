@@ -35,8 +35,8 @@ class ActivityQueryService(UopService):
             pass
 
     def queryOneActivity(self):
-        self.rsp = httpGet(url=queryIdActivityurl +  self.reqjsondata,
-                              headers=self.jsonheart)
+        self.rsp = httpGet(url     = queryIdActivityurl +  self.reqjsondata,
+                           headers = self.jsonheart)
         return self.rsp
 
     def getListIdByFormat(self,formatstr = "" ,size = 2):
@@ -58,11 +58,6 @@ class ActivityQueryService(UopService):
     def getSkuIdBySkuName(self,rsp = None,skuName = ""):
         skuNameIdDict = self.getSkuNameIdDict(rsp = rsp)
         return skuNameIdDict[skuName]
-        # skuIdFmtList = self.getSkuIdFmtListByFormat(size=len(skuList))
-        # skuNameFmtList = self.getSkuNameFmtListByFormat(size=len(skuList))
-        # skuIdList = [query_json(json_content=json.loads(rsp), query=x) for x in skuIdFmtList]
-        # skuNameList = [query_json(json_content=json.loads(rsp), query=x) for x in skuNameFmtList]
-
 
     def getImageListByFormat(self,size=2):
         idls = self.getListIdByFormat("data.imageList.%d.id",size)

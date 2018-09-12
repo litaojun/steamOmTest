@@ -37,6 +37,8 @@ class ActivitySearchService(UopService):
         return queryResult
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
+        if queryRsp is None:
+            queryRsp = self.queryActivity()
         return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
 
     def getSku(self,skuName):
@@ -55,11 +57,11 @@ class ActivitySearchService(UopService):
         return self.getSku()["skuName"]
 
     def setInPutData(self):
-        sku = self.getSku(skuName=self.inputKV["skuName"])
+        #sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        self.inputKV["skuId"] = sku["skuId"]
+        #self.inputKV["skuId"] = sku["skuId"]
         self.inputKV["resourceId"] = resourceId
-        self.inputKV["payPrice"] = sku["price"]
+        #self.inputKV["payPrice"] = sku["price"]
 
     def getRetcodeByActRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="code")

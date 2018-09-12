@@ -36,7 +36,7 @@ class ActivityUnPublishService(UopService):
 										    json=self.activityDownReqjson,
 										    headers=self.jsonheart,
 										    verify=False
-									   )
+									  )
         return pubActivityRsp.text
 
     def getRetcodeByDownactRsp(self,oneActRsp = None):
