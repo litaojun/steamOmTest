@@ -1,51 +1,56 @@
 {
-	"resourceId": 1548,
+	"resourceId": 1632,
 	"resourceTypeId": 12,
-	"title": "美式外教科学营\t\t\t",
-	"subTitle": "美式外教科学营\t\t\t\t",
-	"cornerMask": "美式外教",
+	"title": "QUEEN'S PALACE高级定制馆3-自动化",
+	"subTitle": "QUEEN'S PALACE高级定制馆-活动副标题",
+	"cornerMask": "商品",
 	"baseVisits": 0,
 	"vendorIdList": [1],
-	"content": "<!DOCTYPE html><html><head></head><body><table width=\"604\" class=\"mce-item-table\"><tbody><tr><td colspan=\"5\" width=\"355\"><br> 4大版块，6大主题，25个科学实验<br> 美式营地教育，超嗨外籍教师主讲<br> 国外最流行的户外活动，抓住孩子的科学启蒙阶段<br></td></tr></tbody></table><p><img class=\"wscnph\" src=\"http://uat-steam.opg.cn/_static/admin/images/resource/20180504103205_832373.jpg\" data-mce-src=\"../_static/admin/images/resource/20180504103205_832373.jpg\"><img class=\"wscnph\" src=\"http://uat-steam.opg.cn/_static/admin/images/resource/20180504103209_143970.jpg\" data-mce-src=\"../_static/admin/images/resource/20180504103209_143970.jpg\"></p></body></html>",
-	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103016_378323.jpg",
-	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103022_341278.jpg",
-	"deliverType": 1,
+	"content": "<!DOCTYPE html><html><head></head><body><p>fQueen’s Palace于2011年9月创立，是一家国内高级定制婚纱礼服奢侈品牌。自品牌创立以来，Queen’s Palace在沪上高定婚纱品牌的殿堂一直雄踞顶端，专注于婚纱定制的每一处细节。</p></body></html>",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101738_928360.jpg",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101741_710087.jpg",
+	"deliverType": 0,
 	"shareInfoList": [{
-		"id": 2415,
+		"id": 2554,
 		"shareType": 1,
-		"title": "\" 4大版块，6大主题，25个科学实验 美式营地教育，超嗨外",
-		"description": "\"\n4大版块，6大主题，25个科学实验\n美式营地教育，超嗨外籍教师主讲\n国外最流行的户外活动，抓住孩子的科学启蒙阶段\n\"\t\t\t\t\n",
-		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103154_309796.jpg"
+		"title": "QUEEN'S PALACE高级定制馆-分享标题",
+		"description": "QUEEN'S PALACE高级定制馆-分享描述",
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101830_796382.jpg"
 	}],
-	"province": "浙江省",
-	"city": "杭州市",
-	"addressDetail": "假日小队合作基地",
-	"startTime": 1525400978000,
-	"endTime": 1526721161000,
+	"province": "重庆市",
+	"city": "重庆郊县",
+	"addressDetail": "肇嘉浜路356号(襄阳南路路口)",
+	"startTime": 1296000000,
+	"endTime": 2592000000,
 	"offShelfTime": null,
-	"tagIdList": [],
-	"entryIdList": [72, 7, 76],
+	"tagIdList": [2],
+	"entryIdList": [7],
 	"skuList": [{
-		"skuId": 45,
-		"skuName": "美式外教科学营",
-		"price": 2980,
-		"originPrice": 2980,
-		"postPrice": 0,
-		"limitCount": 6,
-		"inventory": 100,
+		"skuId": 109,
+		"skuName": "套餐1",
+		"price": 0.01,
+		"originPrice": 1000,
+		"postPrice": 0.01,
+		"limitCount": 2,
+		"inventory": 1000,
+		"order": 1
+	}, {
+		"skuId": 110,
+		"skuName": "套餐2",
+		"price": 0.02,
+		"originPrice": 1200,
+		"postPrice": 0.01,
+		"limitCount": 3,
+		"inventory": 2000,
 		"order": 2
 	}],
 	"imageList": [{
-		"id": 63,
+		"id": 114,
 		"order": 1,
-		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103037_168702.jpg"
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101747_909470.jpg"
 	}, {
-		"id": 98,
+		"id": 115,
 		"order": 2,
-		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507171445_3662.jpg"
-	}, {
-		"id": 64,
-		"order": 6,
-		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103043_943613.jpg"
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101749_880315.jpg"
 	}]
 }

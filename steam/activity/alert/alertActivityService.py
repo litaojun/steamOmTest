@@ -30,7 +30,7 @@ class ActivityAlertService(UopService):
         super(ActivityAlertService, self).__init__(module="",
                                                    filename="",
                                                    sqlvaluedict =  kwargs,
-                                                   reqjsonfile  =  "alertActivityReq")
+                                                   reqjsonfile  =  kwargs["reqjsonfile"])
 
 
 
@@ -51,7 +51,6 @@ class ActivityAlertService(UopService):
 
 
     def getRetcodeByActivityRsp(self,articleRsp = None):
-        print("articleRsp=" + str(articleRsp))
         return query_json(json_content=json.loads(articleRsp), query="code")
 
     def getActivityIdByTitle(self,title = None):
