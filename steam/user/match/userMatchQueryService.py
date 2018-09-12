@@ -31,9 +31,9 @@ class UserMatchQueryService(UopService):
 
 
     def userMatchQuery(self):
-        self.rsp = httpPost(url=userMatchQueryUrl,
-                            headers=self.jsonheart,
-                            reqJsonData=self.reqjsondata)
+        self.rsp = httpPost(url         = userMatchQueryUrl,
+                            headers     = self.jsonheart,
+                            reqJsonData =self.reqjsondata)
         return self.rsp
 
     @check_rspdata(filepath = "userMatchQueryRspFmt")
@@ -55,9 +55,8 @@ class UserMatchQueryService(UopService):
     def setInPutData(self):
         if "subMatchName" in self.inputKV:
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)
-            matchDict = allMatchDict[self.inputKV["subMatchName"]]
-            self.inputKV["subMatchId"]=matchDict["matchId"]
-            print("get - starttime = %s,endtime=%s" %(matchDict["applyStartTime"],matchDict["applyEndTime"]))
+            matchDict    = allMatchDict[self.inputKV["subMatchName"]]
+            self.inputKV["subMatchId"] = matchDict["matchId"]
 
 if __name__ == "__main__":
    args = {
