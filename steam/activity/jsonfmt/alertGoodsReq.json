@@ -1,0 +1,56 @@
+{
+	"resourceId": 1703,
+	"resourceTypeId": 11,
+	"title": "QUEENS PALACE高级定制馆C-自动化",
+	"subTitle": "QUEEN'S PALACE高级定制馆-活动副标题",
+	"cornerMask": "商品",
+	"baseVisits": 0,
+	"vendorIdList": [1],
+	"content": "<!DOCTYPE html><html><head></head><body><p>fQueen’s Palace于2011年9月创立，是一家国内高级定制婚纱礼服奢侈品牌。自品牌创立以来，Queen’s Palace在沪上高定婚纱品牌的殿堂一直雄踞顶端，专注于婚纱定制的每一处细节。</p></body></html>",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101738_928360.jpg",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101741_710087.jpg",
+	"deliverType": 0,
+	"shareInfoList": [{
+		"id": 2684,
+		"shareType": 1,
+		"title": "QUEEN'S PALACE高级定制馆-分享标题",
+		"description": "QUEEN'S PALACE高级定制馆-分享描述",
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101830_796382.jpg"
+	}],
+	"province": null,
+	"city": null,
+	"addressDetail": null,
+	"startTime": null,
+	"endTime": null,
+	"offShelfTime": null,
+	"tagIdList": [2],
+	"entryIdList": [7, 74],
+	"skuList": [{
+		"skuId": 206,
+		"skuName": "套餐1",
+		"price": 0.01,
+		"originPrice": 1000,
+		"postPrice": 0.01,
+		"limitCount": 2,
+		"inventory": 1000,
+		"order": 1
+	}, {
+		"skuId": 207,
+		"skuName": "套餐2",
+		"price": 0.02,
+		"originPrice": 1200,
+		"postPrice": 0.01,
+		"limitCount": 3,
+		"inventory": 2000,
+		"order": 2
+	}],
+	"imageList": [{
+		"id": 198,
+		"order": 1,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101747_909470.jpg"
+	}, {
+		"id": 199,
+		"order": 2,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507101749_880315.jpg"
+	}]
+}

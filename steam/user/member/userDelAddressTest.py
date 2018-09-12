@@ -29,8 +29,8 @@ class UserDelAddressTest(SteamTestCase):
           super(UserDelAddressTest,self).__init__(methodName,param)
 
       def userDelAddressTest(self):
-          rsp = self.myservice.userDelAddressReq()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
+          rsp     = self.myservice.userDelAddressReq()
+          retcode = self.myservice.getRetcodeByRsp(response = rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

@@ -1,57 +1,51 @@
 {
-	"resourceId": 1590,
-	"resourceTypeId": %(resourceTypeId)d,
+	"resourceId": 1548,
+	"resourceTypeId": 12,
 	"title": "%(title)s",
 	"subTitle": "%(subTitle)s",
-	"cornerMask": "%(cornerMask)s",
-	"vendorIdList": %(vendorIdList)s,
-	"content": "%(content)s",
-	"thumbUrl": "%(thumbUrl)s",
-	"bannerUrl": "%(bannerUrl)s",
-	"deliverType": %(deliverType)d,
+	"cornerMask": "美式外教",
+	"baseVisits": 0,
+	"vendorIdList": [1],
+	"content": "<!DOCTYPE html><html><head></head><body><table width=\"604\" class=\"mce-item-table\"><tbody><tr><td colspan=\"5\" width=\"355\"><br> 4大版块，6大主题，25个科学实验<br> 美式营地教育，超嗨外籍教师主讲<br> 国外最流行的户外活动，抓住孩子的科学启蒙阶段<br></td></tr></tbody></table><p><img class=\"wscnph\" src=\"http://uat-steam.opg.cn/_static/admin/images/resource/20180504103205_832373.jpg\" data-mce-src=\"../_static/admin/images/resource/20180504103205_832373.jpg\"><img class=\"wscnph\" src=\"http://uat-steam.opg.cn/_static/admin/images/resource/20180504103209_143970.jpg\" data-mce-src=\"../_static/admin/images/resource/20180504103209_143970.jpg\"></p></body></html>",
+	"thumbUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103016_378323.jpg",
+	"bannerUrl": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103022_341278.jpg",
+	"deliverType": 1,
 	"shareInfoList": [{
-                          "id": 2466,
-                          "shareType": %(shareType)d,
-                          "title": "%(shareTitle)s",
-                          "description": "%(shareDescription)s",
-                          "picturePath": "%(sharePicturePath)s"
-                      }],
-	"province": "%(province)s",
-	"city": "%(city)s",
-	"addressDetail": "%(addressDetail)s",
-	"startTime": 1296000000,
-	"endTime": 2592000000,
-	"offShelfTime": 2764800000,
-	"tagIdList": %(tagIdList)s,
-	"entryIdList": %(entryIdList)s,
+		"id": 2415,
+		"shareType": 1,
+		"title": "\" 4大版块，6大主题，25个科学实验 美式营地教育，超嗨外",
+		"description": "\"\n4大版块，6大主题，25个科学实验\n美式营地教育，超嗨外籍教师主讲\n国外最流行的户外活动，抓住孩子的科学启蒙阶段\n\"\t\t\t\t\n",
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103154_309796.jpg"
+	}],
+	"province": "浙江省",
+	"city": "杭州市",
+	"addressDetail": "假日小队合作基地",
+	"startTime": 1525400978000,
+	"endTime": 1526721161000,
+	"offShelfTime": None,
+	"tagIdList": [],
+	"entryIdList": [72, 7, 76],
 	"skuList": [{
-                      "skuId": 1,
-                      "skuName": "%(skuName1)s",
-                      "price": "%(price1)s",
-                      "originPrice": "%(originPrice1)s",
-                      "postPrice": "%(postPrice1)s",
-                      "limitCount": "%(limitCount1)s",
-                      "inventory": "%(inventory1)s",
-                      "order": 1
-                  },
-                 {
-                       "skuId": 2,
-                      "skuName": "%(skuName2)s",
-                      "price": "%(price2)s",
-                      "originPrice": "%(originPrice2)s",
-                      "postPrice": "%(postPrice2)s",
-                      "limitCount": "%(limitCount2)s",
-                      "inventory": "%(inventory2)s",
-                      "order": 2
-                  }],
-        "imageList": [{
-                            "id": 67,
-                            "order": 1,
-                            "picturePath": "%(imgListpicturePath1)s"
-                        },
-                        {
-                            "id": 68,
-                            "order": 2,
-                            "picturePath": "%(imgListpicturePath2)s"
-                        }]
+		"skuId": 45,
+		"skuName": "美式外教科学营",
+		"price": 2980,
+		"originPrice": 2980,
+		"postPrice": 0,
+		"limitCount": 6,
+		"inventory": 100,
+		"order": 2
+	}],
+	"imageList": [{
+		"id": 63,
+		"order": 1,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103037_168702.jpg"
+	}, {
+		"id": 98,
+		"order": 2,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180507171445_3662.jpg"
+	}, {
+		"id": 64,
+		"order": 6,
+		"picturePath": "http://uat-steam.opg.cn/_static/admin/images/resource/20180504103043_943613.jpg"
+	}]
 }

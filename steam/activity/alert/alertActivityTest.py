@@ -23,7 +23,7 @@ class ActivityAlertTest(SteamTestCase):
           self.setService(self.activitySer)
 
       def alertActivityNor(self):
-          alertActRsp = self.activitySer.alertActivity(kwargs=self.inputdata)
+          alertActRsp = self.activitySer.alertActivity()
           retcode     = self.activitySer.getRetcodeByActivityRsp(articleRsp=alertActRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 

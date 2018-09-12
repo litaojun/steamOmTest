@@ -27,36 +27,18 @@ class ActivityAlertService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(ActivityAlertService, self).__init__("activity", "activityDb.xml", kwargs,reqjsonfile="alertActivityReq")
-        self.activityAlertReqjson = self.reqjsondata
-        self.activityAddSer = ActivityAddService(kwargs=kwargs)
-        #self.searchActSer = ActivitySearchService(kwargs={"currentPage": 1, "pageSize": 10, "resourceTypeId": kwargs["resourceTypeId"], "title": kwargs["title"]})
-        self.searchActSer = ActivitySearchService(kwargs=kwargs)
+        super(ActivityAlertService, self).__init__(module="",
+                                                   filename="",
+                                                   sqlvaluedict =  kwargs,
+                                                   reqjsonfile  =  "alertActivityReq")
 
-    @decorator("preInterfaceAddOneActivity")
-    def addArticle(self):
-        self.activityAddSer.addActivity()
 
-    def alertActivity(self,kwargs=None):
-        rsp = self.searchActSer.queryActivity()
-        resid = self.searchActSer.getFirstActivityIdByRsp(queryRsp=rsp)
-        self.inputKV["resourceId"] = resid
-        querySer = ActivityQueryService(kwargs=self.inputKV)
-        oneActivityRsp = querySer.queryOneActivity()
-        idskuss = querySer.getSkuListByFormat(size=kwargs["skulist"])
-        idSkusvalue = querySer.getIdValueListByRsp(ids=idskuss,rsp=oneActivityRsp)
-        idimgs = querySer.getImageListByFormat(size=kwargs["imglist"])
-        idimgvalues = querySer.getIdValueListByRsp(ids=idimgs,rsp=oneActivityRsp)
-        idshares = querySer.getShareListByFormat(size=1)
-        idsharevalues = querySer.getIdValueListByRsp(ids=idshares,rsp=oneActivityRsp)
-        self.activityAlertReqjson["resourceId"] = resid
-        self.alertReqIdToValue(skulist=idSkusvalue,imglist=idimgvalues,sharelist=idsharevalues)
-        addArticleRsp = httpPost(url=alertActivityurl,
-                                 headers=self.jsonheart,
-                                 reqJsonData=self.activityAlertReqjson)
-        self.rsp = addArticleRsp
-        print("addArticleRsp = %s" % addArticleRsp)
-        return addArticleRsp
+
+    def alertActivity(self):
+        self.rsp = httpPost(url        = alertActivityurl,
+                                 headers    = self.jsonheart,
+                                 reqJsonData= self.reqjsondata)
+        return self.rsp
 
     def alertReqIdToValue(self,skulist = [],imglist = [],sharelist = []):
         self.idToValueByFormat(formatstr="skuList.%d.skuId",idlist=skulist)
