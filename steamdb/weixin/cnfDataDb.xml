@@ -7,8 +7,8 @@
 		   select r.id resourceId,r.corner_mask specificType ,tsc.PIC_PATH bannerUrl,tsc.PIC_PATH thumbUrl,r.resource_type_id resourceType,r.title,tsc.POSITION position,min(s.price) minPrice ,max(s.price) originalPrice
 		   from resource.t_resource r LEFT JOIN resource.t_sku s on r.id = s.resource_id,allin.t_show_config tsc
 		   where  ((r.state = 0 and r.resource_type_id in(1,2)) or
-				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0) ) or
-				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
+				   (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0  and s.state = 0) ) or
+				   (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0  and s.state = 0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
 				   and tsc.POSITION in(%(position)s) and tsc.ITEM_ID = r.id
 		   group by r.id,tsc.POSITION
 		   order by tsc.LIST_ORDER ;
