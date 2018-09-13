@@ -30,31 +30,36 @@ class SteamTestCase(ParametrizedTestCase):
         inputData = super(SteamTestCase, self).getInputData()
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.memberIdDict:
-                inputData["token"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
+                inputData["token"]    = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
                 inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
             else:
                 inputData["scenes"] = "OTP"
                 userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
-                sedCodeRsp = userVerCodeSer.sendUserVerifyCode()
-                retcode = userVerCodeSer.getRetcodeByUserLoginRsp(response=sedCodeRsp)
+                sedCodeRsp     = userVerCodeSer.sendUserVerifyCode()
+                retcode        = userVerCodeSer.getRetcodeByUserLoginRsp(response=sedCodeRsp)
                 if retcode == "000000":
                    verfiyCode = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
                    inputData["verfiyCode"] = verfiyCode
                    userLoginSer = WeixinUserLoginService(kwargs=inputData)
-                   rsp = userLoginSer.weixinUserLogin()
+                   rsp  = userLoginSer.weixinUserLogin()
                    code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
                    if code  == "000000":
                       token = userLoginSer.getTokenFromRsp(response=rsp)
                       inputData["token"] = token
                       qmIdSer = QueryMemberIdService(kwargs=inputData)
-                      rsp = qmIdSer.userMemberIdReq()
-                      memberId = qmIdSer.getMemberIdFromRsp(response=rsp)
+                      rsp     = qmIdSer.userMemberIdReq()
+                      memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
                       inputData["memberId"] = memberId
                       SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
         else:
-             token = UserLoginService.getTokenData()
+             token               = UserLoginService.getTokenData()
              inputData["token"] = token
         return inputData
+
+    @classmethod
+    def clearPhoneData(cls):
+        global memberIdDict
+        memberIdDict = {}
 
 if __name__ == "__main__":
     args = {"phoneNo":"18916899938"}

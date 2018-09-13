@@ -22,7 +22,10 @@ class UserCancelOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs = {},modul = "",filename = "",reqjsonfile = "weixinUserCancelOrderActivitisReq"):
+    def __init__(self, kwargs = {},
+                       modul  = "",
+                       filename    = "",
+                       reqjsonfile = "weixinUserCancelOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:

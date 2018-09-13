@@ -35,7 +35,7 @@ class UserCancelOrderActivityTest(SteamTestCase):
 
       def userCancelOrderActivity(self):
           userCancelOrderRsp = self.myservice.userCancelOrderActivity()
-          retcode = self.myservice.getRetcodeByOrderRsp(response=userCancelOrderRsp)
+          retcode            = self.myservice.getRetcodeByOrderRsp(response=userCancelOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

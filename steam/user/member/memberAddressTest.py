@@ -26,7 +26,7 @@ class MemberAddressTest(SteamTestCase):
           super(MemberAddressTest,self).__init__(methodName,param)
 
       def memberAddressTest(self):
-          rsp = self.myservice.memberAddressReq()
+          rsp     = self.myservice.memberAddressReq()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 

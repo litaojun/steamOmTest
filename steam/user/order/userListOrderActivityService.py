@@ -24,28 +24,36 @@ class UserListOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserListOrderActivitisReq"):
+    def __init__(self, kwargs = {},
+                       modul  = "",
+                       filename    = "",
+                       reqjsonfile = "weixinUserListOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserListOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
+        super(UserListOrderActivityService, self).__init__(modul,
+                                                           filename,
+                                                           sqlvaluedict = kwargs ,
+                                                           reqjsonfile  = reqjsonfile)
         self.userListOrderActivityReqjson = self.reqjsondata
 
     def userListOrderActivity(self):
         self.rsp =  httpPost(
-                                        url     =   userListOrderActivityUrl,
-                                        headers =    self.jsonheart,
+                                        url         =  userListOrderActivityUrl,
+                                        headers     =  self.jsonheart,
                                         reqJsonData =  self.userListOrderActivityReqjson
                             )
         return self.rsp
 
     @check_rspdata(filepath="weixinUserListOrderActivitisRspFmt")
     def getRetcodeByListOrderRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def getOrderList(self,response = None):
-        return query_json(json_content=json.loads(response), query="data.orderList")
+        return query_json(json_content = json.loads(response),
+                          query        = "data.orderList")
 
     def getTitleOrderDictByOl(self,orderList = None):
         if orderList is None:

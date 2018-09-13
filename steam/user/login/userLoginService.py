@@ -29,7 +29,10 @@ class WeixinUserLoginService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(WeixinUserLoginService, self).__init__("", "", kwargs , reqjsonfile = weixinUserLoginReq)
+        super(WeixinUserLoginService, self).__init__(module    ="",
+                                                     filename  ="",
+                                                     sqlvaluedict = kwargs ,
+                                                     reqjsonfile  = weixinUserLoginReq)
         self.rsp = None
         self.weixinUserLoginReqjson = self.reqjsondata
         kwargs["scenes"] = "OTP"
@@ -42,14 +45,17 @@ class WeixinUserLoginService(UopService):
         return self.rsp
 
     def getMemberIdFromRsp(self,response=None):
-        return query_json(json_content=json.loads(response), query="data.memberId")
+        return query_json(json_content = json.loads(response),
+                          query        = "data.memberId")
 
     def getTokenFromRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="token")
+        return query_json(json_content = json.loads(response),
+                          query        = "token")
 
     @check_rspdata(filepath=weixinUserLoginRspFmt)
     def getRetcodeByUserLoginRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
 
 

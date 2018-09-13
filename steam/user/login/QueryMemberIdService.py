@@ -33,11 +33,13 @@ class QueryMemberIdService(UopService):
         return self.rsp
 
     def getMemberIdFromRsp(self,response=None):
-        return query_json(json_content=json.loads(response), query="data.memberId")
+        return query_json(json_content = json.loads(response),
+                          query        = "data.memberId")
 
     #@check_rspdata(filepath=weixinUserLoginRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+    def getRetcodeByRsp(self,response  = None):
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
 if __name__ == "__main__":
    args = {

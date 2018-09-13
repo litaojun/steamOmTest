@@ -27,17 +27,21 @@ class UserCancelMatchAppleService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserCancelMatchAppleService, self).__init__("", "", kwargs , reqjsonfile = "userCancelMatchAppleReq")
+        super(UserCancelMatchAppleService, self).__init__(module    = "",
+                                                          filename  = "",
+                                                          sqlvaluedict = kwargs ,
+                                                          reqjsonfile  = "userCancelMatchAppleReq")
 
     def userCancelMatchApple(self):
-        self.rsp = httpPost(url=userCancelMatchAppleUrl,
-                            headers=self.jsonheart,
-                            reqJsonData=self.reqjsondata)
+        self.rsp = httpPost(url     = userCancelMatchAppleUrl,
+                            headers = self.jsonheart,
+                            reqJsonData = self.reqjsondata)
         return self.rsp
 
     @check_rspdata(filepath = "userCancelMatchAppleRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
 if __name__ == "__main__":
    args = {

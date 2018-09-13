@@ -37,13 +37,15 @@ class MemberAddressService(UopService):
     def getMemberAddressIdFromRsp(self,response=None):
         if response is None:
             response = self.memberAddressReq()
-        return query_json(json_content=json.loads(response), query="data.0.id")
+        return query_json(json_content = json.loads(response),
+                          query        = "data.0.id")
 
     def getMemberAddressIdByNameOrTel(self,response = None,conName="",conTel=""):
         if response is None:
             response = self.memberAddressReq()
         id = None
-        adsLs = query_json(json_content=json.loads(response), query="data")
+        adsLs = query_json(json_content = json.loads(response),
+                           query        = "data")
         for address in adsLs:
             if address["consignee"] == conName and address["phone"] == conTel:
                 id = address["id"]
@@ -52,10 +54,11 @@ class MemberAddressService(UopService):
 
     @check_rspdata(filepath=memberAddressRspFmt)
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def setInPutData(self):
-        memberAddrId  = self.getMemberAddressIdFromRsp()
+        memberAddrId               = self.getMemberAddressIdFromRsp()
         self.inputKV["addressId"] = memberAddrId
 
 if __name__ == "__main__":

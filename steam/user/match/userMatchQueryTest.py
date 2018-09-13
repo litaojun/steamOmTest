@@ -25,7 +25,7 @@ class UserMatchQueryTest(SteamTestCase):
           super(UserMatchQueryTest,self).__init__(methodName,param)
 
       def userMatchQueryTest(self):
-          rsp = self.myservice.userMatchQuery()
+          rsp     = self.myservice.userMatchQuery()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 

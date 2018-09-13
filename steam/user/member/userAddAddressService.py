@@ -30,15 +30,16 @@ class UserAddAddressService(UopService):
 
     def userAddAddressReq(self):
         self.rsp = httpPost(
-                                url     = userAddAddressUrl,
+                                url         = userAddAddressUrl,
                                 reqJsonData = self.reqjsondata,
-                                headers = self.jsonheart
+                                headers     = self.jsonheart
                             )
         return self.rsp
 
     @check_rspdata(filepath="userAddAddressRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content= json.loads(response),
+                          query       = "code")
 
 if __name__ == "__main__":
     kwargs = {

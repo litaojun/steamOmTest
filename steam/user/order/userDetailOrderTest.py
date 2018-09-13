@@ -33,7 +33,7 @@ class UserDetailOrderActivityTest(SteamTestCase):
 
       def userDetailOrderActivity(self):
           userDetailOrderRsp = self.myservice.userDetailOrderActivity()
-          retcode = self.myservice.getRetcodeByOrderRsp(response=userDetailOrderRsp)
+          retcode            = self.myservice.getRetcodeByOrderRsp(response=userDetailOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

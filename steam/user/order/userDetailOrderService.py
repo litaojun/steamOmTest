@@ -24,12 +24,18 @@ class UserDetailOrderActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserDetailOrderActivitisReq"):
+    def __init__(self, kwargs = {},
+                       modul  = "",
+                       filename    = "",
+                       reqjsonfile = "weixinUserDetailOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserDetailOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
+        super(UserDetailOrderActivityService, self).__init__(modul,
+                                                             filename,
+                                                             sqlvaluedict=kwargs ,
+                                                             reqjsonfile = reqjsonfile)
         self.userDetailOrderActivityReqjson = self.reqjsondata
 
     def userDetailOrderActivity(self):

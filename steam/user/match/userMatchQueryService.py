@@ -12,12 +12,11 @@
 @time: 2018/7/23 14:06 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import userMatchQueryUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 class UserMatchQueryService(UopService):
     '''
         微信端用户报名
@@ -27,7 +26,10 @@ class UserMatchQueryService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchQueryService, self).__init__("", "", kwargs , reqjsonfile = "userMatchQueryReq")
+        super(UserMatchQueryService, self).__init__(module   = "",
+                                                    filename = "",
+                                                    sqlvaluedict = kwargs ,
+                                                    reqjsonfile  = "userMatchQueryReq")
 
 
     def userMatchQuery(self):
@@ -38,18 +40,21 @@ class UserMatchQueryService(UopService):
 
     @check_rspdata(filepath = "userMatchQueryRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def getMatchTitleIds(self,response = None):
         if response is None:
-            response = self.userMatchQuery()
-        matchTitleLs = query_json(json_content=json.loads(response), query="subMatchList.0.subjectList")
+           response = self.userMatchQuery()
+        matchTitleLs = query_json(json_content = json.loads(response),
+                                  query        = "subMatchList.0.subjectList")
         return [x["id"] for x in matchTitleLs]
 
     def getNameMatchIdDict(self,response = None):
         if response is None:
-            response = self.userMatchQuery()
-        titleLs = query_json(json_content=json.loads(response), query="subMatchList")
+           response = self.userMatchQuery()
+        titleLs = query_json(json_content=json.loads(response),
+                             query       ="subMatchList")
         return dict([(x["matchName"],x) for x in titleLs])
 
     def setInPutData(self):

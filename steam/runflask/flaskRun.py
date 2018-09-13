@@ -22,6 +22,7 @@ sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 #from opg.unit.testcaseRunMgr import runTest
 from opg.unit.flaskRunMgr import runTest,queryStateByTokenPro,queryTestPlanList,queryPlanDetailByInterfaceName
 import threading
+from steam.util.steamLog import SteamTestCase
 from opg.unit.flaskRunMgr import getRunTestTokenId,initAllTestCase,initAllTestClass,genAllTestCase,runAllTestCase
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
@@ -77,6 +78,10 @@ def start_steam_tasks():
 def query_run_state():
     token       = request.args.get("token")
     projectName = request.args.get("projectname")
+    rtRunDt = jsonify(queryStateByTokenPro(projectName = projectName,
+                                        token       = token))
+    if rtRunDt is not None and rtRunDt["status"] == 2:
+        SteamTestCase.clearPhoneData()
     return jsonify(queryStateByTokenPro(projectName = projectName,
                                         token       = token))
 

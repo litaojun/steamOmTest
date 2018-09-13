@@ -27,7 +27,10 @@ class UserDelAddressService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserDelAddressService, self).__init__("", "", kwargs ,reqjsonfile="userDelAddressReq")
+        super(UserDelAddressService, self).__init__(module   = "",
+                                                    filename = "",
+                                                    sqlvaluedict = kwargs ,
+                                                    reqjsonfile  = "userDelAddressReq")
 
     def userDelAddressReq(self):
         self.rsp = httpDelete(url     = userDelAddressUrl + self.reqjsondata,
@@ -36,24 +39,25 @@ class UserDelAddressService(UopService):
 
     @check_rspdata(filepath="userDelAddressRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content=json.loads(response),
+                          query       ="code")
 
     @decorator(["preInterfaceUserAddAddress"])
     def userAddAddressReq(self):
         reqjson = {
                         "consignee": self.inputKV["consignee"],
-                        "phone": self.inputKV["phone"],
-                        "address": self.inputKV["address"],
+                        "phone"    : self.inputKV["phone"],
+                        "address"  : self.inputKV["address"],
                         "addressCode": self.inputKV["addressCode"],
-                        "province": self.inputKV["province"],
-                        "city": self.inputKV["city"],
-                        "county": self.inputKV["county"],
+                        "province"   : self.inputKV["province"],
+                        "city"     : self.inputKV["city"],
+                        "county"   : self.inputKV["county"],
                         "isDefault": self.inputKV["isDefault"]
                     }
         self.rsp = httpPost(
-                                url     = userAddAddressUrl,
+                                url         = userAddAddressUrl,
                                 reqJsonData = reqjson,
-                                headers = self.jsonheart
+                                headers     = self.jsonheart
                             )
         addressId = MemberAddressService(kwargs=self.inputKV).getMemberAddressIdByNameOrTel(conName=reqjson["consignee"],
                                                                                              conTel=reqjson["phone"])

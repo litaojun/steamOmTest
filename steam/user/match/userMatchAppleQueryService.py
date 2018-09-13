@@ -26,32 +26,37 @@ class UserMatchAppleQueryService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserMatchAppleQueryService, self).__init__("", "", kwargs , reqjsonfile = "userMatchAppleQueryReq")
+        super(UserMatchAppleQueryService, self).__init__(module   = "",
+                                                         filename = "",
+                                                         sqlvaluedict = kwargs ,
+                                                         reqjsonfile  = "userMatchAppleQueryReq")
 
     def userMatchAppleQuery(self):
-        self.rsp = httpPost(url=userMatchAppleQueryUrl,
-                            headers=self.jsonheart,
-                            reqJsonData=self.reqjsondata)
+        self.rsp = httpPost(url     = userMatchAppleQueryUrl,
+                            headers = self.jsonheart,
+                            reqJsonData = self.reqjsondata)
         return self.rsp
 
     def getMatchNameDict(self,response = None):
         if response is None:
            response = self.userMatchAppleQuery()
-        userAppleMatchLs = query_json(json_content=json.loads(response),query="applyInfoList")
+        userAppleMatchLs = query_json(json_content=json.loads(response),
+                                      query       ="applyInfoList")
         return dict([(x["matchName"], x) for x in userAppleMatchLs])
 
 
     #查询用户报名赛事的报名ID
     def getUserAppleIdByMatchName(self,response = None,matchName = None):
         appleId = None
-        matchDict = self.getMatchNameDict(response=response)
+        matchDict = self.getMatchNameDict(response = response)
         if matchName in matchDict:
              appleId = matchDict[matchName]["applyId"]
         return appleId
 
     @check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
 
 if __name__ == "__main__":
