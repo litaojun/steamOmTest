@@ -181,6 +181,8 @@ $(document).ready(function()
 		     var    runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
              bingEvent();
              clearAllContent();
+             $("#select_project ").val(1);
+             $('#select_project').trigger('change');
 			 function bingEvent()
              {
                      $("#planTest").bind("click",autoTestFun);                     //点击自动接口测试

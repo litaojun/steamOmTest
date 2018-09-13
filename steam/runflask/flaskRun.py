@@ -80,8 +80,8 @@ def query_run_state():
     projectName = request.args.get("projectname")
     rtRunDt     = queryStateByTokenPro(projectName = projectName,
                                        token       = token)
-    if rtRunDt is not None and rtRunDt["status"] == 2:
-       SteamTestCase.clearPhoneData()
+    # if rtRunDt is not None and rtRunDt["status"] == 2:
+    #    SteamTestCase.clearPhoneData()
     return jsonify(rtRunDt)
 
 @app.route('/prop/testplanlist', methods=['GET'])
@@ -100,16 +100,17 @@ def query_testCase():
     methonName = request.args.get("methonName")
     caseId     = request.args.get("caseId")
     planId     = request.args.get("planId")
-    resultSign = queryTestResultByPlanIdOrCaseId(planId=planId,caseId=caseId)
+    resultSign = queryTestResultByPlanIdOrCaseId(planId = planId,
+                                                 caseId = caseId)
     className  =  allTestClass[interface].__name__
     if interface in allTestCase:
-        if methonName in allTestCase[interface]:
-           for testcase in allTestCase[interface][methonName]:
-               if testcase[0] == caseId:
-                  if testcase is not None and len(testcase)==9:
-                     testcase.append(className)
-                     testcase.append(resultSign)
-                  return jsonify(testcase)
+       if methonName in allTestCase[interface]:
+          for testcase in allTestCase[interface][methonName]:
+              if testcase[0] == caseId:
+                 if testcase is not None and len(testcase)==9:
+                    testcase.append(className)
+                    testcase.append(resultSign)
+                 return jsonify(testcase)
     return "no data"
 
 def stop_test_run():
