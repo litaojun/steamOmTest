@@ -78,10 +78,10 @@ def start_steam_tasks():
 def query_run_state():
     token       = request.args.get("token")
     projectName = request.args.get("projectname")
-    rtRunDt = jsonify(queryStateByTokenPro(projectName = projectName,
-                                        token       = token))
+    rtRunDt     = jsonify(queryStateByTokenPro(projectName = projectName,
+                                               token       = token))
     if rtRunDt is not None and rtRunDt["status"] == 2:
-        SteamTestCase.clearPhoneData()
+       SteamTestCase.clearPhoneData()
     return jsonify(queryStateByTokenPro(projectName = projectName,
                                         token       = token))
 
@@ -101,7 +101,6 @@ def query_testCase():
     methonName = request.args.get("methonName")
     caseId = request.args.get("caseId")
     planId = request.args.get("planId")
-    print("%s-%s-%s" % (interface,methonName,caseId))
     resultSign = queryTestResultByPlanIdOrCaseId(planId=planId,caseId=caseId)
     className =  allTestClass[interface].__name__
     if interface in allTestCase:
@@ -115,6 +114,7 @@ def query_testCase():
     return "no data"
 
 def stop_test_run():
+    global testSuite
     testSuite = None
     return jsonify({
                         'code': "000000"
