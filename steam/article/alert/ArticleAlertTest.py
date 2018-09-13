@@ -17,7 +17,8 @@ class ArticleAlertTest(SteamTestCase):
             管理后台修改文章
       '''
       __interfaceName__ = "/operation-manage/media/updateMedia"
-      def __init__(self, methodName='runTest', param=None):
+      def __init__(self, methodName = 'runTest',
+                         param      =  None):
           super(ArticleAlertTest,self).__init__(methodName,param)
           self.articleSer =  ArticleAlertService(self.inputdata)
           self.setService(self.articleSer)

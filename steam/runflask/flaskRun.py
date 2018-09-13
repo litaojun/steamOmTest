@@ -78,12 +78,11 @@ def start_steam_tasks():
 def query_run_state():
     token       = request.args.get("token")
     projectName = request.args.get("projectname")
-    rtRunDt     = jsonify(queryStateByTokenPro(projectName = projectName,
-                                               token       = token))
+    rtRunDt     = queryStateByTokenPro(projectName = projectName,
+                                       token       = token)
     if rtRunDt is not None and rtRunDt["status"] == 2:
        SteamTestCase.clearPhoneData()
-    return jsonify(queryStateByTokenPro(projectName = projectName,
-                                        token       = token))
+    return jsonify(rtRunDt)
 
 @app.route('/prop/testplanlist', methods=['GET'])
 def query_planlist():
@@ -97,20 +96,20 @@ def query_plan_CaseRecord():
 
 @app.route('/prop/getOneTestcase', methods=['GET'])
 def query_testCase():
-    interface = request.args.get("interface")
+    interface  = request.args.get("interface")
     methonName = request.args.get("methonName")
-    caseId = request.args.get("caseId")
-    planId = request.args.get("planId")
+    caseId     = request.args.get("caseId")
+    planId     = request.args.get("planId")
     resultSign = queryTestResultByPlanIdOrCaseId(planId=planId,caseId=caseId)
-    className =  allTestClass[interface].__name__
+    className  =  allTestClass[interface].__name__
     if interface in allTestCase:
         if methonName in allTestCase[interface]:
-            for testcase in allTestCase[interface][methonName]:
-                if testcase[0] == caseId:
-                    if testcase is not None and len(testcase)==9:
-                       testcase.append(className)
-                       testcase.append(resultSign)
-                    return jsonify(testcase)
+           for testcase in allTestCase[interface][methonName]:
+               if testcase[0] == caseId:
+                  if testcase is not None and len(testcase)==9:
+                     testcase.append(className)
+                     testcase.append(resultSign)
+                  return jsonify(testcase)
     return "no data"
 
 def stop_test_run():
