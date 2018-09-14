@@ -46,7 +46,7 @@ class UserDetailOrderActivityService(UopService):
                             )
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserDetailOrderActivityRspFmt)
+    #@check_rspdata(filepath=weixinUserDetailOrderActivityRspFmt)
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
 
