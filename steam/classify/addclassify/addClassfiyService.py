@@ -35,10 +35,10 @@ class ClassfiyAddService(UopService):
     def delClassfiy(self):
         entryId = self.getEntryIdByRsp(classfiyRsp = self.rsp)
         delclassfiyRsp = requests.post(
-									        url=delEntryurl,
-									        json={"entryId": entryId},
-									        headers=self.jsonheart,
-									        verify=False
+									        url  = delEntryurl,
+									        json = {"entryId": entryId},
+									        headers = self.jsonheart,
+									        verify  = False
 								      )
         return delclassfiyRsp.text
 

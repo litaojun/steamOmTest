@@ -33,34 +33,37 @@ class UserOrderActivityService(UopService):
         super(UserOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
         self.userThOrderActivityReqjson = self.reqjsondata
 
-    @decorator(["tearInterfaceUserOrderActivity","preInterfaceUserOrderActivity"])
+    @decorator(["tearInterfaceUserOrderActivity",
+                "preInterfaceUserOrderActivity"])
     def userOrderActivity(self):
         self.rsp =  httpPost(
-                                        url     =   userOrderActivityUrl ,
-                                        headers =    self.jsonheart      ,
+                                        url         =  userOrderActivityUrl ,
+                                        headers     =  self.jsonheart      ,
                                         reqJsonData =  self.userThOrderActivityReqjson
                             )
         return self.rsp
 
     @check_rspdata(filepath="weixinUserOrderActivitisRspFmt")
     def getRetcodeByOrderRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def getOrderIdFromRsp(self,response = None):
         if response is None:
             response = self.userOrderActivity()
-        return query_json(json_content=json.loads(response), query="data.orderId")
+        return query_json(json_content=json.loads(response),
+                          query       ="data.orderId")
 
 if __name__ == "__main__":
-    kwarg = {
-              "resourceId":"1767",
-              "skuId":"563",
-              "addressId":"b9a6e45e-8355-11e8-9033-02a7e93155ea",
-              "payPrice":"0.01",
-              "num":1,
-              "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
-              "resourceTypeId": 12,
-            }
-    userOrderAct = UserOrderActivityService(kwargs=kwarg)
-    rsp = userOrderAct.userOrderActivity()
+    kwarg        = {
+                      "resourceId":"1767",
+                      "skuId":"563",
+                      "addressId":"b9a6e45e-8355-11e8-9033-02a7e93155ea",
+                      "payPrice":"0.01",
+                      "num":1,
+                      "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
+                      "resourceTypeId": 12,
+                    }
+    userOrderAct = UserOrderActivityService(kwargs = kwarg)
+    rsp          = userOrderAct.userOrderActivity()
     print(rsp)

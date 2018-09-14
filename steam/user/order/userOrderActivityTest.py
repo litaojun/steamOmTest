@@ -14,7 +14,6 @@
 from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.testJsonFormat import initInput
@@ -33,11 +32,11 @@ class UserOrderActivityTest(SteamTestCase):
 
       def userOrderActivity(self):
           userOrderRsp = self.myservice.userOrderActivity()
-          retcode = self.myservice.getRetcodeByOrderRsp(response=userOrderRsp)
+          retcode      = self.myservice.getRetcodeByOrderRsp(response = userOrderRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userOrderActivitycase.xlsx",
-                        testclse = UserOrderActivityTest
+                        casefilepath =  "\\steamcase\\user\\userOrderActivitycase.xlsx",
+                        testclse     =  UserOrderActivityTest
                  )
