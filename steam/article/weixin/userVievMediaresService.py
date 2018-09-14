@@ -25,7 +25,7 @@ class UserViewMediaresService(UopService):
     '''
         用户端通过文章ID浏览详情页面
     '''
-    def __init__(self, kwarg={},
+    def __init__(self, kwargs={},
                        modul="",
                        filename= "",
                        reqjsonfile = weixinUserViewMediaresReq):
@@ -35,7 +35,10 @@ class UserViewMediaresService(UopService):
         :param filename:
         :param reqjsonfile:
         """
-        super(UserViewMediaresService, self).__init__(modul, filename, sqlvaluedict=kwarg , reqjsonfile = reqjsonfile)
+        super(UserViewMediaresService, self).__init__(modul,
+                                                      filename,
+                                                      sqlvaluedict=kwargs ,
+                                                      reqjsonfile = reqjsonfile)
 
     def userViewMediares(self):
         userViewMediaresRsp =  httpGet(

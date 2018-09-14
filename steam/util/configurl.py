@@ -24,7 +24,7 @@ queryIdActivityurl = base_url   + "/operation-manage/product/query"
 addArticleurl       =  base_url      + "/operation-manage/media/addMedia"
 delArticleurl       =  base_url      + "/operation-manage/media/deleteMedia"
 alertArtcleurl      = base_url       + "/operation-manage/media/updateMedia"
-userViewMediaresUrl = base_url       + "/operation-manage/media/queryMediaByID"
+userViewMediaresUrl = base_url       + "/steam-media/media/queryMediaByID"
 queryArticleurl     = base_url       + "/operation-manage/media/queryMedias?currentPage=1&pageSize=10"
 #分类管理 --- STEAM资源微服务REST接口文档v1.0.0.2.docx
 addentryurl          = base_url          + "/operation-manage/entry/addEntry"

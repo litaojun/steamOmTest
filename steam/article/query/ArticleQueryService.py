@@ -32,7 +32,11 @@ class ArticleQueryService(UopService):
         return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
 
 if __name__ == "__main__":
-    queryJsonData = {"title":"奥林匹克大赛2017年12月北京赛区","resourceTypeId":2}
+    queryJsonData = {
+                       "title":"奥林匹克大赛2017年12月北京赛区",
+                       "resourceTypeId":2,
+                       "token":"75098b16b67d4a41b5bf7c7f90791778"
+                    }
     aqs = ArticleQueryService(kwargs=queryJsonData)
     queryResultRsp = aqs.queryArtcle()
     rsid = aqs.getFirstResourceIdByRsp(queryRsp=queryResultRsp)
