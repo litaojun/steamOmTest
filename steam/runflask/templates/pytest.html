@@ -187,7 +187,7 @@ $(document).ready(function()
              {
                      $("#planTest").bind("click",autoTestFun);                     //点击自动接口测试
                      $("#select_plan").bind("change",selectfun);                   //选择一个执行计划
-                     $("#select_project").bind("change", q);	    //选择一个项目
+                     $("#select_project").bind("change",getAllPlanByProname);	    //选择一个项目
                      $('body').everyTime('5s',timeTest);                           //定时检查是否执行完成
              }
              function clearAllContent()
