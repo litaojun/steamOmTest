@@ -24,7 +24,7 @@ class ActivitySearchTest(SteamTestCase):
 
       def searchActivity(self):
           activityRsp = self.activitySer.queryActivity()
-          code = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
+          code        = self.activitySer.getRetcodeByActRsp(queryRsp=activityRsp)
           self.assertTrue(code == self.expectdata["code"])
 
 if __name__ == "__main__":

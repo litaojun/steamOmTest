@@ -39,7 +39,7 @@ class UserViewActivityService(UopService):
                             )
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserViewActivityRspFmt)
+    #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content = json.loads(response),
                           query        = "code")
