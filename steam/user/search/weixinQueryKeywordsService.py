@@ -14,7 +14,7 @@
 from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinSearchUrl
+from steam.util.configurl import weixinQueryKeywordsUrl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
 
@@ -34,39 +34,10 @@ class WeixinSearchService(UopService):
 
     def weixinUserSearchReq(self):
         self.rsp = httpGet(
-                                  url     =  weixinSearchUrl + self.reqjsondata ,
+                                  url     =  weixinQueryKeywordsUrl + self.reqjsondata ,
                                   headers =  self.jsonheart
                            )
         return self.rsp
-
-    def getFirstActivityIdByRsp(self,queryRsp = None):
-        if queryRsp is None:
-           queryRsp = self.weixinUserSearchReq()
-        return query_json(json_content = json.loads(queryRsp),
-                          query        = "data.targets.0.resourceId")
-
-    def getSku(self,skuName):
-        if self.rsp is None:
-           self.rsp  = self.weixinUserSearchReq()
-        actId = self.getFirstActivityIdByRsp(queryRsp = self.rsp)
-        self.inputKV["resourceId"] = actId
-        userViewActSer = UserViewActivityService(kwargs = self.inputKV)
-        sku            = userViewActSer.getSkuByName(skuName  = skuName,
-                                                     response = self.rsp)
-        return sku
-
-    def getSkuIdBySkuName(self,skuName =""):
-        return self.getSku(skuName=skuName)["skuName"]
-
-    def getSkuPayPriceBySkuName(self,skuName=""):
-        return self.getSku(skuName=skuName)["skuName"]
-
-    def setInPutData(self):
-        # sku = self.getSku(skuName=self.inputKV["skuName"])
-        resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        # self.inputKV["skuId"] = sku["skuId"]
-        self.inputKV["resourceId"] = resourceId
-        # self.inputKV["payPrice"] = sku["price"]
 
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")

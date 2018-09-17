@@ -79,6 +79,7 @@ adminLoginUrl = base_url + "/operation-manage/permission/admin/login"
 
 #STEAM搜索微服务REST接口文档v1.2.0.docx
 weixinSearchUrl = base_url + "/steam-search/search/keywordSearch"
+weixinQueryKeywordsUrl = base_url + "/steam-search/search/queryKeywords"
 
 if __name__ == "__main__":
 	als = walk_dir_test(dir=os.getcwd(),sign="Req",endstr=".txt")
