@@ -51,8 +51,8 @@ class WeixinSearchService(UopService):
         actId = self.getFirstActivityIdByRsp(queryRsp = self.rsp)
         self.inputKV["resourceId"] = actId
         userViewActSer = UserViewActivityService(kwargs = self.inputKV)
-        sku = userViewActSer.getSkuByName(skuName  = skuName,
-                                          response = self.rsp)
+        sku            = userViewActSer.getSkuByName(skuName  = skuName,
+                                                     response = self.rsp)
         return sku
 
     def getSkuIdBySkuName(self,skuName =""):
