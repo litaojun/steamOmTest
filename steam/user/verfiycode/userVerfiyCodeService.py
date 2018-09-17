@@ -57,6 +57,12 @@ class WeixinUserVerfiyCodeService(UopService):
         verfiyCode = curRedis.getSteamVerCodeByPhone(phone=phoneNum,scenes=self.inputKV["scenes"])
         return verfiyCode
 
+    def setInPutData(self):
+        if self.rsp is None:
+            self.rsp = self.sendUserVerifyCode()
+        self.inputKV["verfiyCode"] = self.getVerfiyCodeFromRedisByPhone()
+
+
 if __name__ == "__main__":
    args = {
               "phoneNo":"18916899938",
