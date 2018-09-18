@@ -30,7 +30,7 @@ class WeixinQueryKeywordsService(UopService):
         super(WeixinQueryKeywordsService, self).__init__(module       =  "",
                                                          filename     =  "",
                                                          sqlvaluedict =  kwargs,
-                                                         reqjsonfile  =  "weixinSearchReq")
+                                                         reqjsonfile  =  None)
 
     def weixinQueryKeywordsReq(self):
         self.rsp = httpGet(

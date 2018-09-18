@@ -13,7 +13,7 @@
 """
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.user.search.weixinSearchService import WeixinSearchService
+from steam.user.search.weixinQueryKeywordsService import WeixinQueryKeywordsService
 from steam.util.testJsonFormat import initInput
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
 class WeixinSearchTest(SteamTestCase):
@@ -22,13 +22,13 @@ class WeixinSearchTest(SteamTestCase):
       '''
       __interfaceName__   = "/steam-search/search/queryKeywords"
       @initInput(services = [HomeCnfQueryService],
-                 curser   = WeixinSearchService)
+                 curser   = WeixinQueryKeywordsService)
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(WeixinSearchTest,self).__init__(methodName,param)
 
       def userQueryKeywordsTest(self):
-          rsp     = self.myservice.weixinUserSearchReq()
+          rsp     = self.myservice.weixinQueryKeywordsReq()
           retcode = self.myservice.getRetcodeByRsp(response = rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
