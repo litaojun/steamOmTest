@@ -31,7 +31,7 @@ class UserVerfiyCodeTest(ParametrizedTestCase):
 
       def userSendVerfiyCodeTest(self):
           rsp     = self.myservice.sendUserVerifyCode()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
+          retcode = self.myservice.getRetcodeByRsp(response = rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

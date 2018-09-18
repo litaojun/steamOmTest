@@ -13,10 +13,12 @@
 """
 from opg.util.uopService import decorator,UopService
 import requests,json
+from steam.user.match.userMatchAppleService import UserMatchAppleService
 from opg.util.utils import query_json
 from steam.util.configurl import userCancelMatchAppleUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
+from steam.user.match.appleResetTools import userAppleMatch,userCancelAppleMatch,userAppleMatchTwo
 from opg.util.httptools import httpPost
 class UserCancelMatchAppleService(UopService):
     '''
@@ -27,16 +29,28 @@ class UserCancelMatchAppleService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserCancelMatchAppleService, self).__init__(module    = "",
-                                                          filename  = "",
+        super(UserCancelMatchAppleService, self).__init__(
+                                                          module       = "weixin",
+                                                          filename     = "matchDb.xml",
                                                           sqlvaluedict = kwargs ,
-                                                          reqjsonfile  = "userCancelMatchAppleReq")
+                                                          reqjsonfile  = "userCancelMatchAppleReq",
+                                                          dbName       = "match"
+                                                    )
 
     def userCancelMatchApple(self):
         self.rsp = httpPost(url     = userCancelMatchAppleUrl,
                             headers = self.jsonheart,
                             reqJsonData = self.reqjsondata)
         return self.rsp
+
+    @decorator(["preInterfaceUserMatch"])
+    def userMatchApple(self):
+        userAppleMatchSer = UserMatchAppleService(kwargs=self.inputKV)
+        userAppleMatchSer.alterMatchTime()
+        userAppleMatchTwo()
+        rsp = userAppleMatchSer.userMatchApple()
+        self.reqjsondata["applyId"] = userAppleMatchSer.getAppleIdFromRsp(response=rsp)
+
 
     @check_rspdata(filepath = "userCancelMatchAppleRspFmt")
     def getRetcodeByRsp(self,response = None):

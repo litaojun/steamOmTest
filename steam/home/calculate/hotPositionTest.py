@@ -11,7 +11,6 @@
 @file: hotPositionTest.py 
 @time: 2018/6/6 19:24 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.home.calculate.hotPositionService import HomeHotPositionService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase

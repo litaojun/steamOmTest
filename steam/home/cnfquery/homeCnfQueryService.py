@@ -25,7 +25,7 @@ class HomeCnfQueryService(UopService):
         首页配置数据
     '''
     def __init__(self,
-                 kwargs       = {},
+                 kwargs      = {},
                  modul       = "weixin",
                  filename    = "cnfDataDb.xml",
                  reqjsonfile = homeConfigQueryReq):

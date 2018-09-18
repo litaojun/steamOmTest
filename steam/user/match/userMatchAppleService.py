@@ -36,17 +36,21 @@ class UserMatchAppleService(UopService):
                                                      dbName       =  "match"
                                                     )
 
-
     @decorator(["preInterfaceUserMatch"])
     def userMatchApple(self):
-        self.rsp = httpPost(url     = userMatchAppleUrl,
-                            headers = self.jsonheart,
+        self.rsp = httpPost(url         = userMatchAppleUrl,
+                            headers     = self.jsonheart,
                             reqJsonData = self.reqjsondata)
         return self.rsp
 
     #@check_rspdata(filepath = "userMatchAppleRspFmt")
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content=json.loads(response),
+                          query       ="code")
+
+    def getAppleIdFromRsp(self,response = None):
+        return query_json(json_content = json.loads(response),
+                          query        = "applyId")
 
     @decorator(["preInterfaceUserAlertMatch"])
     def alterMatchTime(self):

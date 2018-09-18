@@ -69,6 +69,7 @@ userListOrderActivityUrl   = base_url + "/order-service/order"
 memberAddressUrl  = base_url + "/member-service/address/memberId"
 userAddAddressUrl = base_url + "/member-service/address"
 userDelAddressUrl = base_url + "/member-service/address"
+memberPersonalCenterUrl = base_url + "/member-service/members/personalCenter"
 #后台赛事管理    STEAM赛事微服务-管理后台REST接口文档v1.2.0.docx
 sessionAddUrl    = base_url    + "/match-service/match/createMatch"
 sessionDelUrl    = base_url    + "/match-service/match/deleteMatch"

@@ -15,12 +15,13 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userCancelMatchAppleService import UserCancelMatchAppleService
 from steam.util.testJsonFormat import initInput
+from steam.user.match.userMatchQueryService import UserMatchQueryService
 class UserCancelMatchAppleTest(SteamTestCase):
       '''
             微信端用户取消报名
       '''
       __interfaceName__ = "/match-service/member/apply/cancel"
-      @initInput(services = [],
+      @initInput(services = [UserMatchQueryService],
                  curser   =  UserCancelMatchAppleService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelMatchAppleTest,self).__init__(methodName,param)
