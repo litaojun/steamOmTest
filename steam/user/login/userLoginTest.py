@@ -15,7 +15,6 @@ from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.util.testJsonFormat import initInput
-import time
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 class UserLoginTest(ParametrizedTestCase):
       '''
@@ -23,13 +22,14 @@ class UserLoginTest(ParametrizedTestCase):
       '''
       __interfaceName__ = "/member/login/memberLogin"
       @initInput(services = [WeixinUserVerfiyCodeService],
-                 curser   = WeixinUserLoginService)
-      def __init__(self, methodName='runTest', param=None):
+                 curser   =  WeixinUserLoginService)
+      def __init__(self, methodName = 'runTest',
+                         param      = None):
           super(UserLoginTest,self).__init__(methodName,param)
 
       def userLoginTest(self):
           rsp     = self.myservice.weixinUserLogin()
-          retcode = self.myservice.getRetcodeByUserLoginRsp(response=rsp)
+          retcode = self.myservice.getRetcodeByUserLoginRsp(response = rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

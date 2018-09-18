@@ -16,13 +16,12 @@ from flask import Flask, jsonify,request
 from steam.mediares.query import mediaresQueryTest
 from flask_cors import *
 import sys
+from steam.util.steamLog import SteamTestCase
 from flask import render_template
 from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
-#from opg.unit.testcaseRunMgr import runTest
 from opg.unit.flaskRunMgr import runTest,queryStateByTokenPro,queryTestPlanList,queryPlanDetailByInterfaceName
 import threading
-from steam.util.steamLog import SteamTestCase
 from opg.unit.flaskRunMgr import getRunTestTokenId,initAllTestCase,initAllTestClass,genAllTestCase,runAllTestCase
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
@@ -80,8 +79,8 @@ def query_run_state():
     projectName = request.args.get("projectname")
     rtRunDt     = queryStateByTokenPro(projectName = projectName,
                                        token       = token)
-    # if rtRunDt is not None and rtRunDt["status"] == 2:
-    #    SteamTestCase.clearPhoneData()
+    if rtRunDt is not None and rtRunDt["status"] == 2:
+       SteamTestCase.clearPhoneData()
     return jsonify(rtRunDt)
 
 @app.route('/prop/testplanlist', methods=['GET'])

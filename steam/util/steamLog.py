@@ -58,8 +58,7 @@ class SteamTestCase(ParametrizedTestCase):
 
     @classmethod
     def clearPhoneData(cls):
-        global memberIdDict
-        memberIdDict = {}
+        cls.memberIdDict = {}
 
 if __name__ == "__main__":
     args = {"phoneNo":"18916899938"}
