@@ -37,6 +37,7 @@ class MemberAddressService(UopService):
     def getMemberAddressIdFromRsp(self,response=None):
         if response is None:
             response = self.memberAddressReq()
+        print("memberAddRSP = %s" % response)
         return query_json(json_content = json.loads(response),
                           query        = "data.0.id")
 

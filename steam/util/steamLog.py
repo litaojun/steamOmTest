@@ -36,7 +36,7 @@ class SteamTestCase(ParametrizedTestCase):
                 inputData["scenes"] = "OTP"
                 userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
                 sedCodeRsp     = userVerCodeSer.sendUserVerifyCode()
-                retcode        = userVerCodeSer.getRetcodeByUserLoginRsp(response=sedCodeRsp)
+                retcode        = userVerCodeSer.getRetcodeByRsp(response=sedCodeRsp)
                 if retcode == "000000":
                    verfiyCode = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
                    inputData["verfiyCode"] = verfiyCode

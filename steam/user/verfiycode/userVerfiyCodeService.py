@@ -43,7 +43,7 @@ class WeixinUserVerfiyCodeService(UopService):
         return weixinUserLoginRsp.text
 
     @check_rspdata(filepath=weixinUserVerfiyCodeRspFmt)
-    def getRetcodeByUserLoginRsp(self,response = None):
+    def getRetcodeByRsp(self,response = None):
         """
         :param response:
         :return:

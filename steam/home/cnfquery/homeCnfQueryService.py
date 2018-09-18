@@ -25,9 +25,9 @@ class HomeCnfQueryService(UopService):
         首页配置数据
     '''
     def __init__(self,
-                 kwarg={},
-                 modul="weixin",
-                 filename= "cnfDataDb.xml",
+                 kwargs       = {},
+                 modul       = "weixin",
+                 filename    = "cnfDataDb.xml",
                  reqjsonfile = homeConfigQueryReq):
         """
             :param entryName:
@@ -35,7 +35,7 @@ class HomeCnfQueryService(UopService):
         """
         super(HomeCnfQueryService, self).__init__(module       = modul,
                                                   filename     = filename,
-                                                  sqlvaluedict = kwarg ,
+                                                  sqlvaluedict = kwargs ,
                                                   reqjsonfile  = reqjsonfile,
                                                         dbName = "allin")
         self.pgdc = {
@@ -75,41 +75,21 @@ class HomeCnfQueryService(UopService):
                       )
                      for data in showInfos])
 
-    # def dataDictFilterFields(self,dictData = {},fields = []):
-    #     rdt = {}
-    #     for key in dictData.keys():
-    #         lsdata = self.dataListFilterFields(listData=dictData[key],fields=fields)
-    #         rdt[key] = lsdata
-    #     return rdt
-
-    # def dataListFilterFields(self, listData=[], fields=[]):
-    #     retls = []
-    #     #allFields = ["collectState", "sales", "visits", "collects", "state", "holdingTime", "activityAddress", "subHead", 'minPrice', 'originalPrice']
-    #     allFields = ["resourceId"]
-    #     if fields is not None and len(fields) > 0:
-    #         allFields = fields
-    #     for i in range(len(listData)):
-    #          dicta = {}
-    #          for field in allFields:
-    #             dicta[field] = listData[i][field]
-    #          retls.append(dicta)
-    #     return retls
+    def getEntryIdByNameFromRsp(self,response = None,entryName = None):
+        if response is None:
+            response = self.queryHomePageCnf()
+        showInfos = query_json(json_content = json.loads(response),
+                               query        = "showInfos")
+        for t in showInfos:
+            if t["position"] == "05":
+               for data in t["showSummaryInfos"]:
+                   if data["title"] == entryName:
+                       return data["resourceId"]
 
     def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
         homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)
-        # dbDataDict = {}
-        # fields = ['resourceId', 'specificType', 'bannerUrl', 'thumbUrl', 'resourceType', 'title', 'position']
-        # def funa(x):
-        #     if x[6] in dbDataDict:
-        #         dbDataDict[x[6]].append(x[0])
-        #     else:
-        #         dbDataDict[x[6]] = [x[0]]
-        # for data in homePageDbDataList:
-        #     funa(data)
         position = self.inputKV["position"]
         return {position:[data[0] for data in homePageDbDataList]}
-        #map(funa,list(homePageDbDataList))
-        #return dbDataDict
 
     #根据需求，每个运营位显示最大数量截取
     def filterLenByOrder(self,dbDataList = [],rspDataList = []):
@@ -134,6 +114,11 @@ class HomeCnfQueryService(UopService):
 
         sign = op.eq(d, p)
         return sign
+
+    def setInPutData(self):
+        entryId = self.getEntryIdByNameFromRsp(entryName = self.inputKV["entryName"])
+        if entryId is not None:
+            self.inputKV["entryId"] = entryId
 
 if __name__ == "__main__":
     kwargs = {

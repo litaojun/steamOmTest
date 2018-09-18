@@ -81,6 +81,8 @@ adminLoginUrl = base_url + "/operation-manage/permission/admin/login"
 weixinSearchUrl = base_url + "/steam-search/search/keywordSearch"
 weixinQueryKeywordsUrl = base_url + "/steam-search/search/queryKeywords"
 
+userSearchEntryUrl = base_url + "/steam-resource/index/configs/searchByEntry"
+
 if __name__ == "__main__":
 	als = walk_dir_test(dir=os.getcwd(),sign="Req",endstr=".txt")
 	print(als)

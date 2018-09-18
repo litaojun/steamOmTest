@@ -38,7 +38,7 @@ class ActivitySearchService(UopService):
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
         if queryRsp is None:
-            queryRsp = self.queryActivity()
+           queryRsp = self.queryActivity()
         print("queryRsp = %s" % queryRsp)
         return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
 
