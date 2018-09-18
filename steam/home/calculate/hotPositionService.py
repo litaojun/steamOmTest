@@ -31,7 +31,7 @@ class HomeHotPositionService(HomeCnfQueryService):
         """
         super(HomeHotPositionService, self).__init__(modul       = "weixin",
                                                      filename    = "cnfDataDb.xml",
-                                                     kwarg       = kwargs,
+                                                     kwargs       = kwargs,
                                                      reqjsonfile = homePositionReq)
     def queryHomeHotPosition(self):
         self.rsp =  httpGet(
