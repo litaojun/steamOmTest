@@ -28,7 +28,7 @@ class ActivityUnPublishTest(SteamTestCase):
 
       def upPublishActivityTest(self):
           oneActRsp = self.myservice.unPublishActivitySer()
-          code      = self.myservice.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
+          code      = self.myservice.getRetcodeByRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])
 
 

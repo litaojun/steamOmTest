@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-09-14 14:57:20</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:01.018200</p>
-<p class='attribute'><strong>Status:</strong> Pass 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-09-25 17:39:18</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.496049</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -222,16 +222,16 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>/resource-service/resource/removeEntry</td>
-    <td>1</td>
-    <td>1</td>
+    <td>/operation-manage/product/unPublish</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>classify_del_1_删除一个分类</div></td>
+    <td class='none'><div class='testcase'>activity_down_1_下架一个活动</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -254,10 +254,34 @@ pt1.1:
     </td>
 </tr>
 
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>goods_down_1_下架一个商品</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr id='total_row'>
     <td>Total</td>
-    <td>1</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
