@@ -29,12 +29,6 @@ class ActivityUnPublishTest(SteamTestCase):
 
 
       def upPublishActivityTest(self):
-          # activityRsp = self.myservice.queryActivity()
-          # code = self.myservice.getRetcodeByActRsp(queryRsp=activityRsp)
-          # self.assertTrue(code == self.expectdata["code"])
-          # rssid = self.myservice.getFirstActivityIdByRsp(queryRsp=activityRsp)
-          # self.inputdata["resourceId"] = rssid
-          # queryActSer = ActivityUnPublishService(kwargs = self.inputdata)
           oneActRsp = self.myservice.unPublishActivitySer()
           code      = self.myservice.getRetcodeByDownactRsp(oneActRsp = oneActRsp)
           self.assertTrue(code == self.expectdata["code"])
