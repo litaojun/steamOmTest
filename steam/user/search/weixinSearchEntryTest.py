@@ -21,8 +21,8 @@ class WeixinSearchEntryTest(SteamTestCase):
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       '''
       __interfaceName__ = "/steam-resource/index/configs/searchByEntry"
-      @initInput(services = [HomeCnfQueryService],
-                 curser   = UserSearchEntryService)
+      @initInput(services = [ HomeCnfQueryService ],
+                 curser   = UserSearchEntryService  )
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(WeixinSearchEntryTest,self).__init__(methodName,param)

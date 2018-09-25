@@ -28,8 +28,8 @@ class OperpsnQueryService(UopService):
         super(OperpsnQueryService, self).__init__("", "", kwargs,reqjsonfile="userOperQueryReq")
 
     def queryOperpsnListdata(self):
-        queryResult = httpGet(url = queryHomeConfigurl + self.reqjsondata,
-                              headers= self.jsonheart)
+        queryResult = httpGet(url     = queryHomeConfigurl + self.reqjsondata,
+                              headers = self.jsonheart)
         return  queryResult
 
     def getRetCodeByRsp(self,queryRsp = None):

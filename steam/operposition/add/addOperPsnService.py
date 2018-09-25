@@ -39,7 +39,6 @@ class OperpsnAddService(UopService):
 									    headers = self.jsonheart,
 									    verify  =  False
 								      )
-        print("delOperpsnRsp = %s" % delOperpsnRsp.text)
         return delOperpsnRsp.text
 
     def addOperPosition(self):

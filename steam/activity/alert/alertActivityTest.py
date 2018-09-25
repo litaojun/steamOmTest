@@ -12,19 +12,20 @@
 from steam.activity.alert.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
+from steam.util.testJsonFormat import initInput
 class ActivityAlertTest(SteamTestCase):
       '''
             新增活动
       '''
       __interfaceName__ = "/operation-manage/product/update"
+      @initInput(services = [],
+                 curser   = ActivityAlertService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
-          self.activitySer = ActivityAlertService(self.inputdata)
-          self.setService(self.activitySer)
 
       def alertActivityNor(self):
-          alertActRsp = self.activitySer.alertActivity()
-          retcode     = self.activitySer.getRetcodeByActivityRsp(articleRsp=alertActRsp)
+          alertActRsp = self.myservice.alertActivity()
+          retcode     = self.myservice.getRetcodeByRsp(articleRsp = alertActRsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":

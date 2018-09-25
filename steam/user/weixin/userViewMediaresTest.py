@@ -13,10 +13,9 @@
 """
 from steam.util.testJsonFormat import initInput
 from steam.util.steamLog import SteamTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.article.weixin.userVievMediaresService import UserViewMediaresService
+from steam.user.weixin.userVievMediaresService import UserViewMediaresService
 class UserViewMediaresTest(SteamTestCase):
       '''
             用户浏览视频文章

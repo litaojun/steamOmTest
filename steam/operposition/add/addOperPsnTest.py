@@ -9,8 +9,6 @@
 @file: addOperPsnTest.py 
 @time: 2018/4/25 18:14 
 """
-from opg.unit.parametrized import ParametrizedTestCase
-from steam.classify.addclassify.addClassfiyService import ClassfiyAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.operposition.add.addOperPsnService import OperpsnAddService
 from steam.util.steamLog import SteamTestCase

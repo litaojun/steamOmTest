@@ -62,11 +62,8 @@ class WeixinSearchService(UopService):
         return self.getSku(skuName=skuName)["skuName"]
 
     def setInPutData(self):
-        # sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        # self.inputKV["skuId"] = sku["skuId"]
         self.inputKV["resourceId"] = resourceId
-        # self.inputKV["payPrice"] = sku["price"]
 
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")

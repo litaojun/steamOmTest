@@ -50,8 +50,9 @@ class ActivityAlertService(UopService):
             setValue_json(json_content=self.activityAlertReqjson,query=formatstr % i,setvalue=idvalue)
 
 
-    def getRetcodeByActivityRsp(self,articleRsp = None):
-        return query_json(json_content=json.loads(articleRsp), query="code")
+    def getRetcodeByRsp(self,articleRsp = None):
+        return query_json(json_content = json.loads(articleRsp),
+						  query        = "code")
 
     def getActivityIdByTitle(self,title = None):
         articleQs = ActivitySearchService(kwargs={"title":title,"resourceTypeId":self.activityAlertReqjson["resourceTypeId"]})

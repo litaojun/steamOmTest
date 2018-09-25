@@ -25,11 +25,11 @@ class OperpsnQueryTest(SteamTestCase):
           self.setService(self.operpsnQuerySer)
 
       def testOperpsnQueryNor(self):
-          clsrsp = self.operpsnQuerySer.queryOperpsnListdata()
+          clsrsp  = self.operpsnQuerySer.queryOperpsnListdata()
           rspcode = self.operpsnQuerySer.getRetCodeByRsp(clsrsp)
-          title = self.operpsnQuerySer.getFirstResourceTitleByRsp(queryRsp=clsrsp)
+          title   = self.operpsnQuerySer.getFirstResourceTitleByRsp( queryRsp = clsrsp )
           self.assertTrue(rspcode == self.expectdata["code"])
-          self.assertTrue(title == self.inputdata["title"])
+          self.assertTrue(title   == self.inputdata["title"])
 
 if __name__ == "__main__":
    runTestOneCls(

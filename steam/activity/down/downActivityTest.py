@@ -20,13 +20,11 @@ class ActivityUnPublishTest(SteamTestCase):
             根据ID下架活动
       '''
       __interfaceName__ = "/operation-manage/product/unPublish"
-
-      @initInput(services = [ActivitySearchService,
-                             ActivityQueryService],
-                 curser   = ActivityUnPublishService)
-      def __init__(self, methodName='runTest', param=None):
+      @initInput(services = [ ActivitySearchService,
+                              ActivityQueryService ],
+                 curser   =  ActivityUnPublishService )
+      def __init__(self, methodName = 'runTest', param = None ):
           super(ActivityUnPublishTest,self).__init__(methodName,param)
-
 
       def upPublishActivityTest(self):
           oneActRsp = self.myservice.unPublishActivitySer()

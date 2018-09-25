@@ -24,7 +24,10 @@ class ActivityQueryService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(ActivityQueryService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityQueryReq))
+        super(ActivityQueryService, self).__init__(module       = "",
+                                                   filename     = "",
+                                                   sqlvaluedict = kwargs,
+                                                   reqjsonfile  = fxt.join(activityQueryReq))
 
     def initReqJsonIdData(self,kwargs):
         skuIdLs = self.getSkuIdFmtListByFormat(size = kwargs['skulist'])
@@ -70,19 +73,21 @@ class ActivityQueryService(UopService):
     def getIdValueListByRsp(self,ids=[],rsp = None):
         idvls = []
         for idtag in ids:
-            idvlaue = query_json(json_content=json.loads(rsp), query=idtag)
+            idvlaue = query_json(json_content = json.loads(rsp),
+                                 query        = idtag)
             idvls.append(idvlaue)
         return idvls
 
     def getRetcodeByOneactRsp(self,oneActRsp = None):
-        return query_json(json_content=json.loads(oneActRsp), query="code")
+        return query_json(json_content = json.loads(oneActRsp),
+                          query        = "code")
 
     def setInPutData(self):
         if self.rsp is None:
             self.rsp = self.queryOneActivity()
         skuNmIdDict = self.getSkuNameIdDict(rsp = self.rsp)
         if self.inputKV.get("skuName") is not None :
-            self.inputKV["skuId"] = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
+            self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
             self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
 
 if __name__ == "__main__":

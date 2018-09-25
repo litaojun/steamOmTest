@@ -20,27 +20,30 @@ from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.util.reqFormatPath import fxt,activityDownReq,activityDownRspFmt
 class ActivityUnPublishService(UopService):
     '''
-        活动新增
+        活动下线
     '''
     def __init__(self, kwargs):
         """
         :param entryName:
         :param picturePath:
         """
-        super(ActivityUnPublishService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityDownReq))
-        self.activityDownReqjson = self.reqjsondata
+        super(ActivityUnPublishService, self).__init__(module       = "",
+                                                       filename     = "",
+                                                       sqlvaluedict = kwargs,
+                                                       reqjsonfile  = fxt.join(activityDownReq))
 
     def unPublishActivitySer(self):
         pubActivityRsp = requests.post(
-										    url=downActivityurl,
-										    json=self.activityDownReqjson,
-										    headers=self.jsonheart,
-										    verify=False
+										    url     = downActivityurl,
+										    json    = self.reqjsondata,
+										    headers = self.jsonheart,
+										    verify  = False
 									  )
         return pubActivityRsp.text
 
-    def getRetcodeByDownactRsp(self,oneActRsp = None):
-        return query_json(json_content=json.loads(oneActRsp), query="code")
+    def getRetcodeByRsp(self,oneActRsp = None):
+        return query_json(json_content = json.loads(oneActRsp),
+                          query        = "code")
 
 if __name__ == "__main__":
    reqdata = {

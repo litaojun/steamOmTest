@@ -12,17 +12,18 @@
 from steam.util.testJsonFormat import initInput
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService import ActivityQueryService
+from steam.activity.query.queryActivityService   import ActivityQueryService
 from steam.util.steamLog import SteamTestCase
 class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
-      __interfaceName__ = "/operation-manage/product/query"
-      @initInput(services = [ActivitySearchService],
-                 curser   = ActivityQueryService)
-      def __init__(self, methodName='runTest', param=None):
-          super(ActivityQueryTest,self).__init__(methodName,param)
+      __interfaceName__   = "/operation-manage/product/query"
+      @initInput(services = [ ActivitySearchService ] ,
+                 curser   =   ActivityQueryService   )
+      def __init__(self, methodName =  'runTest',
+                         param      =  None      ):
+          super(ActivityQueryTest,self).__init__(methodName , param)
 
       def queryActivityDetail(self):
           oneActRsp = self.myservice.queryOneActivity()

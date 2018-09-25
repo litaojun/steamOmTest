@@ -48,11 +48,13 @@ class ActivityAddService(UopService):
 
     #@check_rspdata(filepath=fxt.join(activityAddRspFmt))
     @check_rspdata(filepath="addActivityRspFmt")
-    def getRetcodeByActivityRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+    def getRetcodeByRsp(self,response = None):
+        return query_json(json_content = json.loads(response),
+						  query        = "code")
 
     def getActivityIdByRsp(self,activityRsp = None):
-        rssId = query_json(json_content=json.loads(activityRsp), query="data.resourceId")
+        rssId = query_json(json_content = json.loads(activityRsp),
+						   query        = "data.resourceId")
         return rssId
 
 if __name__ == "__main__":
