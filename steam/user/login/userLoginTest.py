@@ -20,7 +20,7 @@ class UserLoginTest(ParametrizedTestCase):
       '''
             微信端用户通过手机号码登录
       '''
-      __interfaceName__ = "/member/login/memberLogin"
+      __interfaceName__   = "/member/login/memberLogin"
       @initInput(services = [WeixinUserVerfiyCodeService],
                  curser   =  WeixinUserLoginService)
       def __init__(self, methodName = 'runTest',
