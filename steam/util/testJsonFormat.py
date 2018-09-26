@@ -25,7 +25,8 @@ def compare(a,b):
     validator = Validator(jsona)
     validator.validate(jsonb)
 
-def initInput(services=[],curser=None):
+def initInput(services = [],
+              curser   = None):
     def _call(fun):
         def __call(*args,**kwargs):
             fun(*args, **kwargs)

@@ -38,9 +38,9 @@ class SteamTestCase(ParametrizedTestCase):
                sedCodeRsp     = userVerCodeSer.sendUserVerifyCode()
                retcode        = userVerCodeSer.getRetcodeByRsp(response=sedCodeRsp)
                if retcode == "000000":
-                  verfiyCode = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
+                  verfiyCode               = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
                   inputData["verfiyCode"] = verfiyCode
-                  userLoginSer = WeixinUserLoginService(kwargs=inputData)
+                  userLoginSer             = WeixinUserLoginService(kwargs=inputData)
                   rsp  = userLoginSer.weixinUserLogin()
                   code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
                   if code  == "000000":

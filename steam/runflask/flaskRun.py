@@ -31,9 +31,8 @@ testSuite = None
 if sign :
     allTestClass = initAllTestClass()
     allTestCase  = initAllTestCase()
-    #testSuite    = genAllTestCase(allCase=allTestCase,allTestClass=allTestClass)
-    tokenList = []
-    sign = False
+    tokenList    = []
+    sign         = False
 @app.route('/prop/runtestplan', methods=['GET'])
 def start_tasks():
     projectName = request.args.get("projectname")
@@ -55,9 +54,10 @@ def start_tasks():
 @app.route('/prop/runTestPro', methods=['GET'])
 def start_steam_tasks():
     projectName = request.args.get("projectname")
-    retdata = getRunTestTokenId(projectname=projectName)
-    testSuite = genAllTestCase(allCase=allTestCase, allTestClass=allTestClass)
-    SteamTestCase.clearPhoneData()
+    retdata     = getRunTestTokenId(projectname=projectName)
+    testSuite   = genAllTestCase(allCase      = allTestCase,
+                                 allTestClass = allTestClass)
+    SteamTestCase.memberIdDict = {}
     t = threading.Thread(target = runAllTestCase,
                          kwargs = {
                                         "suites" : testSuite,

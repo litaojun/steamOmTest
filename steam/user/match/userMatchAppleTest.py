@@ -11,7 +11,6 @@
 @file: userMatchAppleTest.py 
 @time: 2018/7/25 11:19 
 """
-import time
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
@@ -24,20 +23,20 @@ class UserMatchAppleTest(SteamTestCase):
       """
       __interfaceName__ = "/match-service/member/apply"
       @initInput(services=[UserMatchQueryService],
-                 curser=UserMatchAppleService)
-      def __init__(self, methodName='runTest', param=None):
+                 curser  =UserMatchAppleService)
+      def __init__(self, methodName='runTest',
+                         param     =None):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):
-          # time.sleep(10)
           userAppleMatchTwo()
           rsp     = self.myservice.userMatchApple()
           retcode = self.myservice.getRetcodeByRsp(response=rsp)
           self.assertTrue(retcode == self.expectdata["code"] ,
-                          msg     = "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
+                          msg     =  "return code is %s,and expect code is %s" % (retcode,self.expectdata["code"]))
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
+                        casefilepath  =  "\\steamcase\\user\\userMatchApplecase-test.xlsx",
                         testclse      =  UserMatchAppleTest
                  )
