@@ -57,6 +57,7 @@ def start_steam_tasks():
     projectName = request.args.get("projectname")
     retdata = getRunTestTokenId(projectname=projectName)
     testSuite = genAllTestCase(allCase=allTestCase, allTestClass=allTestClass)
+    SteamTestCase.clearPhoneData()
     t = threading.Thread(target = runAllTestCase,
                          kwargs = {
                                         "suites" : testSuite,
@@ -79,8 +80,8 @@ def query_run_state():
     projectName = request.args.get("projectname")
     rtRunDt     = queryStateByTokenPro(projectName = projectName,
                                        token       = token)
-    if rtRunDt is not None and rtRunDt["status"] == 2:
-       SteamTestCase.clearPhoneData()
+    # if rtRunDt is not None and rtRunDt["status"] == 2:
+    #    SteamTestCase.clearPhoneData()
     return jsonify(rtRunDt)
 
 @app.route('/prop/testplanlist', methods=['GET'])

@@ -21,7 +21,7 @@ class SteamTestCase(ParametrizedTestCase):
           用户进入公众号首页，获取运营位数据
     '''
     __interfaceName__ = "/featured/index/configs/queryShowConfigs"
-    memberIdDict = {}
+    memberIdDict      = {}
 
     def __init__(self, methodName='runTest', param=None):
         super(SteamTestCase, self).__init__(methodName, param)
@@ -30,27 +30,27 @@ class SteamTestCase(ParametrizedTestCase):
         inputData = super(SteamTestCase, self).getInputData()
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.memberIdDict:
-                inputData["token"]    = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
-                inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
+               inputData["token"]    = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
+               inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
             else:
-                inputData["scenes"] = "OTP"
-                userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
-                sedCodeRsp     = userVerCodeSer.sendUserVerifyCode()
-                retcode        = userVerCodeSer.getRetcodeByRsp(response=sedCodeRsp)
-                if retcode == "000000":
-                   verfiyCode = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
-                   inputData["verfiyCode"] = verfiyCode
-                   userLoginSer = WeixinUserLoginService(kwargs=inputData)
-                   rsp  = userLoginSer.weixinUserLogin()
-                   code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
-                   if code  == "000000":
-                      token = userLoginSer.getTokenFromRsp(response=rsp)
-                      inputData["token"] = token
-                      qmIdSer = QueryMemberIdService(kwargs=inputData)
-                      rsp     = qmIdSer.userMemberIdReq()
-                      memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
-                      inputData["memberId"] = memberId
-                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
+               inputData["scenes"] = "OTP"
+               userVerCodeSer = WeixinUserVerfiyCodeService(kwargs=inputData)
+               sedCodeRsp     = userVerCodeSer.sendUserVerifyCode()
+               retcode        = userVerCodeSer.getRetcodeByRsp(response=sedCodeRsp)
+               if retcode == "000000":
+                  verfiyCode = userVerCodeSer.getVerfiyCodeFromRedisByPhone(phoneNum=inputData["phoneNo"])
+                  inputData["verfiyCode"] = verfiyCode
+                  userLoginSer = WeixinUserLoginService(kwargs=inputData)
+                  rsp  = userLoginSer.weixinUserLogin()
+                  code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
+                  if code  == "000000":
+                     token = userLoginSer.getTokenFromRsp(response=rsp)
+                     inputData["token"] = token
+                     qmIdSer = QueryMemberIdService(kwargs=inputData)
+                     rsp     = qmIdSer.userMemberIdReq()
+                     memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
+                     inputData["memberId"] = memberId
+                     SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
         else:
              token               = UserLoginService.getTokenData()
              inputData["token"] = token
