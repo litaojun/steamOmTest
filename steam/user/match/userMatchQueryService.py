@@ -55,8 +55,8 @@ class UserMatchQueryService(UopService):
            response = self.userMatchQuery()
         titleLs = query_json(json_content=json.loads(response),
                              query       ="subMatchList")
+        print("MatchQueryResponse=%s" % response)
         return dict([(x["matchName"],x) for x in titleLs])
-
     def setInPutData(self):
         if "subMatchName" in self.inputKV:
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)
