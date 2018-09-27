@@ -20,7 +20,7 @@ class UserThumbUpTest(SteamTestCase):
       '''
             点赞
       '''
-      __interfaceName__ = "/resource-service/resource/thumbUp"
+      __interfaceName__ = "/resource-service/resource/thumbUp--del"
       def __init__(self, methodName='runTest', param=None):
           super(UserThumbUpTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

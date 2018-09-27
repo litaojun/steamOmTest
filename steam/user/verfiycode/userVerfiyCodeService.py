@@ -11,7 +11,7 @@
 @file: userVerfiyCodeService.py 
 @time: 2018/6/5 16:49 
 """
-from opg.util.uopService import decorator,UopService
+from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import weixinUserVerifyCodeurl
@@ -33,10 +33,10 @@ class WeixinUserVerfiyCodeService(UopService):
 
     def sendUserVerifyCode(self):
         weixinUserLoginRsp = requests.post(
-                                                url=weixinUserVerifyCodeurl,
-                                                json=self.userVerfiyCodeReqjson,
-                                                headers=self.jsonheart,
-                                                verify=False
+                                                url    = weixinUserVerifyCodeurl,
+                                                json   = self.userVerfiyCodeReqjson,
+                                                headers= self.jsonheart,
+                                                verify = False
                                               )
         self.rsp = weixinUserLoginRsp.text
         print("userVerfiyCodeReqjson = %s" % self.userVerfiyCodeReqjson)
@@ -49,26 +49,29 @@ class WeixinUserVerfiyCodeService(UopService):
         :param response:
         :return:
         """
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def getVerfiyCodeFromRedisByPhone(self,phoneNum = ""):
-        if phoneNum is None or phoneNum =="":
+        if phoneNum is None or phoneNum == "":
             phoneNum = self.userVerfiyCodeReqjson["phoneNo"]
-        curRedis = RedisOper()
-        verfiyCode = curRedis.getSteamVerCodeByPhone(phone=phoneNum,scenes=self.inputKV["scenes"])
+        curRedis   = RedisOper()
+        verfiyCode = curRedis.getSteamVerCodeByPhone(phone  = phoneNum,
+                                                     scenes = self.inputKV["scenes"])
         return verfiyCode
 
     def setInPutData(self):
         if self.rsp is None:
-            self.rsp = self.sendUserVerifyCode()
+           self.rsp = self.sendUserVerifyCode()
         self.inputKV["verfiyCode"] = self.getVerfiyCodeFromRedisByPhone()
 
 
 if __name__ == "__main__":
    args = {
-              "phoneNo":"18916899938",
+              "phoneNo":"18516099506",
               "loginType":"NM",
-              "password":""
+              "password":"",
+              "scenes":"OTP"
           }
    weixinUserVerfiyCodeSer =  WeixinUserVerfiyCodeService(kwargs=args)
    rsp = weixinUserVerfiyCodeSer.sendUserVerifyCode()

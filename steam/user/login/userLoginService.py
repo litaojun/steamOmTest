@@ -18,7 +18,7 @@ from steam.util.configurl import weixinUserLoginurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
 class WeixinUserLoginService(UopService):
     '''

@@ -19,7 +19,7 @@ class UserCancelThumbUpTest(SteamTestCase):
       '''
             取消点赞
       '''
-      __interfaceName__ = "/resource-service/resource/cancelThumbUp"
+      __interfaceName__ = "/resource-service/resource/cancelThumbUp-del"
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelThumbUpTest,self).__init__(methodName,param)
           self.userTbuSer = UserThumbUpService(self.inputdata)
