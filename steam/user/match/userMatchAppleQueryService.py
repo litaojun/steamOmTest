@@ -47,11 +47,9 @@ class UserMatchAppleQueryService(UopService):
 
     #查询用户报名赛事的报名ID
     def getUserAppleIdByMatchName(self,response = None,matchName = None):
-        appleId = None
         matchDict = self.getMatchNameDict(response = response)
         if matchName in matchDict:
-             appleId = matchDict[matchName]["applyId"]
-        return appleId
+             return  matchDict[matchName]["applyId"]
 
     @check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):

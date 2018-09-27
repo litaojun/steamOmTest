@@ -61,6 +61,7 @@ class UserViewActivityService(UopService):
     def setInPutData(self):
         if self.rsp is None:
             self.rsp = self.userViewActivity()
+        print("activityRsp === %s" % self.rsp)
         skuNmIdDict = self.getSkuDict(response = self.rsp)
         if self.inputKV.get("skuName") is not None and skuNmIdDict is not None:
              self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
