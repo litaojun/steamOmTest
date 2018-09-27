@@ -39,6 +39,7 @@ class WeixinUserVerfiyCodeService(UopService):
                                                 verify=False
                                               )
         self.rsp = weixinUserLoginRsp.text
+        print("userVerfiyCodeReqjson = %s" % self.userVerfiyCodeReqjson)
         print("homePageCnfRsp = %s" % weixinUserLoginRsp.text)
         return weixinUserLoginRsp.text
 
