@@ -25,9 +25,9 @@ class UserViewMediaresService(UopService):
     '''
         用户端通过文章ID浏览详情页面
     '''
-    def __init__(self, kwargs={},
-                       modul="",
-                       filename= "",
+    def __init__(self, kwargs      = {},
+                       modul       = "",
+                       filename    = "",
                        reqjsonfile = weixinUserViewMediaresReq):
         """
         :param kwarg:
@@ -35,25 +35,26 @@ class UserViewMediaresService(UopService):
         :param filename:
         :param reqjsonfile:
         """
-        super(UserViewMediaresService, self).__init__(modul,
-                                                      filename,
-                                                      sqlvaluedict=kwargs ,
+        super(UserViewMediaresService, self).__init__(module      = modul,
+                                                      filename    = filename,
+                                                      sqlvaluedict= kwargs ,
                                                       reqjsonfile = reqjsonfile)
 
     def userViewMediares(self):
-        userViewMediaresRsp =  httpGet(
-                                            url     = userViewMediaresUrl + self.reqjsondata,
-                                            headers = self.jsonheart
-                                       )
-        self.rsp = userViewMediaresRsp
-        return userViewMediaresRsp
+        self.rsp =  httpGet(
+                                url     = userViewMediaresUrl + self.reqjsondata,
+                                headers = self.jsonheart
+                            )
+        return self.rsp
 
     @check_rspdata(filepath=weixinUserViewMediaresRspFmt)
     def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content = json.loads(response),
+                          query        = "code")
 
     def getCollectsNumByRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="data.collects")
+        return query_json(json_content=json.loads(response),
+                          query       ="data.collects")
 
 if  __name__ == "__main__":
     kwarg = {

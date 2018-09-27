@@ -25,12 +25,19 @@ class UserViewActivityService(UopService):
     '''
         首页配置数据
     '''
-    def __init__(self, kwargs={},modul="",filename= "",reqjsonfile = "weixinUserViewActivitisReq"):
+    def __init__(self, kwargs      = {},
+                       modul       = "",
+                       filename    = "",
+                       reqjsonfile = "weixinUserViewActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserViewActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
+        super(UserViewActivityService, self).__init__(module       = modul,
+                                                      filename     = filename,
+                                                      sqlvaluedict = kwargs ,
+                                                      reqjsonfile  = reqjsonfile)
+
 
     def userViewActivity(self):
         self.rsp =  httpGet(
@@ -51,7 +58,7 @@ class UserViewActivityService(UopService):
                              query        = "data.skuList")
         return dict([(sku["skuName"],sku) for sku in skuList])
 
-    def getSkuByName(self,dt = None,response = None,skuName = ""):
+    def getSkuByName(self,response = None):
         return self.getSkuDict(response=response)["skuName"]
 
     def getCollectsNumByRsp(self,response = None):
@@ -59,13 +66,17 @@ class UserViewActivityService(UopService):
                           query       ="data.collects")
 
     def setInPutData(self):
-        if self.rsp is None:
-            self.rsp = self.userViewActivity()
-        print("activityRsp === %s" % self.rsp)
-        skuNmIdDict = self.getSkuDict(response = self.rsp)
-        if self.inputKV.get("skuName") is not None and skuNmIdDict is not None:
-             self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
-             self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
+        try:
+            if self.rsp is None:
+                self.rsp = self.userViewActivity()
+            print("activityRsp === %s" % self.rsp)
+            skuNmIdDict = self.getSkuDict(response = self.rsp)
+            if self.inputKV.get("skuName") is not None and skuNmIdDict is not None:
+                 self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
+                 self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
+        except e:
+            print("init fail")
+
 
 if  __name__ == "__main__":
     pass

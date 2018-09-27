@@ -21,15 +21,15 @@ class UserViewMediaresTest(SteamTestCase):
             用户浏览视频文章
       '''
       __interfaceName__ = "/operation-manage/media/queryMediaByID"
-      @initInput(services=[WeixinSearchService],
-                 curser  =UserViewMediaresService)
+      @initInput(services = [WeixinSearchService],
+                 curser   = UserViewMediaresService)
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(UserViewMediaresTest,self).__init__(methodName,param)
 
       def userViewMediaresNor(self):
           articlersp = self.myservice.userViewMediares()
-          rspcode    = self.myservice.getRetcodeByRsp(response=articlersp)
+          rspcode    = self.myservice.getRetcodeByRsp( response = articlersp )
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":

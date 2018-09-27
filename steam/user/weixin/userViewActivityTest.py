@@ -29,7 +29,7 @@ class UserViewActivityTest(SteamTestCase):
 
       def userViewActivityNor(self):
           articlersp = self.myservice.userViewActivity()
-          rspcode    = self.myservice.getRetcodeByRsp(response=articlersp)
+          rspcode    = self.myservice.getRetcodeByRsp(response = articlersp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
