@@ -80,8 +80,6 @@ def query_run_state():
     projectName = request.args.get("projectname")
     rtRunDt     = queryStateByTokenPro(projectName = projectName,
                                        token       = token)
-    # if rtRunDt is not None and rtRunDt["status"] == 2:
-    #    SteamTestCase.clearPhoneData()
     return jsonify(rtRunDt)
 
 @app.route('/prop/testplanlist', methods=['GET'])

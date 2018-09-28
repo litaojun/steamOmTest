@@ -32,7 +32,7 @@ class UserMatchAppleService(UopService):
                                                      module       = "weixin",
                                                      filename     = "matchDb.xml",
                                                      sqlvaluedict =  kwargs ,
-                                                     reqjsonfile  = "userMatchAppleReq",
+                                                     reqjsonfile  =  kwargs["reqjsonfile"],
                                                      dbName       =  "match"
                                                     )
 
@@ -66,8 +66,8 @@ class UserMatchAppleService(UopService):
         reqdata["applyStartTime"]  = 11111111111
         reqdata["applyEndTime"]    = 11111111111
         reqdata["reqjsonfile"]     = "competitionLabAlertReq"
-        reqdata["limitCount"] = self.inputKV["limitCount"]
-        matchAlertSer = CompetitionAlertService(kwargs = reqdata)
+        reqdata["limitCount"]  = self.inputKV["limitCount"]
+        matchAlertSer           = CompetitionAlertService(kwargs = reqdata)
         if self.inputKV["sign"] == "start":
             matchAlertSer.alertMatchTime(s=-1,e=1)
         if self.inputKV["sign"] == "notStart":

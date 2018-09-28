@@ -1,0 +1,15 @@
+{
+	"matchId": %(matchId)d,
+	"subMatchId": %(subMatchId)d,
+	"contactName": "%(contactName)s",
+	"contactPhone": "%(contactPhone)s",
+	"country": "%(country)s",
+	"school": "%(school)s",
+	"extraInfo": {
+		"email": "%(email)s",
+		"schoolEn": "%(schoolEn)s",
+		"detailAddress": "%(detailAddress)s",
+		"postCode": "%(postCode)s"
+	},
+	"subMatchName": "%(subMatchName)s"
+}
