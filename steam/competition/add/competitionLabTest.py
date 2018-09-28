@@ -16,8 +16,9 @@ class MatchLabAddTest(SteamTestCase):
       '''
             admin新增赛事场次
       '''
-      __interfaceName__ = "/match-service/match/createMatch"
-      def __init__(self, methodName='runTest', param=None):
+      __interfaceName__ = "/match-service/match/createMatch-del"
+      def __init__(self, methodName = 'runTest',
+                         param      = None):
           super(MatchLabAddTest,self).__init__(methodName,param)
           self.inputdata["reqjsonfile"] = "competitionLabAddReq"
           self.matchSer                   = MatchAddService(self.inputdata)

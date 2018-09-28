@@ -54,11 +54,13 @@ class MatchAddService(UopService):
 		    :param matchRsp:
 		    :return:
 	    """
-        return query_json(json_content=json.loads(matchRsp), query="code")
+        return query_json(json_content=json.loads(matchRsp),
+                          query       ="code")
 
     def getMatchIdByRsp(self,matchRsp = None):
         """
             :param matchRsp:
             :return:
 	    """
-        return query_json(json_content=json.loads(matchRsp), query="matchId")
+        return query_json(json_content=json.loads(matchRsp),
+                          query       ="matchId")

@@ -16,7 +16,7 @@ class CompetitionAlertTest(SteamTestCase):
       '''
             admin修改赛事场次
       '''
-      __interfaceName__ = "/match-service/match/updateMatchById"
+      __interfaceName__ = "/match-service/match/updateMatchById-del"
       def __init__(self, methodName='runTest', param=None):
           super(CompetitionAlertTest,self).__init__(methodName,param)
           self.inputdata["reqjsonfile"] = "competitionLabAlertReq"

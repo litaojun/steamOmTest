@@ -32,7 +32,7 @@ class MatchDelService(UopService):
                                              )
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
-        self.inputKV["reqjsonfile"] = "competitionAddReq"
+        #self.inputKV["reqjsonfile"] = "competitionAddReq"
         matchAddSer = MatchAddService(self.inputKV)
         matchrsp    = matchAddSer.addMatch()
         matchId     = matchAddSer.getMatchIdByRsp(matchrsp)
