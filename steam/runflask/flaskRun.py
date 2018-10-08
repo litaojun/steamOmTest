@@ -55,9 +55,9 @@ def start_tasks():
 def start_steam_tasks():
     projectName = request.args.get("projectname")
     retdata     = getRunTestTokenId(projectname=projectName)
-    testSuite   = genAllTestCase(allCase      = allTestCase,
-                                 allTestClass = allTestClass)
-    SteamTestCase.memberIdDict = {}
+    testSuite   = genAllTestCase(allCase       = allTestCase,
+                                 allTestClass  = allTestClass)
+    SteamTestCase.memberIdDict  = {}
     t = threading.Thread(target = runAllTestCase,
                          kwargs = {
                                         "suites" : testSuite,
