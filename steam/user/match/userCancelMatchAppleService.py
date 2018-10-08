@@ -46,8 +46,8 @@ class UserCancelMatchAppleService(UopService):
     @decorator(["preInterfaceUserMatch"])
     def userMatchApple(self):
         userAppleMatchSer = UserMatchAppleService(kwargs=self.inputKV)
-        userAppleMatchSer.alterMatchTime()
-        userAppleMatchTwo()
+        # userAppleMatchSer.alterMatchTime()
+        # userAppleMatchTwo()
         rsp = userAppleMatchSer.userMatchApple()
         self.reqjsondata["applyId"] = userAppleMatchSer.getAppleIdFromRsp(response=rsp)
 
