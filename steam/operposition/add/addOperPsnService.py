@@ -12,8 +12,7 @@
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import addOperpositionurl
-from steam.util.configurl import delOperpositionurl
+from steam.util.configurl import addOperpositionurl,delOperpositionurl
 from steam.operposition.query.queryOperpsnService import OperpsnQueryService
 
 class OperpsnAddService(UopService):
@@ -25,17 +24,17 @@ class OperpsnAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(OperpsnAddService, self).__init__("", "", kwargs,reqjsonfile="userOperAddReq")
-
+        super(OperpsnAddService, self).__init__(sqlvaluedict = kwargs,
+                                                reqjsonfile  = "userOperAddReq")
 
     @decorator("tearInterfaceDelOneOperPsn")
     def delOperPosition(self):
-        operpsnqySer = OperpsnQueryService(self.inputKV)
-        rspdata = operpsnqySer.queryOperpsnListdata()
-        rssid = operpsnqySer.getFirstResourceIdByRsp(rspdata)
+        rssid         = OperpsnQueryService(self.inputKV).getFirstResourceIdByRsp()
         delOperpsnRsp = requests.post(
-									    url  =  delOperpositionurl,
-									    json = {"ids":[rssid]},
+									    url     =  delOperpositionurl,
+									    json    =  {
+                                                       "ids":[rssid]
+                                                   },
 									    headers = self.jsonheart,
 									    verify  =  False
 								      )
@@ -43,17 +42,18 @@ class OperpsnAddService(UopService):
 
     def addOperPosition(self):
         addOperpositionfiyRsp = requests.post(
-				                                   url=addOperpositionurl,
-				                                   json=self.reqjsondata,
-				                                   headers=self.jsonheart,
-				                                   verify=False
+				                                   url     = addOperpositionurl,
+				                                   json    = self.reqjsondata,
+				                                   headers = self.jsonheart,
+				                                   verify  = False
 		                                      )
         self.rsp = addOperpositionfiyRsp.text
         return addOperpositionfiyRsp.text
 
     def getRetcodeByOperpsnRsp(self,operpsnRsp = None):
-        return query_json(json_content=json.loads(operpsnRsp), query="code")
-
+        return query_json(json_content = json.loads(operpsnRsp),
+                          query        = "code")
+    #
     def getOperpsnIdByTitle(self,title = "",position = ""):
         operQuerySer = OperpsnQueryService(self.inputKV)
         rsplistdataRsp = operQuerySer.queryOperpsnListdata()

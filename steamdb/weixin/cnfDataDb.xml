@@ -21,7 +21,7 @@
         <sql>
 		    select r.id resourceId,r.corner_mask specificType ,r.banner_url bannerUrl,r.banner_url thumbUrl,r.resource_type_id resourceType,r.title,"%(position)s" position,min(s.price) minPrice,max(price) originalPrice,(count(1) + r.base_visit_count) visistnum  
 			from resource.t_resource r left join resource.t_visit v   on  v.resource_id = r.id  LEFT JOIN resource.t_sku s on s.resource_id = r.id
-			where ((r.state = 0 and r.resource_type_id in(1,2)) or 
+			where ((r.state = 0 and r.resource_type_id in(1,2,13)) or
 				  (r.state = 0 and r.resource_type_id = 11 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0 and s.state = 0) ) or
 				  (r.state = 0 and r.resource_type_id = 12 and EXISTS(select 1 from resource.t_sku s where s.resource_id = r.id and s.inventory>0 and s.state = 0)  and EXISTS(select 1 from resource.t_time_slot ts where r.time_slot_id = ts.id and ts.end_time>now()) ))
 				  and not EXISTS(select 1 from allin.t_show_config ttc where ttc.POSITION = %(position)s  and ttc.item_id = r.id )

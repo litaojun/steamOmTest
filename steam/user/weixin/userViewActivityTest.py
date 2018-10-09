@@ -21,7 +21,7 @@ class UserViewActivityTest(SteamTestCase):
             用户浏览视频文章
       '''
       __interfaceName__   = "/steam-resource/product/detail"
-      @initInput(services = [WeixinSearchService],
+      @initInput(services = [ WeixinSearchService ],
                  curser   = UserViewActivityService)
       def __init__(self, methodName = 'runTest',
                          param      = None      ):

@@ -24,14 +24,14 @@ class OperpsnAlertService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(OperpsnAlertService, self).__init__("", "", kwargs,reqjsonfile="userOperAlertReq")
-
+        super(OperpsnAlertService, self).__init__(sqlvaluedict = kwargs,
+                                                  reqjsonfile  = "userOperAlertReq")
         self.operpsnAddSer = OperpsnAddService(self.inputKV)
 
     @decorator("preInterfaceAddOneOperpsn")
     def addOneOperpsn(self):
         operpsnAddRsp = self.operpsnAddSer.addOperPosition()
-        self.rsp = operpsnAddRsp
+        self.rsp      = operpsnAddRsp
         self.reqjsondata["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
 
     @decorator("tearInterfaceDelOneOperpsn")
@@ -42,7 +42,7 @@ class OperpsnAlertService(UopService):
 								        json={"ids": [rssid]},
 								        headers=self.jsonheart,
 								        verify=False
-							        )
+							         )
         return delOperpsnRsp.text
 
     def alertOperpsn(self):

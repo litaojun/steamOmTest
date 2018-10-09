@@ -9,8 +9,6 @@
 @file: queryOperpsnTest.py 
 @time: 2018/4/25 19:24 
 """
-from opg.unit.parametrized import ParametrizedTestCase
-from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.operposition.query.queryOperpsnService import OperpsnQueryService
 from steam.util.steamLog import SteamTestCase

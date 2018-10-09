@@ -12,19 +12,23 @@
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.operposition.add.addOperPsnService import OperpsnAddService
 from steam.util.steamLog import SteamTestCase
+from steam.util.testJsonFormat import initInput
 class OperpsnAddTest(SteamTestCase):
       '''
             admin新增首页配置
       '''
       __interfaceName__ = "/steam-featured/homeConfig/createConfig"
-      def __init__(self, methodName='runTest', param=None):
+      @initInput(services = [],
+                 curser   = OperpsnAddService)
+      def __init__(self, methodName = 'runTest',
+                         param      = None):
           super(OperpsnAddTest,self).__init__(methodName,param)
-          self.operpsnSer = OperpsnAddService(self.inputdata)
-          self.setService(self.operpsnSer)
+          # self.operpsnSer = OperpsnAddService(self.inputdata)
+          # self.setService(self.operpsnSer)
 
       def testOperpsnAddNor(self):
-          operpsnrsp = self.operpsnSer.addOperPosition()
-          rspcode = self.operpsnSer.getRetcodeByOperpsnRsp(operpsnrsp)
+          operpsnrsp = self.myservice.addOperPosition()
+          rspcode    = self.myservice.getRetcodeByOperpsnRsp(operpsnrsp)
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":

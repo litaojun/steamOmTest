@@ -25,7 +25,8 @@ class OperpsnQueryService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(OperpsnQueryService, self).__init__("", "", kwargs,reqjsonfile="userOperQueryReq")
+        super(OperpsnQueryService, self).__init__(sqlvaluedict = kwargs,
+                                                  reqjsonfile  = "userOperQueryReq")
 
     def queryOperpsnListdata(self):
         queryResult = httpGet(url     = queryHomeConfigurl + self.reqjsondata,
@@ -33,13 +34,18 @@ class OperpsnQueryService(UopService):
         return  queryResult
 
     def getRetCodeByRsp(self,queryRsp = None):
-        return query_json(json_content=json.loads(queryRsp), query="code")
+        return query_json(json_content = json.loads(queryRsp),
+                          query        = "code")
 
     def getFirstResourceIdByRsp(self,queryRsp = None):
-        return query_json(json_content=json.loads(queryRsp), query="data.targets.0.id")
+        if queryRsp is None:
+            queryRsp = self.queryOperpsnListdata()
+        return query_json(json_content = json.loads(queryRsp),
+                          query        = "data.targets.0.id")
 
     def getFirstResourceTitleByRsp(self,queryRsp = None):
-        return query_json(json_content=json.loads(queryRsp), query="data.targets.0.title")
+        return query_json(json_content = json.loads(queryRsp),
+                          query        = "data.targets.0.title")
 
 if __name__ == "__main__":
    queryjson = {

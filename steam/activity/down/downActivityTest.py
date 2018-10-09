@@ -22,7 +22,7 @@ class ActivityUnPublishTest(SteamTestCase):
       __interfaceName__ = "/operation-manage/product/unPublish"
       @initInput(services = [ ActivitySearchService,
                               ActivityQueryService ],
-                 curser   =  ActivityUnPublishService )
+                 curser   =   ActivityUnPublishService )
       def __init__(self, methodName = 'runTest', param = None ):
           super(ActivityUnPublishTest,self).__init__(methodName,param)
 

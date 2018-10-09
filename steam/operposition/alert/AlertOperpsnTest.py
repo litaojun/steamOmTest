@@ -9,7 +9,6 @@
 @file: AlertOperpsnTest.py 
 @time: 2018/4/25 18:53 
 """
-from opg.unit.parametrized import ParametrizedTestCase
 from steam.operposition.alert.AlertOperpsnService import OperpsnAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
@@ -33,5 +32,5 @@ class OperpsnAlertTest(SteamTestCase):
 if __name__ == "__main__":
    runTestOneCls(
                     casefilepath = "\\steamcase\\operposition\\operpsnalertcase.xlsx",
-                    testclse = OperpsnAlertTest
+                    testclse     = OperpsnAlertTest
                  )
