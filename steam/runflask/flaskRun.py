@@ -123,5 +123,5 @@ def hello_world():
     return render_template("pytest.html", content="hello flask ")
 
 if __name__ == '__main__':
-    #app.run(host='0.0.0.0',debug=True,port=8181)
-    testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况",token="ssssss")
+    app.run(host='0.0.0.0',debug=True,port=8181)
+    #testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况",token="ssssss")
