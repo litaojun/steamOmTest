@@ -25,13 +25,12 @@ class UserCancelOrderActivityTest(SteamTestCase):
             取消点赞
       '''
       __interfaceName__ = "/order-service/order/cancel"
-      @initInput(services=[WeixinSearchService,
-                           UserViewActivityService,
-                           MemberAddressService],
-                 curser=UserCancelOrderActivityService)
+      @initInput(services = [WeixinSearchService,
+                             UserViewActivityService,
+                             MemberAddressService],
+                 curser = UserCancelOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelOrderActivityTest,self).__init__(methodName,param)
-
 
       def userCancelOrderActivity(self):
           userCancelOrderRsp = self.myservice.userCancelOrderActivity()

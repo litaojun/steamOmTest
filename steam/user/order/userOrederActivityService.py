@@ -22,15 +22,18 @@ class UserOrderActivityService(UopService):
         首页配置数据
     '''
     def __init__(self,
-                 kwargs={},
-                 modul="",
-                 filename= "",
+                 kwargs = {},
+                 modul  = "",
+                 filename    = "",
                  reqjsonfile = "weixinUserOrderActivitisReq"):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserOrderActivityService, self).__init__(modul, filename, sqlvaluedict=kwargs , reqjsonfile = reqjsonfile)
+        super(UserOrderActivityService, self).__init__(module       = modul,
+                                                       filename     = filename,
+                                                       sqlvaluedict = kwargs ,
+                                                       reqjsonfile  = reqjsonfile)
         self.userThOrderActivityReqjson = self.reqjsondata
 
     @decorator(["tearInterfaceUserOrderActivity",
@@ -50,9 +53,9 @@ class UserOrderActivityService(UopService):
 
     def getOrderIdFromRsp(self,response = None):
         if response is None:
-            response = self.userOrderActivity()
-        return query_json(json_content=json.loads(response),
-                          query       ="data.orderId")
+           response = self.userOrderActivity()
+        return query_json(json_content = json.loads(response),
+                          query        = "data.orderId")
 
 if __name__ == "__main__":
     kwarg        = {

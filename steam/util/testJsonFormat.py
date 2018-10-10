@@ -31,6 +31,7 @@ def initInput(services = [],
         def __call(*args,**kwargs):
             fun(*args, **kwargs)
             sf = args[0]
+            print("interface=%s,ClassName = %s" % (sf.__interfaceName__,sf.__class__.__name__))
             for ser in services:
                 ser(kwargs=sf.inputdata).setInPutData()
             sf.myservice = curser(kwargs = sf.inputdata)
