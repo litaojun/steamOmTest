@@ -54,7 +54,7 @@ def start_tasks():
 @app.route('/prop/runTestPro', methods=['GET'])
 def start_steam_tasks():
     projectName = request.args.get("projectname")
-    retdata     = getRunTestTokenId(projectname=projectName)
+    retdata     = getRunTestTokenId(projectname = projectName)
     testSuite   = genAllTestCase(allCase       = allTestCase,
                                  allTestClass  = allTestClass)
     SteamTestCase.memberIdDict  = {}
@@ -64,7 +64,7 @@ def start_steam_tasks():
                                          "title" : projectName,
                                          "description" : "%s-用例测试情况" % projectName,
                                          "token"        :  retdata[0]
-                                   }
+                                  }
                          )
     t.start()
     tokenList.append(retdata[0])

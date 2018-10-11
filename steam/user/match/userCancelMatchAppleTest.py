@@ -28,11 +28,12 @@ class UserCancelMatchAppleTest(SteamTestCase):
 
       def userCancelMatchAppleTest(self):
           rsp     = self.myservice.userCancelMatchApple()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+          retcode = self.myservice.getRetcodeByRsp( response = rsp )
+          self.assertTrue(retcode == self.expectdata["code"] ,
+                          msg     =  "retcode = %s,expectCode =%s" % (retcode ,self.expectdata["code"]))
 
 if  __name__ == "__main__":
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\userCancelMatchApplecase.xlsx",
-                        testclse = UserCancelMatchAppleTest
+                        testclse     = UserCancelMatchAppleTest
                  )
