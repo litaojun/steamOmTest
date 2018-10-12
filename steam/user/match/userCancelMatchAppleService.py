@@ -12,13 +12,11 @@
 @time: 2018/7/26 15:34 
 """
 from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from opg.util.utils import query_json
 from steam.util.configurl import userCancelMatchAppleUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
-from steam.user.match.appleResetTools import userAppleMatch,userCancelAppleMatch,userAppleMatchTwo
 from opg.util.httptools import httpPost
 class UserCancelMatchAppleService(UopService):
     '''
@@ -30,12 +28,12 @@ class UserCancelMatchAppleService(UopService):
             :param picturePath:
         """
         super(UserCancelMatchAppleService, self).__init__(
-                                                          module       = "weixin",
-                                                          filename     = "matchDb.xml",
-                                                          sqlvaluedict = kwargs ,
-                                                          reqjsonfile  = "userCancelMatchAppleReq",
-                                                          dbName       = "match"
-                                                    )
+                                                              module       = "weixin",
+                                                              filename     = "matchDb.xml",
+                                                              sqlvaluedict = kwargs ,
+                                                              reqjsonfile  = "userCancelMatchAppleReq",
+                                                              dbName       = "match"
+                                                         )
 
     def userCancelMatchApple(self):
         self.rsp = httpPost(url     = userCancelMatchAppleUrl,

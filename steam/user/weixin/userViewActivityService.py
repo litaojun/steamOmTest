@@ -14,12 +14,8 @@
 from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userViewActivityUrl,userCancelThumbUpUrl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserViewActivityReq,weixinUserViewActivityRspFmt
+from steam.util.configurl import userViewActivityUrl
 from opg.util.httptools import httpGet,httpPost
-#from steam.activity.search.searchActivityService  import ActivitySearchService
-
 
 class UserViewActivityService(UopService):
     '''

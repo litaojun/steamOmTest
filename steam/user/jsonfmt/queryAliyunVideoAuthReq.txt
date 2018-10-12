@@ -1,0 +1,1 @@
+?courseId=%(courseId)d&materialId=%(materialId)d

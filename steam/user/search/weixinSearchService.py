@@ -64,6 +64,7 @@ class WeixinSearchService(UopService):
     def setInPutData(self):
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
         self.inputKV["resourceId"] = resourceId
+        self.inputKV["courseId"]   = resourceId
 
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")

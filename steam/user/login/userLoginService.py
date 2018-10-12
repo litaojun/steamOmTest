@@ -33,7 +33,6 @@ class WeixinUserLoginService(UopService):
                                                      filename  ="",
                                                      sqlvaluedict = kwargs ,
                                                      reqjsonfile  = weixinUserLoginReq)
-        self.rsp = None
         self.weixinUserLoginReqjson = self.reqjsondata
         kwargs["scenes"] = "OTP"
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)

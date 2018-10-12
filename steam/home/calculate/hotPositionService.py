@@ -35,17 +35,19 @@ class HomeHotPositionService(HomeCnfQueryService):
                                                      reqjsonfile = homePositionReq)
     def queryHomeHotPosition(self):
         self.rsp =  httpGet(
-                                        url     = hotPositonUrl+self.reqjsondata,
+                                        url     = hotPositonUrl + self.reqjsondata,
                                         headers = self.jsonheart
-                                  )
+                            )
         return  self.rsp
 
     @check_rspdata(filepath=homePositionRspFmt)
     def getRetcodeByActivityRsp(self,response = None):
-        return query_json(json_content=json.loads(response), query="code")
+        return query_json(json_content=json.loads(response),
+                          query       ="code")
 
     def getAllDataListFromRsp(self,response = None):
-        calDataList = query_json(json_content=json.loads(response), query="showInfoPage.targets")
+        calDataList = query_json(json_content = json.loads(response),
+                                 query        = "showInfoPage.targets")
         return [data["resourceId"] for data in calDataList]
 
     def getAllDataListFromDb(self):

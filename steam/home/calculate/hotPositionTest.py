@@ -32,27 +32,8 @@ class HotPositionTest(SteamTestCase):
           self.assertTrue(retcode == self.expectdata["code"])
           self.assertTrue(self.homeHotSer.compareM())
 
-       #发现页-热门内容-计算内容
-      def queryFindHotConentCnf(self):
-            userHomeHotRsp = self.homeHotSer.queryHomeHotPosition()
-            retcode = self.homeHotSer.getRetcodeByActivityRsp(response=userHomeHotRsp)
-            self.assertTrue(retcode == self.expectdata["code"])
-
-      #创新大赛页面计算内容
-      def queryInovnCal(self):
-          userHomeHotRsp = self.homeHotSer.queryHomeHotPosition()
-          retcode = self.homeHotSer.getRetcodeByActivityRsp(response=userHomeHotRsp)
-          self.assertTrue(retcode == self.expectdata["code"])
-
 if __name__ == "__main__":
    runTestOneCls(
 					casefilepath =  "\\steamcase\\homepage\\homehotpositioncase.xlsx",
 					testclse     =  HotPositionTest
 				)
-   # sign = issubclass(HotPositionTest, ParametrizedTestCase)
-   # print(sign)
-   # a = str(HotPositionTest)
-   # print(a)
-   # print(HotPositionTest.__name__)
-   # a = HotPositionTest.__name__
-   # print(a.endswith("Test"))

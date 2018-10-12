@@ -14,7 +14,6 @@
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-
 class HomeCnfQueryTest(SteamTestCase):
       '''
             用户进入公众号首页，获取运营位数据
