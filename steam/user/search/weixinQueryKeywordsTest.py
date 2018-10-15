@@ -18,10 +18,10 @@ from steam.util.testJsonFormat import initInput
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
 class WeixinSearchTest(SteamTestCase):
       '''
-            微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
+            微信端用户查询热门关键字
       '''
       __interfaceName__   = "/steam-search/search/queryKeywords"
-      @initInput(services = [ HomeCnfQueryService ],
+      @initInput(services = [  ],
                  curser   = WeixinQueryKeywordsService)
       def __init__(self, methodName = 'runTest',
                          param      = None):
