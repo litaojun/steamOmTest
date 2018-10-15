@@ -13,7 +13,7 @@ from opg.util.httptools import httpPost,httpGet
 from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import queryArticleurl
+from steam.util.configurl import homeConfigQueryurl
 from steam.util.configurl import delArticleurl
 
 class OperpsnQueryService(UopService):
@@ -29,7 +29,7 @@ class OperpsnQueryService(UopService):
                                                   reqjsonfile  = "userOperQueryReq")
 
     def queryOperpsnListdata(self):
-        queryResult = httpGet(url     = queryArticleurl + self.reqjsondata,
+        queryResult = httpGet(url     = homeConfigQueryurl + self.reqjsondata,
                               headers = self.jsonheart)
         return  queryResult
 

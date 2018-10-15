@@ -17,7 +17,7 @@ class OperpsnDelTest(SteamTestCase):
       '''
             admin删除分类
       '''
-      __interfaceName__ = "/resource-service/resource/removeEntry"
+      __interfaceName__ = "/steam-featured/homeConfig/removeIndexConfig"
 
       @initInput(services = [],
                  curser   = ClassfiyDelService)

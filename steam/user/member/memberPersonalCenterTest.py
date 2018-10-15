@@ -19,7 +19,7 @@ class MemberPersonalCenterTest(SteamTestCase):
       '''
             微信端用户个人信息页面
       '''
-      __interfaceName__ = "/member-service/members/personalCenter"
+      __interfaceName__ = "/member-service/members/personalCenter-del"
       @initInput(services=[],
                  curser=MemberPersonalCenterService)
       def __init__(self, methodName='runTest', param=None):

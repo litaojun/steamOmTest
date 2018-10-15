@@ -24,7 +24,7 @@ queryIdActivityurl = base_url   + "/operation-manage/product/query"
 addArticleurl       =  base_url      + "/operation-manage/media/addMedia"
 delArticleurl       =  base_url      + "/operation-manage/media/deleteMedia"
 alertArtcleurl      = base_url       + "/operation-manage/media/updateMedia"
-userViewMediaresUrl = base_url       + "/steam-media/media/queryMediaByID"
+userViewMediaresUrl = base_url       + "/steam-media/media/getMediaDetailByID"
 queryArticleurl     = base_url       + "/operation-manage/media/queryMedias?currentPage=1&pageSize=10"
 #分类管理 --- STEAM资源微服务REST接口文档v1.0.0.2.docx
 addentryurl          = base_url          + "/operation-manage/entry/addEntry"
@@ -52,7 +52,7 @@ userViewActivityUrl     =   base_url       +  "/steam-resource/product/detail"
 addOperpositionurl   =    base_url    +  "/operation-manage/featured/createConfig"
 delOperpositionurl   =    base_url    +  "/steam-featured/homeConfig/removeIndexConfig"
 alertOperpositionurl =    base_url    +  "/steam-featured/homeConfig/modifyIndexConfig"
-homeConfigQueryurl   =    base_url    + "/featured/index/configs/queryShowConfigs"
+homeConfigQueryurl   =    base_url    + "/operation-manage/featured/queryShowConfigs?pageNo=1&pageSize=20"
 #首页  STEAM推荐位CMS-admin接口文档v1.0.0.docx
 queryHomeConfigurl =  base_url       +  "/steam-featured/homeConfig/listData?pageNo=1&pageSize=20" #position=03&title=ffff
 hotPositonUrl      =  base_url       +  "/featured/index/configs/pageQueryPositionShows"
