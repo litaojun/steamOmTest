@@ -21,15 +21,6 @@
       "examples": [
         "成功"
       ]
-    },
-    "data": {
-      "$id": "/properties/data",
-      "type": "null",
-      "title": "The Data Schema ",
-      "default": null,
-      "examples": [
-        null
-      ]
     }
   }
 }
