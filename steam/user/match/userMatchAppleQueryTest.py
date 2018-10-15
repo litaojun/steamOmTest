@@ -19,15 +19,15 @@ class UserMatchAppleQueryTest(SteamTestCase):
       '''
             微信用户查询已报名信息
       '''
-      __interfaceName__ = "/match-service/member/mp/query"
+      __interfaceName__   = "/match-service/member/mp/query"
       @initInput(services = [],
-                 curser = UserMatchAppleQueryService)
+                 curser   = UserMatchAppleQueryService)
       def __init__(self, methodName='runTest', param=None):
           super(UserMatchAppleQueryTest,self).__init__(methodName,param)
 
       def userMatchAppleQueryTest(self):
-          rsp = self.myservice.userMatchAppleQuery()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
+          rsp     = self.myservice.userMatchAppleQuery()
+          retcode = self.myservice.getRetcodeByRsp(response = rsp)
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":

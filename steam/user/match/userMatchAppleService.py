@@ -12,13 +12,15 @@
 @time: 2018/7/23 14:14 
 """
 from opg.util.uopService import decorator,UopService
-import json
+import json,time
 from opg.util.utils import query_json
-from steam.util.configurl import userMatchAppleUrl
+from steam.util.configurl import userMatchAppleUrl,userCancelMatchAppleUrl
 from opg.util.httptools import httpPost
 from steam.admin.login.userLoginService import UserLoginService
 from steam.competition.update.competitionAlertService import CompetitionAlertService
 from steam.user.match.appleResetTools import getTokenReset
+from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
+from steam.user.match.appleResetTools import appleRest
 class UserMatchAppleService(UopService):
     '''
         微信端用户登录
@@ -47,7 +49,12 @@ class UserMatchAppleService(UopService):
 
     @decorator(["preInterfaceUserCancelMatch"])
     def userCancelMatchApple(self):
-        pass
+        appleId = UserMatchAppleQueryService(self.inputKV).getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
+        if appleId is not None:
+           httpPost(url        = userCancelMatchAppleUrl,
+                    headers    = self.jsonheart,
+                    reqJsonData= {"applyId":appleId})
+        #appleRest()
 
     def getRetcodeByRsp(self,response  = None):
         return query_json(json_content = json.loads(response),

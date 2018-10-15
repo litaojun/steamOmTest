@@ -2,7 +2,7 @@
 # encoding: utf-8  
 
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneTestcaseByCls
+from opg.unit.testcaseRunMgr import runTestOneTestcaseByCls,runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from steam.util.testJsonFormat import initInput
 from steam.user.match.userMatchQueryService import UserMatchQueryService
@@ -26,12 +26,12 @@ class UserMatchAppleTest(SteamTestCase):
                                      (retcode,self.expectdata["code"]))
 
 if  __name__ == "__main__":
-    # runTestOneCls(
-    #                     casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
-    #                     testclse      =  UserMatchAppleTest
-    #              )
-    runTestOneTestcaseByCls(
-                             casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
-                             testclse      =  UserMatchAppleTest,
-                             caseids       =  ["match_apple_6"]
-                            )
+    runTestOneCls(
+                        casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
+                        testclse      =  UserMatchAppleTest
+                 )
+    # runTestOneTestcaseByCls(
+    #                          casefilepath  =  "\\steamcase\\user\\userMatchApplecase.xlsx",
+    #                          testclse      =  UserMatchAppleTest,
+    #                          caseids       =  ["match_apple_6"]
+    #                         )
