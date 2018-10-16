@@ -7,8 +7,7 @@
   "required": [
     "code",
     "message",
-    "videoMeta",
-    "playAuth"
+    "data"
   ],
   "properties": {
     "code": {
@@ -31,78 +30,437 @@
       ],
       "pattern": "^(.*)$"
     },
-    "videoMeta": {
-      "$id": "#/properties/videoMeta",
+    "data": {
+      "$id": "#/properties/data",
       "type": "object",
-      "title": "The Videometa Schema",
+      "title": "The Data Schema",
       "required": [
-        "videoId",
         "title",
-        "duration",
-        "coverUrl",
-        "status"
+        "content",
+        "thumbUrl",
+        "bannerUrl",
+        "originPrice",
+        "price",
+        "studiedCount",
+        "score",
+        "joined",
+        "scoreAttached",
+        "collected",
+        "purchased",
+        "vendorInfo",
+        "courseCategory",
+        "skuInfo",
+        "shareInfo",
+        "orderId"
       ],
       "properties": {
-        "videoId": {
-          "$id": "#/properties/videoMeta/properties/videoId",
-          "type": "string",
-          "title": "The Videoid Schema",
-          "default": "",
-          "examples": [
-            "5a6ca7c5576a4f9abdaff6d5ff28b105"
-          ],
-          "pattern": "^(.*)$"
-        },
         "title": {
-          "$id": "#/properties/videoMeta/properties/title",
+          "$id": "#/properties/data/properties/title",
           "type": "string",
           "title": "The Title Schema",
           "default": "",
           "examples": [
-            "最炫民族风"
+            "体验课（收费）"
           ],
           "pattern": "^(.*)$"
         },
-        "duration": {
-          "$id": "#/properties/videoMeta/properties/duration",
-          "type": "number",
-          "title": "The Duration Schema",
-          "default": 0.0,
+        "content": {
+          "$id": "#/properties/data/properties/content",
+          "type": "string",
+          "title": "The Content Schema",
+          "default": "",
           "examples": [
-            276.33
+            "<p>1</p>"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "thumbUrl": {
+          "$id": "#/properties/data/properties/thumbUrl",
+          "type": "string",
+          "title": "The Thumburl Schema",
+          "default": "",
+          "examples": [
+            "http://uat-steam.opg.cn/_static/admin/images/resource/20180925164559_1872.jpg"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "bannerUrl": {
+          "$id": "#/properties/data/properties/bannerUrl",
+          "type": "string",
+          "title": "The Bannerurl Schema",
+          "default": "",
+          "examples": [
+            "http://uat-steam.opg.cn/_static/admin/images/resource/20180921101922_233172.jpg"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "originPrice": {
+          "$id": "#/properties/data/properties/originPrice",
+          "type": "integer",
+          "title": "The Originprice Schema",
+          "default": 0,
+          "examples": [
+            998
           ]
         },
-        "coverUrl": {
-          "$id": "#/properties/videoMeta/properties/coverUrl",
-          "type": "string",
-          "title": "The Coverurl Schema",
-          "default": "",
+        "price": {
+          "$id": "#/properties/data/properties/price",
+          "type": "number",
+          "title": "The Price Schema",
+          "default": 0.0,
           "examples": [
-            "http://uat-steam.opg.cn/_static/admin/images/resource/20180921100528_466341.png"
-          ],
-          "pattern": "^(.*)$"
+            0.01
+          ]
         },
-        "status": {
-          "$id": "#/properties/videoMeta/properties/status",
+        "studiedCount": {
+          "$id": "#/properties/data/properties/studiedCount",
+          "type": "integer",
+          "title": "The Studiedcount Schema",
+          "default": 0,
+          "examples": [
+            1013
+          ]
+        },
+        "score": {
+          "$id": "#/properties/data/properties/score",
+          "type": "number",
+          "title": "The Score Schema",
+          "default": 0.0,
+          "examples": [
+            4.9880595
+          ]
+        },
+        "joined": {
+          "$id": "#/properties/data/properties/joined",
+          "type": "boolean",
+          "title": "The Joined Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "scoreAttached": {
+          "$id": "#/properties/data/properties/scoreAttached",
+          "type": "boolean",
+          "title": "The Scoreattached Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "collected": {
+          "$id": "#/properties/data/properties/collected",
+          "type": "boolean",
+          "title": "The Collected Schema",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "purchased": {
+          "$id": "#/properties/data/properties/purchased",
+          "type": "boolean",
+          "title": "The Purchased Schema",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "vendorInfo": {
+          "$id": "#/properties/data/properties/vendorInfo",
+          "type": "object",
+          "title": "The Vendorinfo Schema",
+          "required": [
+            "vendorId",
+            "vendorName",
+            "vendorAddress",
+            "vendorSummary"
+          ],
+          "properties": {
+            "vendorId": {
+              "$id": "#/properties/data/properties/vendorInfo/properties/vendorId",
+              "type": "integer",
+              "title": "The Vendorid Schema",
+              "default": 0,
+              "examples": [
+                15
+              ]
+            },
+            "vendorName": {
+              "$id": "#/properties/data/properties/vendorInfo/properties/vendorName",
+              "type": "string",
+              "title": "The Vendorname Schema",
+              "default": "",
+              "examples": [
+                "哈哈儿童网"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "vendorAddress": {
+              "$id": "#/properties/data/properties/vendorInfo/properties/vendorAddress",
+              "type": "null",
+              "title": "The Vendoraddress Schema",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "vendorSummary": {
+              "$id": "#/properties/data/properties/vendorInfo/properties/vendorSummary",
+              "type": "string",
+              "title": "The Vendorsummary Schema",
+              "default": "",
+              "examples": [
+                "哈哈儿童网是沪上最大的儿童教育、生活服务平台，收录沪上万家商户信息，与多家大品牌教育培训机构合作。涉及儿童教育、儿童摄影、儿童游乐等领域，旨在增加儿童商户网上曝光度，方便有需求的家长及时快捷找到身边最优惠的服务信息，从不同层次上满足家长的需求。"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "courseCategory": {
+          "$id": "#/properties/data/properties/courseCategory",
+          "type": "object",
+          "title": "The Coursecategory Schema",
+          "required": [
+            "chapters"
+          ],
+          "properties": {
+            "chapters": {
+              "$id": "#/properties/data/properties/courseCategory/properties/chapters",
+              "type": "array",
+              "title": "The Chapters Schema",
+              "items": {
+                "$id": "#/properties/data/properties/courseCategory/properties/chapters/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                  "chapterId",
+                  "chapterName",
+                  "sections"
+                ],
+                "properties": {
+                  "chapterId": {
+                    "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/chapterId",
+                    "type": "integer",
+                    "title": "The Chapterid Schema",
+                    "default": 0,
+                    "examples": [
+                      464
+                    ]
+                  },
+                  "chapterName": {
+                    "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/chapterName",
+                    "type": "string",
+                    "title": "The Chaptername Schema",
+                    "default": "",
+                    "examples": [
+                      "第一章"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "sections": {
+                    "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections",
+                    "type": "array",
+                    "title": "The Sections Schema",
+                    "items": {
+                      "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "sectionId",
+                        "sectionName",
+                        "supportTry",
+                        "materialId"
+                      ],
+                      "properties": {
+                        "sectionId": {
+                          "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections/items/properties/sectionId",
+                          "type": "integer",
+                          "title": "The Sectionid Schema",
+                          "default": 0,
+                          "examples": [
+                            1361
+                          ]
+                        },
+                        "sectionName": {
+                          "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections/items/properties/sectionName",
+                          "type": "string",
+                          "title": "The Sectionname Schema",
+                          "default": "",
+                          "examples": [
+                            "1、"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "supportTry": {
+                          "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections/items/properties/supportTry",
+                          "type": "integer",
+                          "title": "The Supporttry Schema",
+                          "default": 0,
+                          "examples": [
+                            0
+                          ]
+                        },
+                        "materialId": {
+                          "$id": "#/properties/data/properties/courseCategory/properties/chapters/items/properties/sections/items/properties/materialId",
+                          "type": "integer",
+                          "title": "The Materialid Schema",
+                          "default": 0,
+                          "examples": [
+                            2
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "skuInfo": {
+          "$id": "#/properties/data/properties/skuInfo",
+          "type": "object",
+          "title": "The Skuinfo Schema",
+          "required": [
+            "skuId",
+            "skuName",
+            "price",
+            "postPrice",
+            "limitCount",
+            "inventory"
+          ],
+          "properties": {
+            "skuId": {
+              "$id": "#/properties/data/properties/skuInfo/properties/skuId",
+              "type": "integer",
+              "title": "The Skuid Schema",
+              "default": 0,
+              "examples": [
+                2202
+              ]
+            },
+            "skuName": {
+              "$id": "#/properties/data/properties/skuInfo/properties/skuName",
+              "type": "string",
+              "title": "The Skuname Schema",
+              "default": "",
+              "examples": [
+                "COURSE-SKU"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "price": {
+              "$id": "#/properties/data/properties/skuInfo/properties/price",
+              "type": "number",
+              "title": "The Price Schema",
+              "default": 0.0,
+              "examples": [
+                0.01
+              ]
+            },
+            "postPrice": {
+              "$id": "#/properties/data/properties/skuInfo/properties/postPrice",
+              "type": "number",
+              "title": "The Postprice Schema",
+              "default": 0.0,
+              "examples": [
+                0.01
+              ]
+            },
+            "limitCount": {
+              "$id": "#/properties/data/properties/skuInfo/properties/limitCount",
+              "type": "null",
+              "title": "The Limitcount Schema",
+              "default": null,
+              "examples": [
+                null
+              ]
+            },
+            "inventory": {
+              "$id": "#/properties/data/properties/skuInfo/properties/inventory",
+              "type": "integer",
+              "title": "The Inventory Schema",
+              "default": 0,
+              "examples": [
+                14
+              ]
+            }
+          }
+        },
+        "shareInfo": {
+          "$id": "#/properties/data/properties/shareInfo",
+          "type": "object",
+          "title": "The Shareinfo Schema",
+          "required": [
+            "id",
+            "shareType",
+            "title",
+            "description",
+            "shareImgUrl"
+          ],
+          "properties": {
+            "id": {
+              "$id": "#/properties/data/properties/shareInfo/properties/id",
+              "type": "integer",
+              "title": "The Id Schema",
+              "default": 0,
+              "examples": [
+                6922
+              ]
+            },
+            "shareType": {
+              "$id": "#/properties/data/properties/shareInfo/properties/shareType",
+              "type": "integer",
+              "title": "The Sharetype Schema",
+              "default": 0,
+              "examples": [
+                6922
+              ]
+            },
+            "title": {
+              "$id": "#/properties/data/properties/shareInfo/properties/title",
+              "type": "string",
+              "title": "The Title Schema",
+              "default": "",
+              "examples": [
+                "体验课收费课程"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "description": {
+              "$id": "#/properties/data/properties/shareInfo/properties/description",
+              "type": "string",
+              "title": "The Description Schema",
+              "default": "",
+              "examples": [
+                "时间都去哪了"
+              ],
+              "pattern": "^(.*)$"
+            },
+            "shareImgUrl": {
+              "$id": "#/properties/data/properties/shareInfo/properties/shareImgUrl",
+              "type": "string",
+              "title": "The Shareimgurl Schema",
+              "default": "",
+              "examples": [
+                "http://uat-steam.opg.cn/_static/admin/images/resource/20180921101914_936013.jpg"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "orderId": {
+          "$id": "#/properties/data/properties/orderId",
           "type": "string",
-          "title": "The Status Schema",
+          "title": "The Orderid Schema",
           "default": "",
           "examples": [
-            "Normal"
+            "15393255014000000024827"
           ],
           "pattern": "^(.*)$"
         }
       }
-    },
-    "playAuth": {
-      "$id": "#/properties/playAuth",
-      "type": "string",
-      "title": "The Playauth Schema",
-      "default": "",
-      "examples": [
-        "eyJTZWN1cml0eVRva2VuIjoiQ0FJUzN3SjFxNkZ0NUIyeWZTaklyNHZQQ3M2QzJlaGtnZkM3U2xQTHAwSTBOUDlocmJMdnRqejJJSGhKZVhOdkJPMGV0ZjQrbVdCWTdQY1lsck1xRk1VY0hSZWZONXNxdHM0SnFGcjRKcExGc3QySjZyOEpqc1ZobXR0Q2hWcXBzdlhKYXNEVkVma3VFNVhFTWlJNS8wMGU2TC8rY2lyWVhEN0JHSmFWaUpsaFE4MEtWdzJqRjFSdkQ4dFhJUTBRazYxOUszemRaOW1nTGlidWkzdnhDa1J2MkhCaWptOHR4cW1qL015UTV4MzFpMXYweStCM3dZSHRPY3FjYThCOU1ZMVdUc3Uxdm9oemFyR1Q2Q3BaK2psTStxQVU2cWxZNG1YcnM5cUhFa0ZOd0JpWFNaMjJsT2RpTndoa2ZLTTNOcmRacGZ6bjc1MUN0L2ZVaXA3OHhtUW1YNGdYY1Z5R0dOLzZuNU9aUXJ6emI0WmhKZWVsQVJtWGpJRFRiS3VTbWhnL2ZIY1dPRGxOZjljY01YSnFBWFF1TUdxQ2QvTDlwdzJYT2x6NUd2WFZnUHRuaTRBSjVsSHA3TWVNR1YrRGVMeVF5aDBFSWFVN2EwNDQvNWVUWWFwazFNVWFnQUZhbm5ZaThoa1Q1b3U1U1BNSnpTbmo5Q2tGY25aTEh0aGFiQkFMSjdzaTNMamQyc3VLM3dUb1NydnRNRjk4WnJIQjJQdDE5ekRvQjMzU0dHYzlMQ09Ib2ZqNDNUeTZYUEVjVzZuRWtHV3pNbFdSeVhpL2ppRE1xbThrUFRvSDBHWlhKaFZUU0o1ZWExdG9YNGhnK2tBRENvYW9jSXFCNGtsSDNrMEgyTHhpQ0E9PSIsIkF1dGhJbmZvIjoie1wiQ2FsbGVyXCI6XCJaY0hBNkJzbW9hV2JiaGs5K1lrbjZJcmNOalFCZ3paZHZISnNnMTFDZDhzPVxcclxcblwiLFwiRXhwaXJlVGltZVwiOlwiMjAxOC0xMC0xMlQwNjo1MDoxN1pcIixcIk1lZGlhSWRcIjpcIjVhNmNhN2M1NTc2YTRmOWFiZGFmZjZkNWZmMjhiMTA1XCIsXCJQbGF5RG9tYWluXCI6XCJ2b2Qub3BnLmNuXCIsXCJTaWduYXR1cmVcIjpcImxIY21pS2Q4UzUwTTZmdkczRzBjSFNsRURLMD1cIn0iLCJWaWRlb01ldGEiOnsiU3RhdHVzIjoiTm9ybWFsIiwiVmlkZW9JZCI6IjVhNmNhN2M1NTc2YTRmOWFiZGFmZjZkNWZmMjhiMTA1IiwiVGl0bGUiOiLmnIDngqvmsJHml4/po44iLCJDb3ZlclVSTCI6Imh0dHA6Ly91YXQtc3RlYW0ub3BnLmNuL19zdGF0aWMvYWRtaW4vaW1hZ2VzL3Jlc291cmNlLzIwMTgwOTIxMTAwNTI4XzQ2NjM0MS5wbmciLCJEdXJhdGlvbiI6Mjc2LjMzfSwiQWNjZXNzS2V5SWQiOiJTVFMuTkh6QXQ2NDdFNjJQSHV6Q0JhOHBNQndEVCIsIlBsYXlEb21haW4iOiJ2b2Qub3BnLmNuIiwiQWNjZXNzS2V5U2VjcmV0IjoiRnVGbTQ4UnZqR1VLZzRUcHR4eGtueGJYeVlwaHhQSzJydmFFVkw4d1dWREQiLCJSZWdpb24iOiJjbi1zaGFuZ2hhaSIsIkN1c3RvbWVySWQiOjE3MjEwMzMyODIwMjYxMTF9"
-      ],
-      "pattern": "^(.*)$"
     }
   }
 }

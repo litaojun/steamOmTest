@@ -17,7 +17,7 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userViewCourseUrl
 from opg.util.httptools import httpGet
-
+from collections import defaultdict
 class UserViewCourseService(UopService):
     '''
         用户查看课程
@@ -42,6 +42,24 @@ class UserViewCourseService(UopService):
                             )
         return self.rsp
 
+    def genChapterSectionNameDict(self,response = None):
+        if response is None:
+           response = self.userViewCourse()
+        chapters = query_json(json_content = json.loads(response),
+                              query        = "data.courseCategory.chapters")
+        return dict([(  chapter["chapterName"],
+                                       dict([(secttion["sectionName"],secttion["materialId"])
+                                            for secttion in chapter["sections"]])
+                             )
+                           for chapter in chapters ])
+
+    def setInPutData(self):
+        charpterSecttionDict = self.genChapterSectionNameDict()
+        if "sectionName" in self.inputKV and "chapterName" in self.inputKV:
+           self.inputKV["materialId"] = charpterSecttionDict[self.inputKV["chapterName"]][self.inputKV["sectionName"]]
+           print(self.inputKV["materialId"])
+
+
     #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content = json.loads(response),
@@ -51,8 +69,11 @@ if  __name__ == "__main__":
     kwargs = {
                 "courseId":4165,
                 "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
-                "token":"868eead96c634443a81170cf5fa87948"
+                "token":"1e660b2bb70041098125d488e8c581fd",
+                "chapterName":"第一章",
+                 "sectionName":"1、"
              }
     uvcSer = UserViewCourseService(kwargs=kwargs)
-    courseRsp = uvcSer.userViewCourse()
-    print(courseRsp)
+    uvcSer.setInPutData()
+    #courseRsp = uvcSer.userViewCourse()
+    #print(courseRsp)

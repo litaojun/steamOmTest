@@ -18,6 +18,7 @@ from opg.util.utils import query_json
 from steam.util.configurl import userCancelMatchAppleUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
+from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
 class UserCancelMatchAppleService(UopService):
     '''
         微信端用户取消报名
@@ -36,8 +37,8 @@ class UserCancelMatchAppleService(UopService):
                                                          )
 
     def userCancelMatchApple(self):
-        self.rsp = httpPost(url     = userCancelMatchAppleUrl,
-                            headers = self.jsonheart,
+        self.rsp = httpPost(url         = userCancelMatchAppleUrl,
+                            headers     = self.jsonheart,
                             reqJsonData = self.reqjsondata)
         return self.rsp
 
@@ -47,7 +48,7 @@ class UserCancelMatchAppleService(UopService):
         # userAppleMatchSer.alterMatchTime()
         # userAppleMatchTwo()
         rsp = userAppleMatchSer.userMatchApple()
-        self.reqjsondata["applyId"] = userAppleMatchSer.getAppleIdFromRsp(response=rsp)
+        self.reqjsondata["applyId"] = UserMatchAppleQueryService(self.inputKV).getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
 
 
     @check_rspdata(filepath = "userCancelMatchAppleRspFmt")

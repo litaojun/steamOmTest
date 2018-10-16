@@ -20,7 +20,7 @@ class UserViewCourseTest(SteamTestCase):
       '''
             用户浏览课程
       '''
-      __interfaceName__ = "/steam-course/course/queryAliyunVideoAuth"
+      __interfaceName__ = "/steam-course/course/queryCourse"
       @initInput( services = [WeixinSearchService],
                   curser   = UserViewCourseService )
       def __init__(self, methodName = 'runTest',

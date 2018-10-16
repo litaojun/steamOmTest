@@ -21,7 +21,7 @@ class UserCancelMatchAppleTest(SteamTestCase):
             微信端用户取消报名
       '''
       __interfaceName__ = "/match-service/member/apply/cancel"
-      @initInput(services = [UserMatchQueryService],
+      @initInput(services = [ UserMatchQueryService ],
                  curser   =  UserCancelMatchAppleService)
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelMatchAppleTest,self).__init__(methodName,param)

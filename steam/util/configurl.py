@@ -86,7 +86,7 @@ userSearchEntryUrl = base_url + "/steam-resource/index/configs/searchByEntry"
 
 
 #STEAM在线课程REST接口文档v1.2.1.docx
-userViewCourseUrl = base_url + "/steam-course/course/queryAliyunVideoAuth"
+userViewCourseUrl = base_url + "/steam-course/course/queryCourse"
 recommandCourseUrl = base_url + "/steam-course/course/queryRecommandCourse"
 userStudentCourseListUrl = base_url + "/order-service/study/list?pageNo=1&pageSize=10"
 queryAliyunVideoAuthUrl = base_url + "/steam-course/course/queryAliyunVideoAuth"
