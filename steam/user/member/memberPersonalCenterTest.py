@@ -21,7 +21,7 @@ class MemberPersonalCenterTest(SteamTestCase):
       '''
       __interfaceName__ = "/member-service/members/personalCenter-del"
       @initInput(services=[],
-                 curser=MemberPersonalCenterService)
+                 curser  =MemberPersonalCenterService)
       def __init__(self, methodName='runTest', param=None):
           super(MemberPersonalCenterTest,self).__init__(methodName,param)
 
