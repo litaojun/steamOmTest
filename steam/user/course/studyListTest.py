@@ -17,7 +17,7 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.course.studyListService import StudyListService
 class StudyListTest(SteamTestCase):
       '''
-            用户浏览课程
+            用户浏览我的学习列表
       '''
       __interfaceName__ = "/order-service/study/list"
       @initInput( services = [],

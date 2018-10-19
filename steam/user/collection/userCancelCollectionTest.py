@@ -20,7 +20,7 @@ class UserCancelCollectionTest(SteamTestCase):
       '''
             用户浏览课程
       '''
-      __interfaceName__    = "/resource-service/resource/collect"
+      __interfaceName__    = "/resource-service/resource/cancelCollect"
       @initInput( services = [],
                   curser   = UserCancelCollectionService )
       def __init__(self, methodName = 'runTest',

@@ -11,7 +11,6 @@
 @file: flaskRun.py 
 @time: 2018/7/11 15:09 
 """
-#!flask/bin/python
 from flask import Flask, jsonify,request
 from steam.mediares.query import mediaresQueryTest
 from flask_cors import *

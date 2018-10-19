@@ -21,7 +21,7 @@ class UserListCollectionTest(SteamTestCase):
             用户浏览课程
       '''
       __interfaceName__    = "/member/collection/queryPage"
-      @initInput( services = [],
+      @initInput( services = [] ,
                   curser   = UserListCollectionService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

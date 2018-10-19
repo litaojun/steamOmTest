@@ -18,7 +18,7 @@ from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.course.recommandCourseService import RecommandCourseService
 class RecommandCourseTest(SteamTestCase):
       '''
-            用户浏览课程
+            用户查看推荐课程列表
       '''
       __interfaceName__ = "/steam-course/course/queryRecommandCourse"
       @initInput( services = [WeixinSearchService],

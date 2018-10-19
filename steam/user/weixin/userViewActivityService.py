@@ -15,7 +15,7 @@ from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userViewActivityUrl
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpGet
 
 class UserViewActivityService(UopService):
     '''
@@ -64,12 +64,11 @@ class UserViewActivityService(UopService):
     def setInPutData(self):
         try:
             if self.rsp is None:
-                self.rsp = self.userViewActivity()
-            print("activityRsp === %s" % self.rsp)
+               self.rsp = self.userViewActivity()
             skuNmIdDict = self.getSkuDict(response = self.rsp)
             if self.inputKV.get("skuName") is not None and skuNmIdDict is not None:
-                 self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
-                 self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
+               self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
+               self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
         except e:
             print("init fail")
 

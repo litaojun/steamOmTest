@@ -12,17 +12,17 @@
 @time: 2018/10/15 10:51 
 """
 from steam.util.testJsonFormat import initInput
-from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.weixin.userViewCourseService import UserViewCourseService
+from steam.util.steamLog       import SteamTestCase
+from opg.unit.testcaseRunMgr   import runTestOneCls
+from steam.user.search.weixinSearchService         import WeixinSearchService
+from steam.user.weixin.userViewCourseService       import UserViewCourseService
 from steam.user.course.queryAliyunVideoAuthService import QueryAliyunVideoAuthService
 class QueryAliyunVideoAuthTest(SteamTestCase):
       '''
-            用户浏览课程
+            用户获取观看权限字符串
       '''
       __interfaceName__ = "/steam-course/course/queryAliyunVideoAuth"
-      @initInput( services = [WeixinSearchService,UserViewCourseService],
+      @initInput( services = [ WeixinSearchService , UserViewCourseService ],
                   curser   = QueryAliyunVideoAuthService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
