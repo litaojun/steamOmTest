@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css" media="screen">
+.title{
+	        text-align:center;
+	    }
+</style>
+<!-- <link href=../js/app.04cc3cf13879ea21c0d0d0ccbb5b79e7.css rel=stylesheet> -->
+<title class='title'>自动化测试平台</title>
+<meta name="generator" content="HTMLTestRunner 0.8.2"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helveverdanaca, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         {   }
+
+/* -- heading ---------------------------------------------------------------------- */
+
+h1 {
+	font-size: 10pt;
+	color: gray;
+	text-align:center;
+}
+
+/*.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 2ex;
+    margin-bottom: 3ex;
+}*/
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+  /*  margin-top: 3ex;
+    margin-bottom: 1ex; */
+}
+#result_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+    text-align:center;
+}
+
+#interface_table {
+        width: 100%;
+    border-collapse: collapse;
+    border: 1px red #111;
+    text-align:center;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#interface_table td {
+    border: 1px solid #2178f1;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.statusTableOne  { color: #7B68EE;font-size: 5px; }
+.statusTableTwo  { color: #00CED1;font-size: 10px; }
+.statusTableThree  { color: red;font-size: 15px; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.interfaceClass  { background-color: #00ffff; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+.t1 {
+			font-size: 20px;//字体大小
+			line-height: 40px;//文本行高
+			color: 		#1E90FF;//文本颜色
+			bgcolor:#DC143C;
+			margin: 6px;//边界
+			padding: 6px;//填充（文本与边界的距离）
+			border-bottom-width: 1px;//底部边框宽度
+			border-bottom-style: solid;//底部边框样式为实线
+			border-bottom-color: #00008B;//底部边框颜色
+		}
+.comment{
+   color: #556B2F;
+   font-size:15px;//字体大小
+ }
+ .commentTwo{
+   color: #FF69B4;
+   font-size:16px;//字体大小
+ }
+ .styled-select select {
+   background: transparent;
+   width: 135px;
+   padding: 5px;
+   font-size: 10px;
+   border: 1px solid #ccc;
+   height: 26px;
+   -webkit-appearance: none; /*for chrome*/
+}
+.login-button { /* 按钮美化 */  
+    width: 131px; /* 宽度 */  
+    height: 25px; /* 高度 */  
+    border-width: 0px; /* 边框宽度 */  
+    border-radius: 3px; /* 边框半径 */  
+    background: #1E90FF; /* 背景颜色 */  
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */  
+    outline: none; /* 不显示轮廓线 */  
+    font-family: Microsoft YaHei; /* 设置字体 */  
+    color: white; /* 字体颜色 */  
+    font-size: 15px; /* 字体大小 */  
+}  
+.login-button:hover { /* 鼠标移入按钮范围时改变颜色 */  
+    background: #5599FF;  
+}  
+.searchclass 
+ {
+      width:960px;
+      min-height:80px;
+      border-right:1px solid #000;border-bottom:1px solid #000;
+      margin:auto;
+      
+ }
+  .searchclass  tr td
+ {
+       height:15px;
+       border-left:1px solid #000;border-top:1px solid #000
+ }
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script type="text/javascript" src="../static/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../static/jquery.timers.js"></script>
+<script type="text/javascript" src="../static/timefun.js"></script>
+<!--<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.8.3.min.js')}}"></script>-->
+<!--<script type="text/javascript" src="{{url_for('static', filename='js/jquery.timers.js')}}"></script>-->
+<!--<script type="text/javascript" src="{{url_for('static', filename='js/timefun.js')}}"></script>-->
+<script type="text/javascript">
+$(document).ready(function()
+{
+             var i = 1;
+			 var sign = 1;
+			 var stattime;
+			 var runfentime = 0;
+			 var runmiaotime = 0;
+             var  tokenId ;
+		     var   ipStr = "http://127.0.0.1:8181";
+		     ipStr       = "http://10.205.248.120:8181";
+             var   testReporturl = ipStr + "/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
+		     var    runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
+             bingEvent();
+             // clearAllContent();
+             $("#select_project").val(1);
+             $('#select_project').trigger('change');
+			 function bingEvent()
+             {
+                     $("tr[class='errorClass'],tr[class='failClass'],tr[class='passClass']").bind("click",showClassDetailNew);
+                     $("#planTest").bind("click",autoTestFun);                     //点击自动接口测试
+                     $("#select_plan").bind("change",selectfun);                   //选择一个执行计划
+                     $("#select_project").bind("change",getAllPlanByProname);	    //选择一个项目
+                     $('body').everyTime('5s',timeTest);                           //定时检查是否执行完成
+             }
+             function clearAllContent()
+             {
+                      $("tr[class='errorClass'],tr[class='failClass'],tr[class='passClass']").remove();
+                      $("tr[id^='ft'],tr[id^='pt']").remove();
+                      $("#total_row").remove();
+                      $("#select_plan > option").remove();
+                      $("#select_plan").prepend("<option value='' selected>--计划--</option>") ;
+             }
+			 function clearTestStatusAndTime()
+             {
+					 $("#timePlan").html("-------");
+					 $("#statusPlan").html("----");
+					 $("#fentime").html("-");
+					 $("#miaotime").html("-");
+             }
+				 
+             //定时查询用例执行状态
+             function timeTest()
+             {
+				     if(sign==0)
+                     {
+				    	    starttime = $("#timePlan").html();
+				    	    runprocessurl =  ipStr + "/prop/queryRunProcess?projectname=steam亲子教育"  + "&token=" + tokenId;
+				    	    //alert(runprocessurl);
+						      $.ajax({
+														type:"GET",  
+														url: runprocessurl,  
+														dataType:"json",  
+														<!--global:false,-->   
+														success: function(data){
+															                         if(data.status == 2)
+															                        	 {
+															                        	    $("#statusPlan").html("自动化用例执行完成");
+															                        	    sign =1;
+															                        	     protime = data.starttime + "~" + data.endtime;
+															                        	    $("#fentime").html(data.mintime);
+															                        	    $("#miaotime").html(data.sectime);
+															                        	    $("#timePlan").html(protime);
+															                        	    selectPlanByProName("steam亲子教育")
+															                        	 }
+														                       }
+													});
+                     }
+             }
+             function getAllPlanByProname()
+             {
+					 projectname = $("#select_project").find("option:selected").text(); 
+					 selectPlanByProName(projectname);
+					 clearTestStatusAndTime();
+             }
+             //根据项目名称获取所有的计划
+		     function selectPlanByProName(proname)
+		     {
+                 $.ajax({
+                           type:"GET",
+                           url: ipStr + "/prop/testplanlist?projectname=" + proname,
+                           dataType:"json",
+                           <!--global:false,-->
+                           success: function(data){
+                                                       clearTestReportTable();
+                                                       clearPlanTimeList();
+                                                       var sign = '';
+                                                       $.each(data.listplan,function(index,item){
+                                                                                                     var itemstr = structurePlanTimeData(item.id,item.plantime);
+							                                                                         $("#select_plan").prepend(itemstr);
+																                                     sign = item.id
+                                                                                                  }
+                                                               );
+                                                       $("#select_plan").prepend("<option value='' selected>--计划--</option>") ;
+													   $("#select_plan").find("option[value='"+sign+"']").attr("selected",true);   //选中第一行数据
+													   $('#select_plan').trigger('change');//触发改变事件
+                                                  }
+						                            
+							    });
+		   }
+		  //根据选择的项目名称执行自动化测试
+			function autoTestFun()
+			{
+					projectname = $("#select_project").find("option:selected").text();  //获取select的选择的文本,获取工程名称
+					requrl = ipStr + "/prop/runTestPro?projectname=" + projectname ; //+ "&startime=" + time2;
+					 $.ajax({
+											type:"GET" ,  
+											url: requrl ,
+											dataType:"json" ,  
+											<!--global:false,-->   
+											success: function(data){
+											                           tokenId = data.token;
+                                                                        resfPageFromRuntest(data.starttime);
+											                       }
+							     });
+					
+			}
+			function resfPageFromRuntest(starttime)
+            {
+				  $("#timePlan").html(starttime)
+                  sign = 0
+				  $("#statusPlan").html("自动化用例执行中，请等待...");
+            }
+			function clearTestReportTable()
+            {
+                $("tr[class='errorClass'],tr[class='failClass'],tr[class='passClass']").remove();
+                $("tr[id^='ft'],tr[id^='pt']").remove();
+                $("#total_row").remove();
+            }
+            
+            function getInterfaceListData()
+            {
+                $.ajax({
+                           type:"GET",
+                           url : ipStr + "/prop/interfacelist?projectname=" + proname ,
+                           dataType:"json" ,
+                           success: function(data)
+                           {
+                               $("#result_table").attr("class","hiddenRow");
+                               $("tr[class='interfaceClassClass']").remove();
+                               $.each(data.infsList,function(index,item)
+                               {
+                                      trData = structureInterfaceData(item.aliasName,
+                                                                       item.interfaceAddr,
+                                                                       item.reqpath,
+                                                                       item.rsppath);
+                                      $("#interface_table").append(trData);
+                               });
+                           }
+                        });
+            }
+            
+            function  clearPlanTimeList()
+            {
+                 $("#select_plan > option").remove();
+            }
+            function structureInterfaceData(aliasName,interfaceAddr,reqpath,rsppath)
+            {
+               interfaceData ="<tr class='interfaceClass'>" +
+                                "<td>" + aliasName + "</td>"          +
+                                "<td>" + interfaceAddr + "</td>"      +
+                                "<td>" + reqpath + "</td>"            +
+                                "<td>" + rsppath + "</td>"            +
+                                "</tr>";
+               return interfaceData;
+            }
+            function structurePlanTimeData(id,plantime)
+            {
+                var itemstr =  "<option value=\"" + id + "\">" + plantime + "</option>";
+                return itemstr;
+
+            }
+            function structureInterfaceTotal(interfaceName,total,success,fail,error,index)
+            {
+                ifccls = "passClass";
+                if(fail > 0)
+                    ifccls = "failClass";
+                if(error > 0)
+                    ifccls = "errorClass";
+                var data =     "<tr class='" + ifccls + "'>"    +
+                               "<td>" + interfaceName + "</td>" +
+                               "<td>" + total         + "</td>" +
+                               "<td>" + success       + "</td>" +
+                               "<td>" + fail          + "</td>" +
+                               "<td>" + error         + "</td>" +
+                               "<td><a href=\"javascript:showClassDetail('c" + index + "'," + total + ")\">Detail</a></td>" +
+                               "</tr>";
+                return data
+
+            }
+            function structureTestCaseData(resultSign,i,index,testcaseid,testpoint,errordes)
+            {
+                 var signdetail = "pass";
+                 var trid = "pt";
+                 var cls = "None";
+                 var hcls ="hiddenRow";
+                 if(resultSign == "1")
+                 {
+                        signdetail = "error";
+                        trid = "ft";
+                        cls = "failCase";
+                }
+                if(resultSign == "2")
+                {
+                        signdetail = "fail";
+                        trid = "ft";
+                        cls = "errorCase";
+                }
+               var testcasestr = "<tr id='"+ trid + index + "." + (i+1) + "' class='" + hcls +"'>" +
+                                     "<td class='"  + cls +"'><div class='testcase'>" + testcaseid + "_" + testpoint + "</div></td>" +
+                                     "<td colspan='5' align='center'>" +
+                                           "<a class=\"popup_link\" onfocus='this.blur();' href=\"javascript:showTestDetail('div_"+ trid + index + "." + (i+1) + "')\" >" + signdetail + "</a>" +
+                                           "<div id='div_"+trid+ index + "." + (i+1) +"' class=\"popup_window\">" +
+                                           "<div style='text-align: right; color:red;cursor:pointer'>" +
+                                           "<a onfocus='this.blur();' onclick=\"document.getElementById('div_"+trid+ index + "." + (i+1) +"').style.display = 'none' \" >" +
+                                           "[x]</a>" +
+                                           "</div>" +
+                                           "<pre>" + errordes + "</pre>" +
+                                           "</div>" +
+                                        "</td>" +
+                                     "</tr>";
+               return testcasestr;
+            }
+            function structureBtTotal(casetotal,casesuccess,casefail,caseerror)
+            {
+                totalstr = "<tr id='total_row'>"	+
+                                "<td>Total</td>"  +
+                                "<td>" + casetotal + "</td>"  +
+                                "<td>" + casesuccess + "</td>"  +
+                                "<td>" + casefail    + "</td>"   +
+                                "<td>" + caseerror   + "</td>"  +
+                                "<td>&nbsp;</td>"    +
+                             "</tr>";
+                return totalstr;
+            }
+			//根据选择的执行计划时间获取对应测试报告
+            function selectfun(event)
+			{
+			      lid = $(this).val() ;//获取选中计划的planId
+				  $.ajax({  
+					       type:"GET" ,
+                           url: testReporturl + lid ,
+                           dataType:"json" ,
+                           <!--global:false,-->
+					        success: function(data){
+                                                      clearTestReportTable();
+                                                      listdata = data.testrst	;
+                                                      casetotal = 0;
+                                                      casesuccess = 0;
+                                                      casefail = 0;
+                                                      caseerror = 0;
+												      $.each(listdata,function(index,item)
+                                                      {
+														        casetotal   = casetotal    + item.total;
+														        casesuccess = casesuccess  + item.success;
+															    casefail    = casefail     + item.fail;
+															    caseerror   = caseerror    + item.error;
+                                                                var addr = structureInterfaceTotal(item.interfaceName,item.total,item.success,item.fail,item.error,index);
+																$("#result_table").append(addr);
+                                                                $.each(item.result,function(i,tcase){
+                                                                                                        testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes);
+                                                                                                        $("#result_table").append(testcasestr);
+                                                                                                     }
+                                                                      )
+                                                      })
+                                                            totalstr = structureBtTotal(casetotal,casesuccess,casefail,caseerror);
+                                                            $("#result_table").append(totalstr);
+                                                    }
+								   });
+		             }
+                 });
+	
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) 
+{
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+function showClassDetailNew()
+{
+    // alert("aaa");
+     sign = $(this).attr("sign");
+    // alert($(this).attr("sign"));
+    // alert($("tr[id^="+sign+"]:first").attr("class"));
+    if($("tr[id^="+sign+"]:first").attr("class"))
+    {
+        $("tr[id^="+sign+"]").attr("class",'');
+    }
+    else
+    {
+        $("tr[id^="+sign+"]").attr("class","hiddenRow");
+    }
+}
+
+function showClassDetail(cid, count) 
+{
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) 
+	{
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) 
+	{
+        tid = id_list[i];
+        if (toHide) 
+		{
+            document.getElementById('div_'+tid).style.display = 'none';
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+                   document.getElementById(tid).className = '';
+             }
+    }
+}
+
+
+function showTestDetail(div_id)
+{
+    var details_div = document.getElementById(div_id);
+    var displayState = details_div.style.display;
+    // alert(displayState)
+    if(displayState != 'block')
+	{
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else 
+	{
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) 
+{
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+-->
+</script>
+
+<table id='result_table' class="hiddenRow">
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+    <td>run</td>
+</tr>
+
+<tr class='errorClass' sign='ft0' >
+    <td>/activities-service/raffleResult/luckDraw-dzp</td>
+    <td>17</td>
+    <td>0</td>
+    <td>0</td>
+    <td>17</td>
+    <td><a href="javascript:showClassDetail('c0',2)">Detail</a></td>
+    <td>--</td>
+</tr>
+
+<tr id='ft0.1' class='hiddenRow'>
+    <td class='errorCase'><div class='testcase'>wheel_add_1_大转盘抽奖-发货类型实物</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft0.1')" >
+        error</a>
+
+    <div id='div_ft0.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft0.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+               TypeError: the JSON object must be str, bytes or bytearray, not 'NoneType'
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+    <td>run</td>
+</tr>
+
+<tr id='ft0.2' class='hiddenRow'>
+    <td class='errorCase'><div class='testcase'>wheel_add_1_大转盘抽奖-发货类型实物</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft0.2')" >error</a>
+
+    <div id='div_ft0.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft0.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        ft1.2: Traceback (most recent call last):
+            File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 47, in tearDown
+            prels = list(map(f,predata))
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass' sign='pt1'>
+    <td>/member-service/address</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>wheel_add_1_用户增加一个地址</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>wheel_add_2_用户修改默认地址</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass' sign='ft2'>
+    <td>/uop-search/search/keyword</td>
+    <td>10</td>
+    <td>7</td>
+    <td>3</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>search_keyword_1_用户搜索文章-按标题</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        pass</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.1: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>search_keyword_1_用户搜索文章-按副标题</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        pass</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.2: 
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>87</td>
+    <td>13</td>
+    <td>8</td>
+    <td>66</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+<table id='interface_table'>
+<colgroup>
+<col align='left' />
+<col align='left' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+
+<tr id='header_row'>
+    <td>接口标识</td>
+    <td>接口url地址</td>
+    <td>请求报文格式地址</td>
+    <td>响应报文格式地址</td>
+</tr>
+
+<tr class='interfaceClass' sign='ft0' >
+    <td>/activities-service/raffleResult/luckDraw-dzp</td>
+    <td>http://www.codesky.net/tools/list-3.htm</td>
+    <td>file:///D:/litaojun/workspace/steamOmTest/steam/runflask/templates/interfaceList.html</td>
+    <td>file:///D:/litaojun/workspace/steamOmTest/steam/runflask/templates/interfaceList.html</td>
+</tr>
+
+
+<tr class='interfaceClass' sign='pt1'>
+    <td>/member-service/address</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+</tr>
+ <tr class='interfaceClass' sign='ft2'>
+    <td>/uop-search/search/keyword</td>
+    <td>10</td>
+    <td>7</td>
+    <td>3</td>
+</tr>
+</table>
+</body>
+</html>

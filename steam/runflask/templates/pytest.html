@@ -171,12 +171,9 @@ $(document).ready(function()
 {
              var i = 1;
 			 var sign = 1;
-			 var stattime;
-			 var runfentime = 0;
-			 var runmiaotime = 0;
-             var  tokenId ;
-		     var   ipStr = "http://127.0.0.1:8181";
-		     ipStr       = "http://10.205.248.120:8181";
+             var tokenId ;
+		     var ipStr = "http://127.0.0.1:8181";
+		     ipStr     = "http://10.205.248.120:8181";
              var   testReporturl = ipStr + "/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
 		     var    runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
              bingEvent();
@@ -437,6 +434,10 @@ function showCase(level)
             }
         }
     }
+}
+function showClassDetailNew(cid,count)
+{
+
 }
 
 
