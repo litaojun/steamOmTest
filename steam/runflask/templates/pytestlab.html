@@ -188,13 +188,14 @@ $(document).ready(function()
 			 var runmiaotime = 0;
              var  tokenId ;
 		     var   ipStr = "http://127.0.0.1:8181";
-		     ipStr       = "http://10.205.248.120:8181";
+		     //ipStr       = "http://10.205.248.120:8181";
              var   testReporturl = ipStr + "/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
 		     var    runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
              bingEvent();
              // clearAllContent();
-             $("#select_project").val(1);
-             $('#select_project').trigger('change');
+             // $("#select_project").val(1);
+             // $('#select_project').trigger('change');
+             getInterfaceListData();
 			 function bingEvent()
              {
                      $("tr[class='errorClass'],tr[class='failClass'],tr[class='passClass']").bind("click",showClassDetailNew);
@@ -312,16 +313,19 @@ $(document).ready(function()
             {
                 $.ajax({
                            type:"GET",
-                           url : ipStr + "/prop/interfacelist?projectname=" + proname ,
-                           dataType:"json" ,
+                           url : ipStr + "/prop/interfacelist?projectname=steam亲子教育" ,
+                           dataType :"json" ,
                            success: function(data)
                            {
                                $("#result_table").attr("class","hiddenRow");
-                               $("tr[class='interfaceClassClass']").remove();
+                               $("#interface_table").attr("class","");
+                               $("tr[class='interfaceClass']").remove();
                                $.each(data.infsList,function(index,item)
                                {
                                       trData = structureInterfaceData(item.aliasName,
                                                                        item.interfaceAddr,
+                                                                       item.module,
+                                                                       item.mark,
                                                                        item.reqpath,
                                                                        item.rsppath);
                                       $("#interface_table").append(trData);
@@ -330,19 +334,23 @@ $(document).ready(function()
                         });
             }
             
-            function  clearPlanTimeList()
-            {
-                 $("#select_plan > option").remove();
-            }
-            function structureInterfaceData(aliasName,interfaceAddr,reqpath,rsppath)
+
+            function structureInterfaceData(aliasName,interfaceAddr,module,mark,reqpath,rsppath)
             {
                interfaceData ="<tr class='interfaceClass'>" +
                                 "<td>" + aliasName + "</td>"          +
                                 "<td>" + interfaceAddr + "</td>"      +
+                                "<td>" + module + "</td>"             +
+                                "<td>" + mark + "</td>"               +
                                 "<td>" + reqpath + "</td>"            +
                                 "<td>" + rsppath + "</td>"            +
                                 "</tr>";
                return interfaceData;
+            }
+
+            function  clearPlanTimeList()
+            {
+                 $("#select_plan > option").remove();
             }
             function structurePlanTimeData(id,plantime)
             {
@@ -358,11 +366,11 @@ $(document).ready(function()
                 if(error > 0)
                     ifccls = "errorClass";
                 var data =     "<tr class='" + ifccls + "'>"    +
-                               "<td>" + interfaceName + "</td>" +
-                               "<td>" + total         + "</td>" +
-                               "<td>" + success       + "</td>" +
-                               "<td>" + fail          + "</td>" +
-                               "<td>" + error         + "</td>" +
+                               "<td>" + interfaceName  + "</td>" +
+                               "<td>" + total          + "</td>" +
+                               "<td>" + success        + "</td>" +
+                               "<td>" + fail           + "</td>" +
+                               "<td>" + error          + "</td>" +
                                "<td><a href=\"javascript:showClassDetail('c" + index + "'," + total + ")\">Detail</a></td>" +
                                "</tr>";
                 return data
@@ -783,10 +791,12 @@ pt10.2:
 </colgroup>
 
 <tr id='header_row'>
-    <td>接口标识</td>
-    <td>接口url地址</td>
-    <td>请求报文格式地址</td>
-    <td>响应报文格式地址</td>
+    <td width="10%">接口标识</td>
+    <td width="20%">接口url地址</td>
+    <td width="10%">接口所属模块</td>
+    <td width="20%">接口详细说明</td>
+    <td width="20%">请求报文格式地址</td>
+    <td width="20%">响应报文格式地址</td>
 </tr>
 
 <tr class='interfaceClass' sign='ft0' >
@@ -795,8 +805,6 @@ pt10.2:
     <td>file:///D:/litaojun/workspace/steamOmTest/steam/runflask/templates/interfaceList.html</td>
     <td>file:///D:/litaojun/workspace/steamOmTest/steam/runflask/templates/interfaceList.html</td>
 </tr>
-
-
 <tr class='interfaceClass' sign='pt1'>
     <td>/member-service/address</td>
     <td>4</td>
@@ -810,5 +818,6 @@ pt10.2:
     <td>3</td>
 </tr>
 </table>
+
 </body>
 </html>

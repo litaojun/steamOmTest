@@ -174,21 +174,56 @@ $(document).ready(function()
 			 var sign = 1;
              var tokenId ;
 		     var ipStr = "http://127.0.0.1:8181";
-		     ipStr     = "http://10.205.248.120:8181";
+		     //ipStr     = "http://10.205.248.120:8181";
              var   testReporturl = ipStr + "/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
 		     var    runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
              bingEvent();
              clearAllContent();
+             ///runOneTestcae('/match-service/member/apply','match_apple_1');
              $("#select_project ").val(1);
              $('#select_project').trigger('change');
+
 			 function bingEvent()
              {
+                     $("button[name^='onecase']").bind("click",runOneTestcae);
                      $("#planTest").bind("click",autoTestFun);                     //点击自动接口测试
                      $("#select_plan").bind("change",selectfun);                   //选择一个执行计划
                      $("#select_project").bind("change",getAllPlanByProname);	    //选择一个项目
                      $("#interfaceMngr").bind("click",getInterfaceListData);       //接口管理
                      $('body').everyTime('5s',timeTest);                           //定时检查是否执行完成
+
              }
+             function  test1()
+             {
+                 alert("ssssss");
+             }
+              function runOneTestcae()
+              {
+                        projectname   = $("#select_project").find("option:selected").text();
+                        planId         = $("#select_plan").find("option:selected").val();
+                        projectname   = "steam亲子教育";
+                        planId         = 369;
+                        interfaceName = $(this).attr("interfaceName");
+                        caseId = $(this).attr("caseId");
+                         $.ajax({
+                                       type:"GET",
+                                       url : ipStr + "/tsrun/prop/interfacelist?planId=" + planId + "&projectname=" + projectname + "&interfaceName=" + interfaceName + "&caseId=" + caseId ,
+                                       dataType :"json" ,
+                                       success: function(data)
+                                       {
+                                           if(data.code == "000000")
+                                           {
+                                               alert("执行成功");
+                                                $('#select_plan').trigger('change');
+                                           }
+                                           else
+                                               alert("执行失败");
+                                       },
+                                       fail:function (data) {
+                                           alert("执行失败");
+                                       }
+                                 });
+              }
              function clearAllContent()
              {
                       $("tr[class='errorClass'],tr[class='failClass'],tr[class='passClass']").remove();
@@ -204,6 +239,7 @@ $(document).ready(function()
 					 $("#fentime").html("-");
 					 $("#miaotime").html("-");
              }
+
 				 
              //定时查询用例执行状态
              function timeTest()
@@ -212,25 +248,24 @@ $(document).ready(function()
                      {
 				    	    starttime = $("#timePlan").html();
 				    	    runprocessurl =  ipStr + "/prop/queryRunProcess?projectname=steam亲子教育"  + "&token=" + tokenId;
-				    	    //alert(runprocessurl);
-						      $.ajax({
-														type:"GET",  
-														url: runprocessurl,  
-														dataType:"json",  
-														<!--global:false,-->   
-														success: function(data){
-															                         if(data.status == 2)
-															                        	 {
-															                        	    $("#statusPlan").html("自动化用例执行完成");
-															                        	    sign =1;
-															                        	     protime = data.starttime + "~" + data.endtime;
-															                        	    $("#fentime").html(data.mintime);
-															                        	    $("#miaotime").html(data.sectime);
-															                        	    $("#timePlan").html(protime);
-															                        	    selectPlanByProName("steam亲子教育")
-															                        	 }
-														                       }
-													});
+						    $.ajax({
+										type:"GET",
+										url: runprocessurl,
+									    dataType:"json",
+										<!--global:false,-->
+										success: function(data){
+										                           if(data.status == 2)
+                                                                   {
+										                         	    $("#statusPlan").html("自动化用例执行完成");
+										                         	    sign =1;
+										                         	    protime = data.starttime + "~" + data.endtime;
+										                        	    $("#fentime").html(data.mintime);
+										                        	    $("#miaotime").html(data.sectime);
+										                        	    $("#timePlan").html(protime);
+										                        	    selectPlanByProName("steam亲子教育");
+										                           }
+										                       }
+                                     });
                      }
              }
              function getAllPlanByProname()
@@ -240,6 +275,7 @@ $(document).ready(function()
 					 projectname = $("#select_project").find("option:selected").text(); 
 					 selectPlanByProName(projectname);
 					 clearTestStatusAndTime();
+
              }
              //根据项目名称获取所有的计划
 		     function selectPlanByProName(proname)
@@ -256,7 +292,7 @@ $(document).ready(function()
                                                        $.each(data.listplan,function(index,item){
                                                                                                      var itemstr = structurePlanTimeData(item.id,item.plantime);
 							                                                                         $("#select_plan").prepend(itemstr);
-																                                     sign = item.id
+																                                     sign = item.id;
                                                                                                   }
                                                                );
                                                        $("#select_plan").prepend("<option value='' selected>--计划--</option>") ;
@@ -269,14 +305,9 @@ $(document).ready(function()
 		  //根据选择的项目名称执行自动化测试
 			function autoTestFun()
 			{
-                   $("#result_table").attr("class","");
-                    $("#interface_table").attr("class","hiddenRow");
+
 					projectname = $("#select_project").find("option:selected").text();  //获取select的选择的文本,获取工程名称
 					requrl = ipStr + "/prop/runTestPro?projectname=" + projectname ; //+ "&startime=" + time2;
-					//selectPlanByProName(projectname);
-					// sign = 0;
-					// runfentime = 0;
-					// runmiaotime = 0;
 					 $.ajax({
 											type:"GET" ,  
 											url: requrl ,
@@ -291,8 +322,8 @@ $(document).ready(function()
 			}
 			function resfPageFromRuntest(starttime)
             {
-				  $("#timePlan").html(starttime)
-                  sign = 0
+				  $("#timePlan").html(starttime);
+                  sign = 0;
 				  $("#statusPlan").html("自动化用例执行中，请等待...");
             }
 			function clearTestReportTable()
@@ -325,11 +356,14 @@ $(document).ready(function()
                                "<td>" + fail          + "</td>" +
                                "<td>" + error         + "</td>" +
                                "<td><a href=\"javascript:showClassDetail('c" + index + "'," + total + ")\">Detail</a></td>" +
+                               "<td>--</td>"  +
                                "</tr>";
                 return data
 
+
             }
-            function structureTestCaseData(resultSign,i,index,testcaseid,testpoint,errordes)
+            //构造用例数据行
+            function structureTestCaseData(resultSign,i,index,testcaseid,testpoint,errordes,interfaceName)
             {
                  var signdetail = "pass";
                  var trid = "pt";
@@ -359,6 +393,7 @@ $(document).ready(function()
                                            "<pre>" + errordes + "</pre>" +
                                            "</div>" +
                                         "</td>" +
+                                         "<td><button name='onecase_" + i + "_" + testcaseid + "' type='button' interfaceName='"+ interfaceName +"' caseId='" + testcaseid + "'  >run</button></td>" +
                                      "</tr>";
                return testcasestr;
             }
@@ -366,7 +401,7 @@ $(document).ready(function()
             {
                 totalstr = "<tr id='total_row'>"	+
                                 "<td>Total</td>"  +
-                                "<td>" + casetotal + "</td>"  +
+                                "<td>" + casetotal +  "</td>"  +
                                 "<td>" + casesuccess + "</td>"  +
                                 "<td>" + casefail    + "</td>"   +
                                 "<td>" + caseerror   + "</td>"  +
@@ -377,7 +412,9 @@ $(document).ready(function()
 			//根据选择的执行计划时间获取对应测试报告
             function selectfun(event)
 			{
-			      lid = $(this).val() ;//获取选中计划的planId
+			      $("#result_table").attr("class","");
+                  $("#interface_table").attr("class","hiddenRow");
+			      lid = $(this).val()  ;//获取选中计划的planId
 				  $.ajax({  
 					       type:"GET" ,
                            url: testReporturl + lid ,
@@ -399,21 +436,25 @@ $(document).ready(function()
                                                                 var addr = structureInterfaceTotal(item.interfaceName,item.total,item.success,item.fail,item.error,index);
 																$("#result_table").append(addr);
                                                                 $.each(item.result,function(i,tcase){
-                                                                                                        testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes);
+                                                                                                        testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes,item.interfaceName);
                                                                                                         $("#result_table").append(testcasestr);
                                                                                                      }
                                                                       )
-                                                      })
-                                                            totalstr = structureBtTotal(casetotal,casesuccess,casefail,caseerror);
-                                                            $("#result_table").append(totalstr);
+
+
+                                                      });
+												      $("button[name^='onecase']").bind("click",runOneTestcae);
+
+                                                      totalstr = structureBtTotal(casetotal,casesuccess,casefail,caseerror);
+                                                      $("#result_table").append(totalstr);
                                                     }
 								   });
 		             }
-                        function getInterfaceListData()
-                        {
+                     function getInterfaceListData()
+                     {
                             $.ajax({
                                        type:"GET",
-                                       url : ipStr + "/prop/interfacelist?projectname=steam亲子教育" ,
+                                       url : ipStr + "/infcs/prop/interfacelist?projectname=steam亲子教育" ,
                                        dataType :"json" ,
                                        success: function(data)
                                        {
@@ -432,21 +473,23 @@ $(document).ready(function()
                                            });
                                        }
                                     });
-                        }
+                     }
 
 
                     function structureInterfaceData(aliasName,interfaceAddr,module,mark,reqpath,rsppath)
                     {
-                       interfaceData ="<tr class='interfaceClass'>" +
-                                        "<td>" + aliasName + "</td>"          +
-                                        "<td>" + interfaceAddr + "</td>"      +
-                                        "<td>" + module + "</td>"             +
-                                        "<td>" + mark + "</td>"               +
-                                        "<td>" + reqpath + "</td>"            +
-                                        "<td>" + rsppath + "</td>"            +
-                                        "</tr>";
+                       interfaceData =  "<tr class='interfaceClass'>"       +
+                                          "<td>" + aliasName + "</td>"          +
+                                          "<td>" + interfaceAddr + "</td>"      +
+                                          "<td>" + module  + "</td>"            +
+                                          "<td>" + mark    + "</td>"            +
+                                          "<td>" + reqpath + "</td>"            +
+                                          "<td>" + rsppath + "</td>"            +
+                                          "</tr>";
                        return interfaceData;
                     }
+
+
                  });
 	
 </script>
@@ -525,12 +568,12 @@ function showTestDetail(div_id)
     // alert(displayState)
     if (displayState != 'block' ) 
 	{
-        displayState = 'block'
-        details_div.style.display = 'block'
+        displayState = 'block';
+        details_div.style.display = 'block';
     }
     else 
 	{
-        details_div.style.display = 'none'
+        details_div.style.display = 'none';
     }
 }
 
@@ -614,42 +657,11 @@ function showOutput(id, name) {
      <td>秒</td>
   </tr>
   <tr>
-      <td><p ><button id="interfaceMngr" type="button" class="login-button">接口管理</button></p></td>
-      <td><p ><button id="planTest" type="button" class="login-button">用例执行</button></p></td>
+      <td><p><button id="interfaceMngr" type="button" class="login-button">接口管理</button></p></td>
+      <td><p><button id="planTest" type="button" class="login-button">用例执行</button></p></td>
   </tr>
 </table>
-<!--<table >-->
-    <!--<tr >-->
-    <!--<td class="statusTableOne">-->
-        <!--<p id="timePlan">-&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
-    <!--</td>-->
-    <!--<td   class="statusTableTwo" >目前状态</td>-->
-    <!--<td class="statusTableThree">-->
-         <!--<p id= "statusPlan">&#45;&#45;&#45;&#45;</p>-->
-     <!--</td>-->
-  <!--</tr>-->
- <!--</table>-->
- <!--<table >  -->
-  <!--<tr>-->
-     <!--<td>本次自动化用例执行时长为：</td>-->
-     <!--<td id="fentime">-</td>-->
-     <!--<td>分</td>-->
-     <!--<td id="miaotime">-</td>-->
-     <!--<td>秒</td>-->
-  <!--</tr>-->
-<!--</table> -->
 
-<!--<table>-->
-  <!--<tr>-->
-    <!--<td>-->
-        <!--<p id='show_detail_line'>Show-->
-						<!--<a href='javascript:showCase(0)'>Summary</a>-->
-						<!--<a href='javascript:showCase(1)'>Failed</a>-->
-						<!--<a href='javascript:showCase(2)'>All</a>-->
-				<!--</p>-->
-		<!--</td>-->
-  <!--</tr>-->
-<!--</table> -->
 <table id='result_table'>
 <colgroup>
 <col align='left' />
@@ -658,22 +670,9 @@ function showOutput(id, name) {
 <col align='right' />
 <col align='right' />
 <col align='right' />
+<col align='right' />
 </colgroup>
-<!--<tr >-->
 
-   <!--<p class="styled-select">-->
-		<!--<select id='select_plan'>-->
-			  <!--<option value="1">1号老师</option>-->
-			  <!--<option value="2">2号老师</option>-->
-			  <!--<option value="3">3号老师</option>-->
-			  <!--<option value='' selected>请选择</option> -->
-		<!--</select>-->
-       <!--<a href='javascript:showCase(0)'>Summary</a>-->
-       <!--<a href='javascript:showCase(1)'>Failed</a>-->
-       <!--<a href='javascript:showCase(2)'>All</a>-->
-
-	<!--</p>-->
-<!--</tr>-->
 <tr id='header_row'>
     <td>Test Group/Test case</td>
     <td>Count</td>
@@ -681,6 +680,7 @@ function showOutput(id, name) {
     <td>Fail</td>
     <td>Error</td>
     <td>View</td>
+    <td>run</td>
 </tr>
 
 <tr class='errorClass'>
@@ -690,6 +690,7 @@ function showOutput(id, name) {
     <td>0</td>
     <td>17</td>
     <td><a href="javascript:showClassDetail('c1',17)">Detail</a></td>
+    <td>--</td>
 </tr>
 
 <tr id='ft1.1' class='none'>
@@ -706,25 +707,7 @@ function showOutput(id, name) {
            [x]</a>
         </div>
         <pre>
-        
-ft1.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\uopweixinInterface\uopweixin\activity\bigwheel\bigWheelTest.py", line 43, in testBigWheelNor
-    orderid = self.bigwheelservice.getOrderIdFromBigWheelResultJson(bigweljson)
-  File "D:\litaojun\workspace\uopweixinInterface\uopweixin\activity\bigwheel\bigWheelService.py", line 65, in getOrderIdFromBigWheelResultJson
-    orderId = paserOrderIdFromJson(respse = json.loads(bigWheelResultJson))
-  File "D:\python\Python36\lib\json\__init__.py", line 348, in loads
-    'not {!r}'.format(s.__class__.__name__))
-TypeError: the JSON object must be str, bytes or bytearray, not 'NoneType'
-Traceback (most recent call last):
-  File "D:\litaojun\workspace\uopweixinInterface\uopweixin\activity\bigwheel\bigWheelTest.py", line 43, in testBigWheelNor
-    orderid = self.bigwheelservice.getOrderIdFromBigWheelResultJson(bigweljson)
-  File "D:\litaojun\workspace\uopweixinInterface\uopweixin\activity\bigwheel\bigWheelService.py", line 65, in getOrderIdFromBigWheelResultJson
-    orderId = paserOrderIdFromJson(respse = json.loads(bigWheelResultJson))
-  File "D:\python\Python36\lib\json\__init__.py", line 348, in loads
-    'not {!r}'.format(s.__class__.__name__))
-TypeError: the JSON object must be str, bytes or bytearray, not 'NoneType'
-
-
+            ft1.1: Traceback (most recent call last):
         </pre>
     </div>
     <!--css div popup end-->
@@ -4228,6 +4211,8 @@ KeyError: 'interfaceUserCollection'
 <colgroup>
 <col align='left' />
 <col align='left' />
+<col align='left' />
+<col align='right' />
 <col align='right' />
 <col align='right' />
 </colgroup>
