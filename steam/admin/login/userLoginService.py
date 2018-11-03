@@ -18,8 +18,8 @@ import json
 class UserLoginService(UopService):
     token = None
     def __init__(self,kwargs):
-        super(UserLoginService, self).__init__(module   = "",
-	                                           filename = "",
+        super(UserLoginService, self).__init__(module       =  "",
+	                                           filename     =  "",
                                                sqlvaluedict =  kwargs,
                                                reqjsonfile  =  "userLoginReq"
 	                                           )

@@ -32,18 +32,19 @@ class ActivityAlertService(UopService):
                                                    sqlvaluedict =  kwargs,
                                                    reqjsonfile  =  kwargs["reqjsonfile"])
 
-
-
     def alertActivity(self):
-        self.rsp = httpPost(url        = alertActivityurl,
-                                 headers    = self.jsonheart,
-                                 reqJsonData= self.reqjsondata)
+        self.rsp = httpPost(url         = alertActivityurl,
+                            headers     = self.jsonheart,
+                            reqJsonData = self.reqjsondata)
         return self.rsp
 
     def alertReqIdToValue(self,skulist = [],imglist = [],sharelist = []):
-        self.idToValueByFormat(formatstr="skuList.%d.skuId",idlist=skulist)
-        self.idToValueByFormat(formatstr="imageList.%d.id", idlist=imglist)
-        self.idToValueByFormat(formatstr="shareInfoList.%d.id", idlist=sharelist)
+        self.idToValueByFormat(formatstr = "skuList.%d.skuId",
+							   idlist    = skulist)
+        self.idToValueByFormat(formatstr = "imageList.%d.id",
+							   idlist    = imglist)
+        self.idToValueByFormat(formatstr = "shareInfoList.%d.id",
+							   idlist    = sharelist)
 
     def idToValueByFormat(self,formatstr = "" ,idlist = []):
         for i,idvalue in enumerate(idlist):

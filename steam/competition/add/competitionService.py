@@ -23,8 +23,8 @@ class MatchAddService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(MatchAddService, self).__init__(module   = ""    ,
-                                              filename = ""    ,
+        super(MatchAddService, self).__init__(module       = ""    ,
+                                              filename     = ""    ,
                                               sqlvaluedict = kwargs ,
                                               reqjsonfile  = kwargs["reqjsonfile"])
 
@@ -32,35 +32,34 @@ class MatchAddService(UopService):
     def delMatch(self):
         matchId     = self.getMatchIdByRsp(matchRsp = self.rsp)
         addmatchRsp = requests.post(
-									        url     = delMatchurl,
-									        json    = {"matchId":matchId},
+									        url     = delMatchurl ,
+									        json    = { "matchId":matchId }  ,
 									        headers = self.jsonheart,
 									        verify  = False
 								    )
         return addmatchRsp.text
 
     def addMatch(self):
-        addmatchRsp = requests.post(
+        self.rsp = requests.post(
 		                                   url     = addMatchurl,
 		                                   json    = self.reqjsondata,
 		                                   headers = self.jsonheart,
 		                                   verify  =  False
-                                    )
-        self.rsp = addmatchRsp.text
-        return addmatchRsp.text
+                                 )
+        return self.rsp
 
     def getRetcodeByMatchRsp(self,matchRsp = None):
         """
 		    :param matchRsp:
 		    :return:
 	    """
-        return query_json(json_content=json.loads(matchRsp),
-                          query       ="code")
+        return query_json(json_content = json.loads(matchRsp),
+                          query        = "code")
 
     def getMatchIdByRsp(self,matchRsp = None):
         """
             :param matchRsp:
             :return:
 	    """
-        return query_json(json_content=json.loads(matchRsp),
-                          query       ="matchId")
+        return query_json(json_content = json.loads(matchRsp),
+                          query        = "matchId")

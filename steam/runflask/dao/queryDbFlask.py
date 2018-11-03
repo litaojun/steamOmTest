@@ -103,6 +103,6 @@ def queryTestResultByPlanIdOrCaseId(planId,caseId):
     sign = None
     querySql = """select result_sign from test_case_record r where r.plan_id = %s and r.testcaseid = "%s";""" %(planId,caseId)
     result = getDbManger().queryAll(sql = querySql)
-    if result is not result:
+    if result is not None:
         sign = result[0][0]
     return  sign

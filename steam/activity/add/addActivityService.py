@@ -25,7 +25,10 @@ class ActivityAddService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityAddService, self).__init__("activity", "activityDb.xml", kwargs , reqjsonfile = "addActivityReq")
+        super(ActivityAddService, self).__init__(module       = "activity",
+												 filename     = "activityDb.xml",
+												 sqlvaluedict = kwargs ,
+												 reqjsonfile  = "addActivityReq")
         self.activityAddReqjson = self.reqjsondata
 
     @decorator("tearInterfaceDelOneArticle")

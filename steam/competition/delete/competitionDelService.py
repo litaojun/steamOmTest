@@ -26,9 +26,9 @@ class MatchDelService(UopService):
         """
         super(MatchDelService, self).__init__(
                                                   module = "",
-                                                  filename= "",
+                                                  filename = "",
                                                   sqlvaluedict = kwargs,
-                                                  reqjsonfile="competitionDelReq"
+                                                  reqjsonfile = "competitionDelReq"
                                              )
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):
