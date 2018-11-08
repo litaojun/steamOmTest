@@ -106,7 +106,7 @@ function queryReportByPlanId(planId,trid)
                                                                 $.each(item.result,function(i,tcase){
                                                                                                         testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes,item.interfaceName);
                                                                                                         $("#result_table").append(testcasestr);
-                                                                                                     }
+                                                                                                      }
                                                                       );
 
 
