@@ -14,32 +14,22 @@
 import os
 import yaml
 import collections
+from configparser import ConfigParser
+cf=ConfigParser(allow_no_value=True)
+cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"]))
+basePath = cf.get('path', 'basepath')
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
-    basePath = os.getcwd()
-    filePath = os.sep.join([basePath ,"steam","mockhttp",  "jsonfile" , "testjson.yml"])
+    filePath = os.sep.join([basePath  , "testjson.yml"])
     print("filepath = %s " % filePath)
     with open(filePath, 'r') as f:
         ymldata = yaml.load(f.read())
         print("ymldata = %s " % ymldata)
-        # adminUrlData = traverseFileData(ymldata,"admin",basePath)
-        # weixinUrlData = traverseFileData(ymldata,"weixin",basePath)
-        # for method in adminUrlData:
-        #     for url in adminUrlData[method]:
-        #         weixinUrlData[method][url] = adminUrlData[method][url]
-        #return weixinUrlData
-        # for urltype in ymldata["steam"]:
-        #     data = traverseFileData(ymldata,urltype,basePath)
-        #     for method in data:
-        #         for url in data[method]:
-        #             urldata[method][url] = data[method][url]
-        # return urldata
         return ymldata
 
-        #traverseFileData(ymlfile, "weixin", basePath)
 def generateUrlToFilePath():
     ymldata  = loadFileData()
-    basePath = os.getcwd()
+    # basePath = os.getcwd()
     for urltype in ymldata["steam"]:
         data = traverseFileData(ymldata, urltype)
         for method in data:
@@ -49,7 +39,8 @@ def generateUrlToFilePath():
 def traverseFileData(ymldata,dir):
     filedata = ymldata["steam"][dir]
     rtdata = collections.defaultdict(lambda :{})
-    basePath = ymldata["config"]["basepath"]
+    # basePath = ymldata["config"]["basepath"]
+    # basePath
     dir = [basePath,"steam",dir]
     for curdir in filedata:
         for pathurl in  filedata[curdir]:
