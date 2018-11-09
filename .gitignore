@@ -55,7 +55,6 @@
 *.log
 *.cmm
 *.men
-*.ini
 *.fig
 *.cmp
 *.tmp
