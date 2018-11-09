@@ -41,21 +41,15 @@ def generateUrlToFilePath():
     ymldata  = loadFileData()
     basePath = os.getcwd()
     for urltype in ymldata["steam"]:
-        data = traverseFileData(ymldata, urltype, basePath)
+        data = traverseFileData(ymldata, urltype)
         for method in data:
             for url in data[method]:
                 urldata[method][url] = data[method][url]
     return urldata
-def traverseFileData(ymldata,dir,basePath):
+def traverseFileData(ymldata,dir):
     filedata = ymldata["steam"][dir]
-    # rtdata = collections.defaultdict(lambda :10)
-    # rtdata = {
-    #             "post":{},
-    #             "get" :{},
-    #             "put" : {},
-    #             "delete":{}
-    #           }
     rtdata = collections.defaultdict(lambda :{})
+    basePath = ymldata["config"]["basepath"]
     dir = [basePath,"steam",dir]
     for curdir in filedata:
         for pathurl in  filedata[curdir]:

@@ -1,0 +1,817 @@
+steam:
+    admin:
+      order:
+        /operation-manage/order/listData:
+            method: post
+            formatone:
+                - orderListDataReq.json
+                - orderListDataReq.txt
+                - orderListDataRsp.json
+                - orderListDataFmtRsp.json
+        /operation-manage/order/detail:
+            method: post
+            formatone:
+                - orderDetailReq.json
+                - orderDetailReq.txt
+                - orderDetailRsp.json
+                - orderDetailFmtRsp.json
+        /operation-manage/order/delivery:
+            method: post
+            formatone:
+                - orderDeliveryReq.json
+                - orderDeliveryReq.txt
+                - orderDeliveryRsp.json
+                - orderDeliveryFmtRsp.json
+        /operation-manage/order/batchDelivery:
+            method: post
+            formatone:
+                - orderBatchDeliveryReq.json
+                - orderBatchDeliveryReq.txt
+                - orderBatchDeliveryRsp.json
+                - orderBatchDeliveryFmtRsp.json
+        /order-service/order/admin/resourceId:
+            method: post
+            formatone:
+                - orderaResourceIDReq.json
+                - orderResourceIDReq.txt
+                - orderResourceIDRsp.json
+                - orderResourceIDFmtRsp.json
+      business:
+        /merchant/createMerchantInfo:
+            method: post
+            formatone:
+                - merchantCreateMerchantInfoReq.json
+                - merchantCreateMerchantInfoReq.txt
+                - merchantCreateMerchantInfoRsp.json
+                - merchantCreateMerchantInfoFmtRsp.json
+        /merchant/modifyMerchantInfo:
+            method: post
+            formatone:
+                - merchantModifyMerchantInfoReq.json
+                - merchantModifyMerchantInfoReq.txt
+                - merchantModifyMerchantInfoRsp.json
+                - merchantModifyMerchantInfoFmtRsp.json
+        /merchant/removeMerchantInfo:
+            method: get
+            formatone:
+                - merchantRemoveMerchantInfoReq.json
+                - merchantRemoveMerchantInfoReq.txt
+                - merchantRemoveMerchantInfoRsp.json
+                - merchantRemoveMerchantInfoFmtRsp.json
+        /merchant/queryMerchantInfoById:
+            method: get
+            formatone:
+                - merchantQueryMerchantInfoByIdReq.json
+                - merchantqueryMerchantInfoByIdReq.txt
+                - merchantqueryMerchantInfoByIdRsp.json
+                - merchantqueryMerchantInfoByIdFmtRsp.json
+        /merchant/queryMerchantInfoByCondtion:
+            method: get
+            formatone:
+                - merchantQueryMerchantInfoByCondtionReq.json
+                - merchantQueryMerchantInfoByCondtionReq.txt
+                - merchantQueryMerchantInfoByCondtionRsp.json
+                - merchantQueryMerchantInfoByCondtionFmtRsp.json
+      weixin:
+        /operation-manage/weixin/queryTemplateConfig:
+            method: get
+            formatone:
+                - weixinQueryTemplateConfigReq.json
+                - weixinQueryTemplateConfigReq.txt
+                - weixinQueryTemplateConfigRsp.json
+                - weixinQueryTemplateConfigFmtRsp.json
+        /operation-manage/weixin/modifyTemplateConfig:
+            method: put
+            formatone:
+                - weixinModifyTemplateConfigReq.json
+                - weixinModifyTemplateConfigReq.txt
+                - weixinModifyTemplateConfigRsp.json
+                - weixinModifyTemplateConfigFmtRsp.json
+        /operation-manage/weixin/queryMessageConfigs:
+            method: get
+            formatone:
+                - weixinQueryMessageConfigsReq.json
+                - weixinQueryMessageConfigsReq.txt
+                - weixinQueryMessageConfigsRsp.json
+                - weixinQueryMessageConfigsFmtRsp.json
+        /operation-manage/weixin/createMessageConfig:
+            method: post
+            formatone:
+                - weixinCreateMessageConfigReq.json
+                - weixinCreateMessageConfigReq.txt
+                - weixinCreateMessageConfigRsp.json
+                - weixinCreateMessageConfigFmtRsp.json
+        /operation-manage/weixin/deleteMessageConfig:
+            method: delete
+            formatone:
+                - weixinDeleteMessageConfigReq.json
+                - weixinDeleteMessageConfigReq.txt
+                - weixinDeleteMessageConfigRsp.json
+                - weixinDeleteMessageConfigFmtRsp.json
+        /operation-manage/weixin/queryMessageConfig:
+            method: get
+            formatone:
+                - weixinQueryMessageConfigReq.json
+                - weixinQueryMessageConfigReq.txt
+                - weixinQueryMessageConfigRsp.json
+                - weixinQueryMessageConfigFmtRsp.json
+        /operation-manage/weixin/modifyMessageConfig:
+            method: put
+            formatone:
+                - weixinModifyMessageConfigReq.json
+                - weixinModifyMessageConfigReq.txt
+                - weixinModifyMessageConfigRsp.json
+                - weixinModifyMessageConfigFmtRsp.json
+        /operation-manage/weixin/setWelcomeMessage:
+            method: post
+            formatone:
+                - weixinSetWelcomeMessageReq.json
+                - weixinSetWelcomeMessageReq.txt
+                - weixinSetWelcomeMessageRsp.json
+                - weixinSetWelcomeMessageFmtRsp.json
+        /operation-manage/weixin/queryMenuByParentId:
+            method: get
+            formatone:
+                - weixinQueryMenuByParentIdReq.json
+                - weixinQueryMenuByParentIdReq.txt
+                - weixinQueryMenuByParentIdRsp.json
+                - weixinQueryMenuByParentIdFmtRsp.json
+        /operation-manage/weixin/createMenu:
+            method: post
+            formatone:
+                - weixinCreateMenuReq.json
+                - weixinCreateMenuReq.txt
+                - weixinCreateMenuRsp.json
+                - weixinCreateMenuFmtRsp.json
+        /operation-manage/weixin/queryMenuByParentId:
+            method: get
+            formatone:
+                - weixinQueryMenuByParentIdReq.json
+                - weixinQueryMenuByParentIdReq.txt
+                - weixinQueryMenuByParentIdRsp.json
+                - weixinQueryMenuByParentIdFmtRsp.json
+        /operation-manage/weixin/queryMenuByParentId:
+            method: get
+            formatone:
+                - weixinQueryMenuByParentIdReq.json
+                - weixinQueryMenuByParentIdReq.txt
+                - weixinQueryMenuByParentIdRsp.json
+                - weixinQueryMenuByParentIdFmtRsp.json
+        /operation-manage/weixin/publishMenu:
+            method: post
+            formatone:
+                - weixinPublishMenuReq.json
+                - weixinPublishMenuReq.txt
+                - weixinPublishMenuRsp.json
+                - weixinPublishMenuFmtRsp.json
+        /operation-manage/weixin/deleteMenu:
+            method: delete
+            formatone:
+                - weixinDeleteMenuReq.json
+                - weixinDeleteMenuReq.txt
+                - weixinDeleteMenuRsp.json
+                - weixinDeleteMenuFmtRsp.json
+      goods:
+        /operation-manage/product/add:
+            method: post
+            formatone:
+                - productAddReq.json
+                - productAddReq.txt
+                - productAddRsp.json
+                - productAddFmtRsp.json
+        /operation-manage/product/publish:
+            method: post
+            formatone:
+                - productPublishReq.json
+                - productPublishReq.txt
+                - productPublishRsp.json
+                - productPublishFmtRsp.json
+        /operation-manage/product/unPublish:
+            method: post
+            formatone:
+                - productUnPublishReq.json
+                - productUnPublishReq.txt
+                - productUnPublishRsp.json
+                - productUnPublishFmtRsp.json
+        /operation-manage/product/update:
+            method: post
+            formatone:
+                - productUpdateReq.json
+                - productUpdateReq.txt
+                - productUpdateRsp.json
+                - productUpdateFmtRsp.json
+        /operation-manage/product/queryProducts:
+            method: get
+            formatone:
+                - productQueryProductsReq.json
+                - productQueryProductsReq.txt
+                - productQueryProductsRsp.json
+                - productQueryProductsFmtRsp.json
+        /operation-manage/product/query:
+            method: get
+            formatone:
+                - productQueryReq.json
+                - productQueryReq.txt
+                - productQueryRsp.json
+                - productQueryFmtRsp.json
+      permissions:
+        /operation-manage/permission/admin/login:
+            method: post
+            formatone:
+                - permissionLoginReq.json
+                - permissionLoginReq.txt
+                - permissionLoginRsp.json
+                - permissionLoginFmtRsp.json
+      match:
+        /operation-manage/match/matchPage:
+            method: get
+            formatone:
+                - matchMatchPageReq.json
+                - matchMatchPageReq.txt
+                - matchMatchPageRsp.json
+                - matchMatchPageFmtRsp.json
+        /operation-manage/match/subMatchPage:
+            method: get
+            formatone:
+                - matchSubMatchPageReq.json
+                - matchSubMatchPageReq.txt
+                - matchSubMatchPageRsp.json
+                - matchSubMatchPageFmtRsp.json
+        /operation-manage/match/createMatch:
+            method: post
+            formatone:
+                - matchCreateMatchReq.json
+                - matchCreateMatchReq.txt
+                - matchCreateMatchRsp.json
+                - matchCreateMatchFmtRsp.json
+        /operation-manage/match/updateMatchById:
+            method: post
+            formatone:
+                - matchUpdateMatchByIdReq.json
+                - matchUpdateMatchByIdReq.txt
+                - matchUpdateMatchByIdRsp.json
+                - matchUpdateMatchByIdFmtRsp.json
+        /operation-manage/match/deleteMatch:
+            method: post
+            formatone:
+                - matchDeleteMatchReq.json
+                - matchDeleteMatchReq.txt
+                - matchDeleteMatchRsp.json
+                - matchDeleteMatchFmtRsp.json
+        /operation-manage/match/matchDetail:
+            method: post
+            formatone:
+                - matchMatchDetailReq.json
+                - matchMatchDetailReq.txt
+                - matchMatchDetailRsp.json
+                - matchMatchDetailFmtRsp.json
+        /operation-manage/apply/page:
+            method: get
+            formatone:
+                - applyPageReq.json
+                - applyPageReq.txt
+                - applyPageRsp.json
+                - applyPageFmtRsp.json
+      resource:
+        /steam-resource/resource/uploadImages:
+            method: post
+            formatone:
+                - resourceUploadImagesReq.json
+                - resourceUploadImagesReq.txt
+                - resourceUploadImagesRsp.json
+                - resourceUploadImagesFmtRsp.json
+        /operation-manage/tag/queryTags:
+            method: post
+            formatone:
+                - tagQueryTagsReq.json
+                - tagQueryTagsReq.txt
+                - tagQueryTagsRsp.json
+                - tagQueryTagsFmtRsp.json
+        /operation-manage/entry/queryEntries:
+            method: post
+            formatone:
+                - entryQueryEntriesReq.json
+                - entryQueryEntriesReq.txt
+                - entryQueryEntriesRsp.json
+                - entryQueryEntriesFmtRsp.json
+        /operation-manage/tag/addTag:
+            method: post
+            formatone:
+                - tagAddTagReq.json
+                - tagAddTagReq.txt
+                - tagAddTagRsp.json
+                - tagAddTagFmtRsp.json
+        /operation-manage/entry/addEntry:
+            method: post
+            formatone:
+                - entryAddEntryReq.json
+                - entryAddEntryReq.txt
+                - entryAddEntryRsp.json
+                - entryAddEntryFmtRsp.json
+        /operation-manage/entry/modifyEntry:
+            method: post
+            formatone:
+                - entryModifyEntryReq.json
+                - entryModifyEntryReq.txt
+                - entryModifyEntryRsp.json
+                - entryModifyEntryFmtRsp.json
+        /operation-manage/entry/removeEntry:
+            method: post
+            formatone:
+                - entryRemoveEntryReq.json
+                - entryRemoveEntryReq.txt
+                - entryRemoveEntryRsp.json
+                - entryRemoveEntryFmtRsp.json
+        /operation-manage/tag/removeTag:
+            method: post
+            formatone:
+                - tagRemoveTagReq.json
+                - tagRemoveTagReq.txt
+                - tagRemoveTagRsp.json
+                - tagRemoveTagFmtRsp.json
+      course:
+        /operation-manage/course/createCourse:
+            method: post
+            formatone:
+                - courseCreateCourseReq.json
+                - courseCreateCourseReq.txt
+                - courseCreateCourseRsp.json
+                - courseCreateCourseFmtRsp.json
+        /operation-manage/course/publishCourse:
+            method: post
+            formatone:
+                - coursePublishCourseReq.json
+                - coursePublishCourseReq.txt
+                - coursePublishCourseRsp.json
+                - coursePublishCourseFmtRsp.json
+        /operation-manage/course/unpublishCourse:
+            method: post
+            formatone:
+                - courseUnpublishCourseReq.json
+                - courseUnpublishCourseReq.txt
+                - courseUnpublishCourseRsp.json
+                - courseUnpublishCourseFmtRsp.json
+        /operation-manage/course/modifyCourse:
+            method: post
+            formatone:
+                - courseModifyCourseReq.json
+                - courseModifyCourseReq.txt
+                - courseModifyCourseRsp.json
+                - courseModifyCourseFmtRsp.json
+        /resource-service/resource/visit:
+            method: post
+            formatone:
+                - resourceVisitReq.json
+                - resourceVisitReq.txt
+                - resourceVisitRsp.json
+                - resourceVisitFmtRsp.json
+        /operation-manage/course/queryCourseByCondition:
+            method: get
+            formatone:
+                - courseQueryCourseByConditionReq.json
+                - courseQueryCourseByConditionReq.txt
+                - courseQueryCourseByConditionRsp.json
+                - courseQueryCourseByConditionFmtRsp.json
+        /operation-manage/course/removeCourse:
+            method: post
+            formatone:
+                - courseRemoveCourseReq.json
+                - courseRemoveCourseReq.txt
+                - courseRemoveCourseRsp.json
+                - courseRemoveCourseFmtRsp.json
+      media:
+        /operation-manage/material/createMaterial:
+            method: post
+            formatone:
+                - materialCreateMaterialReq.json
+                - materialCreateMaterialReq.txt
+                - materialCreateMaterialRsp.json
+                - materialCreateMaterialFmtRsp.json
+        /operation-manage/material/modifyMaterial:
+            method: post
+            formatone:
+                - materialModifyMaterialReq.json
+                - materialModifyMaterialReq.txt
+                - materialModifyMaterialRsp.json
+                - materialModifyMaterialFmtRsp.json
+        /operation-manage/material/queryAliyunVideoAuth:
+            method: get
+            formatone:
+                - materialQueryAliyunVideoAuthReq.json
+                - materialQueryAliyunVideoAuthReq.txt
+                - materialQueryAliyunVideoAuthRsp.json
+                - materialQueryAliyunVideoAuthFmtRsp.json
+        /merchant/queryMerchantInfoByCondtion:
+            method: get
+            formatone:
+                - merchantQueryMerchantInfoByCondtionReq.json
+                - merchantQueryMerchantInfoByCondtionReq.txt
+                - merchantQueryMerchantInfoByCondtionRsp.json
+                - merchantQueryMerchantInfoByCondtionFmtRsp.json
+        /operation-manage/material/queryAliyunUpdateKey:
+            method: get
+            formatone:
+                - materialQueryAliyunUpdateKeyReq.json
+                - materialQueryAliyunUpdateKeyReq.txt
+                - materialQueryAliyunUpdateKeyRsp.json
+                - materialQueryAliyunUpdateKeyFmtRsp.json
+        /operation-manage/material/removeMaterial:
+            method: post
+            formatone:
+                - materialRemoveMaterialReq.json
+                - materialRemoveMaterialReq.txt
+                - materialRemoveMaterialRsp.json
+                - materialRemoveMaterialFmtRsp.json
+      operate:
+        /operation-manage/featured/queryShowConfigs:
+            method: get
+            formatone:
+                - featuredQueryShowConfigsReq.json
+                - featuredQueryShowConfigsReqReq.txt
+                - featuredQueryShowConfigsReqRsp.json
+                - featuredQueryShowConfigsReqFmtRsp.json
+        /operation-manage/featured/createConfig:
+            method: post
+            formatone:
+                - featuredCreateConfigReq.json
+                - featuredCreateConfigReq.txt
+                - featuredCreateConfigRsp.json
+                - featuredCreateConfigFmtRsp.json
+        /operation-manage/featured/searchResource:
+            method: get
+            formatone:
+                - featuredSearchResourceReq.json
+                - featuredSearchResourceReq.txt
+                - featuredSearchResourceRsp.json
+                - featuredSearchResourceFmtRsp.json
+        /operation-manage/featured/modifyIndexConfig:
+            method: post
+            formatone:
+                - featuredModifyIndexConfigReq.json
+                - featuredModifyIndexConfigReq.txt
+                - featuredModifyIndexConfigRsp.json
+                - featuredModifyIndexConfigFmtRsp.json
+        /operation-manage/featured/removeIndexConfig:
+            method: post
+            formatone:
+                - featuredRemoveIndexConfigReq.json
+                - featuredRemoveIndexConfigReq.txt
+                - featuredRemoveIndexConfigRsp.json
+                - featuredRemoveIndexConfigFmtRsp.json
+        /operation-manage/featured/moveUpRecord:
+            method: post
+            formatone:
+                - featuredMoveUpRecordReq.json
+                - featuredMoveUpRecordReq.txt
+                - featuredMoveUpRecordRsp.json
+                - featuredMoveUpRecordFmtRsp.json
+        /operation-manage/featured/moveDownRecord:
+            method: post
+            formatone:
+                - featuredMoveDownRecordReq.json
+                - featuredMoveDownRecordReq.txt
+                - featuredMoveDownRecordRsp.json
+                - featuredMoveDownRecordFmtRsp.json
+      goods:
+        /operation-manage/product/queryProducts:
+            method: get
+            formatone:
+                - productQueryProductsReq.json
+                - productQueryProductsReq.txt
+                - productQueryProductsRsp.json
+                - productQueryProductsFmtRsp.json
+        /operation-manage/product/queryProducts:
+            method: get
+            formatone:
+                - productQueryProductsReq.json
+                - productQueryProductsReq.txt
+                - productQueryProductsRsp.json
+                - productQueryProductsFmtRsp.json
+        /operation-manage/product/add:
+            method: post
+            formatone:
+                - productAddReq.json
+                - productAddReq.txt
+                - productAddRsp.json
+                - productAddFmtRsp.json
+        /operation-manage/product/publish:
+            method: post
+            formatone:
+                - productPublishReq.json
+                - productPublishReq.txt
+                - productPublishRsp.json
+                - productPublishFmtRsp.json
+        /operation-manage/product/unPublish:
+            method: post
+            formatone:
+                - productUnPublishReq.json
+                - productUnPublishReq.txt
+                - productUnPublishRsp.json
+                - productUnPublishFmtRsp.json
+        /operation-manage/product/update:
+            method: post
+            formatone:
+                - productUpdateReq.json
+                - productUpdateReq.txt
+                - productUpdateRsp.json
+                - productUpdateFmtRsp.json
+    weixin:
+      member:
+        /passport/verifyCode:
+            method: post
+            formatone:
+                - passportVerifyCodeReq.json
+                - passportVerifyCodeReq.txt
+                - passportVerifyCodeRsp.json
+                - passportVerifyCodeFmtRsp.json
+        /member/login/memberLogin:
+            method: post
+            formatone:
+                - loginMemberLoginReq.json
+                - loginMemberLoginReq.txt
+                - loginMemberLoginRsp.json
+                - loginMemberLoginFmtRsp.json
+        /member/login/queryMemberInfo:
+            method: get
+            formatone:
+                - loginQueryMemberInfoReq.json
+                - loginQueryMemberInfoReq.txt
+                - loginQueryMemberInfoRsp.json
+                - loginQueryMemberInfoFmtRsp.json
+        /member-service/members/personalCenter:
+            method: get
+            formatone:
+                - membersPersonalCenterReq.json
+                - membersPersonalCenterReq.txt
+                - membersPersonalCenterRsp.json
+                - membersPersonalCenterFmtRsp.json
+        /member-service/behaviour/wechat/share:
+            method: post
+            formatone:
+                - wechatShareReq.json
+                - wechatShareReq.txt
+                - wechatShareRsp.json
+                - wechatShareFmtRsp.json
+        /match-service/member/apply:
+            method: post
+            formatone:
+                - memberApplyReq.json
+                - memberApplyReq.txt
+                - memberApplyRsp.json
+                - memberApplyFmtRsp.json
+        /member-service/address:
+            method: post
+            formatone:
+                - AddressReq.json
+                - AddressReq.txt
+                - AddressRsp.json
+                - AddressFmtRsp.json
+        /member-service/address:
+            method: put
+            formatone:
+                - AddressReq.json
+                - AddressReq.txt
+                - AddressRsp.json
+                - AddressFmtRsp.json
+        /member-service/address/memberId:
+            method: get
+            formatone:
+                - addressMemberIdReq.json
+                - addressMemberIdReq.txt
+                - addressMemberIdRsp.json
+                - addressMemberIdFmtRsp.json
+        /member-service/address/default:
+            method: put
+            formatone:
+                - addressDefaultReq.json
+                - addressDefaultReq.txt
+                - addressDefaultRsp.json
+                - addressDefaultFmtRsp.json
+        /member-service/address:
+            method: delete
+            formatone:
+                - AddressReq.json
+                - AddressReq.txt
+                - AddressRsp.json
+                - AddressFmtRsp.json
+        /member-service/changePhoneNo:
+            method: post
+            formatone:
+                - ChangePhoneNoReq.json
+                - ChangePhoneNoReq.txt
+                - ChangePhoneNoRsp.json
+                - ChangePhoneNoFmtRsp.json
+        /member/collection/queryPage:
+            method: get
+            formatone:
+                - collectionQueryPageReq.json
+                - collectionQueryPageReq.txt
+                - collectionQueryPageRsp.json
+                - collectionQueryPageFmtRsp.json
+      search:
+        /steam-search/search/keywordSearch:
+            method: get
+            formatone:
+                - searchKeywordSearchReq.json
+                - searchKeywordSearchReq.txt
+                - searchKeywordSearchRsp.json
+                - searchKeywordSearchFmtRsp.json
+        /steam-search/search/keywordSearch:
+            method: get
+            formatone:
+                - searchKeywordSearchReq.json
+                - searchKeywordSearchReq.txt
+                - searchKeywordSearchRsp.json
+                - searchKeywordSearchFmtRsp.json
+        /steam-search/search/keywordSearch:
+            method: get
+            formatone:
+                - searchKeywordSearchReq.json
+                - searchKeywordSearchReq.txt
+                - searchKeywordSearchRsp.json
+                - searchKeywordSearchFmtRsp.json
+      match:
+        /match-service/member/apply:
+            method: post
+            formatone:
+                - memberApplyReq.json
+                - memberApplyReq.txt
+                - memberApplyRsp.json
+                - memberApplyFmtRsp.json
+        /match-service/member/wa/query:
+            method: post
+            formatone:
+                - waQueryReq.json
+                - waQueryReq.txt
+                - waQueryRsp.json
+                - waQueryFmtRsp.json
+        /match-service/member/mp/query:
+            method: post
+            formatone:
+                - mpQueryReq.json
+                - mpQueryReq.txt
+                - mpQueryRsp.json
+                - mpQueryFmtRsp.json
+        /match-service/member/apply/cancel:
+            method: post
+            formatone:
+                - applyCancelReq.json
+                - applyCancelReq.txt
+                - applyCancelRsp.json
+                - applyCancelFmtRsp.json
+        /match-service/member/detail/query:
+            method: get
+            formatone:
+                - detailQueryReq.json
+                - detailQueryReq.txt
+                - detailQueryRsp.json
+                - detailQueryFmtRsp.json
+        /match-service/member/apply/detail/save:
+            method: post
+            formatone:
+                - detailSaveReq.json
+                - detailSaveReq.txt
+                - detailSaveRsp.json
+                - detailSaveFmtRsp.json
+      goods:
+        /steam-resource/product/detail:
+            method: get
+            formatone:
+                - productDetailReq.json
+                - productDetailReq.txt
+                - productDetailRsp.json
+                - productDetailFmtRsp.json
+      resource:
+        /resource-service/resource/visit:
+            method: post
+            formatone:
+                - resourceVisitReq.json
+                - resourceVisitReq.txt
+                - resourceVisitRsp.json
+                - resourceVisitFmtRsp.json
+        /resource-service/resource/collect:
+            method: post
+            formatone:
+                - resourceCollectReq.json
+                - resourceCollectReq.txt
+                - resourceCollectRsp.json
+                - resourceCollectFmtRsp.json
+        /resource-service/resource/cancelCollect:
+            method: post
+            formatone:
+                - resourceCancelCollectReq.json
+                - resourceCancelCollectReq.txt
+                - resourceCancelCollectRsp.json
+                - resourceCancelCollectFmtRsp.json
+      order:
+        /order-service/order/submitAndPay:
+            method: post
+            formatone:
+                - orderSubmitAndPayReq.json
+                - orderSubmitAndPayReq.txt
+                - orderSubmitAndPayRsp.json
+                - orderSubmitAndPayFmtRsp.json
+        /order-service/order/detail:
+            method: post
+            formatone:
+                - orderDetailReq.json
+                - orderDetailReq.txt
+                - orderDetailRsp.json
+                - orderDetailFmtRsp.json
+        /order-service/order/pay:
+            method: post
+            formatone:
+                - orderPayReq.json
+                - orderPayReq.txt
+                - orderPayRsp.json
+                - orderPayFmtRsp.json
+        /order-service/order/payquery:
+            method: post
+            formatone:
+                - orderPayqueryReq.json
+                - orderPayqueryReq.txt
+                - orderPayqueryRsp.json
+                - orderPayqueryFmtRsp.json
+        /order-service/order:
+            method: post
+            formatone:
+                - orderReq.json
+                - orderReq.txt
+                - orderRsp.json
+                - orderFmtRsp.json
+        /order-service/order/cancel:
+            method: post
+            formatone:
+                - orderCancelReq.json
+                - orderCancelReq.txt
+                - orderCancelRsp.json
+                - orderCancelFmtRsp.json
+        /order-service/order/detail:
+            method: post
+            formatone:
+                - orderDetailReq.json
+                - orderDetailReq.txt
+                - orderDetailRsp.json
+                - orderDetailFmtRsp.json
+        /order-service/study/list:
+            method: get
+            formatone:
+                - studyListReq.json
+                - studyListReq.txt
+                - studyListRsp.json
+                - studyListFmtRsp.json
+        /order-service/score/add:
+            method: post
+            formatone:
+                - scoreAddReq.json
+                - scoreAddReq.txt
+                - scoreAddRsp.json
+                - scoreAddFmtRsp.json
+      course:
+        /steam-course/course/queryCourse:
+            method: get
+            formatone:
+                - courseQueryCourseReq.json
+                - courseQueryCourseReq.txt
+                - courseQueryCourseRsp.json
+                - courseQueryCourseFmtRsp.json
+        /steam-course/course/queryRecommandCourse:
+            method: get
+            formatone:
+                - courseQueryRecommandCourseReq.json
+                - courseQueryRecommandCourseReq.txt
+                - courseQueryRecommandCourseRsp.json
+                - courseQueryRecommandCourseFmtRsp.json
+        /order-service/order/submitAndPay:
+            method: post
+            formatone:
+                - orderSubmitAndPayReq.json
+                - orderSubmitAndPayReq.txt
+                - orderSubmitAndPayRsp.json
+                - orderSubmitAndPayFmtRsp.json
+        /order-service/study/list:
+            method: get
+            formatone:
+                - studyListReq.json
+                - studyListReq.txt
+                - studyListRsp.json
+                - studyListFmtRsp.json
+        /steam-course/course/queryAliyunVideoAuth:
+            method: get
+            formatone:
+                - courseQueryAliyunVideoAuthReq.json
+                - courseQueryAliyunVideoAuthReq.txt
+                - courseQueryAliyunVideoAuthRsp.json
+                - courseQueryAliyunVideoAuthFmtRsp.json
+        /operation-manage/material/queryAliyunVideoAuth:
+            method: get
+            formatone:
+                - materialQueryAliyunVideoAuthReq.json
+                - materialQueryAliyunVideoAuthReq.txt
+                - materialQueryAliyunVideoAuthRsp.json
+                - materialQueryAliyunVideoAuthFmtRsp.json
+config:
+    delay:
+       sign: false
+       time: 90
+    basepath: D:\litaojun\steamyml

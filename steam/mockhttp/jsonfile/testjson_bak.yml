@@ -1,0 +1,31 @@
+steam:
+    admin:
+      order:
+        /operation-manage/order/listData:
+            method: post
+            formatone:
+             - orderListDataReq.json
+             - orderListDataReq.txt
+             - orderListDataRsp.json
+             - orderListDataFmtRsp.json
+        /operation-manage/order/detail:
+            method: post
+            formatone:
+              -  orderDetailReq.json
+              -  orderDetailReq.txt
+              -  orderDetailRsp.json
+              -  orderDetailFmtRsp.json
+    weixin:
+      member:
+        /passport/verifyCode:
+            method: post
+            formatone:
+              -  passportVerifyCodeReq.json
+              -  passportVerifyCodeReq.txt
+              -  passportVerifyCodeRsp.json
+              -  passportVerifyCodeFmtRsp.json
+config:
+    delay:
+       sign: false
+       time: 90
+    basepath: D:\litaojun\steamyml

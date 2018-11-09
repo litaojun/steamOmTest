@@ -24,10 +24,12 @@ print("delayData = %s" % delayData)
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 
 class RegexConverter(BaseConverter):
-    def __init__(self, map, *args):
-        self.map = map
-        self.regex = args[0]
+      def __init__(self, map, *args):
+          self.map   = map
+          self.regex = args[0]
+
 app.url_map.converters['regex'] = RegexConverter
+
 def postprocessor():
     """
     http请求后置处理器
@@ -65,8 +67,6 @@ def mockHttpService(url):
            print("http req data is %s" % httpReqData)
     return loadStrFromFile(filepath=rspjsonPath)
     # return render_template("pytestlocal.html", content="hello flask ")
-
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True,port=8282)
