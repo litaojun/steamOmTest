@@ -11,12 +11,11 @@
 @file: flaskHttpServer.py 
 @time: 2018/11/7 11:25 
 """
-import time
+import time,os
 from flask import Flask, jsonify,request
-from steam.mockhttp.util.initFile import generateDelayTimeConfig,generateUrlToFilePath
+from steam.mockhttp.util.initFile import generateDelayTimeConfig,generateUrlToFilePath,cf
 from opg.util.uopService import loadStrFromFile
 from werkzeug.routing import BaseConverter
-
 httpData  = generateUrlToFilePath()
 delayData = generateDelayTimeConfig()
 print("httpdata = %s" % httpData)
@@ -32,14 +31,14 @@ app.url_map.converters['regex'] = RegexConverter
 
 def postprocessor():
     """
-    http请求后置处理器
-    :return:
+        http请求后置处理器,接口返回延迟
+        :return:
     """
     def __callFun__(fun):
         def __delayTime__(**kargs):
             rtjsData = fun(**kargs)
-            if delayData["sign"]:
-               time.sleep(delayData["time"])
+            if cf["delay"]["sign"]:
+               time.sleep(cf["delay"]["time"])
             return rtjsData
         return __delayTime__
     return __callFun__
