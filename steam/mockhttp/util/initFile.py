@@ -53,8 +53,7 @@ def traverseFileData(ymldata,dir):
     return rtdata
 
 def generateDelayTimeConfig():
-    ymldata = loadFileData()
-    return ymldata["config"]["delay"]
+    return cf["delay"]["time"]
 
 if __name__ == "__main__":
    print(loadFileData())
