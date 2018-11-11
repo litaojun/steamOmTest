@@ -30,30 +30,6 @@ app.register_blueprint(mediaresQueryTest.bapp,url_prefix="/mediares")
 app.register_blueprint(interfaceMnr.bapp,     url_prefix="/infcs"   )
 app.register_blueprint(testcaseRun.bapp,      url_prefix="/tsrun"   )
 app.register_blueprint(reportQuery.bapp,      url_prefix="/rptqy"   )
-# sign = True
-# testSuite = None
-# if sign :
-#     allTestClass = initAllTestClass()
-#     allTestCase  = initAllTestCase()
-#     tokenList    = []
-#     sign         = False
-# @app.route('/prop/runtestplan', methods=['GET'])
-# def start_tasks():
-#     projectName = request.args.get("projectname")
-#     retdata = getRunTestTokenId(projectname=projectName)
-#     t = threading.Thread(target = runTest,
-#                          kwargs = {
-#                                          "title":projectName,
-#                                          "description":"%s-用例测试情况" % projectName,
-#                                          "token":retdata[0]
-#                                    }
-#                          )
-#     t.start()
-#     return jsonify({
-#                         'sign'  : "000000",
-#                         "token" : retdata[0],
-#                         "starttime" : retdata[1]
-#                    })
 
 @app.route('/prop/runTestPro', methods=['GET'])
 def start_steam_tasks():
