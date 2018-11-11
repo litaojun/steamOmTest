@@ -37,8 +37,8 @@ def postprocessor():
     def __callFun__(fun):
         def __delayTime__(**kargs):
             rtjsData = fun(**kargs)
-            if cf["delay"]["sign"]:
-               time.sleep(cf["delay"]["time"])
+            if cf["delay"]["sign"] == "true":
+               time.sleep(int(cf["delay"]["time"]))
             return rtjsData
         return __delayTime__
     return __callFun__
