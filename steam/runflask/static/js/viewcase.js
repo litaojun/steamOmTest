@@ -4,7 +4,7 @@ function getTestCaseDetail()
         interfaceName = $(this).attr("interface").substr(28);
         caseId   =  $(this).attr("caseid");
         planId       = $("#select_plan").val();
-	    runprocessurl = hostIp + "/rptqy/prop/getOneTestcase?interface="+interfaceName+ "&caseId="+caseId+"&planId=" + planId;
+	    runprocessurl = ipStr + "/rptqy/prop/getOneTestcase?interface="+interfaceName+ "&caseId="+caseId+"&planId=" + planId;
 		$.ajax({
 				   type:"GET",
 				   url: runprocessurl,

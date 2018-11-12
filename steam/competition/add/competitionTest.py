@@ -19,7 +19,7 @@ class MatchAddTest(SteamTestCase):
       __interfaceName__ = "/match-service/match/createMatch"
       def __init__(self, methodName='runTest', param=None):
           super(MatchAddTest,self).__init__(methodName,param)
-          self.inputdata["reqjsonfile"] = "competitionAddReq"
+          # self.inputdata["reqjsonfile"] = "competitionAddReq"
           self.matchSer   =  MatchAddService(self.inputdata)
           self.setService(self.matchSer)
 

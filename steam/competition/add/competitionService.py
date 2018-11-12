@@ -13,6 +13,7 @@ from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import addMatchurl,delMatchurl
+from opg.util.httptools import httpPost
 
 class MatchAddService(UopService):
     '''
@@ -31,21 +32,15 @@ class MatchAddService(UopService):
     @decorator("tearInterfaceDelOneMatch")
     def delMatch(self):
         matchId     = self.getMatchIdByRsp(matchRsp = self.rsp)
-        addmatchRsp = requests.post(
-									        url     = delMatchurl ,
-									        json    = { "matchId":matchId }  ,
-									        headers = self.jsonheart,
-									        verify  = False
-								    )
-        return addmatchRsp.text
+        addmatchRsp = httpPost(url         = delMatchurl,
+                               headers     = self.jsonheart,
+                               reqJsonData = { "matchId":matchId })
+        return addmatchRsp
 
     def addMatch(self):
-        self.rsp = requests.post(
-		                                   url     = addMatchurl,
-		                                   json    = self.reqjsondata,
-		                                   headers = self.jsonheart,
-		                                   verify  =  False
-                                 )
+        self.rsp = httpPost(url         =  addMatchurl,
+                            headers     =  self.jsonheart,
+                            reqJsonData =  self.reqjsondata)
         return self.rsp
 
     def getRetcodeByMatchRsp(self,matchRsp = None):
