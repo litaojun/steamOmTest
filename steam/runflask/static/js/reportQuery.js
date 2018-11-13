@@ -1,5 +1,5 @@
-//ipStr = "http://127.0.0.1:8181";
-ipStr = "http://10.205.248.120:8181";
+ipStr = "http://127.0.0.1:8181";
+//ipStr = "http://10.205.248.120:8181";
 testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
 runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
 function getAllPlanByProName()

@@ -11,7 +11,6 @@
 """
 
 from steam.util.steamLog import SteamTestCase
-from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 from steam.article.delete.delArticleService import ArticleDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 
