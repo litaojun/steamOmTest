@@ -41,4 +41,4 @@ def initInput(services = [],
 
 if __name__ == "__main__":
     t = fxt.join(["","steam","home","jsonfmt","homePositionRsp.json"])
-    compare(a = homePositionRspFmt,b = t)
+    compare(a = homePositionRspFmt , b = t)

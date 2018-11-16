@@ -37,6 +37,6 @@ class UserOrderActivityTest(SteamTestCase):
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath =  "\\steamcase\\user\\userOrderActivitycase.xlsx",
+                        casefilepath =  "\\steamcase\\user\\order-serviceordersubmitAndPays.yml",
                         testclse     =  UserOrderActivityTest
                  )

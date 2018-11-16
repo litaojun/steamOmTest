@@ -46,6 +46,6 @@ if  __name__ == "__main__":
                 "resourceId":1
              }
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userDetailOrderActivitycase.xlsx",
+                        casefilepath = "\\steamcase\\user\\order-serviceorderdetails.yml",
                         testclse = UserDetailOrderActivityTest
                  )

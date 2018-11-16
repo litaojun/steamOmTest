@@ -24,15 +24,15 @@ class UserCancelCollectionService(UopService):
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "userCollectionContentReq"):
+                       reqjsonfile = "userCollectionContentReq" ):
         """
             :param entryName:
             :param picturePath:
         """
-        super(UserCancelCollectionService, self).__init__(  module       = modul,
+        super(UserCancelCollectionService, self).__init__(  module      = modul,
                                                            filename     = filename,
-                                                      sqlvaluedict = kwargs ,
-                                                       reqjsonfile = reqjsonfile )
+                                                      sqlvaluedict      = kwargs ,
+                                                       reqjsonfile      = reqjsonfile )
 
     def userCancelCollectionReq(self):
         self.rsp =  httpPost(
@@ -46,7 +46,7 @@ class UserCancelCollectionService(UopService):
     def userCollectionReq(self):
         httpPost(
                     url         = userCollectionUrl,
-                    reqJsonData = {"resourceId":self.inputKV["resourceId"]},
+                    reqJsonData = { "resourceId":self.inputKV["resourceId"] },
                     headers     = self.jsonheart
                 )
 
@@ -54,6 +54,8 @@ class UserCancelCollectionService(UopService):
     def getRetcodeByRsp(self,response  = None):
         return query_json(json_content = json.loads(response),
                           query        = "code")
+
+
 
 if  __name__ == "__main__":
     kwargs = {

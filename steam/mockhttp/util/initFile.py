@@ -22,8 +22,11 @@ basePath = cf.get('path', 'basepath')
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
     filePath = os.sep.join([basePath  , "testjson.yml"])
+    return loadYamlFileData(filePath = filePath)
+
+def loadYamlFileData(filePath = None):
     print("filepath = %s " % filePath)
-    with open(filePath, 'r') as f:
+    with open(filePath, 'r',encoding="utf-8") as f:
         ymldata = yaml.load(f.read())
         print("ymldata = %s " % ymldata)
         return ymldata
@@ -33,10 +36,10 @@ def generateUrlToFilePath():
     # basePath = os.getcwd()
     for urltype in ymldata["steam"]:
         data = traverseFileData(ymldata, urltype)
-        for method in data:
-            for url in data[method]:
-                urldata[method][url] = data[method][url]
+        for url in data:
+            urldata[url] = data[url]
     return urldata
+
 def traverseFileData(ymldata,dir):
     filedata = ymldata["steam"][dir]
     rtdata = collections.defaultdict(lambda :{})
@@ -45,15 +48,40 @@ def traverseFileData(ymldata,dir):
     dir = [basePath,"steam",dir]
     for curdir in filedata:
         for pathurl in  filedata[curdir]:
-            data = filedata[curdir][pathurl]
-            method = data["method"]
-            format = data["formatone"][2]
-            tempdir = dir + [curdir,format]
-            rtdata[method][pathurl] = os.sep.join(tempdir)
+            data    = filedata[curdir][pathurl]
+            method  = data["method"]
+            url     = data["url"]
+            # format  = data["formatone"]
+            # tempdir = dir + [curdir,format]
+            pathdict = {}
+            for key in data:
+                if key != "method":
+                   pathdict[key] = [os.sep.join(dir + [curdir, filename]) for filename in data[key]]
+            rtdata[pathurl] = [method, pathdict,url]
     return rtdata
 
 def generateDelayTimeConfig():
     return cf["delay"]["time"]
 
 if __name__ == "__main__":
-   print(loadFileData())
+   filePath = "D:\litaojun\steamyml\matchAppleTestCase.yml"
+   ymldata = loadYamlFileData(filePath = filePath)
+   print(ymldata)
+   tdict = collections.defaultdict(lambda :{})
+   for infsTestcases in ymldata["testcases"]:
+       interfaceName = infsTestcases["interfaceName"]
+       tdict[interfaceName] = collections.defaultdict(lambda :[])
+       for case in infsTestcases["case"]:
+           preConditions  = case.get("preConditions","")
+           operationSteps = case["operationSteps"]
+           testData       = case["testData"]
+           expectedResult = case["expectedResult"]
+           for data in case["testData"]:
+               testPoint = data["testPoint"]
+               caseid    = data["caseid"]
+               tdict[interfaceName][operationSteps].append([caseid,interfaceName,testPoint,preConditions,operationSteps,data,expectedResult])
+   print(tdict)
+   print("fsdfyml".endswith(".yml"))
+
+
+

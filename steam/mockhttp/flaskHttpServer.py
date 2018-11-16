@@ -51,10 +51,12 @@ def mockHttpService(url):
         :param url:
         :return:
     """
-    httpMethod = request.method.lower()
-    httpPath   = request.path
-    rspjsonPath= httpData[httpMethod].get(httpPath)
-    if rspjsonPath is None:
+    httpMethod  = request.method.lower()
+    httpPath    = request.path
+    pathData    = httpData.get(httpPath)
+    if pathData is not None and pathData[0] == httpMethod:
+       rspjsonPath = pathData[1]["formatone"][2]
+    else:
        return("rsp data is not exist")
     print("http request method is %s ,http request path is %s" % (httpMethod,httpPath))
     if request.method  == "POST":

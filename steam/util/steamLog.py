@@ -16,6 +16,7 @@ from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from steam.admin.login.userLoginService import UserLoginService
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
+
 class SteamTestCase(ParametrizedTestCase):
     '''
           用户进入公众号首页，获取运营位数据

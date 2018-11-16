@@ -51,7 +51,7 @@ class UserMatchAppleQueryService(UopService):
         if matchName in matchDict:
              return  matchDict[matchName]["applyId"]
 
-    @check_rspdata(filepath = "userMatchAppleQueryRspFmt")
+    #@check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content = json.loads(response),
                           query        = "code")
