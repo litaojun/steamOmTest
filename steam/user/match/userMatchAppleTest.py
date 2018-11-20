@@ -12,10 +12,10 @@ class UserMatchAppleTest(SteamTestCase):
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       """
       __interfaceName__ = "/match-service/member/apply"
-      @initInput(services=[UserMatchQueryService],
-                 curser  =UserMatchAppleService)
-      def __init__(self, methodName='runTest',
-                         param     =None):
+      @initInput( services = [ UserMatchQueryService ],
+                  curser   = UserMatchAppleService )
+      def __init__(self, methodName = 'runTest',
+                         param      = None):
           super(UserMatchAppleTest,self).__init__(methodName,param)
 
       def userMatchAppleTest(self):

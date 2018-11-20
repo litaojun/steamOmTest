@@ -42,16 +42,16 @@ class HttpUopService(UopService):
                                           headers     = self.jsonheart,
                                           reqJsonData = self.reqjsondata)
                   elif method == "put":
-                       self.rsp = httpDelete(url = url )
+                       self.rsp = httpDelete( url = url )
               except Exception as e:
                   raise e
           return  self.rsp
 
-      def getRetcodeByRsp(self,rsp):
+      def getRetcodeByRsp(rsp,format = "code"):
           """
               :param matchRsp:
               :return:
           """
-          return query_json(json_content=json.loads(rsp),
-                            query="code")
+          return query_json(json_content = json.loads(rsp),
+                                   query = format)
 

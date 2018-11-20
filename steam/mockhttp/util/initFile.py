@@ -21,7 +21,7 @@ cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"
 basePath = cf.get('path', 'basepath')
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
-    filePath = os.sep.join([basePath  , "testjson.yml"])
+    filePath = os.sep.join([basePath  , "testjson-url.yml"])
     return loadYamlFileData(filePath = filePath)
 
 def loadYamlFileData(filePath = None):
@@ -47,17 +47,19 @@ def traverseFileData(ymldata,dir):
     # basePath
     dir = [basePath,"steam",dir]
     for curdir in filedata:
-        for pathurl in  filedata[curdir]:
-            data    = filedata[curdir][pathurl]
-            method  = data["method"]
-            url     = data["url"]
+        for pathurl  in  filedata[curdir]:
+            data     = filedata[curdir][pathurl]
+            method   = data["method"]
+            url      = data["url"]
+            modul    = data["modul"]
+            title    = data["title"]
             # format  = data["formatone"]
             # tempdir = dir + [curdir,format]
-            pathdict = {}
+            pathdict  = {}
             for key in data:
-                if key != "method":
-                   pathdict[key] = [os.sep.join(dir + [curdir, filename]) for filename in data[key]]
-            rtdata[pathurl] = [method, pathdict,url]
+                if key not in ( "method","url","title","modul"):
+                   pathdict[key] = [os.sep.join(dir + [curdir, filename]) for filename in data[key]]  #key对应formatone和其它格式
+            rtdata[pathurl] = [method, pathdict,url,modul,title]
     return rtdata
 
 def generateDelayTimeConfig():

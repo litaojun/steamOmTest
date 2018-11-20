@@ -18,7 +18,7 @@ class ClassfiyAlertTest(SteamTestCase):
       '''
             admin新增分类
       '''
-      __interfaceName__ = "/resource-service/resource/modifyEntry"
+      __interfaceName__ = "/operation-manage/entry/modifyEntry"
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyAlertTest,self).__init__(methodName,param)
           self.classfiySer = ClassfiyAlertService(self.inputdata)

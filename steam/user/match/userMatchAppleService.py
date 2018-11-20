@@ -51,10 +51,11 @@ class UserMatchAppleService(UopService):
     def userCancelMatchApple(self):
         appleId = UserMatchAppleQueryService(self.inputKV).getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
         if appleId is not None:
-           httpPost(url        = userCancelMatchAppleUrl,
-                    headers    = self.jsonheart,
-                    reqJsonData= {"applyId":appleId})
-        #appleRest()
+           httpPost(url         = userCancelMatchAppleUrl,
+                    headers     = self.jsonheart,
+                    reqJsonData = {
+                                    "applyId":appleId
+                                   })
 
     def getRetcodeByRsp(self,response  = None):
         return query_json(json_content = json.loads(response),

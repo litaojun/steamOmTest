@@ -27,10 +27,10 @@ class WeixinSearchService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(WeixinSearchService, self).__init__(module       = "",
-                                                  filename     = "",
-                                                  sqlvaluedict = kwargs,
-                                                  reqjsonfile  = "weixinSearchReq")
+        super(WeixinSearchService, self).__init__( module       = "",
+                                                   filename     = "",
+                                                   sqlvaluedict = kwargs,
+                                                   reqjsonfile  = "weixinSearchReq")
 
     def weixinUserSearchReq(self):
         self.rsp = httpGet(

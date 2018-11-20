@@ -46,7 +46,7 @@ class UserCollectionService(UopService):
     def userCancelCollectionReq(self):
         httpPost(
                     url         = userCancelCollectionUrl,
-                    reqJsonData = {"resourceId":self.inputKV["resourceId"]},
+                    reqJsonData = { "resourceId":self.inputKV["resourceId"] },
                     headers     = self.jsonheart
                 )
 

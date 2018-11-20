@@ -36,7 +36,9 @@ class ClassfiyAddService(UopService):
         entryId = self.getEntryIdByRsp(classfiyRsp = self.rsp)
         delclassfiyRsp = requests.post(
 									        url  = delEntryurl,
-									        json = {"entryId": entryId},
+									        json = {
+                                                      "entryId": entryId
+                                                    },
 									        headers = self.jsonheart,
 									        verify  = False
 								      )

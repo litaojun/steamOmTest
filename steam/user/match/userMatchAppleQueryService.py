@@ -32,16 +32,16 @@ class UserMatchAppleQueryService(UopService):
                                                          reqjsonfile  = "userMatchAppleQueryReq")
 
     def userMatchAppleQuery(self):
-        self.rsp = httpPost(url     = userMatchAppleQueryUrl,
-                            headers = self.jsonheart,
+        self.rsp = httpPost(url         = userMatchAppleQueryUrl,
+                            headers     = self.jsonheart,
                             reqJsonData = self.reqjsondata)
         return self.rsp
 
     def getMatchNameDict(self,response = None):
         if response is None:
            response = self.userMatchAppleQuery()
-        userAppleMatchLs = query_json(json_content=json.loads(response),
-                                      query       ="applyInfoList")
+        userAppleMatchLs = query_json(json_content = json.loads(response),
+                                      query        = "applyInfoList")
         return dict([(x["matchName"], x) for x in userAppleMatchLs])
 
 
@@ -49,7 +49,7 @@ class UserMatchAppleQueryService(UopService):
     def getUserAppleIdByMatchName(self,response = None,matchName = None):
         matchDict = self.getMatchNameDict(response = response)
         if matchName in matchDict:
-             return  matchDict[matchName]["applyId"]
+           return  matchDict[matchName]["applyId"]
 
     #@check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):

@@ -20,7 +20,8 @@ class UserViewMediaresTest(SteamTestCase):
       '''
             用户浏览视频文章
       '''
-      __interfaceName__ = "/operation-manage/media/queryMediaByID"
+      #__interfaceName__ = "/operation-manage/media/queryMediaByID"
+      __interfaceName__ = "/steam-media/media/getMediaDetailByID"
       @initInput(services = [WeixinSearchService],
                  curser   = UserViewMediaresService)
       def __init__(self, methodName = 'runTest',

@@ -17,8 +17,7 @@ function getInterfaceListData()
                                                                                    item.reqtype,
                                                                                    item.module,
                                                                                    item.mark,
-                                                                                   item.reqpath,
-                                                                                   item.rsppath);
+                                                                                   item.sign);
                                                   $("#interface_table").append(trData);
                                            });
                                        }

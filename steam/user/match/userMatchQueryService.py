@@ -31,11 +31,10 @@ class UserMatchQueryService(UopService):
                                                     sqlvaluedict = kwargs ,
                                                     reqjsonfile  = "userMatchQueryReq")
 
-
     def userMatchQuery(self):
         self.rsp = httpPost(url         = userMatchQueryUrl,
                             headers     = self.jsonheart,
-                            reqJsonData =self.reqjsondata)
+                            reqJsonData = self.reqjsondata)
         return self.rsp
 
     @check_rspdata(filepath = "userMatchQueryRspFmt")

@@ -16,7 +16,7 @@ class ClassfiyDelTest(SteamTestCase):
       '''
             admin删除分类
       '''
-      __interfaceName__ = "/resource-service/resource/removeEntry"
+      __interfaceName__ = "/operation-manage/entry/removeEntry"
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyDelTest,self).__init__(methodName,param)
           self.classfiySer = ClassfiyDelService(self.inputdata)

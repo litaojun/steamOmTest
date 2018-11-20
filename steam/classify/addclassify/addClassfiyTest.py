@@ -17,7 +17,7 @@ class ClassfiyAddTest(SteamTestCase):
       '''
             admin新增分类
       '''
-      __interfaceName__ = "/resource-service/resource/addEntry"
+      __interfaceName__ = "/operation-manage/entry/addEntry"
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyAddTest,self).__init__(methodName,param)
           self.inputdata =  self.getInputData()

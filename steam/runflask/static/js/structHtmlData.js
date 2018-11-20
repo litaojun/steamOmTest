@@ -76,16 +76,22 @@ function structureBtTotal(casetotal,casesuccess,casefail,caseerror)
             }
 
 //获取接口列表，生成行HTML
-function structureInterfaceData(aliasName,interfaceAddr,reqtype,module,mark,reqpath,rsppath)
+function structureInterfaceData(aliasName,interfaceAddr,reqtype,module,mark,sign)
 {
+                      testsign = "否";
+                      if(sign == 1)
+                      {
+                          testsign = "是";
+                      }
                        interfaceData =  "<tr class='interfaceClass'>"       +
                                           "<td>" + aliasName + "</td>"          +
                                           "<td>" + interfaceAddr + "</td>"      +
                                           "<td>" + reqtype + "</td>"      +
                                           "<td>" + module  + "</td>"            +
                                           "<td>" + mark    + "</td>"            +
-                                          "<td>" + reqpath + "</td>"            +
-                                          "<td>" + rsppath + "</td>"            +
+                                          "<td>" + testsign + "</td>"            +
+                                          // "<td>" + reqpath + "</td>"            +
+                                          // "<td>" + rsppath + "</td>"            +
                                           "</tr>";
                        return interfaceData;
                     }
