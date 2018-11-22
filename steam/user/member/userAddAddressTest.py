@@ -20,8 +20,8 @@ class UserAddAddressTest(SteamTestCase):
             微信端用户新增一个地址
       '''
       __interfaceName__ = "/member-service/address-add"
-      @initInput(services=[],
-                 curser=UserAddAddressService)
+      @initInput(services = [],
+                 curser   = UserAddAddressService)
       def __init__(self, methodName='runTest', param=None):
           super(UserAddAddressTest,self).__init__(methodName,param)
 

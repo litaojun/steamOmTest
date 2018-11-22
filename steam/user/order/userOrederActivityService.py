@@ -46,6 +46,11 @@ class UserOrderActivityService(UopService):
                             )
         return self.rsp
 
+    @decorator(["setuptestone"])
+    def testa(self):
+        print(self.inputKV)
+        print("ssssff")
+
     #@check_rspdata(filepath="weixinUserOrderActivitisRspFmt")
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content = json.loads(response),

@@ -30,7 +30,6 @@ def query_allInterface():
     projectName = request.args.get("projectname")
     return jsonify(queryAllInterfaceByProjectName(projectName = projectName))
 
-
 def queryAllInterfaceByProjectName(projectName = None):
     dbManager = getDbManger()
     keyls = ["aliasName","interfaceAddr","reqtype","module","mark","reqpath","rsppath","sign"]
@@ -39,7 +38,7 @@ def queryAllInterfaceByProjectName(projectName = None):
                   where inf.projectname = "%s" and inf.module = mt.module  order by mt.sortsign;""" % projectName
     dataList = dbManager.queryAll(sql = querySql)
     if dataList is None:
-       dataList = []
+       dataList = [ ]
     retList = [ dict(zip(keyls, data)) for data in dataList ]
     for data in retList:
         if data["aliasName"] in interfaceAliasList:

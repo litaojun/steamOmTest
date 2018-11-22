@@ -25,8 +25,8 @@ def insertInterfaceTable():
         module = httpData[urlsign][3]
         title  = httpData[urlsign][4]
         for httpformat in httpData[urlsign][1]:
-            reqjsonpath = httpData[urlsign][1][httpformat][0].replace(os.sep,os.sep+os.sep)
-            rspjsonpath =  httpData[urlsign][1][httpformat][2].replace(os.sep,os.sep+os.sep)
+            reqjsonpath = httpData[urlsign][1][httpformat][1].replace(os.sep,os.sep+os.sep)
+            rspjsonpath =  httpData[urlsign][1][httpformat][3].replace(os.sep,os.sep+os.sep)
             sqlStr = "insert interface_mgr(aliasName,interfaceNameAddr,reqDataPath,rspDataPath, \
             projectname,reqtype,module,mark) value('%s','%s','%s','%s','%s','%s','%s','%s')" % (urlsign,url, \
                                                                reqjsonpath,rspjsonpath,'steam亲子教育',method,module,title)

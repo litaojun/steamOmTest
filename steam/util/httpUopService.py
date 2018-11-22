@@ -20,9 +20,16 @@ class HttpUopService(UopService):
       """
          增加根据URL发送HTTP请求
       """
-      def sendHttpReq(self,urlPathSign = None):
+      def __init__( self,module    = None ,
+                         filename = None ,
+                         sqlvaluedict = None ,
+                         reqjsonfile  = None ):
+          super(HttpUopService, self).__init__(module    = module  ,filename = filename ,sqlvaluedict = sqlvaluedict ,reqjsonfile  = reqjsonfile ,dbName=None)
+
+      def sendHttpReq(self):
+          urlPathSign = self.__class__.__interfaceName__
           method        = httpData[urlPathSign][0]
-          reqFormatPath = httpData[urlPathSign][1]["formatone" if "reqjsonfile" in self.inputKV else self.inputKV["reqjsonfile"]][1]
+          reqFormatPath = httpData[urlPathSign][1][self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"][1]
           url           = httpData[urlPathSign][2]
           reqDataFmt    = loadStrFromFile(reqFormatPath)
           reqdata       = reqDataFmt % self.inputKV
@@ -32,26 +39,29 @@ class HttpUopService(UopService):
                 self.rsp =  httpGet(url     = url,
                                     headers = self.jsonheart)
              elif method  == "delete":
-                 self.rsp =   httpDelete(url     = url ,
-                                         headers = self.jsonheart)
+                  self.rsp =   httpDelete(url     = url ,
+                                          headers = self.jsonheart)
           else:
               try:
                   self.reqjsondata = eval(reqdata)
                   if method == "post":
-                      self.rsp = httpPost(url         = url ,
-                                          headers     = self.jsonheart,
-                                          reqJsonData = self.reqjsondata)
+                     self.rsp = httpPost(url         = url ,
+                                         headers     = self.jsonheart,
+                                         reqJsonData = self.reqjsondata)
                   elif method == "put":
                        self.rsp = httpDelete( url = url )
               except Exception as e:
                   raise e
           return  self.rsp
 
-      def getRetcodeByRsp(rsp,format = "code"):
+      def getRetcodeByRsp( self,
+                           response = None ,
+                           format   = "code" ):
           """
+
               :param matchRsp:
               :return:
           """
-          return query_json(json_content = json.loads(rsp),
+          print("s")
+          return query_json(json_content = json.loads(response),
                                    query = format)
-

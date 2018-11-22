@@ -46,5 +46,5 @@ if  __name__ == "__main__":
              }
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\order-serviceordercancels.yml",
-                        testclse = UserCancelOrderActivityTest
+                        testclse     = UserCancelOrderActivityTest
                  )

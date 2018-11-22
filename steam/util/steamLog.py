@@ -57,6 +57,11 @@ class SteamTestCase(ParametrizedTestCase):
              inputData["token"] = token
         return inputData
 
+    def compareRetcodeTest(self):
+        self.rsp     = self.myservice.sendHttpReq()
+        retcode = self.myservice.getRetcodeByRsp(response = self.rsp)
+        self.assertTrue(retcode == self.expectdata["code"])
+
     @classmethod
     def clearPhoneData(cls):
         cls.memberIdDict = {}
@@ -64,5 +69,6 @@ class SteamTestCase(ParametrizedTestCase):
 if __name__ == "__main__":
     args = {"phoneNo":"18916899938"}
     # testcase = SteamTestCase(args = )
+    print(dir(SteamTestCase))
 
 

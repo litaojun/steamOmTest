@@ -33,9 +33,28 @@ def initInput(services = [],
             sf = args[0]
             print("interface=%s,ClassName = %s" % (sf.__interfaceName__,sf.__class__.__name__))
             for ser in services:
-                ser(kwargs=sf.inputdata).setInPutData()
+                ser(kwargs = sf.inputdata).setInPutData()
             sf.myservice = curser(kwargs = sf.inputdata)
             sf.setService(sf.myservice)
+        return __call
+    return _call
+
+def initInputService(services = [],
+                     curser   = None):
+    def _call(fun):
+        def __call(*args,**kwargs):
+            fun(*args, **kwargs)
+            sf = args[0]
+            print("interface=%s,ClassName = %s" % (sf.__class__.__interfaceName__,sf.__class__.__name__))
+            setattr(curser,"__interfaceName__",sf.__class__.__interfaceName__)
+            sf.myservice = curser(kwargs = sf.inputdata)
+            sf.myservice.initInterfaceData()
+            sf.setService(sf.myservice)
+            for ser in services:
+                opser = ser(kwargs = sf.inputdata)
+                opser.initInterfaceData()
+                for name in opser.ifacedict:
+                    sf.myservice.ifacedict[name] = opser.ifacedict[name]
         return __call
     return _call
 

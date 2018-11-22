@@ -20,8 +20,8 @@ class MemberAddressTest(SteamTestCase):
             微信端用户进入地址管理，获取地址列表
       '''
       __interfaceName__ = "/member-service/address/memberId"
-      @initInput(services=[],
-                 curser=MemberAddressService)
+      @initInput(services = [],
+                 curser   = MemberAddressService)
       def __init__(self, methodName='runTest', param=None):
           super(MemberAddressTest,self).__init__(methodName,param)
 

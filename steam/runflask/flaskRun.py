@@ -26,10 +26,10 @@ from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
 from steam.runflask.util.initData import allTestCase,allTestClass,tokenList
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
-app.register_blueprint(mediaresQueryTest.bapp,url_prefix="/mediares")
-app.register_blueprint(interfaceMnr.bapp,     url_prefix="/infcs"   )
-app.register_blueprint(testcaseRun.bapp,      url_prefix="/tsrun"   )
-app.register_blueprint(reportQuery.bapp,      url_prefix="/rptqy"   )
+app.register_blueprint(mediaresQueryTest.bapp , url_prefix = "/mediares")
+app.register_blueprint(interfaceMnr.bapp,       url_prefix = "/infcs"   )
+app.register_blueprint(testcaseRun.bapp,        url_prefix = "/tsrun"   )
+app.register_blueprint(reportQuery.bapp,        url_prefix = "/rptqy"   )
 
 @app.route('/prop/runTestPro', methods=['GET'])
 def start_steam_tasks():
@@ -44,7 +44,7 @@ def start_steam_tasks():
                                         "title"  : projectName,
                                         "description" : "%s-用例测试情况" % projectName,
                                         "token"        :  retdata[0]
-                                  }
+                                   }
                          )
     t.start()
     tokenList.append(retdata[0])
@@ -75,14 +75,6 @@ def query_planlist():
     projectName = request.args.get("projectname")
     return jsonify(queryTestPlanList(projectName = projectName))
 
-# @app.route('/prop/testappmap', methods=['GET'])
-# def query_plan_CaseRecord():
-#     """
-#         根据计划ID查询测试报告记录
-#         :return:
-#     """
-#     planid = request.args.get("planid")
-#     return jsonify(queryPlanDetailByInterfaceName(planId=planid))
 
 @app.route('/prop/getOneTestcase', methods=['GET'])
 def query_testCase():
