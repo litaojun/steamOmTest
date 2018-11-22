@@ -1,0 +1,20 @@
+testcases:
+- interfaceName: /resource-service/resource/collect
+  case:
+  - testPoint: 收藏一个课程
+    preConditions:
+    - preInterfaceUserCollection
+    operationSteps: userCollectTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 1
+      keyword: 体验课
+      chapterName: 第一章
+      sectionName: 1、
+      phoneNo: '18916899938'
+      resourceId: 4448
+      caseid: user_collect_1
+      testPoint: 收藏一个课程
+    expectedResult:
+      code: '000000'

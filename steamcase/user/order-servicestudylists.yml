@@ -1,0 +1,17 @@
+testcases:
+- interfaceName: /order-service/study/list
+  case:
+  - testPoint: 查看我的课程列表
+    preConditions:
+    - ''
+    operationSteps: recommandCourseNor
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 1
+      keyword: 武汉大学AutoCAD技术视频
+      phoneNo: '18916899938'
+      caseid: article_view_1
+      testPoint: 查看我的课程列表
+    expectedResult:
+      code: '000000'

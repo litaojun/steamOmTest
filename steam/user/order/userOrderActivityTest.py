@@ -23,9 +23,9 @@ class UserOrderActivityTest(SteamTestCase):
             用户订购活动
       '''
       __interfaceName__ = "/order-service/order/submitAndPay"
-      @initInput(services = [WeixinSearchService,
-                             UserViewActivityService,
-                             MemberAddressService],
+      @initInput(services = [ WeixinSearchService ,
+                              UserViewActivityService ,
+                              MemberAddressService ] ,
                  curser = UserOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserOrderActivityTest,self).__init__(methodName,param)

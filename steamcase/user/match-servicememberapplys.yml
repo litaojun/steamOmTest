@@ -1,0 +1,249 @@
+testcases:
+- interfaceName: /match-service/member/apply
+  case:
+  - testPoint: 亲子赛-微信用户提交报名信息
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      sign: start
+      reqjsonfile: userMatchAppleReq
+      limitCount: 30000
+      caseid: match_apple_1
+      testPoint: 亲子赛-微信用户提交报名信息
+    expectedResult:
+      code: '000000'
+  - testPoint: 亲子赛-已报名用户再次报名-000001
+    preConditions:
+    - preInterfaceUserMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      sign: start
+      reqjsonfile: userMatchAppleReq
+      limitCount: 30000
+      caseid: match_apple_2
+      testPoint: 亲子赛-已报名用户再次报名-000001
+    expectedResult:
+      code: '000001'
+  - testPoint: 亲子赛-用户报名已结束赛事场次-000006
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-已结束-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      sign: end
+      reqjsonfile: userMatchAppleReq
+      limitCount: 30000
+      caseid: match_apple_3
+      testPoint: 亲子赛-用户报名已结束赛事场次-000006
+    expectedResult:
+      code: '000006'
+  - testPoint: 亲子赛-用户报名未开始赛事场次-000007
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-未开始-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      sign: notStart
+      reqjsonfile: userMatchAppleReq
+      limitCount: 30000
+      caseid: match_apple_4
+      testPoint: 亲子赛-用户报名未开始赛事场次-000007
+    expectedResult:
+      code: '000007'
+  - testPoint: 亲子赛-用户报名已满额赛事场次-000008
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-已满额-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      reqjsonfile: userMatchAppleReq
+      limitCount: 2
+      sign: start
+      caseid: match_apple_5
+      testPoint: 亲子赛-用户报名已满额赛事场次-000008
+    expectedResult:
+      code: '000008'
+  - testPoint: 国赛-微信用户提交报名信息
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-正常-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      caseid: match_apple_6
+      testPoint: 国赛-微信用户提交报名信息
+    expectedResult:
+      code: '000000'
+  - testPoint: 国赛-已报名用户再次报名-000001
+    preConditions:
+    - preInterfaceUserCancelMatch
+    - preInterfaceUserMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-正常-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      caseid: match_apple_7
+      testPoint: 国赛-已报名用户再次报名-000001
+    expectedResult:
+      code: '000001'
+  - testPoint: 国赛-用户报名已结束赛事场次-000006
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-已结束-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      caseid: match_apple_8
+      testPoint: 国赛-用户报名已结束赛事场次-000006
+    expectedResult:
+      code: '000006'
+  - testPoint: 国赛-用户报名未开始赛事场次-000007
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-未开始-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      caseid: match_apple_9
+      testPoint: 国赛-用户报名未开始赛事场次-000007
+    expectedResult:
+      code: '000007'
+  - testPoint: 国赛-用户报名已满额赛事场次-000008
+    preConditions:
+    - preInterfaceUserCancelMatch
+    operationSteps: userMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-已满员-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      caseid: match_apple_10
+      testPoint: 国赛-用户报名已满额赛事场次-000008
+    expectedResult:
+      code: '000008'

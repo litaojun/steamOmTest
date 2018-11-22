@@ -1,0 +1,20 @@
+testcases:
+- interfaceName: /match-service/match/updateMatchById
+  case:
+  - testPoint: 修改一个赛事场次正常
+    preConditions:
+    - preInterfaceAddOneMatch
+    - tearInterfaceDelOneMatch
+    operationSteps: matchLabAlertReq
+    testData:
+    - matchName: '18916899938'
+      matchId: 1133
+      state: 2
+      applyStartTime: 1534923240000
+      applyEndTime: 1535528043000
+      applyNum: 0
+      limitCount: 30000
+      caseid: match_alert_1
+      testPoint: 修改一个赛事场次正常
+    expectedResult:
+      code: '000000'

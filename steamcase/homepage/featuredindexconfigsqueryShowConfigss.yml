@@ -1,0 +1,109 @@
+testcases:
+- &id001
+  interfaceName: /featured/index/configs/queryShowConfigs
+  case:
+  - testPoint: 用户浏览首页配置内容-轮播图
+    preConditions:
+    - ''
+    operationSteps: queryHomeCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '0'
+      position: '01'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_page_1
+      testPoint: 用户浏览首页配置内容-轮播图
+    expectedResult:
+      code: '000000'
+  - testPoint: 用户浏览首页配置内容-今日推荐
+    preConditions:
+    - ''
+    operationSteps: queryHomeCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '0'
+      position: '02'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_page_2
+      testPoint: 用户浏览首页配置内容-今日推荐
+    expectedResult:
+      code: '000000'
+  - testPoint: 用户浏览首页配置内容-单独运营位
+    preConditions:
+    - ''
+    operationSteps: queryHomeCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '0'
+      position: '10'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_page_4
+      testPoint: 用户浏览首页配置内容-单独运营位
+    expectedResult:
+      code: '000000'
+  - testPoint: 用户浏览首页配置内容-动态
+    preConditions:
+    - ''
+    operationSteps: queryFindCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '0'
+      position: '07'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_page_3
+      testPoint: 用户浏览首页配置内容-动态
+    expectedResult:
+      code: '000000'
+  - testPoint: 用户浏览首页配置内容-分类
+    preConditions:
+    - ''
+    operationSteps: queryFindCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '0'
+      position: '05'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_page_5
+      testPoint: 用户浏览首页配置内容-分类
+    expectedResult:
+      code: '000000'
+  - testPoint: 用户浏览发现页配置内容-分类
+    preConditions:
+    - ''
+    operationSteps: queryFindCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '1'
+      position: '05'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_find_1
+      testPoint: 用户浏览发现页配置内容-分类
+    expectedResult:
+      code: '000000'
+  - testPoint: 创新大赛页面页-轮播图
+    preConditions:
+    - ''
+    operationSteps: queryFindCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '2'
+      position: '08'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_inov_1
+      testPoint: 创新大赛页面页-轮播图
+    expectedResult:
+      code: '000000'
+  - testPoint: 创新大赛页面页-独立运营位
+    preConditions:
+    - ''
+    operationSteps: queryFindCnf
+    testData:
+    - phoneNo: '18916899938'
+      pageType: '2'
+      position: '06'
+      dbquerysign: select_t_sku_HomePage
+      caseid: cnf_inov_2
+      testPoint: 创新大赛页面页-独立运营位
+    expectedResult:
+      code: '000000'
+- *id001

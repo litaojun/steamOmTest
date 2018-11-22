@@ -1,0 +1,19 @@
+testcases:
+- interfaceName: /steam-course/course/queryAliyunVideoAuth
+  case:
+  - testPoint: 获取视频播放的鉴权信息
+    preConditions:
+    - ''
+    operationSteps: getAliyunVideoAuthTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 1
+      keyword: 武汉大学AutoCAD技术视频
+      chapterName: 第一章 AutoCAD2007入门基础
+      sectionName: 第一节 AutoCAD 的基本功能
+      phoneNo: '18916899938'
+      caseid: video_auth_1
+      testPoint: 获取视频播放的鉴权信息
+    expectedResult:
+      code: '000000'

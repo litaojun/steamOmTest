@@ -1,0 +1,29 @@
+testcases:
+- interfaceName: /operation-manage/product/publish
+  case:
+  - testPoint: 上架一个活动
+    preConditions:
+    - ''
+    operationSteps: publishActivityTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 12
+      title: 早鸟价接口自动化-勿动
+      caseid: activity_up_1
+      testPoint: 上架一个活动
+    expectedResult:
+      code: '000000'
+  - testPoint: 上架一个商品
+    preConditions:
+    - ''
+    operationSteps: publishActivityTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 11
+      title: 创客教育儿童早教学习接口自动化-商品-勿动
+      caseid: goods_up_1
+      testPoint: 上架一个商品
+    expectedResult:
+      code: '000000'

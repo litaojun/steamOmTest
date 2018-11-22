@@ -1,0 +1,19 @@
+testcases:
+- interfaceName: /order-service/order
+  case:
+  - testPoint: 用户查看所有订单列表
+    preConditions:
+    - ''
+    operationSteps: userListOrderActivity
+    testData:
+    - title: 早鸟价接口自动化
+      skuName: 价格（成人）
+      phoneNo: '18916899938'
+      resourceTypeId: 12
+      skuId: 1
+      resourceId: 1
+      orderStatus: '12'
+      caseid: order_list_1
+      testPoint: 用户查看所有订单列表
+    expectedResult:
+      code: '000000'

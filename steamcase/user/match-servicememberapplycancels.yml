@@ -1,0 +1,54 @@
+testcases:
+- interfaceName: /match-service/member/apply/cancel
+  case:
+  - testPoint: 微信用户取消亲子赛报名
+    preConditions:
+    - preInterfaceUserMatch
+    operationSteps: userCancelMatchAppleTest
+    testData:
+    - matchId: 22
+      subMatchName: 自动化测试专用-勿动
+      phoneNo: '18916899938'
+      subjectIdList:
+      - 1
+      - 4
+      - 6
+      contactName: 李陶军
+      contactPhone: '18916899938'
+      studentName: 李陶军
+      province: 上海
+      city: 上海市
+      country: 黄浦区
+      group: 幼儿园
+      school: 文庙路幼儿园
+      nationality: ''
+      sign: start
+      reqjsonfile: userMatchAppleReq
+      limitCount: 30000
+      applyId: '100011'
+      caseid: match_apple_1
+      testPoint: 微信用户取消亲子赛报名
+    expectedResult:
+      code: '000000'
+  - testPoint: 微信用户取消国赛报名
+    preConditions:
+    - preInterfaceUserMatch
+    operationSteps: userCancelMatchAppleTest
+    testData:
+    - matchId: 200
+      contactName: 曹操
+      contactPhone: '18916899938'
+      country: 北京市
+      school: 李老师
+      email: li.taojun@opg.cn
+      schoolEn: litaojun
+      detailAddress: 鹤永路599弄41号1201室
+      postCode: '200100'
+      subMatchName: 国赛-正常-自动化测试-勿动
+      phoneNo: '18916899938'
+      reqjsonfile: userMatchAppleReqGuosai
+      applyId: '100011'
+      caseid: match_apple_2
+      testPoint: 微信用户取消国赛报名
+    expectedResult:
+      code: '000000'

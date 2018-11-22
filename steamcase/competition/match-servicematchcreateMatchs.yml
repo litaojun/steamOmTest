@@ -1,0 +1,44 @@
+testcases:
+- interfaceName: /match-service/match/createMatch
+  case:
+  - testPoint: 新增一个赛事正常
+    preConditions:
+    - tearInterfaceDelOneMatch
+    operationSteps: testMatchAddNor
+    testData:
+    - matchName: '18916899938'
+      reqjsonfile: competitionAddReq
+      caseid: match_add_1
+      testPoint: 新增一个赛事正常
+    expectedResult:
+      code: '000000'
+  - testPoint: 新增一个亲子赛场次
+    preConditions:
+    - tearInterfaceDelOneMatch
+    operationSteps: testMatchAddNor
+    testData:
+    - matchName: 亲子赛测试test
+      applyStartTime: 1534931060000
+      applyEndTime: 1535708660000
+      parentId: 22
+      limitCount: 663
+      reqjsonfile: competitionLabAddReq
+      caseid: match_add_2
+      testPoint: 新增一个亲子赛场次
+    expectedResult:
+      code: '000000'
+  - testPoint: 新增一个国赛场次
+    preConditions:
+    - tearInterfaceDelOneMatch
+    operationSteps: testMatchAddNor
+    testData:
+    - matchName: 国赛测试test
+      applyStartTime: 1534931060000
+      applyEndTime: 1535708660000
+      parentId: 200
+      limitCount: 663
+      reqjsonfile: competitionLabAddReq
+      caseid: match_add_3
+      testPoint: 新增一个国赛场次
+    expectedResult:
+      code: '000000'

@@ -1,0 +1,21 @@
+testcases:
+- interfaceName: /order-service/order/payquery
+  case:
+  - testPoint: 用户查看订单支付状态
+    preConditions:
+      - setuptestone
+    operationSteps: checkOrderStatus
+    testData:
+    - keyword: 早鸟价
+      skuName: 价格（成人）
+      phoneNo: '18916899938'
+      resourceTypeId: 12
+      skuId: 1
+      resourceId: 1
+      num: 1
+      orderId: '15382748904450000024816'
+      caseid: order_pay_status_1
+      testPoint: 用户查看订单详情
+    expectedResult:
+      code: '000000'
+      orderPayStatus: UN_PAY

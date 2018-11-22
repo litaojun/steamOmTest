@@ -1,0 +1,14 @@
+testcases:
+- interfaceName: /resource-service/resource/thumbUp
+  case:
+  - testPoint: 用户点赞文章
+    preConditions:
+    - preInterfaceCancelThumbUp
+    operationSteps: userThumbUp
+    testData:
+    - resourceId: '2104'
+      phoneNo: '18916899938'
+      caseid: thumb_up_1
+      testPoint: 用户点赞文章
+    expectedResult:
+      code: '000000'

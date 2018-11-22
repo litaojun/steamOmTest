@@ -1,0 +1,61 @@
+testcases:
+- interfaceName: /operation-manage/media/deleteMedia
+  case:
+  - testPoint: 删除一个文章正常
+    preConditions:
+    - preInterfaceAddOneArticle
+    operationSteps: testArticleDelNor
+    testData:
+    - title: 奥林匹克大赛2017年12月北京赛区-自动化
+      subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化
+      content: <!DOCTYPE html><html><head></head><body><p>方法</p></body></html>
+      cornerMask: 花絮
+      vendorId: 1
+      baseVisits: 1
+      baseCollects: 1
+      shareTitle: 奥林匹克大赛2017年12月北京赛区-分享标题-自动化
+      thumbUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180420161204_726874.png
+      bannerUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180420161213_347806.jpg
+      shareDescription: 分享标题-自动化
+      shareImgUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180+F20420161228_57360.png
+      tags:
+      - 2
+      entryIds:
+      - 64
+      matchId: 20
+      resourceTypeId: 2
+      state: W
+      resourceId: 2
+      caseid: article_del_1
+      testPoint: 删除一个文章正常
+    expectedResult:
+      code: '000000'
+  - testPoint: 删除一个作品视频正常
+    preConditions:
+    - preInterfaceAddOneArticle
+    operationSteps: testArticleDelNor
+    testData:
+    - title: 奥林匹克大赛2017年12月北京赛区-自动化
+      subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化
+      content: <!DOCTYPE html><html><head></head><body><p>方法</p></body></html>
+      cornerMask: 花絮
+      vendorId: 1
+      baseVisits: 1
+      baseCollects: 1
+      shareTitle: 奥林匹克大赛2017年12月北京赛区-分享标题-自动化
+      thumbUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180420161204_726874.png
+      bannerUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180420161213_347806.jpg
+      shareDescription: 分享标题-自动化
+      shareImgUrl: http://uat-steam.opg.cn/_static/admin/images/resource/20180+F20420161228_57360.png
+      tags:
+      - 2
+      entryIds:
+      - 64
+      matchId: 20
+      resourceTypeId: 1
+      state: W
+      resourceId: 1
+      caseid: media_del_1
+      testPoint: 删除一个作品视频正常
+    expectedResult:
+      code: '000000'

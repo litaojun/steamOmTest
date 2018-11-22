@@ -1,0 +1,19 @@
+testcases:
+- interfaceName: /member/collection/queryPage
+  case:
+  - testPoint: 获取视频播放的鉴权信息
+    preConditions:
+    - ''
+    operationSteps: userListCollectTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 1
+      keyword: 体验课
+      chapterName: 第一章
+      sectionName: 1、
+      phoneNo: '18916899938'
+      caseid: video_auth_1
+      testPoint: 获取视频播放的鉴权信息
+    expectedResult:
+      code: '000000'

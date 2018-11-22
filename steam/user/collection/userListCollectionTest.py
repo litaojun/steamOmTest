@@ -30,7 +30,7 @@ class UserListCollectionTest(SteamTestCase):
       def userListCollectTest(self):
           rsp        = self.myservice.userListCollectionReq()
           rspcode    = self.myservice.getRetcodeByRsp( response = rsp )
-          self.assertTrue(rspcode == self.expectdata["code"])
+          self.assertTrue( rspcode == self.expectdata["code"] )
 
 if __name__ == "__main__":
    runTestOneCls(

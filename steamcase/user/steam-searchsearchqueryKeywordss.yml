@@ -1,0 +1,19 @@
+testcases:
+- interfaceName: /steam-search/search/queryKeywords
+  case:
+  - testPoint: 用户按分类查询
+    preConditions:
+    - ''
+    operationSteps: userQueryKeywordsTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      entryName: 线上课堂
+      phoneNo: '18916899938'
+      position: '05'
+      pageType: 1
+      entryId: 75
+      caseid: user_search_1
+      testPoint: 用户按分类查询
+    expectedResult:
+      code: '000000'

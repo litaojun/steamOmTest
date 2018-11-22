@@ -1,0 +1,22 @@
+testcases:
+- interfaceName: /member-service/address-del
+  case:
+  - testPoint: 用户删除一个地址
+    preConditions:
+    - preInterfaceUserAddAddress
+    operationSteps: userDelAddressTest
+    testData:
+    - phoneNo: '18916899938'
+      consignee: 李菠萝
+      phone: '18916899938'
+      address: 空空
+      addressCode: 110000,110100,110101
+      province: 北京市
+      city: 市辖区
+      county: 东城区
+      isDefault: '01'
+      addressId: '1'
+      caseid: user_del_address_1
+      testPoint: 用户删除一个地址
+    expectedResult:
+      code: '200'

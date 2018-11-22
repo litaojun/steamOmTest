@@ -1,0 +1,47 @@
+testcases:
+- interfaceName: /match-service/match/deleteMatch
+  case:
+  - testPoint: 删除一个赛事正常
+    preConditions:
+    - preInterfaceAddOneMatch
+    operationSteps: testMatchDelNor
+    testData:
+    - matchName: '18916899938'
+      matchId: 1
+      reqjsonfile: competitionAddReq
+      caseid: match_del_1
+      testPoint: 删除一个赛事正常
+    expectedResult:
+      code: '000000'
+  - testPoint: 删除一个亲子赛场次
+    preConditions:
+    - preInterfaceAddOneMatch
+    operationSteps: testMatchDelNor
+    testData:
+    - matchName: 亲子赛测试test
+      applyStartTime: 1534931060000
+      applyEndTime: 1535708660000
+      parentId: 22
+      limitCount: 663
+      reqjsonfile: competitionLabAddReq
+      matchId: 1
+      caseid: match_del_2
+      testPoint: 删除一个亲子赛场次
+    expectedResult:
+      code: '000000'
+  - testPoint: 删除一个国赛场次
+    preConditions:
+    - preInterfaceAddOneMatch
+    operationSteps: testMatchDelNor
+    testData:
+    - matchName: 国赛测试test
+      applyStartTime: 1534931060000
+      applyEndTime: 1535708660000
+      parentId: 200
+      limitCount: 663
+      reqjsonfile: competitionLabAddReq
+      matchId: 1
+      caseid: match_del_3
+      testPoint: 删除一个国赛场次
+    expectedResult:
+      code: '000000'

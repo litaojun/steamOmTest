@@ -1,0 +1,14 @@
+testcases:
+- interfaceName: /match-service/member/mp/query
+  case:
+  - testPoint: 微信用户查询已报名信息
+    preConditions:
+    - ''
+    operationSteps: userMatchAppleQueryTest
+    testData:
+    - matchId: 22
+      phoneNo: '18916899938'
+      caseid: match_apple_query_1
+      testPoint: 微信用户查询已报名信息
+    expectedResult:
+      code: '000000'

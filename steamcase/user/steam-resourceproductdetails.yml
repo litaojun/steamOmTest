@@ -1,0 +1,29 @@
+testcases:
+- interfaceName: /steam-resource/product/detail
+  case:
+  - testPoint: 查看一个活动
+    preConditions:
+    - ''
+    operationSteps: userViewActivityNor
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 11
+      keyword: 早教学习儿童编程机器人套件益智智能机器人
+      phoneNo: '18916899938'
+      caseid: article_view_1
+      testPoint: 查看一个活动
+    expectedResult:
+      code: '000000'
+  - testPoint: 查看一个商品
+    preConditions:
+    - ''
+    operationSteps: userViewActivityNor
+    testData:
+    - resourceTypeId: 12
+      keyword: 醉清迈
+      phoneNo: '18916899938'
+      caseid: media_view_1
+      testPoint: 查看一个商品
+    expectedResult:
+      code: '000000'

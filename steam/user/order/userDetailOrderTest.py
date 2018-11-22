@@ -24,10 +24,10 @@ class UserDetailOrderActivityTest(SteamTestCase):
             点赞
       '''
       __interfaceName__ = "/order-service/order/detail"
-      @initInput(services=[WeixinSearchService,
-                           UserViewActivityService,
-                           MemberAddressService],
-                 curser=UserDetailOrderActivityService)
+      @initInput( services=[ WeixinSearchService ,
+                             UserViewActivityService ,
+                             MemberAddressService ] ,
+                   curser=UserDetailOrderActivityService )
       def __init__(self, methodName='runTest', param=None):
           super(UserDetailOrderActivityTest,self).__init__(methodName,param)
 

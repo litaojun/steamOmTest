@@ -1,0 +1,14 @@
+testcases:
+- interfaceName: /match-service/member/wa/query
+  case:
+  - testPoint: 微信用户进入报名页面查询报名场次信息
+    preConditions:
+    - ''
+    operationSteps: userMatchQueryTest
+    testData:
+    - matchId: 22
+      phoneNo: '18916899938'
+      caseid: match_query_1
+      testPoint: 微信用户进入报名页面查询报名场次信息
+    expectedResult:
+      code: '000000'

@@ -1,0 +1,13 @@
+testcases:
+- interfaceName: /member-service/address/memberId
+  case:
+  - testPoint: 获取用户地址列表
+    preConditions:
+    - ''
+    operationSteps: memberAddressTest
+    testData:
+    - phoneNo: '18916899938'
+      caseid: user_address_1
+      testPoint: 获取用户地址列表
+    expectedResult:
+      code: '200'

@@ -1,0 +1,29 @@
+testcases:
+- interfaceName: /operation-manage/media/queryMediaByID
+  case:
+  - testPoint: 查看一个文章
+    preConditions:
+    - ''
+    operationSteps: userViewMediaresNor
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 1
+      keyword: 让MakeX成为青少年释放自我的舞台
+      phoneNo: '18916899938'
+      caseid: article_view_1
+      testPoint: 查看一个文章
+    expectedResult:
+      code: '000000'
+  - testPoint: 查看一个视频
+    preConditions:
+    - ''
+    operationSteps: userViewMediaresNor
+    testData:
+    - resourceTypeId: 2
+      keyword: 墨西哥全国机器人大赛ROBOMATH
+      phoneNo: '18916899938'
+      caseid: media_view_1
+      testPoint: 查看一个视频
+    expectedResult:
+      code: '000000'

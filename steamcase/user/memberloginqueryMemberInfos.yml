@@ -1,0 +1,14 @@
+testcases:
+- interfaceName: /member/login/queryMemberInfo
+  case:
+  - testPoint: 通过token获取memberId
+    preConditions:
+    - ''
+    operationSteps: getUserMidTest
+    testData:
+    - phoneNo: '18510699506'
+      scenes: OTP
+      caseid: token_get_memberId_1
+      testPoint: 通过token获取memberId
+    expectedResult:
+      code: '000000'

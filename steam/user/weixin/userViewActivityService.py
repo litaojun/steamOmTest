@@ -69,7 +69,7 @@ class UserViewActivityService(UopService):
             if self.inputKV.get("skuName") is not None and skuNmIdDict is not None:
                self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
                self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
-        except e:
+        except  Exception as e:
             print("init fail")
 
 

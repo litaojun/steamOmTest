@@ -1,0 +1,18 @@
+testcases:
+- interfaceName: /member/login/memberLogin
+  case:
+  - testPoint: 登录
+    preConditions:
+    - ''
+    operationSteps: userLoginTest
+    testData:
+    - currentPage: 1
+      pageSize: 10
+      resourceTypeId: 11
+      keyword: 早教学习儿童编程机器人套件益智智能机器人
+      phoneNo: '13004167652'
+      scenes: OTP
+      caseid: user_search_1
+      testPoint: 登录
+    expectedResult:
+      code: '000000'
