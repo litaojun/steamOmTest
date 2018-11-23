@@ -36,10 +36,10 @@ class HttpUopService(UopService):
           if method in ("get","delete") :
              self.reqjsondata = reqdata
              if method   == "get":
-                self.rsp =  httpGet(url     = url,
+                self.rsp =  httpGet(url     = url + self.reqjsondata ,
                                     headers = self.jsonheart)
              elif method  == "delete":
-                  self.rsp =   httpDelete(url     = url ,
+                  self.rsp =   httpDelete(url     = url + self.reqjsondata ,
                                           headers = self.jsonheart)
           else:
               try:

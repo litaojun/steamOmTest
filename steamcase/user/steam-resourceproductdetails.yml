@@ -3,8 +3,8 @@ testcases:
   case:
   - testPoint: 查看一个活动
     preConditions:
-    - ''
-    operationSteps: userViewActivityNor
+    - setupgetFirstResourceId
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10
@@ -17,8 +17,8 @@ testcases:
       code: '000000'
   - testPoint: 查看一个商品
     preConditions:
-    - ''
-    operationSteps: userViewActivityNor
+    - setupgetFirstResourceId
+    operationSteps: compareRetcodeTest
     testData:
     - resourceTypeId: 12
       keyword: 醉清迈

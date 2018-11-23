@@ -17,8 +17,9 @@ from opg.util.utils import query_json
 from steam.util.configurl import weixinSearchUrl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
-
-class WeixinSearchService(UopService):
+from steam.util.httpUopService import  HttpUopService
+from opg.util.uopService import decorator
+class WeixinSearchService(HttpUopService):
     '''
         微信端-搜索
     '''
@@ -30,7 +31,7 @@ class WeixinSearchService(UopService):
         super(WeixinSearchService, self).__init__( module       = "",
                                                    filename     = "",
                                                    sqlvaluedict = kwargs,
-                                                   reqjsonfile  = "weixinSearchReq")
+                                                   reqjsonfile  = None)
 
     def weixinUserSearchReq(self):
         self.rsp = httpGet(
@@ -41,7 +42,8 @@ class WeixinSearchService(UopService):
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
         if queryRsp is None:
-           queryRsp = self.weixinUserSearchReq()
+           # queryRsp = self.weixinUserSearchReq()
+           queryRsp = self.sendHttpReq()
         return query_json(json_content = json.loads(queryRsp),
                           query        = "data.targets.0.resourceId")
 
@@ -61,6 +63,7 @@ class WeixinSearchService(UopService):
     def getSkuPayPriceBySkuName(self,skuName=""):
         return self.getSku(skuName=skuName)["skuName"]
 
+    @decorator(["setupgetFirstResourceId"])
     def setInPutData(self):
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
         self.inputKV["resourceId"] = resourceId

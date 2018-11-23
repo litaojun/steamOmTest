@@ -14,25 +14,25 @@
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInput,initInputService
 class WeixinSearchTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       '''
       __interfaceName__ = "/steam-search/search/keywordSearch"
-      @initInput(services = [],
-                 curser   = WeixinSearchService)
+      @initInputService(services = [],
+                        curser   = WeixinSearchService)
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(WeixinSearchTest,self).__init__(methodName,param)
 
-      def userSearchContentTest(self):
-          rsp     = self.myservice.weixinUserSearchReq()
-          retcode = self.myservice.getRetcodeByRsp(response = rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def userSearchContentTest(self):
+      #     rsp     = self.myservice.weixinUserSearchReq()
+      #     retcode = self.myservice.getRetcodeByRsp(response = rsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userSearchcase.xlsx",
+                        casefilepath = "\\steamcase\\user\\steam-searchsearchkeywordSearchs.yml",
                         testclse     = WeixinSearchTest
                  )

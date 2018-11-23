@@ -16,15 +16,15 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userViewActivityUrl
 from opg.util.httptools import httpGet
-
-class UserViewActivityService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserViewActivityService(HttpUopService):
     '''
         首页配置数据
     '''
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "weixinUserViewActivitisReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:

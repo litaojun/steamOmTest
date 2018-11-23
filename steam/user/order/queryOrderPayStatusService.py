@@ -21,7 +21,7 @@ class QueryOrderPayStatusService(HttpUopService):
     def __init__(self, kwargs       = {},
                        module       = "",
                        filename     = "",
-                       reqjsonfile  = "weixinUserCancelOrderActivitisReq"):
+                       reqjsonfile  = None):
         """
             :param entryName:
             :param picturePath:

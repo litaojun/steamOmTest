@@ -21,7 +21,7 @@ class QueryOrderPayStatusTest(SteamTestCase):
           self.compareRetcodeTest()
           orderPayStatus = self.myservice.getOrderPayStatus()
           self.assertTrue(orderPayStatus == self.expectdata["orderPayStatus"],
-                          msg = "expect is %s,and resule is %s " % (self.expectdata["orderPayStatus"],orderPayStatus))
+                          msg            = "expect is %s,and resule is %s " % (self.expectdata["orderPayStatus"],orderPayStatus))
 
 if  __name__ == "__main__":
     from inspect import ismethod
