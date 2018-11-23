@@ -20,8 +20,8 @@ from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMed
 from opg.util.httptools import httpGet,httpPost
 from steam.article.query.ArticleQueryService import ArticleQueryService
 from steam.user.login.userLoginService import WeixinUserLoginService
-
-class UserViewMediaresService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserViewMediaresService(HttpUopService):
     '''
         用户端通过文章ID浏览详情页面
     '''

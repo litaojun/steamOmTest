@@ -17,8 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import weixinQueryKeywordsUrl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
-
-class WeixinQueryKeywordsService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class WeixinQueryKeywordsService(HttpUopService):
     '''
         微信端-搜索
     '''

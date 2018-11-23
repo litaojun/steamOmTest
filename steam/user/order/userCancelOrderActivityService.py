@@ -17,8 +17,9 @@ from opg.util.utils import query_json
 from steam.util.configurl import userCancelOrderActivityUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
+from steam.util.httpUopService import  HttpUopService
 from steam.user.order.userOrederActivityService import UserOrderActivityService
-class UserCancelOrderActivityService(UopService):
+class UserCancelOrderActivityService(HttpUopService):
     '''
         首页配置数据
     '''

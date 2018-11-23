@@ -18,7 +18,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userViewCourseUrl
 from opg.util.httptools import httpGet
 from collections import defaultdict
-class UserViewCourseService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserViewCourseService(HttpUopService):
     '''
         用户查看课程
     '''

@@ -17,7 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userOrderActivityUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
-class UserOrderActivityService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserOrderActivityService(HttpUopService):
     '''
         首页配置数据
     '''

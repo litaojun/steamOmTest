@@ -19,12 +19,14 @@ from steam.user.order.userDetailOrderService import  UserDetailOrderActivityServ
 from steam.util.testJsonFormat import initInput
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
+from steam.util.testJsonFormat import initInputService
+
 class UserDetailOrderActivityTest(SteamTestCase):
       '''
             点赞
       '''
       __interfaceName__ = "/order-service/order/detail"
-      @initInput( services=[ WeixinSearchService ,
+      @initInputService( services=[ WeixinSearchService ,
                              UserViewActivityService ,
                              MemberAddressService ] ,
                    curser=UserDetailOrderActivityService )

@@ -16,12 +16,14 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinQueryKeywordsService import WeixinQueryKeywordsService
 from steam.util.testJsonFormat import initInput
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
+
+from steam.util.testJsonFormat import initInputService
 class WeixinSearchTest(SteamTestCase):
       '''
             微信端用户查询热门关键字
       '''
       __interfaceName__   = "/steam-search/search/queryKeywords"
-      @initInput(services = [  ],
+      @initInputService(services = [  ],
                  curser   = WeixinQueryKeywordsService)
       def __init__(self, methodName = 'runTest',
                          param      = None):

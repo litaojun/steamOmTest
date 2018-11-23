@@ -15,13 +15,14 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchEntryService import UserSearchEntryService
 from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
+from steam.util.testJsonFormat import initInputService
 from steam.util.testJsonFormat import initInput
 class WeixinSearchEntryTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       '''
       __interfaceName__ = "/steam-resource/index/configs/searchByEntry"
-      @initInput(services = [ ],
+      @initInputService(services = [ ],
                  curser   = UserSearchEntryService  )
       def __init__(self, methodName = 'runTest',
                          param      = None):

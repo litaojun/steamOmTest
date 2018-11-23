@@ -15,12 +15,13 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initInput
 from steam.user.order.userListOrderActivityService import UserListOrderActivityService
+from steam.util.testJsonFormat import initInputService
 class UserListOrderActivityTest(SteamTestCase):
       '''
             用户查询订单列表
       '''
       __interfaceName__ = "/order-service/order"
-      @initInput(services=[],
+      @initInputService(services=[],
                  curser=UserListOrderActivityService)
       def __init__(self, methodName='runTest', param=None):
           super(UserListOrderActivityTest,self).__init__(methodName,param)

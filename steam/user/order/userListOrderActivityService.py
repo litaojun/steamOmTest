@@ -20,7 +20,8 @@ from steam.util.reqFormatPath import weixinUserListOrderActivityReq,weixinUserLi
 from opg.util.httptools import httpGet,httpPost
 from opg.util.lginfo import  logger
 import operator as op
-class UserListOrderActivityService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserListOrderActivityService(HttpUopService):
     '''
         首页配置数据
     '''

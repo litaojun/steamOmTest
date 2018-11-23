@@ -19,8 +19,9 @@ from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserDetailOrderActivityReq,weixinUserDetailOrderActivityRspFmt
 from opg.util.httptools import httpGet,httpPost
 from steam.util.testJsonFormat import initInput
+from steam.util.httpUopService import  HttpUopService
 from steam.user.order.userOrederActivityService import UserOrderActivityService
-class UserDetailOrderActivityService(UopService):
+class UserDetailOrderActivityService(HttpUopService):
     '''
         首页配置数据
     '''

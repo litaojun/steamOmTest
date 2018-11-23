@@ -18,12 +18,13 @@ from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.testJsonFormat import initInput
 from steam.user.weixin.userViewActivityService import UserViewActivityService
+from steam.util.testJsonFormat import initInputService
 class UserOrderActivityTest(SteamTestCase):
       '''
             用户订购活动
       '''
       __interfaceName__ = "/order-service/order/submitAndPay"
-      @initInput(services = [ WeixinSearchService ,
+      @initInputService(services = [ WeixinSearchService ,
                               UserViewActivityService ,
                               MemberAddressService ] ,
                  curser = UserOrderActivityService)

@@ -16,8 +16,8 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userSearchEntryUrl
 from opg.util.httptools import httpGet
-
-class UserSearchEntryService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserSearchEntryService(HttpUopService):
     '''
           微信端-分类搜索
     '''

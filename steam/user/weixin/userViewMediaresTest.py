@@ -16,14 +16,16 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userVievMediaresService import UserViewMediaresService
+
+from steam.util.testJsonFormat import initInputService
 class UserViewMediaresTest(SteamTestCase):
       '''
             用户浏览视频文章
       '''
       #__interfaceName__ = "/operation-manage/media/queryMediaByID"
       __interfaceName__ = "/steam-media/media/getMediaDetailByID"
-      @initInput(services = [WeixinSearchService],
-                 curser   = UserViewMediaresService)
+      @initInputService(services = [ WeixinSearchService ],
+                 curser   =   UserViewMediaresService )
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(UserViewMediaresTest,self).__init__(methodName,param)
