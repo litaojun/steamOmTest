@@ -57,10 +57,7 @@ class SteamTestCase(ParametrizedTestCase):
              inputData["token"] = token
         return inputData
 
-    def compareRetcodeTest(self):
-        self.rsp     = self.myservice.sendHttpReq()
-        retcode = self.myservice.getRetcodeByRsp(response = self.rsp)
-        self.assertTrue(retcode == self.expectdata["code"])
+
 
     @classmethod
     def clearPhoneData(cls):

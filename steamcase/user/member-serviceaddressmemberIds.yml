@@ -4,7 +4,7 @@ testcases:
   - testPoint: 获取用户地址列表
     preConditions:
     - ''
-    operationSteps: memberAddressTest
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       caseid: user_address_1

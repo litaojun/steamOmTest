@@ -32,6 +32,17 @@ class WeixinSearchTest(SteamTestCase):
       #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    # from steam.user.search.weixinSearchTest import WeixinSearchTest
+    # WeixinSearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    # from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+    # from steam.user.login.userLoginTest import UserLoginTest
+    # UserVerfiyCodeTest(methodName="compareRetcodeTest",
+    #                    param=[1, 2, 3, 4, 5, {}, 7, 8])
+    # UserLoginTest(methodName="compareRetcodeTest",
+    #               param=[1, 2, 3, 4, 5, {}, 7, 8])
+    from steam.runflask.util.initData import allTestCase, allTestClass
+    from opg.unit.flaskRunMgr import  genAllTestCase
+    genAllTestCase(allTestClass=allTestClass,allCase=allTestCase)
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\steam-searchsearchkeywordSearchs.yml",
                         testclse     = WeixinSearchTest

@@ -16,8 +16,8 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userCollectionUrl,userCancelCollectionUrl
 from opg.util.httptools import httpPost
-
-class UserCollectionService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserCollectionService(HttpUopService):
     '''
         用户学习列表
     '''

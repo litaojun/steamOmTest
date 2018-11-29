@@ -4,7 +4,7 @@ testcases:
   - testPoint: 取消收藏一个课程
     preConditions:
     - preInterfaceUserCollection
-    operationSteps: userCancelCollectTest
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

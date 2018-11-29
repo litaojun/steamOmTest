@@ -22,21 +22,28 @@ class UserViewMediaresTest(SteamTestCase):
       '''
             用户浏览视频文章
       '''
-      #__interfaceName__ = "/operation-manage/media/queryMediaByID"
       __interfaceName__ = "/steam-media/media/getMediaDetailByID"
-      @initInputService(services = [ WeixinSearchService ],
-                 curser   =   UserViewMediaresService )
+      @initInputService( services = [ WeixinSearchService ] ,
+                         curser   =   UserViewMediaresService )
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(UserViewMediaresTest,self).__init__(methodName,param)
 
-      def userViewMediaresNor(self):
-          articlersp = self.myservice.userViewMediares()
-          rspcode    = self.myservice.getRetcodeByRsp( response = articlersp )
-          self.assertTrue(rspcode == self.expectdata["code"])
+      # def userViewMediaresNor(self):
+      #     articlersp = self.myservice.userViewMediares()
+      #     rspcode    = self.myservice.getRetcodeByRsp( response = articlersp )
+      #     self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
+   from steam.user.search.weixinSearchTest import WeixinSearchTest
+   WeixinSearchTest(methodName="compareRetcodeTest",param = [1,2,3,4,5,{},7,8])
+   from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+   from steam.user.login.userLoginTest import UserLoginTest
+   UserVerfiyCodeTest(methodName="compareRetcodeTest",
+                      param=[1, 2, 3, 4, 5, {}, 7, 8])
+   UserLoginTest(methodName="compareRetcodeTest",
+                 param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\userViewMediacase.xlsx",
+                    casefilepath = "\\steamcase\\user\\steam-mediamediagetMediaDetailByID.yml",
                     testclse     = UserViewMediaresTest
                 )

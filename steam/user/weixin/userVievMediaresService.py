@@ -28,7 +28,7 @@ class UserViewMediaresService(HttpUopService):
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = weixinUserViewMediaresReq):
+                       reqjsonfile = None):
         """
         :param kwarg:
         :param modul:
@@ -41,16 +41,17 @@ class UserViewMediaresService(HttpUopService):
                                                       reqjsonfile = reqjsonfile)
 
     def userViewMediares(self):
-        self.rsp =  httpGet(
-                                url     = userViewMediaresUrl + self.reqjsondata,
-                                headers = self.jsonheart
-                            )
+        # self.rsp =  httpGet(
+        #                         url     = userViewMediaresUrl + self.reqjsondata,
+        #                         headers = self.jsonheart
+        #                     )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserViewMediaresRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # @check_rspdata(filepath=weixinUserViewMediaresRspFmt)
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
     def getCollectsNumByRsp(self,response = None):
         return query_json(json_content=json.loads(response),

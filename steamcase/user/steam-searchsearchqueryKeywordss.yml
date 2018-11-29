@@ -4,7 +4,7 @@ testcases:
   - testPoint: 用户按分类查询
     preConditions:
     - ''
-    operationSteps: userQueryKeywordsTest
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

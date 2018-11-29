@@ -20,8 +20,8 @@ from steam.admin.login.userLoginService import UserLoginService
 from steam.competition.update.competitionAlertService import CompetitionAlertService
 from steam.user.match.appleResetTools import getTokenReset
 from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
-from steam.user.match.appleResetTools import appleRest
-class UserMatchAppleService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserMatchAppleService(HttpUopService):
     '''
         微信端用户登录
     '''
@@ -34,17 +34,13 @@ class UserMatchAppleService(UopService):
                                                          module       = "weixin",
                                                          filename     = "matchDb.xml",
                                                          sqlvaluedict =  kwargs ,
-                                                         reqjsonfile  =  kwargs["reqjsonfile"],
+                                                         reqjsonfile  =  None,
                                                          dbName       =  "match"
                                                     )
 
-    @decorator(["preInterfaceUserMatch"])
+    @decorator(["setupUserAppleMatch"])
     def userMatchApple(self):
-        self.rsp = httpPost(
-                               url         =  userMatchAppleUrl,
-                               headers     =  self.jsonheart,
-                               reqJsonData =  self.reqjsondata
-                            )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     @decorator(["preInterfaceUserCancelMatch"])

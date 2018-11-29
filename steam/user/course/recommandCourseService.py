@@ -16,15 +16,15 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import recommandCourseUrl
 from opg.util.httptools import httpGet
-
-class RecommandCourseService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class RecommandCourseService(HttpUopService):
     '''
         用户查看推荐课程列表
     '''
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "recommandCourseReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:

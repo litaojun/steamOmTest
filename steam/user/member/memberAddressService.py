@@ -18,7 +18,8 @@ from steam.util.configurl import memberAddressUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import memberAddressRspFmt
 from opg.util.httptools import httpGet
-class MemberAddressService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class MemberAddressService(HttpUopService):
     '''
         微信端用户新增一个地址
     '''
@@ -30,13 +31,15 @@ class MemberAddressService(UopService):
         super(MemberAddressService, self).__init__("", "", kwargs )
 
     def memberAddressReq(self):
-        self.rsp = httpGet(url     = memberAddressUrl,
-                           headers = self.jsonheart)
+        # self.rsp = httpGet(url     = memberAddressUrl,
+        #                    headers = self.jsonheart)
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     def getMemberAddressIdFromRsp(self,response=None):
         if response is None:
-            response = self.memberAddressReq()
+            #response = self.memberAddressReq()
+            response = self.sendHttpReq()
         print("memberAddRSP = %s" % response)
         return query_json(json_content = json.loads(response),
                           query        = "data.0.id")
@@ -53,11 +56,11 @@ class MemberAddressService(UopService):
                 break
         return id
 
-    @check_rspdata(filepath=memberAddressRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
-
+    # @check_rspdata(filepath=memberAddressRspFmt)
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
+    @decorator(["setupGetUserAddressId"])
     def setInPutData(self):
         memberAddrId               = self.getMemberAddressIdFromRsp()
         self.inputKV["addressId"] = memberAddrId

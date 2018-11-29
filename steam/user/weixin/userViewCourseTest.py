@@ -22,19 +22,27 @@ class UserViewCourseTest(SteamTestCase):
             用户浏览课程
       '''
       __interfaceName__ = "/steam-course/course/queryCourse"
-      @initInputService( services = [WeixinSearchService],
+      @initInputService( services = [ WeixinSearchService ],
                   curser   = UserViewCourseService )
       def __init__(self, methodName = 'runTest',
                          param      = None):
           super(UserViewCourseTest,self).__init__(methodName,param)
 
-      def userViewCourseNor(self):
-          rsp        = self.myservice.userViewCourse()
-          rspcode    = self.myservice.getRetcodeByRsp( response = rsp )
-          self.assertTrue(rspcode == self.expectdata["code"])
+      # def userViewCourseNor(self):
+      #     rsp        = self.myservice.userViewCourse()
+      #     rspcode    = self.myservice.getRetcodeByRsp( response = rsp )
+      #     self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
+   from steam.user.search.weixinSearchTest import WeixinSearchTest
+   WeixinSearchTest(methodName="compareRetcodeTest",param = [1,2,3,4,5,{},7,8])
+   from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+   from steam.user.login.userLoginTest import UserLoginTest
+   UserVerfiyCodeTest(methodName="compareRetcodeTest",
+                      param=[1, 2, 3, 4, 5, {}, 7, 8])
+   UserLoginTest(methodName="compareRetcodeTest",
+                 param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\userViewCoursecase.xlsx",
+                    casefilepath = "\\steamcase\\user\\steam-coursecoursequeryCourses.yml",
                     testclse     = UserViewCourseTest
                 )

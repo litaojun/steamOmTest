@@ -16,8 +16,8 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userStudentCourseListUrl
 from opg.util.httptools import httpGet
-
-class UserStudentCourseService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserStudentCourseService(HttpUopService):
     '''
         用户查看我的学习课程列表
     '''

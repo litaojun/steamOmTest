@@ -16,7 +16,8 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import weixinUserLoginurl,weixinUserMemberIdUrl
 from opg.util.httptools import httpGet,httpPost
-class QueryMemberIdService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class QueryMemberIdService(HttpUopService):
     '''
         微信端用户登录后根据token换取memberId
     '''
@@ -25,7 +26,10 @@ class QueryMemberIdService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(QueryMemberIdService, self).__init__("", "", kwargs )
+        super(QueryMemberIdService, self).__init__(module    ="",
+                                                     filename  ="",
+                                                     sqlvaluedict = kwargs ,
+                                                     reqjsonfile  = None)
 
     def userMemberIdReq(self):
         self.rsp = httpGet(url          =  weixinUserMemberIdUrl,

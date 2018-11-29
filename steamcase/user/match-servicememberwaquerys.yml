@@ -4,7 +4,7 @@ testcases:
   - testPoint: 微信用户进入报名页面查询报名场次信息
     preConditions:
     - ''
-    operationSteps: userMatchQueryTest
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       phoneNo: '18916899938'

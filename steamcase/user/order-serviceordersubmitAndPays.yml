@@ -3,8 +3,10 @@ testcases:
   case:
   - testPoint: 用户购买下单活动成功
     preConditions:
-    - ''
-    operationSteps: userOrderActivity
+    - setupgetFirstResourceId
+    - setupUserViewActivityGoodsDetail
+    - setupGetUserAddressId
+    operationSteps: compareRetcodeTest
     testData:
     - keyword: 早鸟价接口自动化
       skuName: 价格（成人）
@@ -19,8 +21,10 @@ testcases:
       code: '000000'
   - testPoint: 用户购买下单商品成功
     preConditions:
-    - ''
-    operationSteps: userOrderActivity
+    - setupgetFirstResourceId
+    - setupUserViewActivityGoodsDetail
+    - setupGetUserAddressId
+    operationSteps: compareRetcodeTest
     testData:
     - keyword: 创客教育儿童早教学习接口自动化
       skuName: 体验课

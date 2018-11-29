@@ -12,6 +12,7 @@
 @time: 2018/7/9 15:53 
 """
 from opg.util.uopService import UopService
+from opg.util.uopService import decorator
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userViewActivityUrl
@@ -36,10 +37,11 @@ class UserViewActivityService(HttpUopService):
 
 
     def userViewActivity(self):
-        self.rsp =  httpGet(
-                                  url     = userViewActivityUrl + self.reqjsondata,
-                                  headers = self.jsonheart
-                            )
+        # self.rsp =  httpGet(
+        #                           url     = userViewActivityUrl + self.reqjsondata,
+        #                           headers = self.jsonheart
+        #                     )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
@@ -61,6 +63,7 @@ class UserViewActivityService(HttpUopService):
         return query_json(json_content=json.loads(response),
                           query       ="data.collects")
 
+    @decorator(["setupUserViewActivityGoodsDetail"])
     def setInPutData(self):
         try:
             if self.rsp is None:

@@ -1,11 +1,10 @@
 testcases:
-- &id001
-  interfaceName: /member-service/address-add
+- interfaceName: /member-service/address-add
   case:
   - testPoint: 用户新增地址
     preConditions:
     - ''
-    operationSteps: memberAddressTest
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       consignee: 李菠萝
@@ -20,60 +19,3 @@ testcases:
       testPoint: 用户新增地址
     expectedResult:
       code: '200'
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-  - testPoint: ''
-    preConditions:
-    - ''
-    operationSteps: ''
-    testData:
-    - caseid: ''
-      testPoint: ''
-    expectedResult: {}
-- *id001

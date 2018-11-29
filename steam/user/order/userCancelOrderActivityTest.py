@@ -15,7 +15,7 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userCancelOrderActivityService import UserCancelOrderActivityService
-from steam.util.testJsonFormat import initInput
+from steam.user.order.userOrederActivityService import UserOrderActivityService
 from steam.user.weixin.userViewActivityService import UserViewActivityService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.util.testJsonFormat import initInputService
@@ -24,17 +24,18 @@ class UserCancelOrderActivityTest(SteamTestCase):
             取消点赞
       '''
       __interfaceName__ = "/order-service/order/cancel"
-      @initInputService(services = [WeixinSearchService,
-                             UserViewActivityService,
-                             MemberAddressService],
-                 curser = UserCancelOrderActivityService)
+      @initInputService( services = [ WeixinSearchService      ,
+                                      UserViewActivityService  ,
+                                      MemberAddressService     ,
+                                      UserOrderActivityService ] ,
+                            curser =  UserCancelOrderActivityService )
       def __init__(self, methodName='runTest', param=None):
           super(UserCancelOrderActivityTest,self).__init__(methodName,param)
 
-      def userCancelOrderActivity(self):
-          userCancelOrderRsp = self.myservice.userCancelOrderActivity()
-          retcode            = self.myservice.getRetcodeByOrderRsp(response=userCancelOrderRsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def userCancelOrderActivity(self):
+      #     userCancelOrderRsp = self.myservice.userCancelOrderActivity()
+      #     retcode            = self.myservice.getRetcodeByOrderRsp(response=userCancelOrderRsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     kwarg = {

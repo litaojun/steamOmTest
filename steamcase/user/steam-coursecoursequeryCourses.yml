@@ -3,8 +3,8 @@ testcases:
   case:
   - testPoint: 查看一个课程
     preConditions:
-    - ''
-    operationSteps: userViewCourseNor
+    - setupgetFirstResourceId
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

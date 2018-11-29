@@ -17,12 +17,13 @@ from opg.unit.testcaseRunMgr   import runTestOneCls
 from steam.user.search.weixinSearchService         import WeixinSearchService
 from steam.user.weixin.userViewCourseService       import UserViewCourseService
 from steam.user.course.queryAliyunVideoAuthService import QueryAliyunVideoAuthService
+from steam.util.testJsonFormat import initInputService
 class QueryAliyunVideoAuthTest(SteamTestCase):
       '''
             用户获取观看权限字符串
       '''
       __interfaceName__ = "/steam-course/course/queryAliyunVideoAuth"
-      @initInput( services = [ WeixinSearchService , UserViewCourseService ],
+      @initInputService( services = [ WeixinSearchService , UserViewCourseService ],
                   curser   = QueryAliyunVideoAuthService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
@@ -34,7 +35,17 @@ class QueryAliyunVideoAuthTest(SteamTestCase):
           self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
+   from steam.user.search.weixinSearchTest import WeixinSearchTest
+   from steam.user.weixin.userViewCourseTest import UserViewCourseTest
+   WeixinSearchTest(methodName="compareRetcodeTest",param = [1,2,3,4,5,{},7,8])
+   UserViewCourseTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+   from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+   from steam.user.login.userLoginTest import UserLoginTest
+   UserVerfiyCodeTest( methodName = "compareRetcodeTest",
+                       param      = [1, 2, 3, 4, 5, {}, 7, 8] )
+   UserLoginTest(methodName="compareRetcodeTest",
+                 param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\aliyunVideoAuthcase.xlsx",
+                    casefilepath = "\\steamcase\\user\\steam-coursecoursequeryAliyunVideoAuths.yml",
                     testclse     = QueryAliyunVideoAuthTest
                 )

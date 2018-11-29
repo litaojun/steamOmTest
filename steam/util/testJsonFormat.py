@@ -51,8 +51,12 @@ def initInputService(services = [],
             sf.myservice.initInterfaceData()
             sf.setService(sf.myservice)
             for ser in services:
-                opser = ser(kwargs = sf.inputdata)
-                opser.initInterfaceData()
+                if isinstance(ser,list):
+                   opser = ser[0](kwargs = sf.inputdata)
+                   opser.initInterfaceData(ser[1])
+                else:
+                   opser = ser(kwargs = sf.inputdata)
+                   opser.initInterfaceData()
                 for name in opser.ifacedict:
                     sf.myservice.ifacedict[name] = opser.ifacedict[name]
         return __call

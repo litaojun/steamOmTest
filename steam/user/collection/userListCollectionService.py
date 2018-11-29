@@ -13,11 +13,11 @@
 """
 from opg.util.uopService import UopService,decorator
 import json
-from opg.util.utils import query_json
-from steam.util.configurl import userListCollectionUrl
-from opg.util.httptools import httpGet
-
-class UserListCollectionService(UopService):
+from   opg.util.utils import query_json
+from   steam.util.configurl import userListCollectionUrl
+from   opg.util.httptools import httpGet
+from   steam.util.httpUopService import  HttpUopService
+class UserListCollectionService(HttpUopService):
     '''
         用户学习列表
     '''
@@ -42,9 +42,9 @@ class UserListCollectionService(UopService):
         return self.rsp
 
     #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
-    def getRetcodeByRsp(self,response  = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response  = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 if  __name__ == "__main__":
     kwargs = {

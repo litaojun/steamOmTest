@@ -26,7 +26,7 @@ class UserOrderActivityService(HttpUopService):
                  kwargs = {},
                  modul  = "",
                  filename    = "",
-                 reqjsonfile = "weixinUserOrderActivitisReq"):
+                 reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:
@@ -40,17 +40,18 @@ class UserOrderActivityService(HttpUopService):
     @decorator(["tearInterfaceUserOrderActivity",
                 "preInterfaceUserOrderActivity"])
     def userOrderActivity(self):
-        self.rsp =  httpPost(
-                                        url         =  userOrderActivityUrl ,
-                                        headers     =  self.jsonheart      ,
-                                        reqJsonData =  self.userThOrderActivityReqjson
-                            )
+        # self.rsp =  httpPost(
+        #                                 url         =  userOrderActivityUrl ,
+        #                                 headers     =  self.jsonheart      ,
+        #                                 reqJsonData =  self.userThOrderActivityReqjson
+        #                     )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
-    @decorator(["setuptestone"])
-    def testa(self):
-        print(self.inputKV)
-        print("ssssff")
+    # @decorator(["setuptestone"])
+    # def testa(self):
+    #     print(self.inputKV)
+    #     print("ssssff")
 
     #@check_rspdata(filepath="weixinUserOrderActivitisRspFmt")
     def getRetcodeByOrderRsp(self,response = None):
@@ -62,6 +63,10 @@ class UserOrderActivityService(HttpUopService):
            response = self.userOrderActivity()
         return query_json(json_content = json.loads(response),
                           query        = "data.orderId")
+
+    @decorator(["setupUserOrderActivity"])
+    def setOrderIdToInputKV(self):
+        self.inputKV["orderId"] = self.getOrderIdFromRsp()
 
 if __name__ == "__main__":
     kwarg        = {

@@ -18,7 +18,8 @@ from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.configurl import userDelAddressUrl,userAddAddressUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpDelete,httpPost
-class UserDelAddressService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserDelAddressService(HttpUopService):
     '''
         微信端用户获取地址列表
     '''
@@ -37,10 +38,10 @@ class UserDelAddressService(UopService):
                               headers = self.jsonheart)
         return self.rsp
 
-    @check_rspdata(filepath="userDelAddressRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content=json.loads(response),
-                          query       ="code")
+    # @check_rspdata(filepath="userDelAddressRspFmt")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content=json.loads(response),
+    #                       query       ="code")
 
     @decorator(["preInterfaceUserAddAddress"])
     def userAddAddressReq(self):

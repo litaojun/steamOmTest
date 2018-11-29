@@ -17,7 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userMatchAppleQueryUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
-class UserMatchAppleQueryService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserMatchAppleQueryService(HttpUopService):
     '''
         微信端用户查询已报名信息
     '''
@@ -29,17 +30,18 @@ class UserMatchAppleQueryService(UopService):
         super(UserMatchAppleQueryService, self).__init__(module   = "",
                                                          filename = "",
                                                          sqlvaluedict = kwargs ,
-                                                         reqjsonfile  = "userMatchAppleQueryReq")
+                                                         reqjsonfile  = None)
 
     def userMatchAppleQuery(self):
-        self.rsp = httpPost(url         = userMatchAppleQueryUrl,
-                            headers     = self.jsonheart,
-                            reqJsonData = self.reqjsondata)
+        # self.rsp = httpPost(url         = userMatchAppleQueryUrl,
+        #                     headers     = self.jsonheart,
+        #                     reqJsonData = self.reqjsondata)
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     def getMatchNameDict(self,response = None):
         if response is None:
-           response = self.userMatchAppleQuery()
+           response = self.sendHttpReq()
         userAppleMatchLs = query_json(json_content = json.loads(response),
                                       query        = "applyInfoList")
         return dict([(x["matchName"], x) for x in userAppleMatchLs])
@@ -50,6 +52,10 @@ class UserMatchAppleQueryService(UopService):
         matchDict = self.getMatchNameDict(response = response)
         if matchName in matchDict:
            return  matchDict[matchName]["applyId"]
+
+    @decorator(["setupGetAppleId","tearDownGetAppleId"])
+    def getAppleIdByMatchName(self):
+        self.inputKV["applyId"] = self.getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
 
     #@check_rspdata(filepath = "userMatchAppleQueryRspFmt")
     def getRetcodeByRsp(self,response = None):

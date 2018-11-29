@@ -3,8 +3,10 @@ testcases:
   case:
   - testPoint: 微信用户取消亲子赛报名
     preConditions:
-    - preInterfaceUserMatch
-    operationSteps: userCancelMatchAppleTest
+    - setupGetSubMatchId
+    - setupUserAppleMatch
+    - setupGetAppleId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-勿动
@@ -23,7 +25,8 @@ testcases:
       school: 文庙路幼儿园
       nationality: ''
       sign: start
-      reqjsonfile: userMatchAppleReq
+      reqjsonfile: formatone
+      preMatchAppleReqjsonfile: formatone
       limitCount: 30000
       applyId: '100011'
       caseid: match_apple_1
@@ -32,8 +35,10 @@ testcases:
       code: '000000'
   - testPoint: 微信用户取消国赛报名
     preConditions:
-    - preInterfaceUserMatch
-    operationSteps: userCancelMatchAppleTest
+    - setupGetSubMatchId
+    - setupUserAppleMatch
+    - setupGetAppleId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -46,7 +51,8 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-正常-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
+      reqjsonfile: formatone
+      preMatchAppleReqjsonfile: guosFormat
       applyId: '100011'
       caseid: match_apple_2
       testPoint: 微信用户取消国赛报名

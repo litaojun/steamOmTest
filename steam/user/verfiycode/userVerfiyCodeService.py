@@ -18,7 +18,9 @@ from steam.util.configurl import weixinUserVerifyCodeurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import weixinUserVerfiyCodeReq,weixinUserVerfiyCodeRspFmt
 from opg.util.redisUtil import RedisOper
-class WeixinUserVerfiyCodeService(UopService):
+from steam.util.httpUopService import  HttpUopService
+from opg.util.uopService import UopService,decorator
+class WeixinUserVerfiyCodeService(HttpUopService):
     '''
         微信端用户登录
     '''
@@ -27,21 +29,18 @@ class WeixinUserVerfiyCodeService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(WeixinUserVerfiyCodeService, self).__init__("", "", kwargs , reqjsonfile = weixinUserVerfiyCodeReq)
+        super(WeixinUserVerfiyCodeService, self).__init__("",
+                                                          "",
+                                                          kwargs ,
+                                                          reqjsonfile = None)
         self.rsp = None
         self.userVerfiyCodeReqjson = self.reqjsondata
 
+
+
     def sendUserVerifyCode(self):
-        weixinUserLoginRsp = requests.post(
-                                                url    = weixinUserVerifyCodeurl,
-                                                json   = self.userVerfiyCodeReqjson,
-                                                headers= self.jsonheart,
-                                                verify = False
-                                              )
-        self.rsp = weixinUserLoginRsp.text
-        print("userVerfiyCodeReqjson = %s" % self.userVerfiyCodeReqjson)
-        print("homePageCnfRsp = %s" % weixinUserLoginRsp.text)
-        return weixinUserLoginRsp.text
+        self.rsp = self.sendHttpReq()
+        return self.rsp
 
     @check_rspdata(filepath=weixinUserVerfiyCodeRspFmt)
     def getRetcodeByRsp(self,response = None):
@@ -54,12 +53,13 @@ class WeixinUserVerfiyCodeService(UopService):
 
     def getVerfiyCodeFromRedisByPhone(self,phoneNum = ""):
         if phoneNum is None or phoneNum == "":
-            phoneNum = self.userVerfiyCodeReqjson["phoneNo"]
+            phoneNum = self.inputKV["phoneNo"]
         curRedis   = RedisOper()
         verfiyCode = curRedis.getSteamVerCodeByPhone(phone  = phoneNum,
                                                      scenes = self.inputKV["scenes"])
         return verfiyCode
 
+    @decorator("setupSendVerifyCode")
     def setInPutData(self):
         if self.rsp is None:
            self.rsp = self.sendUserVerifyCode()

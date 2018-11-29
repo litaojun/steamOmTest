@@ -13,29 +13,32 @@
 """
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.util.testJsonFormat import initInput
-from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
-from steam.user.login.userLoginService import WeixinUserLoginService
+from steam.util.testJsonFormat import initInputService
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
-class UserLoginTest(SteamTestCase):
+class QueryMemberIdTest(SteamTestCase):
       '''
             微信端用户通过token获取memberID
       '''
       __interfaceName__ = "/member/login/queryMemberInfo"
-      @initInput(services = [WeixinUserVerfiyCodeService ,
-                             WeixinUserLoginService ],
-                 curser   =  QueryMemberIdService)
+      @initInputService( services =  [ ] ,
+                         curser   =  QueryMemberIdService )
       def __init__(self, methodName = 'runTest',
                          param      = None):
-          super(UserLoginTest,self).__init__(methodName,param)
+          super(QueryMemberIdTest,self).__init__(methodName,param)
 
-      def getUserMidTest(self):
-          rsp     = self.myservice.userMemberIdReq()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def getUserMidTest(self):
+      #     rsp     = self.myservice.userMemberIdReq()
+      #     retcode = self.myservice.getRetcodeByRsp(response=rsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+    from steam.user.login.userLoginTest import UserLoginTest
+    UserVerfiyCodeTest( methodName = "compareRetcodeTest" ,
+                        param      = [1, 2, 3, 4, 5, {}, 7, 8] )
+    UserLoginTest( methodName = "compareRetcodeTest" ,
+                   param      = [1, 2, 3, 4, 5, {}, 7, 8] )
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userQueryMemberIdcase.xlsx",
-                        testclse     = UserLoginTest
+                        casefilepath = "\\steamcase\\user\\memberloginqueryMemberInfos.yml",
+                        testclse     = QueryMemberIdTest
                  )

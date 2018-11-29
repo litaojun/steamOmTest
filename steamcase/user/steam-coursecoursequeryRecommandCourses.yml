@@ -3,8 +3,8 @@ testcases:
   case:
   - testPoint: 查看课程的推荐列表
     preConditions:
-    - ''
-    operationSteps: recommandCourseNor
+    - setupgetFirstResourceId
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

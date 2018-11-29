@@ -4,7 +4,7 @@ testcases:
   - testPoint: 查看我的课程列表
     preConditions:
     - ''
-    operationSteps: recommandCourseNor
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

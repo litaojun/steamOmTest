@@ -17,7 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userMatchQueryUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
-class UserMatchQueryService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserMatchQueryService(HttpUopService):
     '''
         微信端用户报名
     '''
@@ -29,7 +30,7 @@ class UserMatchQueryService(UopService):
         super(UserMatchQueryService, self).__init__(module   = "",
                                                     filename = "",
                                                     sqlvaluedict = kwargs ,
-                                                    reqjsonfile  = "userMatchQueryReq")
+                                                    reqjsonfile  = None)
 
     def userMatchQuery(self):
         self.rsp = httpPost(url         = userMatchQueryUrl,
@@ -44,18 +45,21 @@ class UserMatchQueryService(UopService):
 
     def getMatchTitleIds(self,response = None):
         if response is None:
-           response = self.userMatchQuery()
+           #response = self.userMatchQuery()
+           response = self.sendHttpReq()
         matchTitleLs = query_json(json_content = json.loads(response),
                                   query        = "subMatchList.0.subjectList")
         return [x["id"] for x in matchTitleLs]
 
     def getNameMatchIdDict(self,response = None):
         if response is None:
-           response = self.userMatchQuery()
+           #response = self.userMatchQuery()
+           response = self.sendHttpReq()
         titleLs = query_json(json_content = json.loads(response),
                              query        = "subMatchList")
         return dict([(x["matchName"],x) for x in titleLs])
 
+    @decorator(["setupGetSubMatchId"])
     def setInPutData(self):
         if "subMatchName" in self.inputKV:
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)

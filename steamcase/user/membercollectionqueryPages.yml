@@ -4,7 +4,7 @@ testcases:
   - testPoint: 获取视频播放的鉴权信息
     preConditions:
     - ''
-    operationSteps: userListCollectTest
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

@@ -17,15 +17,15 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userResourceVisistUrl
 from opg.util.httptools import httpPost
-
-class ResourceVisitService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class ResourceVisitService(HttpUopService):
     '''
         用户浏览内容后浏览量+1
     '''
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "resourceVisitReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:
@@ -43,9 +43,9 @@ class ResourceVisitService(UopService):
                              )
         return self.rsp
 
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 if  __name__ == "__main__":
     kwargs = {

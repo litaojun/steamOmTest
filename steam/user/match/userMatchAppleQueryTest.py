@@ -15,23 +15,24 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
 from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInputService
 class UserMatchAppleQueryTest(SteamTestCase):
       '''
             微信用户查询已报名信息
       '''
       __interfaceName__   = "/match-service/member/mp/query"
-      @initInput(services = [],
-                 curser   = UserMatchAppleQueryService)
+      @initInputService( services = [] ,
+                         curser   = UserMatchAppleQueryService )
       def __init__(self, methodName='runTest', param=None):
           super(UserMatchAppleQueryTest,self).__init__(methodName,param)
 
-      def userMatchAppleQueryTest(self):
-          rsp     = self.myservice.userMatchAppleQuery()
-          retcode = self.myservice.getRetcodeByRsp(response = rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def userMatchAppleQueryTest(self):
+      #     rsp     = self.myservice.userMatchAppleQuery()
+      #     retcode = self.myservice.getRetcodeByRsp(response = rsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userMatchAppleQuerycase.xlsx",
+                        casefilepath = "\\steamcase\\user\\match-servicemembermpquerys.yml",
                         testclse = UserMatchAppleQueryTest
                  )

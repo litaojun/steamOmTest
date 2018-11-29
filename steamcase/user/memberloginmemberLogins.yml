@@ -3,14 +3,14 @@ testcases:
   case:
   - testPoint: 登录
     preConditions:
-    - ''
-    operationSteps: userLoginTest
+    - setupSendVerifyCode
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10
       resourceTypeId: 11
       keyword: 早教学习儿童编程机器人套件益智智能机器人
-      phoneNo: '13004167652'
+      phoneNo: '18916899938'
       scenes: OTP
       caseid: user_search_1
       testPoint: 登录

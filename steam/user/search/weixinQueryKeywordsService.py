@@ -39,9 +39,9 @@ class WeixinQueryKeywordsService(HttpUopService):
                            )
         return self.rsp
 
-    def getRetcodeByRsp(self,response  = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response  = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 if __name__ == "__main__":
     queryJsonData = {

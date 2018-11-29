@@ -3,9 +3,9 @@ from opg.util.uopService import decorator,UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import memberPersonalCenterUrl
-from opg.util.schemajson import check_rspdata
+from steam.util.httpUopService import  HttpUopService
 from opg.util.httptools import httpGet
-class MemberPersonalCenterService(UopService):
+class MemberPersonalCenterService(HttpUopService):
     '''
         微信端用户个人信息页面
     '''

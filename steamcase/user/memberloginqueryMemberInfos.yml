@@ -4,7 +4,7 @@ testcases:
   - testPoint: 通过token获取memberId
     preConditions:
     - ''
-    operationSteps: getUserMidTest
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18510699506'
       scenes: OTP

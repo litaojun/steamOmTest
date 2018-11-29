@@ -17,7 +17,7 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import userViewCourseUrl
 from opg.util.httptools import httpGet
-from collections import defaultdict
+from opg.util.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 class UserViewCourseService(HttpUopService):
     '''
@@ -26,7 +26,7 @@ class UserViewCourseService(HttpUopService):
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "weixinUserVieeCourseReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:
@@ -36,16 +36,17 @@ class UserViewCourseService(HttpUopService):
                                                       sqlvaluedict = kwargs ,
                                                       reqjsonfile  = reqjsonfile )
 
-    def userViewCourse(self):
-        self.rsp =  httpGet(
-                                  url     = userViewCourseUrl + self.reqjsondata,
-                                  headers = self.jsonheart
-                            )
-        return self.rsp
+    # def userViewCourse(self):
+    #     self.rsp =  httpGet(
+    #                               url     = userViewCourseUrl + self.reqjsondata,
+    #                               headers = self.jsonheart
+    #                         )
+    #     return self.rsp
 
     def genChapterSectionNameDict(self,response = None):
         if response is None:
-           response = self.userViewCourse()
+           # response = self.userViewCourse()
+           response = self.sendHttpReq()
         chapters = query_json(json_content = json.loads(response),
                               query        = "data.courseCategory.chapters")
         return dict([(  chapter["chapterName"],
@@ -54,6 +55,7 @@ class UserViewCourseService(HttpUopService):
                              )
                            for chapter in chapters ])
 
+    @decorator(["setupgetChapterMaterialId"])
     def setInPutData(self):
         charpterSecttionDict = self.genChapterSectionNameDict()
         if "sectionName" in self.inputKV and "chapterName" in self.inputKV:

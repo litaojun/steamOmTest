@@ -11,14 +11,13 @@
 @file: hotPositionService.py 
 @time: 2018/6/6 17:37 
 """
-from opg.util.uopService import decorator,UopService
-import requests,json
+import json
 from opg.util.utils import query_json
 from steam.util.configurl import hotPositonUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homePositionReq,homePositionRspFmt
 from opg.util.httptools import httpGet
-from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
+from steam.user.cnfquery.homeCnfQueryService import HomeCnfQueryService
 import operator as op
 class HomeHotPositionService(HomeCnfQueryService):
     '''

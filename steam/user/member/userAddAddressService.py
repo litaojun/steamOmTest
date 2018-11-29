@@ -17,7 +17,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import userAddAddressUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpGet,httpPost
-class UserAddAddressService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserAddAddressService(HttpUopService):
     '''
         微信端用户获取地址列表
     '''
@@ -26,20 +27,17 @@ class UserAddAddressService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserAddAddressService, self).__init__("", "", kwargs,reqjsonfile="userAddAddressReq")
+        super(UserAddAddressService, self).__init__("", "", kwargs)
 
+    @decorator(["setupUserAddAddress"])
     def userAddAddressReq(self):
-        self.rsp = httpPost(
-                                url         = userAddAddressUrl,
-                                reqJsonData = self.reqjsondata,
-                                headers     = self.jsonheart
-                            )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
-    @check_rspdata(filepath="userAddAddressRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content= json.loads(response),
-                          query       = "code")
+    # @check_rspdata(filepath="userAddAddressRspFmt")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content= json.loads(response),
+    #                       query       = "code")
 
 if __name__ == "__main__":
     kwargs = {

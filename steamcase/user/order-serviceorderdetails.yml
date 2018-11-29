@@ -3,8 +3,11 @@ testcases:
   case:
   - testPoint: 用户查看订单详情
     preConditions:
-    - preInterfaceUserOrderActivtiy
-    operationSteps: userDetailOrderActivity
+    - setupgetFirstResourceId
+    - setupUserViewActivityGoodsDetail
+    - setupGetUserAddressId
+    - setupUserOrderActivity
+    operationSteps: compareRetcodeTest
     testData:
     - keyword: 早鸟价
       skuName: 价格（成人）

@@ -12,9 +12,11 @@
 @time: 2018/11/16 16:09 
 """
 from opg.util.utils import query_json
-from opg.util.uopService import UopService,loadStrFromFile
+from opg.util.uopService import UopService,loadStrFromFile,decorator
 from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete
+
+
 import json
 class HttpUopService(UopService):
       """
@@ -23,9 +25,15 @@ class HttpUopService(UopService):
       def __init__( self,module    = None ,
                          filename = None ,
                          sqlvaluedict = None ,
-                         reqjsonfile  = None ):
-          super(HttpUopService, self).__init__(module    = module  ,filename = filename ,sqlvaluedict = sqlvaluedict ,reqjsonfile  = reqjsonfile ,dbName=None)
+                         reqjsonfile  = None,
+                         dbName = None):
+          super(HttpUopService, self).__init__(module    = module  ,
+                                               filename  = filename ,
+                                               sqlvaluedict = sqlvaluedict ,
+                                               reqjsonfile  = reqjsonfile ,
+                                               dbName       = dbName)
 
+      # @decorator(["setupUserAppleMatch"])
       def sendHttpReq(self):
           urlPathSign = self.__class__.__interfaceName__
           method        = httpData[urlPathSign][0]

@@ -11,7 +11,7 @@
 @file: homeCnfQueryTest.py 
 @time: 2018/6/5 10:48 
 """
-from steam.home.cnfquery.homeCnfQueryService import HomeCnfQueryService
+from steam.user.cnfquery.homeCnfQueryService import HomeCnfQueryService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class HomeCnfQueryTest(SteamTestCase):

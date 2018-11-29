@@ -16,23 +16,24 @@ from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.util.testJsonFormat import initInput
-import time
+from steam.util.testJsonFormat import initInputService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
-class UserVerfiyCodeTest(ParametrizedTestCase):
+from steam.util.steamLog import SteamTestCase
+class UserVerfiyCodeTest(SteamTestCase):
       '''
             微信端用户通过手机号码登录
       '''
       __interfaceName__ = "/passport/verifyCode"
-      @initInput(services = [],
-                 curser   = WeixinUserVerfiyCodeService)
-      def __init__(self, methodName = 'runTest',
-                         param      = None):
+      @initInputService(services = [],
+                        curser   = WeixinUserVerfiyCodeService)
+      def __init__( self, methodName = 'runTest',
+                          param      = None ):
           super(UserVerfiyCodeTest,self).__init__(methodName,param)
 
-      def userSendVerfiyCodeTest(self):
-          rsp     = self.myservice.sendUserVerifyCode()
-          retcode = self.myservice.getRetcodeByRsp(response = rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def userSendVerfiyCodeTest(self):
+      #     rsp     = self.myservice.sendUserVerifyCode()
+      #     retcode = self.myservice.getRetcodeByRsp(response = rsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     runTestOneCls(

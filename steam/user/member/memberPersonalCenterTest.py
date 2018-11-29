@@ -15,13 +15,14 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.member.memberPersonalCenterService import MemberPersonalCenterService
 from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInputService
 class MemberPersonalCenterTest(SteamTestCase):
       '''
             微信端用户个人信息页面
       '''
       __interfaceName__ = "/member-service/members/personalCenter-del"
-      @initInput(services=[],
-                 curser  =MemberPersonalCenterService)
+      @initInputService(services = [],
+                        curser   = MemberPersonalCenterService)
       def __init__(self, methodName='runTest', param=None):
           super(MemberPersonalCenterTest,self).__init__(methodName,param)
 

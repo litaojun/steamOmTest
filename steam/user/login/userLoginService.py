@@ -20,7 +20,9 @@ from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from opg.util.httptools import httpPost
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
-class WeixinUserLoginService(UopService):
+from steam.util.httpUopService import  HttpUopService
+
+class WeixinUserLoginService(HttpUopService):
     '''
         微信端用户登录
     '''
@@ -32,15 +34,16 @@ class WeixinUserLoginService(UopService):
         super(WeixinUserLoginService, self).__init__(module    ="",
                                                      filename  ="",
                                                      sqlvaluedict = kwargs ,
-                                                     reqjsonfile  = weixinUserLoginReq)
+                                                     reqjsonfile  = None)
         self.weixinUserLoginReqjson = self.reqjsondata
         kwargs["scenes"] = "OTP"
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
     def weixinUserLogin(self):
-        self.rsp = httpPost(url         = weixinUserLoginurl,
-                            headers     = self.jsonheart,
-                            reqJsonData = self.weixinUserLoginReqjson)
+        # self.rsp = httpPost(url         = weixinUserLoginurl,
+        #                     headers     = self.jsonheart,
+        #                     reqJsonData = self.weixinUserLoginReqjson)
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     def getMemberIdFromRsp(self,response=None):

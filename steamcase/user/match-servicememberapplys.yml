@@ -3,8 +3,10 @@ testcases:
   case:
   - testPoint: 亲子赛-微信用户提交报名信息
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    - tearDownGetAppleId
+    - tearDownCancelMatchApple
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-勿动
@@ -23,7 +25,10 @@ testcases:
       school: 文庙路幼儿园
       nationality: ''
       sign: start
-      reqjsonfile: userMatchAppleReq
+      reqjsonfile: formatone
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
       limitCount: 30000
       caseid: match_apple_1
       testPoint: 亲子赛-微信用户提交报名信息
@@ -31,8 +36,11 @@ testcases:
       code: '000000'
   - testPoint: 亲子赛-已报名用户再次报名-000001
     preConditions:
-    - preInterfaceUserMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    - setupUserAppleMatch
+    - tearDownGetAppleId
+    - tearDownCancelMatchApple
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-勿动
@@ -51,7 +59,10 @@ testcases:
       school: 文庙路幼儿园
       nationality: ''
       sign: start
-      reqjsonfile: userMatchAppleReq
+      reqjsonfile: formatone
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
       limitCount: 30000
       caseid: match_apple_2
       testPoint: 亲子赛-已报名用户再次报名-000001
@@ -59,8 +70,8 @@ testcases:
       code: '000001'
   - testPoint: 亲子赛-用户报名已结束赛事场次-000006
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-已结束-勿动
@@ -79,7 +90,10 @@ testcases:
       school: 文庙路幼儿园
       nationality: ''
       sign: end
-      reqjsonfile: userMatchAppleReq
+      reqjsonfile: formatone
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
       limitCount: 30000
       caseid: match_apple_3
       testPoint: 亲子赛-用户报名已结束赛事场次-000006
@@ -87,8 +101,8 @@ testcases:
       code: '000006'
   - testPoint: 亲子赛-用户报名未开始赛事场次-000007
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-未开始-勿动
@@ -107,7 +121,10 @@ testcases:
       school: 文庙路幼儿园
       nationality: ''
       sign: notStart
-      reqjsonfile: userMatchAppleReq
+      reqjsonfile: formatone
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
       limitCount: 30000
       caseid: match_apple_4
       testPoint: 亲子赛-用户报名未开始赛事场次-000007
@@ -115,8 +132,8 @@ testcases:
       code: '000007'
   - testPoint: 亲子赛-用户报名已满额赛事场次-000008
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 22
       subMatchName: 自动化测试专用-已满额-勿动
@@ -134,17 +151,22 @@ testcases:
       group: 幼儿园
       school: 文庙路幼儿园
       nationality: ''
-      reqjsonfile: userMatchAppleReq
       limitCount: 2
       sign: start
       caseid: match_apple_5
       testPoint: 亲子赛-用户报名已满额赛事场次-000008
+      reqjsonfile: formatone
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000008'
   - testPoint: 国赛-微信用户提交报名信息
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    - tearDownGetAppleId
+    - tearDownCancelMatchApple
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -157,16 +179,21 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-正常-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
       caseid: match_apple_6
       testPoint: 国赛-微信用户提交报名信息
+      reqjsonfile: guosFormat
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000000'
   - testPoint: 国赛-已报名用户再次报名-000001
     preConditions:
-    - preInterfaceUserCancelMatch
-    - preInterfaceUserMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    - setupUserAppleMatch
+    - tearDownGetAppleId
+    - tearDownCancelMatchApple
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -179,15 +206,18 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-正常-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
       caseid: match_apple_7
       testPoint: 国赛-已报名用户再次报名-000001
+      reqjsonfile: guosFormat
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000001'
   - testPoint: 国赛-用户报名已结束赛事场次-000006
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -200,15 +230,18 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-已结束-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
       caseid: match_apple_8
       testPoint: 国赛-用户报名已结束赛事场次-000006
+      reqjsonfile: guosFormat
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000006'
   - testPoint: 国赛-用户报名未开始赛事场次-000007
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -221,15 +254,18 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-未开始-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
       caseid: match_apple_9
       testPoint: 国赛-用户报名未开始赛事场次-000007
+      reqjsonfile: guosFormat
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000007'
   - testPoint: 国赛-用户报名已满额赛事场次-000008
     preConditions:
-    - preInterfaceUserCancelMatch
-    operationSteps: userMatchAppleTest
+    - setupGetSubMatchId
+    operationSteps: compareRetcodeTest
     testData:
     - matchId: 200
       contactName: 曹操
@@ -242,8 +278,11 @@ testcases:
       postCode: '200100'
       subMatchName: 国赛-已满员-自动化测试-勿动
       phoneNo: '18916899938'
-      reqjsonfile: userMatchAppleReqGuosai
       caseid: match_apple_10
       testPoint: 国赛-用户报名已满额赛事场次-000008
+      reqjsonfile: guosFormat
+      preMatchAppleQueryReqjsonfile: formatone
+      preMatchQueryReqjsonfile: formatone
+      preCancelMatchAppleReqjsonfile: formatone
     expectedResult:
       code: '000008'

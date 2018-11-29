@@ -16,15 +16,15 @@ import json
 from opg.util.utils import query_json
 from steam.util.configurl import queryAliyunVideoAuthUrl
 from opg.util.httptools import httpGet
-
-class QueryAliyunVideoAuthService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class QueryAliyunVideoAuthService(HttpUopService):
     '''
         用户获取播放权限信息
     '''
     def __init__(self, kwargs      = {},
                        modul       = "",
                        filename    = "",
-                       reqjsonfile = "queryAliyunVideoAuthReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:

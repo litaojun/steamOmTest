@@ -12,14 +12,14 @@
 @time: 2018/7/26 15:34 
 """
 from opg.util.uopService import decorator,UopService
-import json
+from steam.util.httpUopService import  HttpUopService
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from opg.util.utils import query_json
 from steam.util.configurl import userCancelMatchAppleUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
 from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
-class UserCancelMatchAppleService(UopService):
+class UserCancelMatchAppleService(HttpUopService):
     '''
         微信端用户取消报名
     '''
@@ -32,14 +32,15 @@ class UserCancelMatchAppleService(UopService):
                                                               module       = "weixin",
                                                               filename     = "matchDb.xml",
                                                               sqlvaluedict = kwargs ,
-                                                              reqjsonfile  = "userCancelMatchAppleReq",
+                                                              reqjsonfile  = None,
                                                               dbName       = "match"
                                                          )
-
+    @decorator(["tearDownCancelMatchApple"])
     def userCancelMatchApple(self):
-        self.rsp = httpPost(url         = userCancelMatchAppleUrl,
-                            headers     = self.jsonheart,
-                            reqJsonData = self.reqjsondata)
+        # self.rsp = httpPost(url         = userCancelMatchAppleUrl,
+        #                     headers     = self.jsonheart,
+        #                     reqJsonData = self.reqjsondata)
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
     @decorator(["preInterfaceUserMatch"])
@@ -51,10 +52,10 @@ class UserCancelMatchAppleService(UopService):
         self.reqjsondata["applyId"] = UserMatchAppleQueryService(self.inputKV).getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
 
 
-    @check_rspdata(filepath = "userCancelMatchAppleRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # @check_rspdata(filepath = "userCancelMatchAppleRspFmt")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 if __name__ == "__main__":
    args = {

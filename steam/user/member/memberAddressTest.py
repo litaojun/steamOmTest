@@ -15,23 +15,24 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInputService
 class MemberAddressTest(SteamTestCase):
       '''
             微信端用户进入地址管理，获取地址列表
       '''
       __interfaceName__ = "/member-service/address/memberId"
-      @initInput(services = [],
-                 curser   = MemberAddressService)
+      @initInputService( services = [],
+                         curser   =  MemberAddressService )
       def __init__(self, methodName='runTest', param=None):
           super(MemberAddressTest,self).__init__(methodName,param)
 
-      def memberAddressTest(self):
-          rsp     = self.myservice.memberAddressReq()
-          retcode = self.myservice.getRetcodeByRsp(response=rsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def memberAddressTest(self):
+      #     rsp     = self.myservice.memberAddressReq()
+      #     retcode = self.myservice.getRetcodeByRsp(response=rsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\memberAddresscase.xlsx",
-                        testclse = MemberAddressTest
+                        casefilepath = "\\steamcase\\user\\member-serviceaddressmemberIds.yml",
+                        testclse     = MemberAddressTest
                  )

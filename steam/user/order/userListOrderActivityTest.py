@@ -32,6 +32,16 @@ class UserListOrderActivityTest(SteamTestCase):
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+    from steam.user.search.weixinSearchTest import WeixinSearchTest
+    from steam.user.weixin.userViewActivityTest import UserViewActivityTest
+    from steam.user.login.userLoginTest import UserLoginTest
+    from steam.user.member.memberAddressTest import MemberAddressTest
+    UserVerfiyCodeTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    WeixinSearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserViewActivityTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    MemberAddressTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\order-serviceorders.yml",
                         testclse = UserListOrderActivityTest

@@ -11,13 +11,13 @@
 @file: userCancelCollectionService.py 
 @time: 2018/10/18 16:01 
 """
-from opg.util.uopService import UopService,decorator
+from opg.util.uopService import decorator
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userCollectionUrl,userCancelCollectionUrl
 from opg.util.httptools import httpPost
-
-class UserCancelCollectionService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class UserCancelCollectionService(HttpUopService):
     '''
         用户学习列表
     '''
