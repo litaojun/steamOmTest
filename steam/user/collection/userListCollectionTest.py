@@ -21,10 +21,10 @@ class UserListCollectionTest(SteamTestCase):
             用户浏览课程
       '''
       __interfaceName__    = "/member/collection/queryPage"
-      @initInputService( services = [] ,
+      @initInputService( services = [ ] ,
                          curser   = UserListCollectionService )
-      def __init__(self, methodName = 'runTest',
-                         param      =  None):
+      def __init__( self, methodName = 'runTest',
+                          param      =  None ):
           super(UserListCollectionTest,self).__init__(methodName,param)
 
       # def userListCollectTest(self):
@@ -42,4 +42,4 @@ if __name__ == "__main__":
     runTestOneCls(
                     casefilepath = "\\steamcase\\user\\membercollectionqueryPages.yml",
                     testclse     = UserListCollectionTest
-                )
+                 )

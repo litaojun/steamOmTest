@@ -17,9 +17,10 @@ from steam.util.configurl import hotPositonUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homePositionReq,homePositionRspFmt
 from opg.util.httptools import httpGet
-from steam.user.cnfquery.homeCnfQueryService import HomeCnfQueryService
+from steam.user.home.homeCnfQueryService import HomeCnfQueryService
 import operator as op
-class HomeHotPositionService(HomeCnfQueryService):
+from steam.util.httpUopService import  HttpUopService
+class HomeHotPositionService(HttpUopService):
     '''
         首页热门推荐计算内容
     '''
@@ -28,10 +29,10 @@ class HomeHotPositionService(HomeCnfQueryService):
             :param entryName:
             :param picturePath:
         """
-        super(HomeHotPositionService, self).__init__(modul       = "weixin",
-                                                     filename    = "cnfDataDb.xml",
-                                                     kwargs       = kwargs,
-                                                     reqjsonfile = homePositionReq)
+        super(HomeHotPositionService, self).__init__(module        = "weixin",
+                                                     filename      = "cnfDataDb.xml",
+                                                     sqlvaluedict  = kwargs,
+                                                     reqjsonfile   = None)
     def queryHomeHotPosition(self):
         self.rsp =  httpGet(
                                         url     = hotPositonUrl + self.reqjsondata,

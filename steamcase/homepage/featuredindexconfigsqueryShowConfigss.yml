@@ -1,11 +1,10 @@
 testcases:
-- &id001
-  interfaceName: /featured/index/configs/queryShowConfigs
+- interfaceName: /featured/index/configs/queryShowConfigs
   case:
   - testPoint: 用户浏览首页配置内容-轮播图
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '0'
@@ -18,7 +17,7 @@ testcases:
   - testPoint: 用户浏览首页配置内容-今日推荐
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '0'
@@ -31,7 +30,7 @@ testcases:
   - testPoint: 用户浏览首页配置内容-单独运营位
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '0'
@@ -44,7 +43,7 @@ testcases:
   - testPoint: 用户浏览首页配置内容-动态
     preConditions:
     - ''
-    operationSteps: queryFindCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '0'
@@ -57,7 +56,7 @@ testcases:
   - testPoint: 用户浏览首页配置内容-分类
     preConditions:
     - ''
-    operationSteps: queryFindCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '0'
@@ -70,7 +69,7 @@ testcases:
   - testPoint: 用户浏览发现页配置内容-分类
     preConditions:
     - ''
-    operationSteps: queryFindCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '1'
@@ -83,7 +82,7 @@ testcases:
   - testPoint: 创新大赛页面页-轮播图
     preConditions:
     - ''
-    operationSteps: queryFindCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '2'
@@ -96,7 +95,7 @@ testcases:
   - testPoint: 创新大赛页面页-独立运营位
     preConditions:
     - ''
-    operationSteps: queryFindCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       pageType: '2'
@@ -106,4 +105,3 @@ testcases:
       testPoint: 创新大赛页面页-独立运营位
     expectedResult:
       code: '000000'
-- *id001

@@ -4,7 +4,7 @@ testcases:
   - testPoint: 用户浏览首页-热门推荐运营位配置内容
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       position: '03'
@@ -16,7 +16,7 @@ testcases:
   - testPoint: 用户浏览发现页-计算推荐内容
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       position: '09'
@@ -28,7 +28,7 @@ testcases:
   - testPoint: 用户浏览创新大赛-计算内容列表
     preConditions:
     - ''
-    operationSteps: queryHomeCnf
+    operationSteps: compareRetcodeTest
     testData:
     - phoneNo: '18916899938'
       position: '04'

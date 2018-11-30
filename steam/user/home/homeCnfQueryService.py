@@ -18,9 +18,9 @@ from steam.util.configurl import homeConfigQueryurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homeConfigQueryReq,homeConfigQueryRspFmt
 from opg.util.httptools import httpGet
-from opg.util.lginfo import  logger
+from steam.util.httpUopService import  HttpUopService
 import operator as op
-class HomeCnfQueryService(UopService):
+class HomeCnfQueryService(HttpUopService):
     '''
         首页配置数据
     '''
@@ -28,7 +28,7 @@ class HomeCnfQueryService(UopService):
                  kwargs      = {},
                  modul       = "weixin",
                  filename    = "cnfDataDb.xml",
-                 reqjsonfile = homeConfigQueryReq):
+                 reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:
@@ -37,7 +37,7 @@ class HomeCnfQueryService(UopService):
                                                   filename     = filename,
                                                   sqlvaluedict = kwargs ,
                                                   reqjsonfile  = reqjsonfile,
-                                                        dbName = "allin")
+                                                  dbName       = "allin")
         self.pgdc = {
                         "01":6,    #首页轮播图
                         "02":6,    #首页今日推荐,应该为5个
@@ -84,7 +84,7 @@ class HomeCnfQueryService(UopService):
             if t["position"] == "05":
                for data in t["showSummaryInfos"]:
                    if data["title"] == entryName:
-                       return data["resourceId"]
+                      return data["resourceId"]
 
     def getDbPageDataBySql(self,configSqlStr = "select_t_sku_HomePage"):
         homePageDbDataList = self.selectAllDataBySqlName(configSqlStr)
