@@ -27,10 +27,10 @@ class SteamTestCase(ParametrizedTestCase):
     def __init__(self, methodName='runTest', param=None):
         super(SteamTestCase, self).__init__(methodName, param)
 
-    def getInputData(self):
-        inputData = super(SteamTestCase, self).getInputData()
+    def getInputDataInit(self):
+        inputData = self.getInputData()
         if "phoneNo" in inputData:
-            if inputData["phoneNo"] in SteamTestCase.memberIdDict:
+            if inputData["phoneNo"] in SteamTestCase.memberIdDict :
                inputData["token"]    = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
                inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
             else:

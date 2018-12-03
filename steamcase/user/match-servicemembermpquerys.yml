@@ -10,20 +10,15 @@ testcases:
       phoneNo: '18916899938'
       caseid: match_apple_query_1
       testPoint: 微信用户查询已报名信息
-    - matchId: 22
-      phoneNo: '18916899938'
-      caseid: match_apple_query_2
-      testPoint: 微信用户查询已报名信息
-    - matchId: 22
-      phoneNo: '18916899938'
-      caseid: match_apple_query_3
-      testPoint: 微信用户查询已报名信息
     expectedResult:
       code: '000000'
       compare:
         - comparePoint: 验证返回码为'000000'
-          expectData: function-getRetcodeByRsp
-          actualData: '000000'
+          expectData: '000000'
+          actualData: getRetcodeByRsp
+          fun: assertEqual
         - comparePoint: 验证存在至少一条报名数据
-          expectData: function-getAppleMatchNum
-          actualData: 1
+          expectData: 1
+          actualData: getAppleMatchNum
+          fun: assertLessEqual
+          sign: False

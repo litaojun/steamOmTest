@@ -10,8 +10,8 @@
 @time: 2018/5/10 16:38
 """
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService import ActivityQueryService
+from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.util.steamLog import SteamTestCase
 class GoodsQueryTest(SteamTestCase):
       '''

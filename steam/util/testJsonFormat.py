@@ -46,10 +46,12 @@ def initInputService(services = [],
             fun(*args, **kwargs)
             sf = args[0]
             print("interface=%s,ClassName = %s" % (sf.__class__.__interfaceName__,sf.__class__.__name__))
+            #设置service __interfaceName__ 为对应URL标识
             setattr(curser,"__interfaceName__",sf.__class__.__interfaceName__)
             sf.myservice = curser(kwargs = sf.inputdata)
             sf.myservice.initInterfaceData()
-            sf.setService(sf.myservice)
+            sf.myservice.initCompareResultFunData()
+            # sf.setService(sf.myservice)
             for ser in services:
                 if isinstance(ser,list):
                    opser = ser[0](kwargs = sf.inputdata)

@@ -12,11 +12,7 @@
 from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import addActivityurl,upActivityurl
-from steam.article.query.ArticleQueryService import ArticleQueryService
-from opg.util.schemajson import check_rspdata
-from steam.activity.query.queryActivityService import ActivityQueryService
-from steam.activity.search.searchActivityService import ActivitySearchService
+from steam.util.configurl import upActivityurl
 from steam.util.reqFormatPath import fxt,activityUpReq
 class ActivityPublishService(UopService):
     '''

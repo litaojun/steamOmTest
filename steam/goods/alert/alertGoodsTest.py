@@ -9,9 +9,7 @@
 @file: alertActivityTest.py
 @time: 2018/5/9 17:44
 """
-from opg.unit.parametrized import ParametrizedTestCase
-from steam.article.add.ArticleAddService import ArticleAddService
-from steam.activity.alert.alertActivityService import ActivityAlertService
+from steam.admin.activity.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class GoodsAlertTest(SteamTestCase):

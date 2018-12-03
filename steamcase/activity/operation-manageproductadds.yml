@@ -8,7 +8,7 @@ testcases:
     - tearDBdel_t_vendor_rel_byTitle
     - tearDBdel_t_tag_rel_byTitle
     - tearDBdel_t_resource_byTitle
-    operationSteps: addActivity
+    operationSteps: compareRetcodeTest
     testData:
     - resourceId: ''
       title: QUEENS PALACE高级定制馆1-自动化
@@ -64,7 +64,7 @@ testcases:
     - tearDBdel_t_vendor_rel_byTitle
     - tearDBdel_t_tag_rel_byTitle
     - tearDBdel_t_resource_byTitle
-    operationSteps: addActivity
+    operationSteps: compareRetcodeTest
     testData:
     - resourceId: ''
       title: QUEENS PALACE高级定制馆1-自动化

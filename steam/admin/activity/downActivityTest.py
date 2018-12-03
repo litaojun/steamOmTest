@@ -10,17 +10,18 @@
 @time: 2018/5/10 17:48 
 """
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService import ActivityQueryService
-from steam.activity.down.downActivityService import ActivityUnPublishService
+from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.admin.activity.queryActivityService import ActivityQueryService
+from steam.admin.activity.downActivityService import ActivityUnPublishService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInputService
 class ActivityUnPublishTest(SteamTestCase):
       '''
             根据ID下架活动
       '''
       __interfaceName__ = "/operation-manage/product/unPublish"
-      @initInput(services = [ ActivitySearchService,
+      @initInputService(services = [ ActivitySearchService,
                               ActivityQueryService ],
                  curser   =   ActivityUnPublishService )
       def __init__(self, methodName = 'runTest', param = None ):

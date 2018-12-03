@@ -9,17 +9,18 @@
 @file: alertActivityTest.py 
 @time: 2018/5/9 17:44 
 """
-from steam.activity.alert.alertActivityService import ActivityAlertService
+from steam.admin.activity.alertActivityService import ActivityAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInput
+from steam.util.testJsonFormat import initInputService
 class ActivityAlertTest(SteamTestCase):
       '''
             新增活动
       '''
       __interfaceName__ = "/operation-manage/product/update"
-      @initInput(services = [],
-                 curser   = ActivityAlertService)
+      @initInputService(services = [],
+                        curser   = ActivityAlertService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
 

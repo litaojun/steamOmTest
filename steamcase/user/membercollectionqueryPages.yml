@@ -17,3 +17,8 @@ testcases:
       testPoint: 获取视频播放的鉴权信息
     expectedResult:
       code: '000000'
+      compare:
+        - comparePoint: 验证返回码为'000000'
+          expectData: '000000'
+          actualData: getRetcodeByRsp
+          fun: assertEqual

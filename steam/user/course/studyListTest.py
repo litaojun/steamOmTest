@@ -37,8 +37,8 @@ if __name__ == "__main__":
     from steam.user.login.userLoginTest import UserLoginTest
     UserVerfiyCodeTest(methodName="compareRetcodeTest",
                        param=[1, 2, 3, 4, 5, {}, 7, 8])
-    UserLoginTest(methodName="compareRetcodeTest",
-                  param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName = "compareRetcodeTest",
+                  param      = [1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                     casefilepath = "\\steamcase\\user\\order-servicestudylists.yml",
                     testclse     = StudyListTest

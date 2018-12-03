@@ -33,17 +33,15 @@ class UserViewActivityTest(SteamTestCase):
       #     self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
-   from opg.unit.flaskRunMgr import getRunTestTokenId, genAllTestCase, runAllTestCase
-   from steam.runflask.util.initData import allTestCase, allTestClass, tokenList
-   # a = genAllTestCase(allCase= allTestCase,allTestClass=allTestClass)
-   from steam.user.search.weixinSearchTest import WeixinSearchTest
-   WeixinSearchTest(methodName="compareRetcodeTest",param = [1,2,3,4,5,{},7,8])
-   from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+   # from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
    from steam.user.login.userLoginTest import UserLoginTest
-   UserVerfiyCodeTest(methodName="compareRetcodeTest",
-                      param=[1, 2, 3, 4, 5, {}, 7, 8])
-   UserLoginTest(methodName="compareRetcodeTest",
-                 param=[1, 2, 3, 4, 5, {}, 7, 8])
+   # UserVerfiyCodeTest(methodName="compareRetcodeTest",
+   #                     param=[1, 2, 3, 4, 5, {}, 7, 8])
+   # UserLoginTest(methodName="compareRetcodeTest",
+   #                param=[1, 2, 3, 4, 5, {}, 7, 8])
+   from opg.unit.flaskRunMgr import  genAllTestCase
+   from steam.runflask.util.initData import allTestCase, allTestClass
+   genAllTestCase(allCase= allTestCase,allTestClass=allTestClass)
    runTestOneCls(
                     casefilepath = "\\steamcase\\user\\steam-resourceproductdetails.yml",
                     testclse     = UserViewActivityTest

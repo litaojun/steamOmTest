@@ -16,3 +16,8 @@ testcases:
       testPoint: 登录
     expectedResult:
       code: '000000'
+      compare:
+        - comparePoint: 验证返回码为'000000'
+          expectData: '000000'
+          actualData: getRetcodeByRsp
+          fun: assertEqual

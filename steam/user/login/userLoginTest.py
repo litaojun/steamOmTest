@@ -23,16 +23,11 @@ class UserLoginTest(ParametrizedTestCase):
             微信端用户通过手机号码登录
       '''
       __interfaceName__   = "/member/login/memberLogin"
-      @initInputService( services = [ WeixinUserVerfiyCodeService ],
+      @initInputService( services = [ WeixinUserVerfiyCodeService ] ,
                          curser   =   WeixinUserLoginService )
-      def __init__(self, methodName = 'runTest',
-                         param      = None):
+      def __init__( self, methodName = 'runTest',
+                          param      = None ):
           super(UserLoginTest,self).__init__(methodName,param)
-
-      # def userLoginTest(self):
-      #     rsp     = self.myservice.weixinUserLogin()
-      #     retcode = self.myservice.getRetcodeByUserLoginRsp(response = rsp)
-      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest

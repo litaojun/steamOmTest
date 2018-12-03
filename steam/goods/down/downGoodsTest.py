@@ -9,11 +9,9 @@
 @file: downActivityTest.py
 @time: 2018/5/10 17:48
 """
-from steam.util.steamLog import SteamTestCase
-from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.down.downActivityService import ActivityUnPublishService
+from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.admin.activity.downActivityService import ActivityUnPublishService
 from steam.util.steamLog import SteamTestCase
 class GoodsUnPublishTest(SteamTestCase):
       '''

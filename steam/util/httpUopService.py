@@ -12,7 +12,7 @@
 @time: 2018/11/16 16:09 
 """
 from opg.util.utils import query_json
-from opg.util.uopService import UopService,loadStrFromFile,decorator
+from opg.util.uopService import UopService,loadStrFromFile,decorator,resultData
 from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete
 
@@ -62,6 +62,7 @@ class HttpUopService(UopService):
                   raise e
           return  self.rsp
 
+      @resultData(param="getRetcodeByRsp")
       def getRetcodeByRsp( self,
                            response = None ,
                            format   = "code" ):
@@ -71,5 +72,5 @@ class HttpUopService(UopService):
               :return:
           """
           print("s")
-          return query_json(json_content = json.loads(response),
+          return query_json(json_content = json.loads(self.rsp),
                                    query = format)

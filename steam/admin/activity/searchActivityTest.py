@@ -12,14 +12,15 @@
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInput
-from steam.activity.search.searchActivityService import ActivitySearchService
+from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.util.testJsonFormat import initInputService
 class ActivitySearchTest(SteamTestCase):
       '''
             根据名称搜索活动
       '''
       __interfaceName__ = "/operation-manage/product/queryProducts"
 
-      @initInput(services = [],
+      @initInputService(services = [],
                  curser   = ActivitySearchService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivitySearchTest,self).__init__(methodName,param)

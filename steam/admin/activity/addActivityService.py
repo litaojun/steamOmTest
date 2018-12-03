@@ -15,8 +15,9 @@ from opg.util.httptools import httpPost
 from opg.util.utils import query_json
 from steam.util.configurl import addActivityurl
 from opg.util.schemajson import check_rspdata
+from steam.util.httpUopService import  HttpUopService
 
-class ActivityAddService(UopService):
+class ActivityAddService(HttpUopService):
     '''
         活动新增
     '''
@@ -28,7 +29,7 @@ class ActivityAddService(UopService):
         super(ActivityAddService, self).__init__(module       = "activity",
 												 filename     = "activityDb.xml",
 												 sqlvaluedict = kwargs ,
-												 reqjsonfile  = "addActivityReq")
+												 reqjsonfile  = None)
         self.activityAddReqjson = self.reqjsondata
 
     @decorator("tearInterfaceDelOneArticle")

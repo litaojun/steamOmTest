@@ -13,10 +13,8 @@
 """
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
-from steam.util.testJsonFormat import initInput
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from steam.util.testJsonFormat import initInputService

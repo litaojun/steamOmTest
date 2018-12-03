@@ -9,15 +9,13 @@
 @file: downActivityService.py
 @time: 2018/5/7 13:57 
 """
-from opg.util.uopService import decorator,UopService
+from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import addActivityurl,downActivityurl
-from steam.article.query.ArticleQueryService import ArticleQueryService
-from opg.util.schemajson import check_rspdata
-from steam.activity.query.queryActivityService import ActivityQueryService
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.util.reqFormatPath import fxt,activityDownReq,activityDownRspFmt
+from steam.util.configurl import downActivityurl
+from steam.util.reqFormatPath import fxt,activityDownReq
+
+
 class ActivityUnPublishService(UopService):
     '''
         活动下线

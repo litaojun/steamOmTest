@@ -33,6 +33,11 @@ testcases:
       testPoint: 微信用户取消亲子赛报名
     expectedResult:
       code: '000000'
+      compare:
+        - comparePoint: 验证返回码为'000000'
+          expectData: '000000'
+          actualData: getRetcodeByRsp
+          fun: assertEqual
   - testPoint: 微信用户取消国赛报名
     preConditions:
     - setupGetSubMatchId
@@ -58,3 +63,8 @@ testcases:
       testPoint: 微信用户取消国赛报名
     expectedResult:
       code: '000000'
+      compare:
+        - comparePoint: 验证返回码为'000000'
+          expectData: '000000'
+          actualData: getRetcodeByRsp
+          fun: assertEqual

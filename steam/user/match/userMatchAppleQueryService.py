@@ -11,7 +11,7 @@
 @file: userMatchAppleQueryService.py 
 @time: 2018/7/26 12:46 
 """
-from opg.util.uopService import decorator,UopService
+from opg.util.uopService import decorator,resultData
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userMatchAppleQueryUrl
@@ -46,7 +46,9 @@ class UserMatchAppleQueryService(HttpUopService):
                                       query        = "applyInfoList")
         return dict([(x["matchName"], x) for x in userAppleMatchLs])
 
-
+    @resultData(param="getAppleMatchNum")
+    def getCountAppleMath(self):
+        return len(self.getMatchNameDict())
     #查询用户报名赛事的报名ID
     def getUserAppleIdByMatchName(self,response = None,matchName = None):
         matchDict = self.getMatchNameDict(response = response)
@@ -58,9 +60,9 @@ class UserMatchAppleQueryService(HttpUopService):
         self.inputKV["applyId"] = self.getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
 
     #@check_rspdata(filepath = "userMatchAppleQueryRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 
 if __name__ == "__main__":

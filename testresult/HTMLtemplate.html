@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-11-13 10:03:15</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:05.350903</p>
-<p class='attribute'><strong>Status:</strong> Pass 2</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-12-03 17:02:38</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:01.294130</p>
+<p class='attribute'><strong>Status:</strong> Failure 2 Error 2</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -221,31 +221,39 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='passClass'>
-    <td>/operation-manage/media/deleteMedia</td>
+<tr class='errorClass'>
+    <td>/operation-manage/product/add</td>
+    <td>4</td>
+    <td>0</td>
     <td>2</td>
     <td>2</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>article_del_1_删除一个文章正常</div></td>
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>activity_add_1_新增一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
 
-    <div id='div_pt1.1' class="popup_window">
+    <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.1: 
+ft1.1: Traceback (most recent call last):
+  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
+    self.assertTrue(retcode == self.expectdata["code"])
+AssertionError: False is not true
+Traceback (most recent call last):
+  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
+    self.assertTrue(retcode == self.expectdata["code"])
+AssertionError: False is not true
+
 
         </pre>
     </div>
@@ -254,22 +262,110 @@ pt1.1:
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>media_del_1_删除一个作品视频正常</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>activity_add_1_新增一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
 
-    <div id='div_pt1.2' class="popup_window">
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: 
+ft1.2: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
+    self.myservice.handlingDb(dbsqlls)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
+    als = list(map(f,sqlls))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
+    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
+KeyError: 'tearDBdel_t_content_picture_byTitle'
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
+    self.myservice.handlingDb(dbsqlls)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
+    als = list(map(f,sqlls))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
+    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
+KeyError: 'tearDBdel_t_content_picture_byTitle'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='failCase'><div class='testcase'>goods_add_1_新增一个商品正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        fail</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
+    self.assertTrue(retcode == self.expectdata["code"])
+AssertionError: False is not true
+Traceback (most recent call last):
+  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
+    self.assertTrue(retcode == self.expectdata["code"])
+AssertionError: False is not true
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='errorCase'><div class='testcase'>goods_add_1_新增一个商品正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        error</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
+    self.myservice.handlingDb(dbsqlls)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
+    als = list(map(f,sqlls))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
+    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
+KeyError: 'tearDBdel_t_content_picture_byTitle'
+Traceback (most recent call last):
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
+    self.myservice.handlingDb(dbsqlls)
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
+    als = list(map(f,sqlls))
+  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
+    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
+KeyError: 'tearDBdel_t_content_picture_byTitle'
+
 
         </pre>
     </div>
@@ -280,10 +376,10 @@ pt1.2:
 
 <tr id='total_row'>
     <td>Total</td>
+    <td>4</td>
+    <td>0</td>
     <td>2</td>
     <td>2</td>
-    <td>0</td>
-    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

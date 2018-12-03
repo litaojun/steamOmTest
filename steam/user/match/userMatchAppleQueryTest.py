@@ -25,13 +25,16 @@ class UserMatchAppleQueryTest(SteamTestCase):
                          curser   = UserMatchAppleQueryService )
       def __init__(self, methodName='runTest', param=None):
           super(UserMatchAppleQueryTest,self).__init__(methodName,param)
-
       # def userMatchAppleQueryTest(self):
       #     rsp     = self.myservice.userMatchAppleQuery()
       #     retcode = self.myservice.getRetcodeByRsp(response = rsp)
       #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+    from steam.user.login.userLoginTest import UserLoginTest
+    UserVerfiyCodeTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\match-servicemembermpquerys.yml",
                         testclse = UserMatchAppleQueryTest

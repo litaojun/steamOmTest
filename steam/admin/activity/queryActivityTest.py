@@ -11,15 +11,16 @@
 """
 from steam.util.testJsonFormat import initInput
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.activity.search.searchActivityService import ActivitySearchService
-from steam.activity.query.queryActivityService   import ActivityQueryService
+from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.util.steamLog import SteamTestCase
+from steam.util.testJsonFormat import initInputService
 class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
       __interfaceName__   = "/operation-manage/product/query"
-      @initInput(services = [ ActivitySearchService ] ,
+      @initInputService(services = [ ActivitySearchService ] ,
                  curser   =   ActivityQueryService   )
       def __init__(self, methodName =  'runTest',
                          param      =  None      ):
