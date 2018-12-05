@@ -1,5 +1,5 @@
 testcases:
-- interfaceName: /steam-featured/homeConfig/createConfig
+- interfaceName: /operation-manage/featured/createConfig
   case:
   - testPoint: 新增一个运营位配置-首页banner-文章
     preConditions:

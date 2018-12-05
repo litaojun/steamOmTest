@@ -1,5 +1,5 @@
 testcases:
-- interfaceName: /match-service/match/updateMatchById
+- interfaceName: /operation-manage/match/updateMatchById
   case:
   - testPoint: 修改一个赛事场次正常
     preConditions:
@@ -15,6 +15,8 @@ testcases:
       applyNum: 0
       limitCount: 30000
       caseid: match_alert_1
+      reqjsonfile: formatone
       testPoint: 修改一个赛事场次正常
+      delReqjsonfile: formatone
     expectedResult:
       code: '000000'

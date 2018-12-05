@@ -24,13 +24,13 @@ class ActivityAlertTest(SteamTestCase):
       def __init__(self, methodName='runTest', param=None):
           super(ActivityAlertTest,self).__init__(methodName,param)
 
-      def alertActivityNor(self):
-          alertActRsp = self.myservice.alertActivity()
-          retcode     = self.myservice.getRetcodeByRsp(articleRsp = alertActRsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def alertActivityNor(self):
+      #     alertActRsp = self.myservice.alertActivity()
+      #     retcode     = self.myservice.getRetcodeByRsp(articleRsp = alertActRsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\activity\\activityalertcase.xlsx",
+					casefilepath="\\steamcase\\activity\\operation-manageproductupdates.yml",
 					testclse=ActivityAlertTest
 				)

@@ -3,8 +3,8 @@ testcases:
   case:
   - testPoint: 下架一个活动
     preConditions:
-    - ''
-    operationSteps: upPublishActivityTest
+    - setupGetFirstProductContent
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10
@@ -16,8 +16,8 @@ testcases:
       code: '000000'
   - testPoint: 下架一个商品
     preConditions:
-    - ''
-    operationSteps: upPublishActivityTest
+    - setupGetFirstProductContent
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

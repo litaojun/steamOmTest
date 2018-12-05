@@ -1,1 +1,0 @@
-?pageType=%(pageType)s&memberId=%(memberId)s

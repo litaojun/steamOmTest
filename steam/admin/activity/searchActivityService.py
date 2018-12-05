@@ -16,8 +16,9 @@ from steam.util.configurl import searchActivityurl
 from steam.util.reqFormatPath import fxt,activitySearchReq
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
-
-class ActivitySearchService(UopService):
+from steam.util.httpUopService import  HttpUopService
+from opg.util.uopService import UopService,decorator
+class ActivitySearchService(HttpUopService):
     '''
         管理后台-搜索活动商品
     '''
@@ -26,7 +27,7 @@ class ActivitySearchService(UopService):
             :param entryName:
             :param picturePath:
         """
-        super(ActivitySearchService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activitySearchReq))
+        super(ActivitySearchService, self).__init__("", "", kwargs)
         self.activityQueryReqjson = self.reqjsondata
 
     def queryActivity(self):
@@ -38,7 +39,7 @@ class ActivitySearchService(UopService):
 
     def getFirstActivityIdByRsp(self,queryRsp = None):
         if queryRsp is None:
-           queryRsp = self.queryActivity()
+           queryRsp = self.sendHttpReq()
         print("queryRsp = %s" % queryRsp)
         return query_json(json_content=json.loads(queryRsp), query="data.targets.0.resourceId")
 
@@ -57,6 +58,7 @@ class ActivitySearchService(UopService):
     def getSkuPayPriceBySkuName(self,skuName=""):
         return self.getSku()["skuName"]
 
+    @decorator("setupGetFirstProductContent")
     def setInPutData(self):
         #sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)

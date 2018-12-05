@@ -15,7 +15,9 @@ from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
 from steam.util.reqFormatPath import fxt,activityQueryReq
 from opg.util.httptools import httpGet
-class ActivityQueryService(UopService):
+from steam.util.httpUopService import  HttpUopService
+from opg.util.uopService import decorator
+class ActivityQueryService(HttpUopService):
     '''
         查询活动文章
     '''
@@ -27,7 +29,7 @@ class ActivityQueryService(UopService):
         super(ActivityQueryService, self).__init__(module       = "",
                                                    filename     = "",
                                                    sqlvaluedict = kwargs,
-                                                   reqjsonfile  = fxt.join(activityQueryReq))
+                                                   reqjsonfile  = None)
 
     def initReqJsonIdData(self,kwargs):
         skuIdLs = self.getSkuIdFmtListByFormat(size = kwargs['skulist'])
@@ -81,6 +83,7 @@ class ActivityQueryService(UopService):
     def getRetcodeByOneactRsp(self,oneActRsp = None):
         return query_json(json_content = json.loads(oneActRsp),
                           query        = "code")
+
 
     def setInPutData(self):
         if self.rsp is None:

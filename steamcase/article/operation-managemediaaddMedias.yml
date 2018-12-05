@@ -3,8 +3,9 @@ testcases:
   case:
   - testPoint: 新增一个文章正常
     preConditions:
-    - tearInterfaceDelOneArticle
-    operationSteps: testArticleAddNor
+    - tearDownGetFirstMedia
+    - tearDownDeleteMedia
+    operationSteps: compareRetcodeTest
     testData:
     - title: 奥林匹克大赛2017年12月北京赛区-自动化
       subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化
@@ -31,8 +32,9 @@ testcases:
       code: '000000'
   - testPoint: 新增一个视频作品正常
     preConditions:
-    - tearInterfaceDelOneArticle
-    operationSteps: testArticleAddNor
+    - tearDownGetFirstMedia
+    - tearDownDeleteMedia
+    operationSteps: compareRetcodeTest
     testData:
     - title: 奥林匹克大赛2017年12月北京赛区-自动化
       subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化

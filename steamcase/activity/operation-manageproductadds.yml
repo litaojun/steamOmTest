@@ -55,6 +55,7 @@ testcases:
       state: 1
       caseid: activity_add_1
       testPoint: 新增一个活动正常
+      reqjsonfile: formatone
     expectedResult:
       code: '000000'
   - testPoint: 新增一个商品正常
@@ -111,5 +112,6 @@ testcases:
       state: 1
       caseid: goods_add_1
       testPoint: 新增一个商品正常
+      reqjsonfile: goodsAddReqjson
     expectedResult:
       code: '000000'

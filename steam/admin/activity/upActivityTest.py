@@ -22,8 +22,7 @@ class ActivityPublishTest(SteamTestCase):
       '''
       __interfaceName__ = "/operation-manage/product/publish"
 
-      @initInputService(services = [ActivitySearchService,
-                             ActivityQueryService ],
+      @initInputService(services = [ActivitySearchService ],
                  curser   =  ActivityPublishService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
@@ -35,7 +34,9 @@ class ActivityPublishTest(SteamTestCase):
 
 
 if __name__ == "__main__":
-          runTestOneCls(
-				          casefilepath="\\steamcase\\activity\\activitypublishcase.xlsx",
-				          testclse=ActivityPublishTest
+    from steam.admin.activity.searchActivityTest import ActivitySearchTest
+    ActivitySearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    runTestOneCls(
+				          casefilepath = "\\steamcase\\activity\\operation-manageproductpublishs.yml",
+				          testclse     = ActivityPublishTest
 			           )

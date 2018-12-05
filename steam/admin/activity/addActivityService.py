@@ -29,8 +29,9 @@ class ActivityAddService(HttpUopService):
         super(ActivityAddService, self).__init__(module       = "activity",
 												 filename     = "activityDb.xml",
 												 sqlvaluedict = kwargs ,
-												 reqjsonfile  = None)
-        self.activityAddReqjson = self.reqjsondata
+												 reqjsonfile  = None,
+												 dbName       = "resource")
+        # self.activityAddReqjson = self.reqjsondata
 
     @decorator("tearInterfaceDelOneArticle")
     def delActivity(self):
@@ -51,10 +52,10 @@ class ActivityAddService(HttpUopService):
         return addActivityRsp
 
     #@check_rspdata(filepath=fxt.join(activityAddRspFmt))
-    @check_rspdata(filepath="addActivityRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-						  query        = "code")
+    # @check_rspdata(filepath="addActivityRspFmt")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+		# 				  query        = "code")
 
     def getActivityIdByRsp(self,activityRsp = None):
         rssId = query_json(json_content = json.loads(activityRsp),

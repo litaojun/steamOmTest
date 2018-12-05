@@ -46,18 +46,16 @@ class SteamTestCase(ParametrizedTestCase):
                   code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
                   if code  == "000000":
                      token = userLoginSer.getTokenFromRsp(response=rsp)
-                     inputData["token"] = token
+                     self.inputdata["token"] = token
                      qmIdSer = QueryMemberIdService(kwargs=inputData)
                      rsp     = qmIdSer.userMemberIdReq()
                      memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
-                     inputData["memberId"] = memberId
+                     self.inputdata["memberId"] = memberId
                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
         else:
-             token               = UserLoginService.getTokenData()
-             inputData["token"] = token
+             token                    = UserLoginService.getTokenData()
+             self.inputdata["token"] = token
         return inputData
-
-
 
     @classmethod
     def clearPhoneData(cls):

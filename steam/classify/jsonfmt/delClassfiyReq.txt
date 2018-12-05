@@ -1,3 +1,0 @@
-{
-	"entryId": %(entryId)d
-}

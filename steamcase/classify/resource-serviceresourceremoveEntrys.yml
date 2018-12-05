@@ -3,8 +3,9 @@ testcases:
   case:
   - testPoint: 删除一个分类
     preConditions:
-    - preInterfaceAddOneEntry
-    operationSteps: testClassfiyDelNor
+    - setupAddEntry
+    - setupGetEntryId
+    operationSteps: compareRetcodeTest
     testData:
     - entryName: '18916899938'
       picturePath: oLTtnwcieZIRRFe0lT8B8VkFaRAk

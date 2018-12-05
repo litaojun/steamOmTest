@@ -1,13 +1,14 @@
 testcases:
-- interfaceName: /match-service/match/createMatch
+- interfaceName: /operation-manage/match/createMatch
   case:
   - testPoint: 新增一个赛事正常
     preConditions:
     - tearInterfaceDelOneMatch
-    operationSteps: testMatchAddNor
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: '18916899938'
-      reqjsonfile: competitionAddReq
+      reqjsonfile: formatone
+      delReqjsonfile: formatone
       caseid: match_add_1
       testPoint: 新增一个赛事正常
     expectedResult:
@@ -15,14 +16,15 @@ testcases:
   - testPoint: 新增一个亲子赛场次
     preConditions:
     - tearInterfaceDelOneMatch
-    operationSteps: testMatchAddNor
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: 亲子赛测试test
       applyStartTime: 1534931060000
       applyEndTime: 1535708660000
       parentId: 22
       limitCount: 663
-      reqjsonfile: competitionLabAddReq
+      reqjsonfile: sessionFormat
+      delReqjsonfile: formatone
       caseid: match_add_2
       testPoint: 新增一个亲子赛场次
     expectedResult:
@@ -30,14 +32,15 @@ testcases:
   - testPoint: 新增一个国赛场次
     preConditions:
     - tearInterfaceDelOneMatch
-    operationSteps: testMatchAddNor
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: 国赛测试test
       applyStartTime: 1534931060000
       applyEndTime: 1535708660000
       parentId: 200
       limitCount: 663
-      reqjsonfile: competitionLabAddReq
+      reqjsonfile: sessionFormat
+      delReqjsonfile: formatone
       caseid: match_add_3
       testPoint: 新增一个国赛场次
     expectedResult:

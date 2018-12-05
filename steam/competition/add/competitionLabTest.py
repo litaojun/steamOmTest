@@ -9,7 +9,7 @@
 @file: competitionTest.py 
 @time: 2018/4/17 14:36 
 """
-from steam.competition.add.competitionService import MatchAddService
+from steam.admin.competition.competitionService import MatchAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class MatchLabAddTest(SteamTestCase):

@@ -3,9 +3,10 @@ testcases:
   case:
   - testPoint: 修改一个分类正常
     preConditions:
-    - preInterfaceAddOneEntry
-    - tearInterfaceDelOneEntry
-    operationSteps: testClassfiyAlertNor
+    - setupAddEntry
+    - setupGetEntryId
+    - tearDownDelEntryId
+    operationSteps: compareRetcodeTest
     testData:
     - entryName: '18916899938'
       picturePath: oLTtnwcieZIRRFe0lT8B8VkFaRAk

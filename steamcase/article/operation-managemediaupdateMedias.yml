@@ -3,9 +3,10 @@ testcases:
   case:
   - testPoint: 修改文章正常
     preConditions:
-    - preInterfaceAddOneArticle
-    - tearInterfaceDelOneArticle
-    operationSteps: testArticleAlertNor
+    - setupAddOneArticle
+    - setupGetFirstMedia
+    - tearDownDeleteMedia
+    operationSteps: compareRetcodeTest
     testData:
     - title: 奥林匹克大赛2017年12月北京赛区-自动化
       subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化
@@ -32,9 +33,10 @@ testcases:
       code: '000000'
   - testPoint: 修改一个作品视频正常
     preConditions:
-    - preInterfaceAddOneArticle
-    - tearInterfaceDelOneArticle
-    operationSteps: testArticleAlertNor
+    - setupAddOneArticle
+    - setupGetFirstMedia
+    - tearDownDeleteMedia
+    operationSteps: compareRetcodeTest
     testData:
     - title: 奥林匹克大赛2017年12月北京赛区-自动化
       subtitle: 奥林匹克大赛2017年12月北京赛区-副标题-自动化

@@ -32,6 +32,6 @@ class ActivitySearchTest(SteamTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath = "\\steamcase\\activity\\activitysearchcase.xlsx",
+				          casefilepath = "\\steamcase\\activity\\operation-manageproductqueryProducts.yml",
 				          testclse     = ActivitySearchTest
 			           )

@@ -18,10 +18,11 @@ from steam.util.testJsonFormat import initInputService
 class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
+            使用和微信端相同接口，本接口删除
       '''
-      __interfaceName__   = "/operation-manage/product/query"
+      __interfaceName__   = "/operation-manage/product/query-delete"
       @initInputService(services = [ ActivitySearchService ] ,
-                 curser   =   ActivityQueryService   )
+                        curser   =   ActivityQueryService   )
       def __init__(self, methodName =  'runTest',
                          param      =  None      ):
           super(ActivityQueryTest,self).__init__(methodName , param)
@@ -33,6 +34,6 @@ class ActivityQueryTest(SteamTestCase):
 
 if __name__ == "__main__":
           runTestOneCls(
-				          casefilepath =  "\\steamcase\\activity\\activityquerycase.xlsx",
+				          casefilepath =  "\\steamcase\\activity\\operation-manageproductquerys.yml",
 				          testclse     =  ActivityQueryTest
 			           )

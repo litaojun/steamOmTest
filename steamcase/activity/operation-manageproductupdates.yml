@@ -4,11 +4,11 @@ testcases:
   - testPoint: 修改活动正常
     preConditions:
     - ''
-    operationSteps: alertActivityNor
+    operationSteps: compareRetcodeTest
     testData:
     - title: 美式外教科学营---1
       subTitle: 美式外教科学营-活动副标题
-      reqjsonfile: alertActivityReq
+      reqjsonfile: formatone
       caseid: activity_alert_1
       testPoint: 修改活动正常
     expectedResult:
@@ -16,11 +16,11 @@ testcases:
   - testPoint: 修改商品正常
     preConditions:
     - ''
-    operationSteps: alertActivityNor
+    operationSteps: compareRetcodeTest
     testData:
     - title: QUEENS PALACE高级定制馆---1-自动化
       subTitle: QUEEN'S PALACE高级定制馆-活动副标题
-      reqjsonfile: alertGoodsReq
+      reqjsonfile: goodsAlertReqJson
       caseid: goods_alert_1
       testPoint: 修改商品正常
     expectedResult:

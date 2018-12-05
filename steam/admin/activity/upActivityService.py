@@ -14,7 +14,8 @@ import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import upActivityurl
 from steam.util.reqFormatPath import fxt,activityUpReq
-class ActivityPublishService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class ActivityPublishService(HttpUopService):
     '''
         活动新增
     '''
@@ -23,8 +24,8 @@ class ActivityPublishService(UopService):
         :param entryName:
         :param picturePath:
         """
-        super(ActivityPublishService, self).__init__("", "", kwargs,reqjsonfile=fxt.join(activityUpReq))
-        self.activityUpReqjson = self.reqjsondata
+        super(ActivityPublishService, self).__init__("", "", kwargs)
+        # self.activityUpReqjson = self.reqjsondata
 
     def publishActivitySer(self):
         pubActivityRsp = requests.post(

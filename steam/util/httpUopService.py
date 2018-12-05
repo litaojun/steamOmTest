@@ -41,6 +41,11 @@ class HttpUopService(UopService):
           url           = httpData[urlPathSign][2]
           reqDataFmt    = loadStrFromFile(reqFormatPath)
           reqdata       = reqDataFmt % self.inputKV
+          self.jsonheart = {
+                                  "x-token": "admin",
+                                  "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
+                                  "token": self.inputKV["token"] if "token" in self.inputKV else ""
+                            }
           if method in ("get","delete") :
              self.reqjsondata = reqdata
              if method   == "get":

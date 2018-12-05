@@ -9,7 +9,7 @@
 @file: competitionAlertTest.py 
 @time: 2018/4/20 15:06 
 """
-from steam.competition.update.competitionAlertService import CompetitionAlertService
+from steam.admin.competition.competitionAlertService import CompetitionAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class CompetitionAlertTest(SteamTestCase):

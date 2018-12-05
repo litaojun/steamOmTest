@@ -3,8 +3,8 @@ testcases:
   case:
   - testPoint: 查询一个活动正常
     preConditions:
-    - ''
-    operationSteps: queryActivityDetail
+    - getFirstProductContent
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10
@@ -16,8 +16,8 @@ testcases:
       code: '000000'
   - testPoint: 查询一个商品正常
     preConditions:
-    - ''
-    operationSteps: queryActivityDetail
+    - getFirstProductContent
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

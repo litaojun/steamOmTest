@@ -10,14 +10,13 @@
 @time: 2018/5/7 13:57 
 """
 from opg.util.httptools import httpPost
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json,setValue_json
 from steam.util.configurl import alertActivityurl
 from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.util.httpUopService import  HttpUopService
 
-
-class ActivityAlertService(UopService):
+class ActivityAlertService(HttpUopService):
     '''
         分类新增
     '''
@@ -29,7 +28,7 @@ class ActivityAlertService(UopService):
         super(ActivityAlertService, self).__init__(module="",
                                                    filename="",
                                                    sqlvaluedict =  kwargs,
-                                                   reqjsonfile  =  kwargs["reqjsonfile"])
+                                                   reqjsonfile  =  None)
 
     def alertActivity(self):
         self.rsp = httpPost(url         = alertActivityurl,
@@ -50,9 +49,9 @@ class ActivityAlertService(UopService):
             setValue_json(json_content=self.activityAlertReqjson,query=formatstr % i,setvalue=idvalue)
 
 
-    def getRetcodeByRsp(self,articleRsp = None):
-        return query_json(json_content = json.loads(articleRsp),
-						  query        = "code")
+    # def getRetcodeByRsp(self,articleRsp = None):
+    #     return query_json(json_content = json.loads(articleRsp),
+		# 				  query        = "code")
 
     def getActivityIdByTitle(self,title = None):
         articleQs = ActivitySearchService(kwargs={"title":title,"resourceTypeId":self.activityAlertReqjson["resourceTypeId"]})

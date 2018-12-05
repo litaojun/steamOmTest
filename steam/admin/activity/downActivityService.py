@@ -15,8 +15,8 @@ from opg.util.utils import query_json
 from steam.util.configurl import downActivityurl
 from steam.util.reqFormatPath import fxt,activityDownReq
 
-
-class ActivityUnPublishService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class ActivityUnPublishService(HttpUopService):
     '''
         活动下线
     '''
@@ -28,7 +28,7 @@ class ActivityUnPublishService(UopService):
         super(ActivityUnPublishService, self).__init__(module       = "",
                                                        filename     = "",
                                                        sqlvaluedict = kwargs,
-                                                       reqjsonfile  = fxt.join(activityDownReq))
+                                                       reqjsonfile  = None)
 
     def unPublishActivitySer(self):
         pubActivityRsp = requests.post(
@@ -39,9 +39,9 @@ class ActivityUnPublishService(UopService):
 									  )
         return pubActivityRsp.text
 
-    def getRetcodeByRsp(self,oneActRsp = None):
-        return query_json(json_content = json.loads(oneActRsp),
-                          query        = "code")
+    # def getRetcodeByRsp(self,oneActRsp = None):
+    #     return query_json(json_content = json.loads(oneActRsp),
+    #                       query        = "code")
 
 if __name__ == "__main__":
    reqdata = {
