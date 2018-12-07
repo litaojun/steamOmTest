@@ -17,8 +17,3 @@ testcases:
           expectData: '000000'
           actualData: getRetcodeByRsp
           fun: assertEqual
-        - comparePoint: 验证存在至少一条报名数据
-          expectData: 1
-          actualData: getAppleMatchNum
-          fun: assertLessEqual
-          sign: False

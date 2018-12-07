@@ -14,12 +14,6 @@
 from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userViewMediaresUrl,userCancelThumbUpUrl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserViewMediaresReq,weixinUserViewMediaresRspFmt
-from opg.util.httptools import httpGet,httpPost
-from steam.article.query.ArticleQueryService import ArticleQueryService
-from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.util.httpUopService import  HttpUopService
 class UserViewMediaresService(HttpUopService):
     '''

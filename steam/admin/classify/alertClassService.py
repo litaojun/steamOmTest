@@ -29,7 +29,7 @@ class ClassfiyAlertService(HttpUopService):
         super(ClassfiyAlertService, self).__init__(module       = "",
                                                    filename     = "",
                                                    sqlvaluedict = kwargs,
-                                                   reqjsonfile  = "alertClassfiyReq")
+                                                   reqjsonfile  = None)
 
     @decorator("preInterfaceAddOneEntry")
     def addOneClassfiy(self):

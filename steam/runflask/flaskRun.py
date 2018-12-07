@@ -12,7 +12,7 @@
 @time: 2018/7/11 15:09 
 """
 from flask import Flask, jsonify,request
-from steam.mediares.query import mediaresQueryTest
+# from steam.mediares.query import mediaresQueryTest
 from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery
 from flask_cors import *
 import sys
@@ -26,7 +26,7 @@ from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
 from steam.runflask.util.initData import allTestCase,allTestClass,tokenList
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
-app.register_blueprint(mediaresQueryTest.bapp , url_prefix = "/mediares")
+# app.register_blueprint(mediaresQueryTest.bapp , url_prefix = "/mediares")
 app.register_blueprint(interfaceMnr.bapp,       url_prefix = "/infcs"   )
 app.register_blueprint(testcaseRun.bapp,        url_prefix = "/tsrun"   )
 app.register_blueprint(reportQuery.bapp,        url_prefix = "/rptqy"   )
@@ -115,8 +115,6 @@ def hello_world():
 def hello_world_local():
     return render_template("pytestlocal.html", content="hello flask ")
 
-
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True,port=8181)
+   app.run(host='0.0.0.0',debug=True,port=8181)
     #testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况",token="ssssss")

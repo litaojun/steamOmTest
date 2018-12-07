@@ -11,19 +11,19 @@
 @file: picureUploadTest.py 
 @time: 2018/7/19 18:03 
 """
-from steam.picture.upload.picureUploadService import PicureUploadService
-from opg.unit.parametrized import ParametrizedTestCase
-from steam.util.testJsonFormat import initInput
+from steam.admin.classify.picureUploadService import PicureUploadService
+from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
+from steam.util.testJsonFormat import initInputService
 import re
-class PicureUploadTest(ParametrizedTestCase):
+class PicureUploadTest(SteamTestCase):
     '''
           新增活动
     '''
     __interfaceName__ = "/steam-resource/resource/uploadImages"
 
-    @initInput(services=[],
-               curser=PicureUploadService)
+    @initInputService( services = [],
+                       curser   = PicureUploadService )
     def __init__(self, methodName='runTest', param=None):
         super(PicureUploadTest, self).__init__(methodName, param)
 
@@ -40,8 +40,8 @@ class PicureUploadTest(ParametrizedTestCase):
 
 if  __name__ == "__main__":
     runTestOneCls(
-                    casefilepath = "\\steamcase\\testactivity\\picfileupload.xlsx",
-                    testclse = PicureUploadTest
+                    casefilepath = "\\steamcase\\testactivity\\steam-resourceresourceuploadImages.yml" ,
+                    testclse     = PicureUploadTest
                  )
     imgurl = "http://uat-steam.opg.cn/_static/admin/images/resource/20180720142714_267655.jpg"
     regStr = "^((https|http|ftp|rtsp|mms)?://)"

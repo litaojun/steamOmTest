@@ -18,7 +18,7 @@ from steam.util.testJsonFormat import initInputService
 from steam.user.login.userLoginService import WeixinUserLoginService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.parametrized import ParametrizedTestCase
-class UserLoginTest(ParametrizedTestCase):
+class UserLoginTest(SteamTestCase):
       '''
             微信端用户通过手机号码登录
       '''

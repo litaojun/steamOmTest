@@ -16,7 +16,8 @@ from opg.util.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
 import requests, os
-class PicureUploadService(UopService):
+from steam.util.httpUopService import  HttpUopService
+class PicureUploadService(HttpUopService):
     '''
         大转盘抽奖
     '''
@@ -27,9 +28,9 @@ class PicureUploadService(UopService):
         :param picturePath:
         """
         super(PicureUploadService, self).__init__("", "", kwargs)
-        self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
-        self.url =  "https://uat-steam-api.opg.cn/steam-resource/resource/uploadImages"
-        self.files = {'file': open(self.filepath % kwargs['file'], 'rb')}
+        # self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
+        # self.url =  "https://uat-steam-api.opg.cn/steam-resource/resource/uploadImages"
+        # self.files = {'file': open(self.filepath % kwargs['file'], 'rb')}
 
     def uploadImgFile(self):
         reponse = requests.post(url=self.url, files=self.files)

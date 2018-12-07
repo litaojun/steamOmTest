@@ -38,10 +38,10 @@ class UserMatchQueryService(HttpUopService):
                             reqJsonData = self.reqjsondata)
         return self.rsp
 
-    @check_rspdata(filepath = "userMatchQueryRspFmt")
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # @check_rspdata(filepath = "userMatchQueryRspFmt")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
     def getMatchTitleIds(self,response = None):
         if response is None:

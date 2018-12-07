@@ -14,10 +14,10 @@
 from opg.util.utils import query_json
 from opg.util.uopService import UopService,loadStrFromFile,decorator,resultData
 from steam.mockhttp.flaskHttpServer import httpData
-from opg.util.httptools import httpPost,httpGet,httpDelete
+from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile
 
 
-import json
+import json,os
 class HttpUopService(UopService):
       """
          增加根据URL发送HTTP请求
@@ -46,7 +46,7 @@ class HttpUopService(UopService):
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
                                   "token": self.inputKV["token"] if "token" in self.inputKV else ""
                             }
-          if method in ("get","delete") :
+          if method in ("get","delete","file") :
              self.reqjsondata = reqdata
              if method   == "get":
                 self.rsp =  httpGet(url     = url + self.reqjsondata ,
@@ -54,13 +54,17 @@ class HttpUopService(UopService):
              elif method  == "delete":
                   self.rsp =   httpDelete(url     = url + self.reqjsondata ,
                                           headers = self.jsonheart)
+             elif method  == "file":
+                  self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
+                  self.files = {'file': open(self.filepath % self.inputKV['file'], 'rb')}
+                  self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
           else:
               try:
                   self.reqjsondata = eval(reqdata)
                   if method == "post":
-                     self.rsp = httpPost(url         = url ,
-                                         headers     = self.jsonheart,
-                                         reqJsonData = self.reqjsondata)
+                     self.rsp = httpPost( url         = url ,
+                                          headers     = self.jsonheart,
+                                          reqJsonData = self.reqjsondata )
                   elif method == "put":
                        self.rsp = httpDelete( url = url )
               except Exception as e:

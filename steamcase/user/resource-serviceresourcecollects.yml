@@ -3,15 +3,16 @@ testcases:
   case:
   - testPoint: 收藏一个课程
     preConditions:
-    - preInterfaceUserCollection
+    - setupgetFirstResourceId
+    - tearDownUserCancelCollection
     operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10
-      resourceTypeId: 1
-      keyword: 体验课
-      chapterName: 第一章
-      sectionName: 1、
+      resourceTypeId: 13
+      keyword: 武汉大学AutoCAD技术视频
+      chapterName: 第一章 AutoCAD2007入门基础
+      sectionName: AutoCAD 的基本功能
       phoneNo: '18916899938'
       resourceId: 4448
       caseid: user_collect_1

@@ -28,7 +28,7 @@ class MatchDelService(HttpUopService):
                                                   module = "",
                                                   filename = "",
                                                   sqlvaluedict = kwargs,
-                                                  reqjsonfile = "competitionDelReq"
+                                                  reqjsonfile = None
                                              )
     @decorator("preInterfaceAddOneMatch")
     def addOneMatch(self):

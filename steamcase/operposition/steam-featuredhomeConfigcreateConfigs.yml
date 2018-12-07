@@ -3,8 +3,9 @@ testcases:
   case:
   - testPoint: 新增一个运营位配置-首页banner-文章
     preConditions:
-    - tearInterfaceDelOneOperPsn
-    operationSteps: testOperpsnAddNor
+    - tearDownGetFirstConfigResource
+    - tearDownDelOneOperpsn
+    operationSteps: compareRetcodeTest
     testData:
     - title: 让MakeX成为青少年释放自我的舞台-接口自动化-勿动
       picPath: http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg
@@ -18,8 +19,9 @@ testcases:
       code: '000000'
   - testPoint: 新增一个运营位配置-首页banner-视频
     preConditions:
-    - tearInterfaceDelOneOperPsn
-    operationSteps: testOperpsnAddNor
+    - tearDownGetFirstConfigResource
+    - tearDownDelOneOperpsn
+    operationSteps: compareRetcodeTest
     testData:
     - title: 石舍学校独立微电影-接口自动化-勿动
       picPath: http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg
@@ -33,8 +35,9 @@ testcases:
       code: '000000'
   - testPoint: 新增一个运营位配置-首页banner-商品
     preConditions:
-    - tearInterfaceDelOneOperPsn
-    operationSteps: testOperpsnAddNor
+    - tearDownGetFirstConfigResource
+    - tearDownDelOneOperpsn
+    operationSteps: compareRetcodeTest
     testData:
     - title: 早教学习儿童编程机器人套件益智智能机器人-接口自动化-勿动
       picPath: http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg
@@ -48,8 +51,9 @@ testcases:
       code: '000000'
   - testPoint: 新增一个运营位配置-首页banner-活动
     preConditions:
-    - tearInterfaceDelOneOperPsn
-    operationSteps: testOperpsnAddNor
+    - tearDownGetFirstConfigResource
+    - tearDownDelOneOperpsn
+    operationSteps: compareRetcodeTest
     testData:
     - title: 山野少年之户外实战技巧-接口自动化-勿动
       picPath: http://uat-steam.opg.cn/_static/admin/images/resource/20180425150543_430837.jpg

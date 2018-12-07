@@ -17,14 +17,13 @@ class OperpsnQueryTest(SteamTestCase):
       '''
             admin删除分类
       '''
-      __interfaceName__ = "/steam-featured/homeConfig/listData"
-      @initInputService(services=OperpsnQueryService)
+      __interfaceName__ = "/operation-manage/featured/queryShowConfigs"
+      @initInputService( curser = OperpsnQueryService )
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnQueryTest,self).__init__(methodName,param)
 
-
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\operposition\\operpsnquerycase.xlsx",
-                    testclse = OperpsnQueryTest
+                    casefilepath = "\\steamcase\\operposition\\steam-featuredhomeConfiglistDatas.yml",
+                    testclse     = OperpsnQueryTest
                  )

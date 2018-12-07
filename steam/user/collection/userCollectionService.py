@@ -32,14 +32,11 @@ class UserCollectionService(HttpUopService):
         super(UserCollectionService, self).__init__(  module       = modul,
                                                       filename     = filename,
                                                       sqlvaluedict = kwargs ,
-                                                       reqjsonfile = reqjsonfile )
+                                                       reqjsonfile = None )
 
+    @decorator(["setupUserCollection"])
     def userCollectionContentReq(self):
-        self.rsp =  httpPost(
-                                  url         = userCollectionUrl ,
-                                  reqJsonData = self.reqjsondata,
-                                  headers     = self.jsonheart
-                            )
+        self.rsp =  self.sendHttpReq()
         return self.rsp
 
     @decorator(["preInterfaceUserCollection"])

@@ -9,7 +9,7 @@ testcases:
     - currentPage: 1
       pageSize: 10
       resourceTypeId: 11
-      keyword: 早教学习儿童编程机器人套件益智智能机器人
+      keyword: 山野少年之户外实战技巧
       phoneNo: '18916899938'
       caseid: article_view_1
       testPoint: 查看一个活动

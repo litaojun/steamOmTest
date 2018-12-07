@@ -54,7 +54,7 @@ userMatchAppleQueryUrl  =   base_url       +  "/match-service/member/mp/query"
 userViewActivityUrl     =   base_url       +  "/steam-resource/product/detail"
 #运营位管理  STEAM推荐位微服务REST接口文档v1.0.2.docx
 addOperpositionurl   =    base_url    +  "/operation-manage/featured/createConfig"
-delOperpositionurl   =    base_url    +  "/steam-featured/homeConfig/removeIndexConfig"
+delOperpositionurl   =    base_url    +  "/operation-manage/featured/removeIndexConfig"
 alertOperpositionurl =    base_url    +  "/steam-featured/homeConfig/modifyIndexConfig"
 homeConfigQueryurl   =    base_url    + "/operation-manage/featured/queryShowConfigs?pageNo=1&pageSize=20"
 #首页  STEAM推荐位CMS-admin接口文档v1.0.0.docx

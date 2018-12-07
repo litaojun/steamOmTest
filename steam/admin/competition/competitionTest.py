@@ -25,6 +25,8 @@ class MatchAddTest(SteamTestCase):
           super(MatchAddTest,self).__init__(methodName,param)
 
 if __name__ == "__main__":
+   from steam.admin.competition.competitionDelTest import MatchDelTest
+   MatchDelTest(methodName = "compareRetcodeTest", param = [1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
                     casefilepath =  "\\steamcase\\competition\\match-servicematchcreateMatchs.yml",
                     testclse     =  MatchAddTest

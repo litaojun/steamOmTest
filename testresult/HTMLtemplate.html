@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-12-03 17:02:38</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:01.294130</p>
-<p class='attribute'><strong>Status:</strong> Failure 2 Error 2</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-12-07 17:52:39</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:07.487748</p>
+<p class='attribute'><strong>Status:</strong> Error 1</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -222,21 +222,21 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='errorClass'>
-    <td>/operation-manage/product/add</td>
-    <td>4</td>
+    <td>/order-service/order</td>
+    <td>1</td>
     <td>0</td>
-    <td>2</td>
-    <td>2</td>
-    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='failCase'><div class='testcase'>activity_add_1_新增一个活动正常</div></td>
+    <td class='errorCase'><div class='testcase'>order_list_1_用户查看所有订单列表</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        fail</a>
+        error</a>
 
     <div id='div_ft1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
@@ -246,125 +246,27 @@ function showOutput(id, name) {
         <pre>
         
 ft1.1: Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
-    self.assertTrue(retcode == self.expectdata["code"])
-AssertionError: False is not true
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 120, in compareRetcodeTest
+    self.rsp  = self.myservice.sendHttpReq()
+  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 71, in sendHttpReq
+    raise e
+  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 63, in sendHttpReq
+    self.reqjsondata = eval(reqdata)
+  File "&lt;string&gt;", line 0
+    
+    ^
+SyntaxError: unexpected EOF while parsing
 Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
-    self.assertTrue(retcode == self.expectdata["code"])
-AssertionError: False is not true
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.2' class='none'>
-    <td class='errorCase'><div class='testcase'>activity_add_1_新增一个活动正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        error</a>
-
-    <div id='div_ft1.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.2: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
-    self.myservice.handlingDb(dbsqlls)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
-    als = list(map(f,sqlls))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
-    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
-KeyError: 'tearDBdel_t_content_picture_byTitle'
-Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
-    self.myservice.handlingDb(dbsqlls)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
-    als = list(map(f,sqlls))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
-    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
-KeyError: 'tearDBdel_t_content_picture_byTitle'
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.3' class='none'>
-    <td class='failCase'><div class='testcase'>goods_add_1_新增一个商品正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
-        fail</a>
-
-    <div id='div_ft1.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.3: Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
-    self.assertTrue(retcode == self.expectdata["code"])
-AssertionError: False is not true
-Traceback (most recent call last):
-  File "D:/litaojun/workspace/steamOmTest/steam/admin/activity/addActivityTest.py", line 21, in addActivity
-    self.assertTrue(retcode == self.expectdata["code"])
-AssertionError: False is not true
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='ft1.4' class='none'>
-    <td class='errorCase'><div class='testcase'>goods_add_1_新增一个商品正常</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
-        error</a>
-
-    <div id='div_ft1.4' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-ft1.4: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
-    self.myservice.handlingDb(dbsqlls)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
-    als = list(map(f,sqlls))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
-    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
-KeyError: 'tearDBdel_t_content_picture_byTitle'
-Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 55, in tearDown
-    self.myservice.handlingDb(dbsqlls)
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 219, in handlingDb
-    als = list(map(f,sqlls))
-  File "D:\litaojun\workspace\unittestExBase\opg\util\uopService.py", line 218, in &lt;lambda&gt;
-    f = lambda x:operDict[self.sqldict[x][0]](self.sqldict[x][1]) if x is not None else None
-KeyError: 'tearDBdel_t_content_picture_byTitle'
+  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 120, in compareRetcodeTest
+    self.rsp  = self.myservice.sendHttpReq()
+  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 71, in sendHttpReq
+    raise e
+  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 63, in sendHttpReq
+    self.reqjsondata = eval(reqdata)
+  File "&lt;string&gt;", line 0
+    
+    ^
+SyntaxError: unexpected EOF while parsing
 
 
         </pre>
@@ -376,10 +278,10 @@ KeyError: 'tearDBdel_t_content_picture_byTitle'
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>4</td>
+    <td>1</td>
     <td>0</td>
-    <td>2</td>
-    <td>2</td>
+    <td>0</td>
+    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

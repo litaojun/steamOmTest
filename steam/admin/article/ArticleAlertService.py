@@ -12,12 +12,7 @@
 from opg.util.uopService import decorator,UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import alertArtcleurl
-from steam.util.configurl import delArticleurl
-from steam.article.query.ArticleQueryService import ArticleQueryService
-from steam.admin.article.ArticleAddService import ArticleAddService
-from steam.util.reqFormatPath import fxt,articleAlertReq
-from opg.util.httptools import httpPost
+
 from steam.util.httpUopService import  HttpUopService
 class ArticleAlertService(HttpUopService):
     '''

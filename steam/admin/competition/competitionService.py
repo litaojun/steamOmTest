@@ -27,7 +27,7 @@ class MatchAddService(HttpUopService):
         super(MatchAddService, self).__init__(module       = ""    ,
                                               filename     = ""    ,
                                               sqlvaluedict = kwargs ,
-                                              reqjsonfile  = kwargs["reqjsonfile"])
+                                              reqjsonfile  = None)
 
     @decorator(["tearDownDelMatchSession"])
     def delMatch(self):
@@ -45,7 +45,7 @@ class MatchAddService(HttpUopService):
         return query_json(json_content = json.loads(matchRsp),
                           query        = "code")
 
-    @decorator(["setupGetMatchOrSessionId"])
+    @decorator(["setupGetMatchOrSessionId","tearDownGetMatchOrSessionId"])
     def getMatchIdByRsp(self):
         """
             :param matchRsp:
@@ -53,5 +53,5 @@ class MatchAddService(HttpUopService):
 	    """
         if self.rsp is None:
            self.rsp = self.sendHttpReq()
-        return query_json(json_content = json.loads(self.rsp),
-                          query        = "matchId")
+        self.inputKV["matchId"] =  query_json(json_content  = json.loads(self.rsp),
+                                                query        = "matchId")

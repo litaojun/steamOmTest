@@ -37,6 +37,6 @@ if __name__ == "__main__":
    ArticleSearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
    ArticleAddTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\article\\operation-managemediaupdateMedias.yml",
-                    testclse = ArticleAlertTest
+                    casefilepath =  "\\steamcase\\article\\operation-managemediaupdateMedias.yml",
+                    testclse     =  ArticleAlertTest
                 )

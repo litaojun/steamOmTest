@@ -1,22 +1,37 @@
 testcases:
 - interfaceName: /operation-manage/match/updateMatchById
   case:
-  - testPoint: 修改一个赛事场次正常
+  - testPoint: 修改一个赛事正常
     preConditions:
-    - preInterfaceAddOneMatch
-    - tearInterfaceDelOneMatch
-    operationSteps: matchLabAlertReq
+    - setupAddMatchOrSession
+    - setupGetMatchOrSessionId
+    - tearDownDelMatchOrSession
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: '18916899938'
-      matchId: 1133
-      state: 2
-      applyStartTime: 1534923240000
-      applyEndTime: 1535528043000
-      applyNum: 0
-      limitCount: 30000
-      caseid: match_alert_1
+      alertMatchName: 修改赛事名称
       reqjsonfile: formatone
-      testPoint: 修改一个赛事场次正常
       delReqjsonfile: formatone
+      caseid: match_add_1
+      testPoint: 新增一个赛事正常
+    expectedResult:
+      code: '000000'
+  - testPoint: 修改一个亲子赛场次正常
+    preConditions:
+    - setupAddMatchOrSession
+    - setupGetMatchOrSessionId
+    - tearDownDelMatchOrSession
+    operationSteps: compareRetcodeTest
+    testData:
+    - matchName: 亲子赛测试test
+      alertMatchName: 亲子赛修改赛事名称
+      applyStartTime: 1534931060000
+      applyEndTime: 1535708660000
+      parentId: 22
+      limitCount: 663
+      reqjsonfile: sessionFormat
+      delReqjsonfile: formatone
+      caseid: match_add_2
+      testPoint: 新增一个亲子赛场次
     expectedResult:
       code: '000000'

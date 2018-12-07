@@ -15,8 +15,6 @@ from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchEntryService import UserSearchEntryService
 from steam.util.testJsonFormat import initInputService
-
-
 class WeixinSearchEntryTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
@@ -34,7 +32,15 @@ class WeixinSearchEntryTest(SteamTestCase):
           self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    from steam.user.search.weixinSearchTest import WeixinSearchTest
+    WeixinSearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
+    from steam.user.login.userLoginTest import UserLoginTest
+    UserVerfiyCodeTest(methodName="compareRetcodeTest",
+                       param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName="compareRetcodeTest",
+                       param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userSearchEntrycase.xlsx",
+                        casefilepath = "\\steamcase\\user\\steam-resourceindexconfigssearchByEntrys.yml",
                         testclse     = WeixinSearchEntryTest
                  )

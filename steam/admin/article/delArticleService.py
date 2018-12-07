@@ -12,11 +12,6 @@
 from opg.util.uopService import decorator,UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import delArticleurl
-from steam.admin.article.ArticleAddService import ArticleAddService
-from steam.article.query.ArticleQueryService import ArticleQueryService
-from steam.util.reqFormatPath import fxt,articleDelReq
-from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class ArticleDelService(HttpUopService):
     '''

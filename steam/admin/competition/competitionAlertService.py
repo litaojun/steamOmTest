@@ -29,20 +29,8 @@ class CompetitionAlertService(HttpUopService):
         super(CompetitionAlertService, self).__init__( module       = "",
                                                        filename     = "",
                                                        sqlvaluedict = kwargs,
-                                                       reqjsonfile  = kwargs["reqjsonfile"])
+                                                       reqjsonfile  = None)
 
-    @decorator("preInterfaceAddOneMatch")
-    def addOneMatch(self):
-        matchAddSer = MatchAddService(self.inputKV)
-        self.rsp    = matchAddSer.addMatch()
-        matchId     = matchAddSer.getMatchIdByRsp(self.rsp)
-        self.reqjsondata["matchId"] = matchId
-        self.inputKV["matchId"]     = matchId
-
-    @decorator("tearInterfaceDelOneMatch")
-    def delMatch(self):
-        delMatchRsp = MatchDelService(self.inputKV).delMatch()
-        return delMatchRsp
     #@decorator("addClassfiyService")
     def alertMatch(self):
         alertMatchRsp = requests.post(

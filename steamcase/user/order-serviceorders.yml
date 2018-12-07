@@ -4,7 +4,7 @@ testcases:
   - testPoint: 用户查看所有订单列表
     preConditions:
     - ''
-    operationSteps: userListOrderActivity
+    operationSteps: compareRetcodeTest
     testData:
     - title: 早鸟价接口自动化
       skuName: 价格（成人）

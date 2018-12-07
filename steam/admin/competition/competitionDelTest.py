@@ -25,6 +25,8 @@ class MatchDelTest(SteamTestCase):
           super(MatchDelTest,self).__init__(methodName,param)
 
 if __name__ == "__main__":
+   from steam.admin.competition.competitionTest import MatchAddTest
+   MatchAddTest(methodName = "compareRetcodeTest", param = [1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
                     casefilepath = "\\steamcase\\competition\\match-servicematchdeleteMatchs.yml",
                     testclse     = MatchDelTest

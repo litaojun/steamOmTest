@@ -53,9 +53,9 @@ class UserMatchAppleService(HttpUopService):
                                     "applyId":appleId
                                    })
 
-    def getRetcodeByRsp(self,response  = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response  = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
     def getAppleIdFromRsp(self,response = None):
         return query_json(json_content  = json.loads(response),

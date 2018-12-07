@@ -1,3 +1,0 @@
-{
-  "matchId":%(matchId)d
-}

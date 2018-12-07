@@ -10,11 +10,10 @@
 @time: 2018/4/25 15:27 
 """
 from opg.util.httptools import httpPost,httpGet
-from opg.util.uopService import decorator,UopService
-import requests,json
+import json
+from opg.util.uopService import decorator
 from opg.util.utils import query_json
 from steam.util.configurl import homeConfigQueryurl
-from steam.util.configurl import delArticleurl
 from steam.util.httpUopService import  HttpUopService
 class OperpsnQueryService(HttpUopService):
     '''
@@ -36,12 +35,14 @@ class OperpsnQueryService(HttpUopService):
         return query_json(json_content = json.loads(queryRsp),
                           query        = "code")
 
-    def getFirstResourceIdByRsp(self,queryRsp = None):
-        if queryRsp is None:
-            queryRsp = self.queryOperpsnListdata()
-        return query_json(json_content = json.loads(queryRsp),
-                          query        = "data.targets.0.id")
+    @decorator(["tearDownGetFirstConfigResource","setupGetFirstConfigResource"])
+    def getFirstResourceIdByRsp(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        self.inputKV["id"] =  query_json(json_content = json.loads(self.rsp),
+                                          query        = "data.targets.0.id")
 
+    # @decorator("tearDownGetFirstConfigResource")
     def getFirstResourceTitleByRsp(self,queryRsp = None):
         return query_json(json_content = json.loads(queryRsp),
                           query        = "data.targets.0.title")

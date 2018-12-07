@@ -28,7 +28,7 @@ class UserListOrderActivityService(HttpUopService):
     def __init__(self, kwargs = {},
                        modul  = "",
                        filename    = "",
-                       reqjsonfile = "weixinUserListOrderActivitisReq"):
+                       reqjsonfile = None):
         """
             :param entryName:
             :param picturePath:

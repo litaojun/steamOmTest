@@ -4,7 +4,7 @@ testcases:
   - testPoint: 发送验证码
     preConditions:
     - ''
-    operationSteps: userSendVerfiyCodeTest
+    operationSteps: compareRetcodeTest
     testData:
     - currentPage: 1
       pageSize: 10

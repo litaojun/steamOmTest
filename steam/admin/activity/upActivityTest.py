@@ -11,9 +11,7 @@
 """
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.upActivityService import ActivityPublishService
-from steam.util.testJsonFormat import initInput
 from steam.admin.activity.searchActivityService import ActivitySearchService
-from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInputService
 class ActivityPublishTest(SteamTestCase):

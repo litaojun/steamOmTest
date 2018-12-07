@@ -32,14 +32,11 @@ class UserCancelCollectionService(HttpUopService):
         super(UserCancelCollectionService, self).__init__(  module      = modul,
                                                            filename     = filename,
                                                       sqlvaluedict      = kwargs ,
-                                                       reqjsonfile      = reqjsonfile )
+                                                       reqjsonfile      = None )
 
+    @decorator(["tearDownUserCancelCollection"])
     def userCancelCollectionReq(self):
-        self.rsp =  httpPost(
-                                  url         = userCancelCollectionUrl ,
-                                  reqJsonData = self.reqjsondata,
-                                  headers     = self.jsonheart
-                            )
+        self.rsp =  self.sendHttpReq()
         return self.rsp
 
     @decorator(["preInterfaceUserCollection"])

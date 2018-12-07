@@ -39,15 +39,9 @@ class OperpsnAddService(HttpUopService):
 								      )
         return delOperpsnRsp.text
 
+    @decorator(["setupAddOperPosition"])
     def addOperPosition(self):
-        addOperpositionfiyRsp = requests.post(
-				                                   url     = addOperpositionurl,
-				                                   json    = self.reqjsondata,
-				                                   headers = self.jsonheart,
-				                                   verify  = False
-		                                      )
-        self.rsp = addOperpositionfiyRsp.text
-        return addOperpositionfiyRsp.text
+        self.sendHttpReq()
 
     def getRetcodeByOperpsnRsp(self,operpsnRsp = None):
         return query_json(json_content = json.loads(operpsnRsp),

@@ -2,9 +2,8 @@
 # encoding: utf-8  
 
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneTestcaseByCls,runTestOneCls
+from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
-from steam.util.testJsonFormat import initInput
 from steam.user.match.userMatchQueryService import UserMatchQueryService
 from steam.util.testJsonFormat import initInputService
 from steam.user.match.userCancelMatchAppleService import UserCancelMatchAppleService
@@ -31,14 +30,16 @@ class UserMatchAppleTest(SteamTestCase):
 
 if  __name__ == "__main__":
     from steam.user.match.userMatchQueryTest import UserMatchQueryTest
+    from steam.user.login.userLoginTest import UserLoginTest
     from steam.user.match.userMatchAppleQueryTest import UserMatchAppleQueryTest
     from steam.user.match.userCancelMatchAppleTest import UserCancelMatchAppleTest
     UserMatchQueryTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     UserMatchAppleQueryTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {"matchId": 22}, 7, 8])
-    UserCancelMatchAppleTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserCancelMatchAppleTest( methodName="compareRetcodeTest" , param=[1, 2, 3, 4, 5, {}, 7, 8] )
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
     UserVerfiyCodeTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-                        casefilepath  =  "\\steamcase\\user\\match-servicememberapplys.yml",
-                        testclse      =  UserMatchAppleTest
+                        casefilepath  =  "\\steamcase\\user\\match-servicememberapplys.yml" ,
+                        testclse      =   UserMatchAppleTest
                  )

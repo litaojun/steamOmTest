@@ -3,8 +3,9 @@ testcases:
   case:
   - testPoint: 删除一个赛事正常
     preConditions:
-    - preInterfaceAddOneMatch
-    operationSteps: testMatchDelNor
+    - setupAddMatchOrSession
+    - setupGetMatchOrSessionId
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: '18916899938'
       matchId: 1
@@ -16,8 +17,9 @@ testcases:
       code: '000000'
   - testPoint: 删除一个亲子赛场次
     preConditions:
-    - preInterfaceAddOneMatch
-    operationSteps: testMatchDelNor
+    - setupAddMatchOrSession
+    - setupGetMatchOrSessionId
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: 亲子赛测试test
       applyStartTime: 1534931060000
@@ -33,8 +35,9 @@ testcases:
       code: '000000'
   - testPoint: 删除一个国赛场次
     preConditions:
-    - preInterfaceAddOneMatch
-    operationSteps: testMatchDelNor
+    - setupAddMatchOrSession
+    - setupGetMatchOrSessionId
+    operationSteps: compareRetcodeTest
     testData:
     - matchName: 国赛测试test
       applyStartTime: 1534931060000

@@ -21,12 +21,16 @@ class CompetitionAlertTest(SteamTestCase):
       '''
       __interfaceName__ = "/operation-manage/match/updateMatchById"
       @initInputService(curser = CompetitionAlertService,
-                        services =[ MatchAddService,
+                        services = [ MatchAddService,
                                    [ MatchDelService , "delReqjsonfile" ]])
       def __init__(self, methodName='runTest', param=None):
           super(CompetitionAlertTest,self).__init__(methodName,param)
 
 if __name__ == "__main__":
+   from steam.admin.competition.competitionDelTest import MatchDelTest
+   MatchDelTest(methodName = "compareRetcodeTest", param = [1, 2, 3, 4, 5, {}, 7, 8])
+   from steam.admin.competition.competitionTest import MatchAddTest
+   MatchAddTest(methodName = "compareRetcodeTest", param = [1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
                     casefilepath = "\\steamcase\\competition\\match-servicematchupdateMatchByIds.yml" ,
                     testclse     = CompetitionAlertTest

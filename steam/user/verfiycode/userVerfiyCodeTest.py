@@ -30,13 +30,12 @@ class UserVerfiyCodeTest(SteamTestCase):
                           param      = None ):
           super(UserVerfiyCodeTest,self).__init__(methodName,param)
 
-      # def userSendVerfiyCodeTest(self):
-      #     rsp     = self.myservice.sendUserVerifyCode()
-      #     retcode = self.myservice.getRetcodeByRsp(response = rsp)
-      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
+    from steam.user.login.userLoginTest import UserLoginTest
+    UserLoginTest(methodName="compareRetcodeTest",
+                   param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-                        casefilepath = "\\steamcase\\user\\userVerfiyCodecase.xlsx",
+                        casefilepath = "\\steamcase\\user\\passportverifyCodes.yml",
                         testclse     = UserVerfiyCodeTest
                  )

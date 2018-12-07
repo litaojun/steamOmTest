@@ -27,31 +27,9 @@ class OperpsnDelService(HttpUopService):
         super(OperpsnDelService, self).__init__(sqlvaluedict = kwargs)
         self.operpsnAddSer = OperpsnAddService(self.inputKV)
 
-    @decorator("preInterfaceAddOneOperpsn")
-    def addOneOperpsn(self):
-        operpsnAddRsp = self.operpsnAddSer.addOperPosition()
-        self.rsp      = operpsnAddRsp
-        self.reqjsondata["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
-
-    @decorator("tearInterfaceDelOneOperpsn")
+    @decorator(["setupDelOneOperpsn","tearDownDelOneOperpsn"])
     def delOperpsn(self):
-        rssid = self.operpsnAddSer.getOperpsnIdByTitle()
-        delOperpsnRsp = requests.post(
-								        url=delOperpositionurl,
-								        json={"ids": [rssid]},
-								        headers=self.jsonheart,
-								        verify=False
-							         )
-        return delOperpsnRsp.text
-
-    def alertOperpsn(self):
-        addOperpsnRsp = requests.post(
-		                                url     = alertOperpositionurl,
-		                                json    = self.reqjsondata,
-		                                headers = self.jsonheart,
-		                                verify  = False
-                                      )
-        return addOperpsnRsp.text
+        self.sendHttpReq()
 
     def getRetCodeOperpsnRsp(self,rsp):
         return query_json(json_content=json.loads(rsp), query="code")
