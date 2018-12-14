@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>小红巢测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-12-07 17:52:39</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:07.487748</p>
-<p class='attribute'><strong>Status:</strong> Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-12-14 09:59:37</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:01.274000</p>
+<p class='attribute'><strong>Status:</strong> Pass 2</p>
 
 <p class='description'>用例测试情况</p>
 </div>
@@ -221,53 +221,55 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
-    <td>/order-service/order</td>
-    <td>1</td>
+<tr class='passClass'>
+    <td>/operation-manage/product/queryProducts</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='ft1.1' class='none'>
-    <td class='errorCase'><div class='testcase'>order_list_1_用户查看所有订单列表</div></td>
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>activity_query_1_查询一个活动正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
 
-    <div id='div_ft1.1' class="popup_window">
+    <div id='div_pt1.1' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.1: Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 120, in compareRetcodeTest
-    self.rsp  = self.myservice.sendHttpReq()
-  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 71, in sendHttpReq
-    raise e
-  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 63, in sendHttpReq
-    self.reqjsondata = eval(reqdata)
-  File "&lt;string&gt;", line 0
-    
-    ^
-SyntaxError: unexpected EOF while parsing
-Traceback (most recent call last):
-  File "D:\litaojun\workspace\unittestExBase\opg\unit\parametrized.py", line 120, in compareRetcodeTest
-    self.rsp  = self.myservice.sendHttpReq()
-  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 71, in sendHttpReq
-    raise e
-  File "D:\litaojun\workspace\steamOmTest\steam\util\httpUopService.py", line 63, in sendHttpReq
-    self.reqjsondata = eval(reqdata)
-  File "&lt;string&gt;", line 0
-    
-    ^
-SyntaxError: unexpected EOF while parsing
+pt1.1: 
 
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>goods_add_1_查询一个商品正常</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 
 
         </pre>
     </div>
@@ -278,10 +280,10 @@ SyntaxError: unexpected EOF while parsing
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
-    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

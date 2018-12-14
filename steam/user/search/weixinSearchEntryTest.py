@@ -17,7 +17,7 @@ from steam.user.search.weixinSearchEntryService import UserSearchEntryService
 from steam.util.testJsonFormat import initInputService
 class WeixinSearchEntryTest(SteamTestCase):
       '''
-            微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
+            微信端用户按分类搜索
       '''
       __interfaceName__ = "/steam-resource/index/configs/searchByEntry"
       @initInputService(services = [ ],
@@ -42,5 +42,6 @@ if  __name__ == "__main__":
                        param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\steam-resourceindexconfigssearchByEntrys.yml",
-                        testclse     = WeixinSearchEntryTest
+                        testclse     = WeixinSearchEntryTest,
+                        basepath     = "D:\\litaojun\\steamyml"
                  )

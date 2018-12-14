@@ -26,10 +26,10 @@ class UserListOrderActivityTest(SteamTestCase):
       def __init__(self, methodName='runTest', param=None):
           super(UserListOrderActivityTest,self).__init__(methodName,param)
 
-      def userListOrderActivity(self):
-          userListOrderRsp = self.myservice.userListOrderActivity()
-          retcode = self.myservice.getRetcodeByListOrderRsp(response=userListOrderRsp)
-          self.assertTrue(retcode == self.expectdata["code"])
+      # def userListOrderActivity(self):
+      #     userListOrderRsp = self.myservice.userListOrderActivity()
+      #     retcode = self.myservice.getRetcodeByListOrderRsp(response=userListOrderRsp)
+      #     self.assertTrue(retcode == self.expectdata["code"])
 
 if  __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest

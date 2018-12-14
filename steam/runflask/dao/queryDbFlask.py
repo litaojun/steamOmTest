@@ -18,7 +18,7 @@ def getRunTestTokenId(projectname = "",starTime="sss"):
     dbManager = getDbManger()
     starttime = getNowTime()
     tokenId = uuid.uuid4()
-    sqlstr = "insert into test_run_process(token,starttime,status,projectname) value('%s','%s',1,'%s')" % (tokenId,starttime,projectname)
+    sqlstr  = "insert into test_run_process(token,starttime,status,projectname) value('%s','%s',1,'%s')" % (tokenId,starttime,projectname)
     dbManager.insertData(sql_insert=sqlstr)
     return  tokenId,starttime
 

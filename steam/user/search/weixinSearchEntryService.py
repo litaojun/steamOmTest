@@ -32,15 +32,12 @@ class UserSearchEntryService(HttpUopService):
                                                      reqjsonfile  =  "userSearchEntryReq")
 
     def userSearchEntryReq(self):
-        self.rsp = httpGet(
-                                  url     =  userSearchEntryUrl + self.reqjsondata ,
-                                  headers =  self.jsonheart
-                           )
+        self.rsp = self.sendHttpReq()
         return self.rsp
 
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
 if __name__ == "__main__":
     queryJsonData = {

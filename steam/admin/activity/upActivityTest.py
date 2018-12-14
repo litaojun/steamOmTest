@@ -35,6 +35,6 @@ if __name__ == "__main__":
     from steam.admin.activity.searchActivityTest import ActivitySearchTest
     ActivitySearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-				          casefilepath = "\\steamcase\\activity\\operation-manageproductpublishs.yml",
-				          testclse     = ActivityPublishTest
-			           )
+				     casefilepath = "\\steamcase\\activity\\operation-manageproductpublishs.yml",
+				     testclse     = ActivityPublishTest
+			      )

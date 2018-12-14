@@ -15,13 +15,9 @@ class ActivityAddTest(SteamTestCase):
                          param      =  None):
           super(ActivityAddTest,self).__init__(methodName,param)
 
-      # def addActivity(self):
-      #     addActRsp = self.myservice.addActivity()
-      #     retcode   = self.myservice.getRetcodeByRsp(response = addActRsp)
-      #     self.assertTrue(retcode == self.expectdata["code"])
-
 if __name__ == "__main__":
    runTestOneCls(
 					casefilepath = "\\steamcase\\activity\\operation-manageproductadds.yml",
-					testclse     = ActivityAddTest
+					testclse     = ActivityAddTest,
+                    basepath     = "D:\\litaojun\\steamyml"
 				)

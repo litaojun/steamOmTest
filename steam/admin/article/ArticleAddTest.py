@@ -25,11 +25,6 @@ class ArticleAddTest(SteamTestCase):
       def __init__(self, methodName='runTest', param=None):
           super(ArticleAddTest,self).__init__(methodName,param)
 
-      # def testArticleAddNor(self):
-      #     articlersp = self.articleSer.addArticle()
-      #     rspcode    = self.articleSer.getRetcodeByArticleRsp(response=articlersp)
-      #     self.assertTrue(rspcode == self.expectdata["code"])
-
 if __name__ == "__main__":
     from steam.admin.article.ArticleSearchTest import ArticleSearchTest
     from steam.admin.article.delArticleTest import ArticleDelTest

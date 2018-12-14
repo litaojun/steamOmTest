@@ -31,7 +31,8 @@ class ActivitySearchTest(SteamTestCase):
           self.assertTrue(code == self.expectdata["code"])
 
 if __name__ == "__main__":
-          runTestOneCls(
+
+    runTestOneCls(
 				          casefilepath = "\\steamcase\\activity\\operation-manageproductqueryProducts.yml",
 				          testclse     = ActivitySearchTest
 			           )
