@@ -74,7 +74,39 @@ def sortListB():
 	print(data)
 
 
+def delListMul():
+	als = [1,2,3,1,3,4,5,3,1,3,9,3,21,83,19,8,7,9,6,8]
+	print(als)
+	num = len(als)
+	als.sort()
+	n = als[0]
+	for i in range(1,num):
+		while(i<num and n == als[i]):
+			del als[i]
+			num -= 1
+		if i < num:
+			n = als[i]
+		else:
+			break
+	print(als)
 
+def delListMula():
+	als = [1,2,3,1,3,4,5,3,1,3,9,3,21,83,19,8,7,9,6,8]
+	print(als)
+	num = lnum = len(als)
+	als.sort()
+	n = als[-1]
+	i = -2
+	while(1):
+		if i >= 0-num and n == als[i]:
+			del als[i]
+			num-=1
+		elif i>0-num :
+			n = als[i]
+			i -= 1
+		else:
+			break
+	print(als)
 
 
 
@@ -89,3 +121,4 @@ if __name__ == "__main__":
 	print("a" and "b")
 	print("a" and "")
 	print("a" or "b")
+	delListMula()
