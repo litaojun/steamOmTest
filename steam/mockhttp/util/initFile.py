@@ -17,7 +17,7 @@ import collections
 from configparser import ConfigParser
 cf=ConfigParser(allow_no_value=True)
 cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"]))
-
+casepath = cf.get('path','casepath')
 basePath = cf.get('path', 'basepath')
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
@@ -27,9 +27,9 @@ def loadFileData():
 def loadYamlFileData(filePath = None):
     print("filepath = %s " % filePath)
     with open(filePath, 'r',encoding="utf-8") as f:
-        ymldata = yaml.load(f.read())
-        print("ymldata = %s " % ymldata)
-        return ymldata
+         ymldata = yaml.load(f.read())
+         print("ymldata = %s " % ymldata)
+         return ymldata
 
 def generateUrlToFilePath():
     ymldata  = loadFileData()

@@ -42,10 +42,10 @@ class RecommandCourseService(HttpUopService):
         return self.rsp
 
     #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
 
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 if  __name__ == "__main__":
     kwargs = {
                 "courseId":4165,

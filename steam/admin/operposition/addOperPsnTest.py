@@ -29,15 +29,15 @@ class OperpsnAddTest(SteamTestCase):
 
 if __name__ == "__main__":
    from steam.admin.operposition.queryOperpsnTest import OperpsnQueryTest
-   from steam.admin.operposition.addOperPsnTest import OperpsnAddTest
    from steam.admin.operposition.delOperpsnTest import OperpsnDelTest
-   OperpsnAddTest(methodName = "compareRetcodeTest",
-                   param     = [ 1, 2, 3, 4, 5, {}, 7, 8])
+   # OperpsnAddTest(methodName = "compareRetcodeTest",
+   #                 param     = [ 1, 2, 3, 4, 5, {}, 7, 8])
    OperpsnQueryTest(methodName = "compareRetcodeTest",
                    param     = [ 1, 2, 3, 4, 5, {}, 7, 8])
    OperpsnDelTest(methodName = "compareRetcodeTest",
                    param     = [ 1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\operposition\\steam-featuredhomeConfigcreateConfigs.yml",
-                    testclse     = OperpsnAddTest
+                    casefilepath = "\\steamcase\\admin\\operposition\\steam-featuredhomeConfigcreateConfigs.yml",
+                    testclse     = OperpsnAddTest,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )

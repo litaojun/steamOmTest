@@ -11,10 +11,6 @@
 @file: resourceVisitService.py 
 @time: 2018/10/19 10:31 
 """
-
-from opg.util.uopService import UopService
-import json
-from opg.util.utils import query_json
 from steam.util.configurl import userResourceVisistUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
@@ -49,11 +45,11 @@ class ResourceVisitService(HttpUopService):
 
 if  __name__ == "__main__":
     kwargs = {
-                "resourceId":4165,
-                "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4",
-                "token":"db1986b2283c418a8c68f3b3d66cd385",
-                "chapterName":"第一章",
-                 "sectionName":"1、"
+                "resourceId" : 4165,
+                "memberId"   : "e99abfeb-1ae5-41d8-a422-63bc108026d4",
+                "token"        : "db1986b2283c418a8c68f3b3d66cd385",
+                "chapterName"  : "第一章",
+                 "sectionName" : "1、"
              }
     uvcSer = ResourceVisitService(kwargs=kwargs)
     rsp = uvcSer.sendInterfaceUrlReq()

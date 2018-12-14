@@ -18,22 +18,25 @@ from steam.util.testJsonFormat import initInputService
 class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
-            使用和微信端相同接口，本接口删除
+            使用和微信端相同接口
       '''
-      __interfaceName__   = "/operation-manage/product/query-delete"
+      __interfaceName__   = "/operation-manage/product/query"
       @initInputService(services = [ ActivitySearchService ] ,
                         curser   =   ActivityQueryService   )
       def __init__(self, methodName =  'runTest',
                          param      =  None      ):
           super(ActivityQueryTest,self).__init__(methodName , param)
 
-      def queryActivityDetail(self):
-          oneActRsp = self.myservice.queryOneActivity()
-          code      = self.myservice.getRetcodeByOneactRsp(oneActRsp = oneActRsp)
-          self.assertTrue(code == self.expectdata["code"])
+      # def queryActivityDetail(self):
+      #     oneActRsp = self.myservice.queryOneActivity()
+      #     code      = self.myservice.getRetcodeByOneactRsp(oneActRsp = oneActRsp)
+      #     self.assertTrue(code == self.expectdata["code"])
 
 if __name__ == "__main__":
-          runTestOneCls(
-				          casefilepath =  "\\steamcase\\activity\\operation-manageproductquerys.yml",
-				          testclse     =  ActivityQueryTest
+         from steam.admin.activity.searchActivityTest import ActivitySearchTest
+         ActivitySearchTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
+         runTestOneCls(
+				          casefilepath =  "\\steamcase\\admin\\activity\\operation-manageproductquerys.yml",
+				          testclse     =  ActivityQueryTest,
+                          basepath     = "D:\\litaojun\\steamyml"
 			           )

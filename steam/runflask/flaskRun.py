@@ -27,9 +27,9 @@ from steam.runflask.util.initData import allTestCase,allTestClass,tokenList
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
 # app.register_blueprint(mediaresQueryTest.bapp , url_prefix = "/mediares")
-app.register_blueprint(interfaceMnr.bapp,       url_prefix = "/infcs"   )
-app.register_blueprint(testcaseRun.bapp,        url_prefix = "/tsrun"   )
-app.register_blueprint(reportQuery.bapp,        url_prefix = "/rptqy"   )
+app.register_blueprint( interfaceMnr.bapp,       url_prefix = "/infcs"   )
+app.register_blueprint( testcaseRun.bapp,        url_prefix = "/tsrun"   )
+app.register_blueprint( reportQuery.bapp,        url_prefix = "/rptqy"   )
 
 @app.route('/prop/runTestPro', methods=['GET'])
 def start_steam_tasks():

@@ -11,10 +11,10 @@
 @file: userCollectionService.py 
 @time: 2018/10/18 15:08 
 """
-from opg.util.uopService import UopService,decorator
+from opg.util.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userCollectionUrl,userCancelCollectionUrl
+from steam.util.configurl import userCancelCollectionUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserCollectionService(HttpUopService):
