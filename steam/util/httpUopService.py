@@ -14,7 +14,7 @@
 from opg.util.utils import query_json
 from opg.util.uopService import UopService,loadStrFromFile,decorator,resultData
 from steam.mockhttp.flaskHttpServer import httpData
-from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile
+from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 
 
 import json,os
@@ -46,7 +46,7 @@ class HttpUopService(UopService):
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
                                   "token": self.inputKV["token"] if "token" in self.inputKV else ""
                             }
-          if method in ("get","delete","file") :
+          if method in ("get","delete","file","put-get") :
              self.reqjsondata = reqdata
              if method   == "get":
                 self.rsp =  httpGet(url     = url + self.reqjsondata ,
@@ -58,6 +58,9 @@ class HttpUopService(UopService):
                   self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
                   self.files = {'file': open(self.filepath % self.inputKV['file'], 'rb')}
                   self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
+             elif method == "put-get":
+                 self.rsp = httpPutGet(url     = url + self.reqjsondata,
+                                       headers = self.jsonheart)
           else:
               try:
                   self.reqjsondata = eval(reqdata)

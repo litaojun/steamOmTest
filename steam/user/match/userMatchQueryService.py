@@ -61,6 +61,8 @@ class UserMatchQueryService(HttpUopService):
 
     @decorator(["setupGetSubMatchId"])
     def setInPutData(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
         if "subMatchName" in self.inputKV:
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)
             matchDict    = allMatchDict[self.inputKV["subMatchName"]]

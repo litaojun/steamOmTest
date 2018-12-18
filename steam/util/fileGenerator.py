@@ -11,8 +11,6 @@
 @file: fileGenerator.py 
 @time: 2018/12/10 12:55 
 """
-import os,sys,re,traceback
-from datetime import datetime
 from steam.mockhttp.util.initFile import loadFileData
 from string import Template
 def generateFile( filePath = None,templateTypePath = "",dataDict= {} ):
@@ -53,7 +51,7 @@ def baseDictTranDataDict(bsDict = None ):
     caseTemplatePath    = "D:\\litaojun\\steamyml\\template\\testcase.template"
     testFilePath        = "D:\\litaojun\\workspace\\steamOmTest\\steam\\%(oneDir)s\\%(twoDir)s\\%(pyFileName)sTest.py"
     serviceFilePath     = "D:\\litaojun\\workspace\\steamOmTest\\steam\\%(oneDir)s\\%(twoDir)s\\%(pyFileName)sService.py"
-    testcaseFilePath   = "D:\\litaojun\\steamyml\\steamcase\\%(oneDir)s\\%(twoDir)s\\%(casePath)ss.yml"
+    testcaseFilePath    = "D:\\litaojun\\steamyml\\steamcase\\%(oneDir)s\\%(twoDir)s\\%(casePath)ss.yml"
     ymlData    = loadFileData()
     urlYmldata = ymlData["steam"][bsDict["oneDir"]][bsDict["twoDir"]][bsDict["pathSign"]]
     bsDict["subTitle"]   = urlYmldata["title"]
@@ -82,8 +80,8 @@ def genAllFile(bsDict = None):
 
 if __name__ == "__main__":
     bsDict = {
-                "oneDir" :  "admin" ,
-                "twoDir" :  "course" ,
-                "pathSign" : "/operation-manage/course/queryCourseById"
+                "oneDir" :  "user" ,
+                "twoDir" :  "member" ,
+                "pathSign" : "/member-service/changePhoneNo"
              }
     genAllFile(bsDict = bsDict)

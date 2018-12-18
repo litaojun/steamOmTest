@@ -60,7 +60,7 @@ class MemberAddressService(HttpUopService):
     # def getRetcodeByRsp(self,response = None):
     #     return query_json(json_content = json.loads(response),
     #                       query        = "code")
-    @decorator(["setupGetUserAddressId"])
+    @decorator(["setupGetUserAddressId","tearDownGetUserAddressId"])
     def setInPutData(self):
         memberAddrId               = self.getMemberAddressIdFromRsp()
         self.inputKV["addressId"] = memberAddrId

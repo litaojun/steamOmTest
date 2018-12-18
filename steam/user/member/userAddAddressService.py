@@ -34,11 +34,6 @@ class UserAddAddressService(HttpUopService):
         self.rsp = self.sendHttpReq()
         return self.rsp
 
-    # @check_rspdata(filepath="userAddAddressRspFmt")
-    # def getRetcodeByRsp(self,response = None):
-    #     return query_json(json_content= json.loads(response),
-    #                       query       = "code")
-
 if __name__ == "__main__":
     kwargs = {
                     "consignee": "李菠萝",

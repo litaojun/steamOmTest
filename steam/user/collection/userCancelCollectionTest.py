@@ -51,4 +51,4 @@ if __name__ == "__main__":
     runTestOneCls(
                     casefilepath = "\\steamcase\\user\\resource-serviceresourcecancelCollects.yml",
                     testclse     = UserCancelCollectionTest
-                )
+                 )

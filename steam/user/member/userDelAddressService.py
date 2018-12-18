@@ -30,18 +30,12 @@ class UserDelAddressService(HttpUopService):
         """
         super(UserDelAddressService, self).__init__(module   = "",
                                                     filename = "",
-                                                    sqlvaluedict = kwargs ,
-                                                    reqjsonfile  = "userDelAddressReq")
+                                                    sqlvaluedict = kwargs)
 
+    @decorator(["tearDownDelUserAddress"])
     def userDelAddressReq(self):
-        self.rsp = httpDelete(url     = userDelAddressUrl + self.reqjsondata,
-                              headers = self.jsonheart)
+        self.rsp = self.sendHttpReq()
         return self.rsp
-
-    # @check_rspdata(filepath="userDelAddressRspFmt")
-    # def getRetcodeByRsp(self,response = None):
-    #     return query_json(json_content=json.loads(response),
-    #                       query       ="code")
 
     @decorator(["preInterfaceUserAddAddress"])
     def userAddAddressReq(self):

@@ -43,23 +43,19 @@ class UserMatchAppleService(HttpUopService):
         self.rsp = self.sendHttpReq()
         return self.rsp
 
-    @decorator(["preInterfaceUserCancelMatch"])
-    def userCancelMatchApple(self):
-        appleId = UserMatchAppleQueryService(self.inputKV).getUserAppleIdByMatchName(matchName=self.inputKV["subMatchName"])
-        if appleId is not None:
-           httpPost(url         = userCancelMatchAppleUrl,
-                    headers     = self.jsonheart,
-                    reqJsonData = {
-                                    "applyId":appleId
-                                   })
+    @decorator(["setupGetUUIDFromMatchRsp"])
+    def getUUIDFromMatchAppleRsp(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        self.inputKV["uuid"] = query_json(json_content  = json.loads(self.rsp),
+                                           query         = "uuid")
 
-    # def getRetcodeByRsp(self,response  = None):
-    #     return query_json(json_content = json.loads(response),
-    #                       query        = "code")
-
-    def getAppleIdFromRsp(self,response = None):
-        return query_json(json_content  = json.loads(response),
-                          query         = "applyId")
+    # @decorator(["setupGetAppidFromMatchRsp"])
+    def getAppleIdFromRsp(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        self.inputKV["applyId"] = query_json( json_content  = json.loads(self.rsp) ,
+                                               query         = "applyId" )
 
     @decorator(["preInterfaceUserAlertMatch"])
     def alterMatchTime(self):

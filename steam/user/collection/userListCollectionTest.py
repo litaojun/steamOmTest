@@ -12,7 +12,6 @@
 @time: 2018/10/18 16:10 
 """
 from steam.util.testJsonFormat import initInputService
-from steam.util.testJsonFormat import initInput
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.collection.userListCollectionService import UserListCollectionService
@@ -26,11 +25,6 @@ class UserListCollectionTest(SteamTestCase):
       def __init__( self, methodName = 'runTest',
                           param      =  None ):
           super(UserListCollectionTest,self).__init__(methodName,param)
-
-      # def userListCollectTest(self):
-      #     rsp        = self.myservice.userListCollectionReq()
-      #     rspcode    = self.myservice.getRetcodeByRsp( response = rsp )
-      #     self.assertTrue( rspcode == self.expectdata["code"] )
 
 if __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
