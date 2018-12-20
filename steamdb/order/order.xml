@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>setupDBdelect_tb_orderBy_orderId</name>
+        <opertype>delete</opertype>
+        <sql>delete o.* from tb_order o where o.id = "%(orderId)s" ;</sql>
+	    <desc>查询passportID</desc>
+    </mysql>
+    <mysql>
+        <name>setupDBdelect_tb_order_scoreBy_orderId</name>
+        <opertype>delete</opertype>
+        <sql>delete s.* from tb_order_score  s where s.order_id = "%(orderId)s" ;</sql>
+	    <desc>查询passportID</desc>
+    </mysql>
+</uop>

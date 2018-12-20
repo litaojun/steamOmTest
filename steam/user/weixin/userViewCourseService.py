@@ -35,17 +35,17 @@ class UserViewCourseService(HttpUopService):
                                                       filename     = filename,
                                                       sqlvaluedict = kwargs ,
                                                       reqjsonfile  = reqjsonfile )
-
-    # def userViewCourse(self):
-    #     self.rsp =  httpGet(
-    #                               url     = userViewCourseUrl + self.reqjsondata,
-    #                               headers = self.jsonheart
-    #                         )
-    #     return self.rsp
+    @decorator("setupGetSkuId")
+    def getSkuIdFromRsp(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        self.inputKV["skuId"] =  query_json( json_content = json.loads(self.rsp) ,
+                                                query      = "data.skuInfo.skuId" )
+        self.inputKV["payPrice"]  = query_json( json_content = json.loads(self.rsp) ,
+                                                query      = "data.skuInfo.price" )
 
     def genChapterSectionNameDict(self,response = None):
         if response is None:
-           # response = self.userViewCourse()
            response = self.sendHttpReq()
         chapters = query_json(json_content = json.loads(response),
                               query        = "data.courseCategory.chapters")

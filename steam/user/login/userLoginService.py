@@ -11,17 +11,14 @@
 @file: userLoginService.py 
 @time: 2018/6/5 14:33 
 """
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinUserLoginurl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserLoginReq,weixinUserLoginRspFmt
+from steam.util.reqFormatPath import weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
-from opg.util.httptools import httpPost
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
 from steam.util.httpUopService import  HttpUopService
-
+from opg.util.uopService import decorator
 class WeixinUserLoginService(HttpUopService):
     '''
         微信端用户登录
@@ -31,18 +28,15 @@ class WeixinUserLoginService(HttpUopService):
             :param entryName:
             :param picturePath:
         """
-        super(WeixinUserLoginService, self).__init__(module    ="",
-                                                     filename  ="",
-                                                     sqlvaluedict = kwargs ,
-                                                     reqjsonfile  = None)
+        super(WeixinUserLoginService, self).__init__( module    = "" ,
+                                                      filename  = "" ,
+                                                      sqlvaluedict = kwargs ,
+                                                      reqjsonfile  = None )
         self.weixinUserLoginReqjson = self.reqjsondata
         kwargs["scenes"] = "OTP"
         self.userVerfiyCodeSer = WeixinUserVerfiyCodeService(kwargs=kwargs)
 
     def weixinUserLogin(self):
-        # self.rsp = httpPost(url         = weixinUserLoginurl,
-        #                     headers     = self.jsonheart,
-        #                     reqJsonData = self.weixinUserLoginReqjson)
         self.rsp = self.sendHttpReq()
         return self.rsp
 
@@ -59,8 +53,9 @@ class WeixinUserLoginService(HttpUopService):
         return query_json(json_content = json.loads(response),
                           query        = "code")
 
-
-
+    @decorator(["setupGetPassportIdByPhoneNo"])
+    def getPassportIdByPhoneNo(self):
+        self.inputKV["passportId"] = self.selectBySqlName("setupDBselect_t_accessBy_phoneNo")
 
 if __name__ == "__main__":
    args = {

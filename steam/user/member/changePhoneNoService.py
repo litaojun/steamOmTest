@@ -1,9 +1,5 @@
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.httptools import httpPost
-from opg.util.utils import query_json
-from opg.util.schemajson import check_rspdata
 from steam.util.httpUopService import  HttpUopService
+from opg.util.uopService import decorator
 
 class ChangePhoneNoService(HttpUopService):
     '''
@@ -17,3 +13,11 @@ class ChangePhoneNoService(HttpUopService):
         super(ChangePhoneNoService, self).__init__(module       = "",
 												 filename     = "",
 												 sqlvaluedict = kwargs )
+
+    @decorator(["tearDownExchangeOldNewPhoneNo"])
+    def exchangeOldNewPhone(self):
+        self.inputKV["oldPhoneNo"] , self.inputKV["newPhoneNo"] = self.inputKV["newPhoneNo"] , self.inputKV["oldPhoneNo"]
+
+    @decorator(["tearDownChangePhone"])
+    def changePhoneNo(self):
+        self.sendHttpReq()

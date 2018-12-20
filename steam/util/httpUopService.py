@@ -23,10 +23,10 @@ class HttpUopService(UopService):
          增加根据URL发送HTTP请求
       """
       def __init__( self,module    = None ,
-                         filename = None ,
+                         filename  = None ,
                          sqlvaluedict = None ,
                          reqjsonfile  = None,
-                         dbName = None):
+                         dbName       = "resource"):
           super(HttpUopService, self).__init__(module    = module  ,
                                                filename  = filename ,
                                                sqlvaluedict = sqlvaluedict ,

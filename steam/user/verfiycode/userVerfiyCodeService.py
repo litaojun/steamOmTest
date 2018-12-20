@@ -36,34 +36,37 @@ class WeixinUserVerfiyCodeService(HttpUopService):
         self.rsp = None
         self.userVerfiyCodeReqjson = self.reqjsondata
 
-
-
     def sendUserVerifyCode(self):
         self.rsp = self.sendHttpReq()
         return self.rsp
 
-    @check_rspdata(filepath=weixinUserVerfiyCodeRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        """
-        :param response:
-        :return:
-        """
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
-
-    def getVerfiyCodeFromRedisByPhone(self,phoneNum = ""):
+    def getVerfiyCodeFromRedisByPhone(self,phoneNum = "",scenes = ""):
         if phoneNum is None or phoneNum == "":
-            phoneNum = self.inputKV["phoneNo"]
+           phoneNum = self.inputKV["phoneNo"]
+        if scenes is None or scenes == "":
+           scenes = self.inputKV["scenes"]
         curRedis   = RedisOper()
         verfiyCode = curRedis.getSteamVerCodeByPhone(phone  = phoneNum,
-                                                     scenes = self.inputKV["scenes"])
+                                                     scenes = scenes)
         return verfiyCode
 
-    @decorator("setupSendVerifyCode")
+    @decorator(["setupSendVerifyCode","tearDownSendVerifyCode"])
     def setInPutData(self):
         if self.rsp is None:
-           self.rsp = self.sendUserVerifyCode()
-        self.inputKV["verfiyCode"] = self.getVerfiyCodeFromRedisByPhone()
+           self.rsp = self.sendHttpReq()
+        self.inputKV["verfiyCode"]           = self.getVerfiyCodeFromRedisByPhone()
+        if "newPhoneNo" in self.inputKV:
+            self.inputKV["alterPhoneNoVfycode"] = self.getVerfiyCodeFromRedisByPhone(phoneNum = self.inputKV["newPhoneNo"],
+                                                                                          scenes = self.inputKV["alertScenes"])
+
+    @decorator(["setupSetRspToNone"])
+    def setRspToNone(self):
+        self.rsp = None
+
+    @decorator("setupAlertSendVerifyCode")
+    def getAlertPhoneVerifyCode(self):
+        self.inputKV["alterPhoneNoVfycode"] = self.getVerfiyCodeFromRedisByPhone(phoneNum = self.inputKV["alertPhoneNo"] ,
+                                                                                    scenes   = self.inputKV["alertScenes"])
 
 
 if __name__ == "__main__":

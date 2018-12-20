@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>setupDBselect_t_accessBy_phoneNo</name>
+        <opertype>selete</opertype>
+        <sql>delete o.* from tb_order o where o.id = '%(orderId)s';</sql>
+	    <desc>查询passportID</desc>
+    </mysql>
+</uop>
