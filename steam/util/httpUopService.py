@@ -83,6 +83,5 @@ class HttpUopService(UopService):
               :param matchRsp:
               :return:
           """
-          print("s")
           return query_json(json_content = json.loads(self.rsp),
                                    query = format)

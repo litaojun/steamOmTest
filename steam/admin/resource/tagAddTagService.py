@@ -17,3 +17,16 @@ class TagAddTagService(HttpUopService):
         super(TagAddTagService, self).__init__(module       = "",
 												 filename     = "",
 												 sqlvaluedict = kwargs )
+
+    @decorator(["tearDownGetTagId","setupGetTagId"])
+    def getTagId(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        self.inputKV["tagId"] = query_json( json_content = json.loads(self.rsp) ,
+                                             query        = "data" )
+
+    @decorator(["setupAddTag"])
+    def addTag(self):
+        self.sendHttpReq()
+
+

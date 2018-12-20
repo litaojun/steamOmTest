@@ -17,3 +17,7 @@ class TagRemoveTagService(HttpUopService):
         super(TagRemoveTagService, self).__init__(module       = "",
 												 filename     = "",
 												 sqlvaluedict = kwargs )
+
+    @decorator(["tearDownRemoveTag"])
+    def removeTag(self):
+        self.sendHttpReq()
