@@ -10,12 +10,12 @@
 @time: 2018/4/25 19:24 
 """
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.admin.operposition.queryOperpsnService import OperpsnQueryService
+from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInputService
 class OperpsnQueryTest(SteamTestCase):
       '''
-            admin删除分类
+            admin查询一个运营位配置
       '''
       __interfaceName__ = "/operation-manage/featured/queryShowConfigs"
       @initInputService( curser = OperpsnQueryService )
@@ -24,6 +24,7 @@ class OperpsnQueryTest(SteamTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-                    casefilepath = "\\steamcase\\operposition\\steam-featuredhomeConfiglistDatas.yml",
-                    testclse     = OperpsnQueryTest
+                    casefilepath = "\\steamcase\\admin\\operate\\steam-featuredhomeConfiglistDatas.yml",
+                    testclse     = OperpsnQueryTest ,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )

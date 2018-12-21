@@ -35,12 +35,17 @@ class OperpsnQueryService(HttpUopService):
         return query_json(json_content = json.loads(queryRsp),
                           query        = "code")
 
-    @decorator(["tearDownGetFirstConfigResource","setupGetFirstConfigResource"])
+    @decorator(["tearDownGetFirstConfigResource" ,
+                "setupGetFirstConfigResource"])
     def getFirstResourceIdByRsp(self):
         if self.rsp is None:
            self.rsp = self.sendHttpReq()
-        self.inputKV["id"] =  query_json(json_content = json.loads(self.rsp),
-                                          query        = "data.targets.0.id")
+        self.inputKV["id"] =  int(query_json(json_content = json.loads(self.rsp),
+                                          query        = "data.targets.0.id"))
+        self.inputKV["listOrder"] = (query_json(json_content = json.loads(self.rsp),
+                                          query        = "data.targets.0.listOrder"))
+
+
 
     # @decorator("tearDownGetFirstConfigResource")
     def getFirstResourceTitleByRsp(self,queryRsp = None):
