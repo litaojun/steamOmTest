@@ -1,18 +1,6 @@
 #!/usr/bin/env python  
 # encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: flaskRun.py 
-@time: 2018/7/11 15:09 
-"""
 from flask import Flask, jsonify,request
-# from steam.mediares.query import mediaresQueryTest
 from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery
 from flask_cors import *
 import sys
@@ -75,7 +63,6 @@ def query_planlist():
     projectName = request.args.get("projectname")
     return jsonify(queryTestPlanList(projectName = projectName))
 
-
 @app.route('/prop/getOneTestcase', methods=['GET'])
 def query_testCase():
     """
@@ -117,4 +104,3 @@ def hello_world_local():
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0',debug=True,port=8181)
-    #testResult = runTest(title=u"steam亲子教育", description=u"用例测试情况",token="ssssss")

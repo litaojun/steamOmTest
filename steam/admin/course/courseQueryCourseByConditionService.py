@@ -27,5 +27,7 @@ class CourseQueryCourseByConditionService(HttpUopService):
     def getFirstIdFromQueryRst(self):
         if self.rsp is None:
            self.rsp = self.sendHttpReq()
-        self.inputKV["resourceId"]  = query_json( json_content = json.loads(self.rsp) ,
-                                                    query        = "data.targets.0.resourceId" )
+        self.inputKV["resourceId"]  = int(query_json( json_content = json.loads(self.rsp) ,
+                                                        query        = "data.targets.0.resourceId" ))
+        self.inputKV["skuId"]        = int(query_json( json_content  = json.loads(self.rsp) ,
+                                                         query        = "data.targets.0.skuId" ))

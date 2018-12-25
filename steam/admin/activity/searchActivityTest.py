@@ -1,17 +1,10 @@
 #!/usr/bin/env python  
 # encoding: utf-8  
 """ 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: searchActivityTest.py 
-@time: 2018/5/10 16:38 
+@version: v1.0
 """
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInput
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.testJsonFormat import initInputService
 class ActivitySearchTest(SteamTestCase):
@@ -35,4 +28,4 @@ if __name__ == "__main__":
     runTestOneCls(
 				          casefilepath = "\\steamcase\\activity\\operation-manageproductqueryProducts.yml",
 				          testclse     = ActivitySearchTest
-			           )
+			     )

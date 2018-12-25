@@ -48,5 +48,6 @@ if  __name__ == "__main__":
     MemberAddressTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                         casefilepath =  "\\steamcase\\user\\order-serviceordersubmitAndPays.yml",
-                        testclse     =  UserOrderActivityTest
+                        testclse     =  UserOrderActivityTest,
+                        basepath     = "D:\\litaojun\\steamyml"
                  )
