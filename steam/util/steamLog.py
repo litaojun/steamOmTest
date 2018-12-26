@@ -62,7 +62,9 @@ class SteamTestCase(ParametrizedTestCase):
         cls.memberIdDict = {}
 
 if __name__ == "__main__":
-    args = {"phoneNo":"18916899938"}
+    args = {
+                "phoneNo":"18916899938"
+           }
     # testcase = SteamTestCase(args = )
     print(dir(SteamTestCase))
 

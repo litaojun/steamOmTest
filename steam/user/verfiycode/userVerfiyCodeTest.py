@@ -15,7 +15,6 @@
 from opg.unit.parametrized import ParametrizedTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.login.userLoginService import WeixinUserLoginService
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from steam.util.steamLog import SteamTestCase

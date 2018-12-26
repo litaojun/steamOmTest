@@ -17,7 +17,7 @@ sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.util.steamLog import SteamTestCase
 import threading
 from opg.unit.flaskRunMgr import genTestCaseByInterfaceOrCaseIds,runOneTestcase
-from steam.runflask.util.initData import allTestCase,allTestClass
+from steam.runflask.util.initData import allTestCase,allTestClass,testSuite
 from flask import Blueprint
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
 from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
@@ -68,8 +68,8 @@ def start_steam_tasks():
     """
     projectName = request.args.get("projectname")
     retdata     = getRunTestTokenId(projectname = projectName)
-    testSuite   = genAllTestCase(allCase        = allTestCase,
-                                 allTestClass   = allTestClass)
+    # testSuite   = genAllTestCase(allCase        = allTestCase,
+    #                              allTestClass   = allTestClass)
     SteamTestCase.memberIdDict  = {}
     t = threading.Thread(target = runAllTestCase,
                          kwargs = {

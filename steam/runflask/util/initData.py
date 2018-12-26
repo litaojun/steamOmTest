@@ -18,5 +18,7 @@ testSuite = None
 if sign :
     allTestClass = initAllTestClass()
     allTestCase  = initAllTestCase(casePath = casepath)
+    testSuite   = genAllTestCase(allCase        = allTestCase,
+                                 allTestClass   = allTestClass)
     tokenList    = []
     sign         = False
