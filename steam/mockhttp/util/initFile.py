@@ -36,7 +36,7 @@ def loadYamlFileData(filePath = None):
     print("filepath = %s " % filePath)
     with open(filePath, 'r',encoding="utf-8") as f:
          ymldata = yaml.load(f.read())
-         print("ymldata = %s " % ymldata)
+         # print("ymldata = %s " % ymldata)
          return ymldata
 
 def generateUrlToFilePath():

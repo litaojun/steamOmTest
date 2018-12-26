@@ -3,6 +3,7 @@
 from flask import Flask, jsonify,request
 from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery
 from flask_cors import *
+from steam.mockhttp.util.initFile import ip
 import sys
 from steam.util.steamLog import SteamTestCase
 from flask import render_template
@@ -95,12 +96,12 @@ def stop_test_run():
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return render_template("pytest.html", content="hello flask ")
+    return render_template( "pytest.html", content="hello flask " )
 
 
 @app.route('/local', methods=['GET'])
 def hello_world_local():
-    return render_template("pytestlocal.html", ipStr="10.205.255.241:8181")
+    return render_template( "pytestlocal.html", ipStr = ip )
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0',debug=True,port=8181)

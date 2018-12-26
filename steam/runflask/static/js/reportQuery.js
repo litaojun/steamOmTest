@@ -1,7 +1,7 @@
-ipStr = "http://127.0.0.1:8181";
+// ipStr = "http://127.0.0.1:8181";
 // ipStr = "http://10.205.255.241:8181";
-testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
-runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
+// testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";   //#根据选择的执行计划获取对应报告
+// runTesturl   = ipStr + "/prop/runtestplan?projectname=";  //根据项目名称执行自动化测试
 function getAllPlanByProName()
 {
          $("#result_table").attr("class", "");
@@ -15,19 +15,19 @@ function selectPlanByProName(proname)
 {
     $.ajax({
               type:"GET",
-              url: ipStr + "/rptqy/prop/testplanlist?projectname=" + proname,
+              url: ipStr + "/rptqy/prop/testplanlist?projectname=" + proname ,
               dataType:"json",
               <!--global:false,-->
               success: function(data){
-                                     clearTestReportTable();
-                                     clearPlanTimeList();
-                                     var sign = '';
-                                     $.each(data.listplan,function(index,item){
-                                           var itemstr = structurePlanTimeData(item.id,item.plantime);
-                                           $("#select_plan").prepend(itemstr);
-                                           sign = item.id;
-                                           }
-                                      );
+                                       clearTestReportTable();
+                                       clearPlanTimeList();
+                                       var sign = '';
+                                       $.each(data.listplan,function(index,item){
+                                               var itemstr = structurePlanTimeData(item.id,item.plantime);
+                                               $("#select_plan").prepend(itemstr);
+                                               sign = item.id;
+                                             }
+                                             );
                                      $("#select_plan").prepend("<option value='' selected>--计划--</option>") ;
                                      $("#select_plan").find("option[value='"+sign+"']").attr("selected",true);   //选中第一行数据
                                      $('#select_plan').trigger('change');//触发改变事件
@@ -39,6 +39,7 @@ function selectPlanByProName(proname)
 //根据选择的执行计划时间获取对应测试报告
 function selectfun(event)
 {
+                 testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";
 			      $("#result_table").attr("class","");
                   $("#interface_table").attr("class","hiddenRow");
 			      lid = $(this).val()  ;//获取选中计划的planId
