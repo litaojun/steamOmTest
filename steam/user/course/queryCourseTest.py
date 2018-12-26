@@ -21,7 +21,7 @@ class QueryCourseTest(SteamTestCase):
       '''
             用户查看课程详情页
       '''
-      __interfaceName__ = "/steam-course/course/queryCourse"
+      __interfaceName__ = "/steam-course/course/queryCourse-del"
       @initInputService( services = [ WeixinSearchService ],
                          curser   = QueryCourseService )
       def __init__(self, methodName = 'runTest',
