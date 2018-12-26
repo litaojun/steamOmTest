@@ -100,7 +100,7 @@ def hello_world():
 
 @app.route('/local', methods=['GET'])
 def hello_world_local():
-    return render_template("pytestlocal.html", content="hello flask ")
+    return render_template("pytestlocal.html", ipStr="10.205.255.241:8181")
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0',debug=True,port=8181)

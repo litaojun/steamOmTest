@@ -14,11 +14,19 @@
 import os
 import yaml
 import collections
+import platform
 from configparser import ConfigParser
-cf=ConfigParser(allow_no_value=True)
+cf = ConfigParser(allow_no_value=True)
 cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"]))
-casepath = cf.get('path','casepath')
-basePath = cf.get('path', 'basepath')
+platType = platform.system()
+if platType == "Linux" :
+    casepath = cf.get( 'lpath', 'casepath')
+    basePath = cf.get( 'lpath', 'basepath')
+    ip       = cf.get('lpath', 'ipStr')
+elif platType == "Windows" :
+    casepath = cf.get('path','casepath')
+    basePath = cf.get('path', 'basepath')
+    ip       = cf.get('path', 'ipStr')
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
     filePath = os.sep.join([basePath  , "testjson-url.yml"])
