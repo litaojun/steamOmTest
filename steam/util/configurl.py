@@ -107,3 +107,4 @@ if __name__ == "__main__":
 	for cs in a:
 		mt[cs[0]] = cs[1]
 	print(str(mt))
+	print(2*2*2*2*2*2*2*2)

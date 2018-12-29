@@ -3,7 +3,6 @@
 from steam.admin.activity.addActivityService import ActivityAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 class ActivityAddTest(SteamTestCase):
       '''
