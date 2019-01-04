@@ -12,11 +12,8 @@
 @time: 2018/10/12 14:53 
 """
 
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userViewCourseUrl
-from opg.util.httptools import httpGet
 from opg.util.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 class UserViewCourseService(HttpUopService):
@@ -62,11 +59,19 @@ class UserViewCourseService(HttpUopService):
            self.inputKV["materialId"] = charpterSecttionDict[self.inputKV["chapterName"]][self.inputKV["sectionName"]]
            print(self.inputKV["materialId"])
 
-
-    #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
     def getRetcodeByRsp(self,response = None):
         return query_json(json_content = json.loads(response),
                           query        = "code")
+
+    def checkTestdataByChapterNameOrSectionName(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        skuDict = self.genChapterSectionNameDict()
+        if "chapterName" not in self.inputKV or self.inputKV["chapterName"] in skuDict:
+            allSectionName = skuDict[self.inputKV["chapterName"]]
+            if "sectionName" not in self.inputKV or self.inputKV["sectionName"] in allSectionName:
+                return "000000"
+        return "100001"
 
 if  __name__ == "__main__":
     kwargs = {

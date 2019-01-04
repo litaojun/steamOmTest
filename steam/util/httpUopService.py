@@ -35,12 +35,12 @@ class HttpUopService(UopService):
 
       # @decorator(["setupUserAppleMatch"])
       def sendHttpReq(self):
-          urlPathSign = self.__class__.__interfaceName__
-          method        = httpData[urlPathSign][0]
-          reqFormatPath = httpData[urlPathSign][1][self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"][1]
-          url           = httpData[urlPathSign][2]
-          reqDataFmt    = loadStrFromFile(reqFormatPath)
-          reqdata       = reqDataFmt % self.inputKV
+          urlPathSign    = self.__class__.__interfaceName__
+          method         = httpData[urlPathSign][0]
+          reqFormatPath  = httpData[urlPathSign][1][self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"][1]
+          url            = httpData[urlPathSign][2]
+          reqDataFmt     = loadStrFromFile(reqFormatPath)
+          reqdata        = reqDataFmt % self.inputKV
           self.jsonheart = {
                                   "x-token": "admin",
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",

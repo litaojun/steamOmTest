@@ -81,7 +81,7 @@ def genAllFile(bsDict = None):
 if __name__ == "__main__":
     bsDict = {
                 "oneDir" :  "admin" ,
-                "twoDir" :  "operate" ,
-                "pathSign" : "/operation-manage/featured/moveDownRecord"
+                "twoDir" :  "match" ,
+                "pathSign" : "/operation-manage/match/matchPage"
              }
     genAllFile(bsDict = bsDict)

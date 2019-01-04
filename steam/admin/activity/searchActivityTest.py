@@ -18,10 +18,8 @@ class ActivitySearchTest(SteamTestCase):
       def __init__(self, methodName='runTest', param=None):
           super(ActivitySearchTest,self).__init__(methodName,param)
 
-      def searchActivity(self):
-          activityRsp = self.myservice.queryActivity()
-          code        = self.myservice.getRetcodeByActRsp(queryRsp=activityRsp)
-          self.assertTrue(code == self.expectdata["code"])
+      def checkTestData(self):
+          return self.myservice.findTestDataByStatus()
 
 if __name__ == "__main__":
 

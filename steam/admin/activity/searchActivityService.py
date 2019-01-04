@@ -69,6 +69,18 @@ class ActivitySearchService(HttpUopService):
     def getRetcodeByActRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="code")
 
+    def findTestdataByStatus(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        dataLs = query_json( json_content = json.loads(self.rsp),
+                             query        = "data.targets" )
+        if len(dataLs) == 0 :
+            return "100001"
+        self.setInPutData()
+        if dataLs[0].status != self.inputKV["status"] :
+           return "100002"
+        return "000000"
+
 if __name__ == "__main__":
     queryJsonData = {
                          "currentPage":1,

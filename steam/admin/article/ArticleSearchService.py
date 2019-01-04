@@ -33,3 +33,14 @@ class ArticleSearchService(HttpUopService):
            self.rsp = self.sendHttpReq()
         self.inputKV["resourceId"] = query_json(json_content = json.loads(self.rsp),
                                                   query        = "data.targets.0.id")
+
+    def findTestdataByStatus(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        dataLs = query_json( json_content = json.loads(self.rsp),
+                             query        = "data.targets" )
+        if len(dataLs) == 0 :
+            return "100001"
+        if dataLs[0].status == self.inputKV["status"] :
+           self.getFirstResourceIdByRsp()
+           return "100002"

@@ -11,7 +11,6 @@
 @file: userViewCourseTest.py 
 @time: 2018/10/12 15:20 
 """
-from steam.util.testJsonFormat import initInput
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService

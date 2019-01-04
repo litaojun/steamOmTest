@@ -31,3 +31,14 @@ class CourseQueryCourseByConditionService(HttpUopService):
                                                         query        = "data.targets.0.resourceId" ))
         self.inputKV["skuId"]        = int(query_json( json_content  = json.loads(self.rsp) ,
                                                          query        = "data.targets.0.skuId" ))
+
+    def findTestdataByStatus(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        dataLs = query_json( json_content = json.loads(self.rsp) ,
+                             query        = "data.targets" )
+        if len(dataLs) == 0 :
+            return "100001"
+        self.getFirstIdFromQueryRst()
+        if dataLs[0].status != self.inputKV["status"] :
+           return "100002"

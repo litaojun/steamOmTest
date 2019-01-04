@@ -27,6 +27,10 @@ class ArticleSearchTest(SteamTestCase):
       def __init__(self, methodName='runTest', param=None):
           super(ArticleSearchTest,self).__init__(methodName,param)
 
+      def checkTestData(self):
+          return self.myservice.findTestDataByStatus()
+
+
 if __name__ == "__main__":
 
    runTestOneCls(

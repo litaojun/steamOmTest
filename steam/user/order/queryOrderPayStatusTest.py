@@ -47,9 +47,3 @@ if  __name__ == "__main__":
                         casefilepath = "\\steamcase\\user\\order-service-orderpay-query.yml",
                         testclse     = QueryOrderPayStatusTest
                  )
-    # print(dir(SteamTestCase))
-    # for m in dir(SteamTestCase):
-    #     if ismethod(getattr(SteamTestCase,m)):
-    #        print("testss")
-    #        if m == "userOrderActivity":
-    #           print("zzz")

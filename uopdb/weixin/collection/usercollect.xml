@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<uop>
-	<mysql>
-        <name>select_t_member_collection</name>
-        <opertype>select</opertype>
-        <sql>select c.collection_id from t_member_collection c where c.member_id = '%(memberId)s' and c.target_id = '%(activitiesId)s';</sql>
-	    <desc>查询收藏ID</desc>
-    </mysql>
-</uop>

@@ -19,7 +19,7 @@ from steam.util.httpUopService import  HttpUopService
 from opg.util.uopService import decorator
 class ActivityQueryService(HttpUopService):
     '''
-        查询活动文章
+        查询活动
     '''
     def __init__(self,kwargs):
         """
@@ -57,6 +57,8 @@ class ActivityQueryService(HttpUopService):
         return skuNamels
 
     def getSkuNameIdDict(self,rsp = None):
+        if rsp is None:
+           rsp = self.sendHttpReq()
         skuList = query_json(json_content=json.loads(rsp), query="data.skuList")
         return dict([(sku["skuName"],sku) for sku in skuList])
 
@@ -84,14 +86,13 @@ class ActivityQueryService(HttpUopService):
         return query_json(json_content = json.loads(oneActRsp),
                           query        = "code")
 
-
     def setInPutData(self):
         if self.rsp is None:
-            self.rsp = self.queryOneActivity()
+           self.rsp = self.queryOneActivity()
         skuNmIdDict = self.getSkuNameIdDict(rsp = self.rsp)
         if self.inputKV.get("skuName") is not None :
-            self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
-            self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
+           self.inputKV["skuId"]    = skuNmIdDict[self.inputKV["skuName"]]["skuId"]
+           self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
 
 if __name__ == "__main__":
 

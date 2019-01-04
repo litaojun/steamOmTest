@@ -51,7 +51,7 @@ class UserViewActivityService(HttpUopService):
 
     def getSkuDict(self,response = None):
         if response is None:
-            return None
+           return None
         skuList = query_json(json_content = json.loads(response),
                              query        = "data.skuList")
         return dict([(sku["skuName"],sku) for sku in skuList])
@@ -74,6 +74,14 @@ class UserViewActivityService(HttpUopService):
                self.inputKV["payPrice"] = skuNmIdDict[self.inputKV["skuName"]]["price"]
         except  Exception as e:
             print("init fail")
+
+    def findTestDataBySkuName(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        skuDict = self.getSkuDict()
+        if "skuName" not in self.inputKV or self.inputKV["skuName"] in skuDict:
+            return "000000"
+        return "100001"
 
 
 if  __name__ == "__main__":
