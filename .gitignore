@@ -1,11 +1,6 @@
-#    folder   #
-###############
 /testcase/
 /testresult/
 /Logs/
-###############
-#  fixed file #
-###############
 .gitignore
 *.exe
 *.def
@@ -23,11 +18,6 @@
 *.keep
 *.prefs
 .idea/
-
-###############
-#  temp file  #
-###############
-~*
 *.log
 *.cmm
 *.men
