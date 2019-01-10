@@ -26,7 +26,7 @@ class HttpUopService(UopService):
                          filename  = None ,
                          sqlvaluedict = None ,
                          reqjsonfile  = None,
-                         dbName       = "resource"):
+                         dbName       = None):
           super(HttpUopService, self).__init__(module    = module  ,
                                                filename  = filename ,
                                                sqlvaluedict = sqlvaluedict ,
@@ -34,13 +34,21 @@ class HttpUopService(UopService):
                                                dbName       = dbName)
 
       # @decorator(["setupUserAppleMatch"])
-      def sendHttpReq(self):
-          urlPathSign    = self.__class__.__interfaceName__
-          method         = httpData[urlPathSign][0]
-          reqFormatPath  = httpData[urlPathSign][1][self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"][1]
-          url            = httpData[urlPathSign][2]
+      def structReqData(self):
+          urlPathSign = self.__class__.__interfaceName__
+          reqFormatPath  = httpData[urlPathSign][1][ self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone" ][1]
           reqDataFmt     = loadStrFromFile(reqFormatPath)
           reqdata        = reqDataFmt % self.inputKV
+          return reqdata
+
+      def sendHttpReq(self,reqdata=None):
+          urlPathSign    = self.__class__.__interfaceName__
+          method         = httpData[urlPathSign][0]
+          url            = httpData[urlPathSign][2]
+          reqFormatPath  = httpData[urlPathSign][1][ self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone" ][1]
+          reqDataFmt     = loadStrFromFile(reqFormatPath)
+          if reqdata is None:
+             reqdata        = reqDataFmt % self.inputKV
           self.jsonheart = {
                                   "x-token": "admin",
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",

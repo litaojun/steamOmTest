@@ -8,15 +8,15 @@ class ActivityAddTest(SteamTestCase):
       '''
             新增活动
       '''
-      __interfaceName__ = "/operation-manage/product/add"
-      @initInputService(curser = ActivityAddService)
+      __interfaceName__     =   "/operation-manage/product/add"
+      @initInputService(curser      = ActivityAddService)
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(ActivityAddTest,self).__init__(methodName,param)
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath = "\\steamcase\\activity\\operation-manageproductadds.yml",
-					testclse     = ActivityAddTest,
+					casefilepath = "\\steamcase\\activity\\operation-manageproductadds.yml" ,
+					testclse     = ActivityAddTest ,
                     basepath     = "D:\\litaojun\\steamyml"
 				)

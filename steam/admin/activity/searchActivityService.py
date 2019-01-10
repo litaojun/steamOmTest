@@ -72,12 +72,13 @@ class ActivitySearchService(HttpUopService):
     def findTestdataByStatus(self):
         if self.rsp is None:
             self.rsp = self.sendHttpReq()
-        dataLs = query_json( json_content = json.loads(self.rsp),
+        dataLs = query_json( json_content = json.loads(self.rsp) ,
                              query        = "data.targets" )
+        print(self.inputKV)
         if len(dataLs) == 0 :
             return "100001"
         self.setInPutData()
-        if dataLs[0].status != self.inputKV["status"] :
+        if dataLs[0]["status"] != self.inputKV["status"] :
            return "100002"
         return "000000"
 

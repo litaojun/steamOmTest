@@ -43,14 +43,14 @@ class UserLoginService(UopService):
     @classmethod
     def getTokenData(cls):
         if cls.token is None:
-            kwgs = {
+           kwgs = {
                         "username": "cuiyiming",
                         "password": "68039c0183cd34950fc57726f3b23446701c36a7898e66a61a805f4474b5a63c"
                    }
-            rsp = httpPost(url   = adminLoginUrl,
-                            headers =  {},
-                            reqJsonData = kwgs)
-            cls.token = query_json(json_content=json.loads(rsp), query="token")
+           rsp = httpPost(url         = adminLoginUrl,
+                           headers     =  {},
+                           reqJsonData = kwgs)
+           cls.token = query_json(json_content=json.loads(rsp), query="token")
         return cls.token
 
 if __name__ == "__main__":

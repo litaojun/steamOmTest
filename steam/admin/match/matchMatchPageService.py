@@ -14,9 +14,10 @@ class MatchMatchPageService(HttpUopService):
         :param entryName:
         :param picturePath:
         """
-        super(MatchMatchPageService, self).__init__(module       = "",
-												 filename     = "",
-												 sqlvaluedict = kwargs )
+        super(MatchMatchPageService, self).__init__( module       = "" ,
+												     filename     = "" ,
+												     sqlvaluedict = kwargs ,
+                                                     dbName       = "match" )
 
     def findTestdataByStatus(self):
         if self.rsp is None:

@@ -20,7 +20,7 @@ class MatchMatchPageTest(SteamTestCase):
 
 if __name__ == "__main__":
     runTestOneCls(
-                    casefilepath = "\\steamcase\\admin\\match\\operation-manageMatchMatchPages.yml",
+                    casefilepath = "\\steamcase\\admin\\match\\operation-manageMatchMatchPages.yml" ,
                     testclse     = MatchMatchPageTest ,
                     basepath     = "D:\\litaojun\\steamyml"
                  )
