@@ -30,6 +30,7 @@ if __name__ == "__main__":
     UserCancelCollectionTest(methodName = "compareRetcodeTest",
                              param      = [1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-                    casefilepath = "\\steamcase\\admin\\media\\operation-manageMaterialQueryAliyunUpdateKeys.yml",
-                    testclse     = MaterialQueryAliyunUpdateKeyTest
+                    casefilepath = "\\steamcase\\admin\\media\\operation-manageMaterialQueryAliyunUpdateKeys.yml" ,
+                    testclse     = MaterialQueryAliyunUpdateKeyTest ,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )

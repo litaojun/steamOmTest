@@ -18,6 +18,7 @@ from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutG
 
 
 import json,os
+import types
 class HttpUopService(UopService):
       """
          增加根据URL发送HTTP请求
@@ -49,6 +50,8 @@ class HttpUopService(UopService):
           reqDataFmt     = loadStrFromFile(reqFormatPath)
           if reqdata is None:
              reqdata        = reqDataFmt % self.inputKV
+          else:
+              self.reqjsondata = reqdata
           self.jsonheart = {
                                   "x-token": "admin",
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
@@ -71,7 +74,8 @@ class HttpUopService(UopService):
                                        headers = self.jsonheart)
           else:
               try:
-                  self.reqjsondata = eval(reqdata)
+                  if  type(reqdata) == str :
+                      self.reqjsondata = eval(reqdata)
                   if method == "post":
                      self.rsp = httpPost( url         = url ,
                                           headers     = self.jsonheart,

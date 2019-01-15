@@ -35,10 +35,6 @@ class UserViewMediaresService(HttpUopService):
                                                       reqjsonfile = reqjsonfile)
 
     def userViewMediares(self):
-        # self.rsp =  httpGet(
-        #                         url     = userViewMediaresUrl + self.reqjsondata,
-        #                         headers = self.jsonheart
-        #                     )
         self.rsp = self.sendHttpReq()
         return self.rsp
 

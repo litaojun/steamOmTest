@@ -22,9 +22,9 @@ class UserViewCourseTest(SteamTestCase):
       '''
       __interfaceName__ = "/steam-course/course/queryCourse"
       @initInputService( services = [ WeixinSearchService ],
-                  curser   = UserViewCourseService )
-      def __init__(self, methodName = 'runTest',
-                         param      = None):
+                         curser   = UserViewCourseService )
+      def __init__( self, methodName = 'runTest',
+                          param      = None ):
           super(UserViewCourseTest,self).__init__(methodName,param)
 
       # def userViewCourseNor(self):
@@ -43,5 +43,6 @@ if __name__ == "__main__":
                  param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
                     casefilepath = "\\steamcase\\user\\steam-coursecoursequeryCourses.yml",
-                    testclse     = UserViewCourseTest
+                    testclse     = UserViewCourseTest,
+                    basepath     = "D:\\litaojun\\steamyml"
                 )

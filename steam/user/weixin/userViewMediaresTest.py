@@ -45,5 +45,6 @@ if __name__ == "__main__":
                  param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
                     casefilepath = "\\steamcase\\user\\steam-mediamediagetMediaDetailByID.yml",
-                    testclse     = UserViewMediaresTest
+                    testclse     = UserViewMediaresTest,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )

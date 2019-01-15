@@ -19,28 +19,39 @@ def checkTestData():
             tc.getInputDataInit()
             retcode = tc.myservice.findTestdataByStatus()
             print("retcode = " + retcode)
-            # sendReqByCode(code      = retcode,
-            #               fileName  = dataPath,
-            #               inputData = data)
+            sendReqByCode(code      = retcode,
+                          fileName  = dataPath,
+                          inputData = data)
 
 def rtcdToReq(fileName = ""):
-    casedataFilePath = casepath + os.sep + \
+    casedataFilePath = casepath    + os.sep + \
                        "testdata" + os.sep + \
-                       "data"  + os.sep + fileName
+                       "data"      + os.sep + fileName
+    if not os.path.exists(casedataFilePath):
+        return {}
     testdata = loadYamlFileData(filePath = casedataFilePath)
-    return dict([(codedata["code"],codedata) for codedata in testdata["data"]])
+    return dict((codedata["code"],codedata) for codedata in testdata["data"])
 
-def sendReqByCode(code = "100001",fileName = "",inputData = {} ):
+def sendReqByCode( code = "100001",fileName = "",inputData = {} ):
     sendData  = rtcdToReq(fileName = fileName).get(code,None)
     if sendData is not None:
        testClass = allTestClass[sendData["apiInterface"]]
-       casedata  = [1, 2, 3, 4, 5, sendData["data"].update(inputData), 7, 8]
+       sendData["data"].update(inputData)
+       casedata  = [ 1, 2, 3, 4, 5,sendData["data"] , 7, 8 ]
        reqdata   = None
        if sendData["reqType"] == "data":
           reqdata = sendData["data"]
-       testClass(methodName = "compareRetcodeTest",
-                 param      =  casedata).myservice.sendHttpReq(reqdata = reqdata)
-
+       tc = testClass(methodName = "compareRetcodeTest",
+                      param      =  casedata)
+       tc.getInputDataInit()
+       tc.myservice.sendHttpReq(reqdata = reqdata)
 
 if __name__ == "__main__":
-    checkTestData()
+   checkTestData()
+   # sendReqByCode(code="100001",fileName="product1Goods.yml",inputData={})
+   # sendReqByCode(code="100002", fileName="media2Media.yml", inputData={"resourceId": 5269})
+   # sendReqByCode(code="100002", fileName="media3Media.yml", inputData={"resourceId": 5270})
+   # sendReqByCode(code="100002", fileName="product1Goods.yml", inputData={"resourceId": 5271})
+   # sendReqByCode(code="100002", fileName="course1Course.yml", inputData={"resourceId": 4542})
+   # if ""  is None:
+   #     print("ff")

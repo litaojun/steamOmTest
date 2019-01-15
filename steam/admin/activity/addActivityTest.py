@@ -16,7 +16,7 @@ class ActivityAddTest(SteamTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath = "\\steamcase\\activity\\operation-manageproductadds.yml" ,
+					casefilepath = "\\steamcase\\admin\\activity\\operation-manageproductadds.yml" ,
 					testclse     = ActivityAddTest ,
                     basepath     = "D:\\litaojun\\steamyml"
 				)

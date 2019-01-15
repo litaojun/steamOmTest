@@ -31,6 +31,7 @@ class ActivityAlertTest(SteamTestCase):
 
 if __name__ == "__main__":
    runTestOneCls(
-					casefilepath="\\steamcase\\activity\\operation-manageproductupdates.yml",
-					testclse=ActivityAlertTest
+					casefilepath = "\\steamcase\\admin\\activity\\operation-manageproductupdates.yml",
+					testclse     = ActivityAlertTest ,
+                    basepath     = "D:\\litaojun\\steamyml"
 				)
