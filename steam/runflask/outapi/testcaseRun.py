@@ -100,7 +100,7 @@ def query_run_state():
 @bapp.route('/prop/timeCheckData', methods=['GET'])
 def dataTimerCheck():
     if not timerSign :
-       Timer(900,timeCheckData).start()
+       Timer(90,timeCheckData).start()
     return jsonify({"code":"000000"})
 
 if __name__ == "__main__":
