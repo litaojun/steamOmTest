@@ -33,8 +33,8 @@ class UserListOrderActivityService(HttpUopService):
             :param entryName:
             :param picturePath:
         """
-        super(UserListOrderActivityService, self).__init__(modul,
-                                                           filename,
+        super(UserListOrderActivityService, self).__init__(modul           ,
+                                                           filename        ,
                                                            sqlvaluedict = kwargs ,
                                                            reqjsonfile  = reqjsonfile)
         self.userListOrderActivityReqjson = self.reqjsondata
@@ -52,16 +52,18 @@ class UserListOrderActivityService(HttpUopService):
         return query_json(json_content = json.loads(response),
                           query        = "code")
 
-    def getOrderList(self,response = None):
-        return query_json(json_content = json.loads(response),
+    def getOrderList(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        return query_json(json_content = json.loads(self.rsp),
                           query        = "data.orderList")
 
     def getTitleOrderDictByOl(self,orderList = None):
         if orderList is None:
             orderList = self.getOrderList(response = self.rsp)
-        d = {}
+        d  = {}
         for data in orderList:
-            title = data["title"]
+            title   = data["title"]
             orderId = data["orderId"]
             if title not in d:
                 d[title] = []
@@ -70,12 +72,22 @@ class UserListOrderActivityService(HttpUopService):
 
     def getOrderDictByOl(self,orderList = None):
         if orderList is None:
-            orderList = self.getOrderList(response= self.rsp)
+           orderList = self.getOrderList(response= self.rsp)
         d = {}
         for data in orderList:
-            orderId = data["orderId"]
+            orderId    = data["orderId"]
             d[orderId] = data
         return  d
+
+    def genCourseTitleOderIdDict(self):
+        orderList = self.getOrderList()
+        return  dict((data["title"],data["orderId"]) for data in orderList if data["resourceTypeId"] == 13)
+
+    @decorator(["setupGetOrderIdByTitle"])
+    def getOrderIdByTitle(self):
+        title = self.inputKV["keyword"]
+        orderTitleDict = self.genCourseTitleOderIdDict()
+        self.inputKV["orderId"] = orderTitleDict.get(title,"1000118")
 
 
 if __name__ == "__main__":

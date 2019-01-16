@@ -49,16 +49,6 @@ class UserOrderActivityService(HttpUopService):
         self.rsp = self.sendHttpReq()
         return self.rsp
 
-    # @decorator(["setuptestone"])
-    # def testa(self):
-    #     print(self.inputKV)
-    #     print("ssssff")
-
-    #@check_rspdata(filepath="weixinUserOrderActivitisRspFmt")
-    # def getRetcodeByOrderRsp(self,response = None):
-    #     return query_json(json_content = json.loads(response),
-    #                       query        = "code")
-
     def getOrderIdFromRsp(self,response = None):
         if response is None:
            response = self.userOrderActivity()
@@ -69,7 +59,7 @@ class UserOrderActivityService(HttpUopService):
     def setOrderIdToInputKV(self):
         self.inputKV["orderId"] = self.getOrderIdFromRsp()
 
-    @decorator(["tearDownDelOrderData"])
+    @decorator(["tearDownDelOrderData","setupDownDelOrderData"])
     def deleteOrderById(self):
         self.deleteBySqlName(sqlname="setupDBdelect_tb_orderBy_orderId")
 

@@ -19,6 +19,6 @@ class ScoreAddService(HttpUopService):
 											  sqlvaluedict = kwargs,
                                               dbName= "allin")
 
-    @decorator(["tearDownDelUserScoreData"])
+    @decorator(["tearDownDelUserScoreData","setupDelUserScoreData"])
     def deleteUserScoreById(self):
         self.deleteBySqlName(sqlname="setupDBdelect_tb_order_scoreBy_orderId")

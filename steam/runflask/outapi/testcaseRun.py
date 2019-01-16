@@ -13,6 +13,7 @@
 """
 from flask import jsonify,request
 import sys
+from threading import Timer
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.util.steamLog import SteamTestCase
 import threading
@@ -22,7 +23,9 @@ from flask import Blueprint
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
 from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
 from opg.unit.flaskRunMgr import queryStateByTokenPro
+from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
 bapp = Blueprint('tsrun', __name__)
+timerSign = False
 @bapp.route("/prop/interfacelist", methods=['GET'])
 def runOneTestCase():
     """
@@ -45,16 +48,7 @@ def runOneTestCase():
                    token       = token,
                    title       = projectName,
                    description = "%s-用例测试情况" % projectName)
-    # t = threading.Thread(target = runOneTestcase,
-    #                      kwargs = {
-    #                                     "suites" : testSuite,
-    #                                     "planId" : planId ,
-    #                                     "title"  : projectName,
-    #                                     "description" : "%s-用例测试情况" % projectName,
-    #                                     "token"        :  token
-    #                               }
-    #                      )
-    # t.start()
+
     return jsonify({
                         "code" : "000000",
                         "token": token
@@ -102,6 +96,11 @@ def query_run_state():
     rtRunDt     = queryStateByTokenPro(projectName = projectName,
                                        token       = token)
     return jsonify(rtRunDt)
+
+@bapp.route('/prop/timeCheckData', methods=['GET'])
+def dataTimerCheck():
+    if not timerSign :
+       Timer(900,timeCheckData).start()
 
 if __name__ == "__main__":
     pass

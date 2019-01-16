@@ -34,17 +34,23 @@ class StudyListService(HttpUopService):
                                                  sqlvaluedict = kwargs ,
                                                  reqjsonfile  = reqjsonfile )
 
-    def getStudyListReq(self):
-        self.rsp =  httpGet(
-                                  url     = userStudentCourseListUrl ,
-                                  headers = self.jsonheart
-                            )
-        return self.rsp
+    # def getStudyListReq(self):
+    #     self.rsp =  httpGet(
+    #                               url     = userStudentCourseListUrl ,
+    #                               headers = self.jsonheart
+    #                         )
+    #     return self.rsp
 
     #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
+    def genTitleDict(self):
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        styList = query_json(json_content = self.rsp,
+                             query        = "data.studyList")
+        return dict((data["title"],data) for data in styList)
 
 if  __name__ == "__main__":
     kwargs = {

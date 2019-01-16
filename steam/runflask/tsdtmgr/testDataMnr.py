@@ -8,6 +8,7 @@ def checkTestData():
     testdataFilePath = casepath + os.sep + "testdata" +\
                        os.sep   +  "testData.yml"
     testdata         = loadYamlFileData(filePath = testdataFilePath)
+    sign = True
     for apiListData in testdata["testdata"]:
         apiInterface = apiListData["apiInterface"]
         testClass    = allTestClass[apiInterface]
@@ -17,11 +18,23 @@ def checkTestData():
             tc = testClass( methodName = "compareRetcodeTest" ,
                             param      = casedata )
             tc.getInputDataInit()
-            retcode = tc.myservice.findTestdataByStatus()
-            print("retcode = " + retcode)
-            sendReqByCode(code      = retcode,
-                          fileName  = dataPath,
-                          inputData = data)
+            checkCode = tc.myservice.findTestdataByStatus()
+            print("checkCode = " + checkCode)
+            if checkCode != "000000":
+               sign = False
+            retcode = sendReqByCode(code       = checkCode,
+                                    fileName   = dataPath,
+                                     inputData = data)
+            if retcode == "211111":
+               print("无需重建")
+            elif retcode == "000000":
+               print("重建数据成功")
+            elif retcode == "200001":
+                print("重建中返回报文数据异常")
+            else:
+                print("重建出错，对应返回码为%s" % retcode)
+    return sign
+
 
 def rtcdToReq(fileName = ""):
     casedataFilePath = casepath    + os.sep + \
@@ -33,7 +46,9 @@ def rtcdToReq(fileName = ""):
     return dict((codedata["code"],codedata) for codedata in testdata["data"])
 
 def sendReqByCode( code = "100001",fileName = "",inputData = {} ):
+    #return "211111"：无需重建，"000000":重建成功,"2000001":重建返回报文异常，其它:对应返回错误码
     sendData  = rtcdToReq(fileName = fileName).get(code,None)
+    retcode = "211111"
     if sendData is not None:
        testClass = allTestClass[sendData["apiInterface"]]
        sendData["data"].update(inputData)
@@ -45,6 +60,18 @@ def sendReqByCode( code = "100001",fileName = "",inputData = {} ):
                       param      =  casedata)
        tc.getInputDataInit()
        tc.myservice.sendHttpReq(reqdata = reqdata)
+       retcode = tc.myservice.getRetcodeByRsp()
+    return retcode
+
+def timeCheckData():
+    print("timeCheckData start run ......")
+    num = 1
+    while(True):
+        sign = checkTestData()
+        num += 1
+        if sign or num > 3 :
+           break
+    print("timeCheckData end run")
 
 if __name__ == "__main__":
    checkTestData()

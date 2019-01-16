@@ -18,6 +18,7 @@ from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutG
 
 
 import json,os
+from opg.util.lginfo import  logger
 import types
 class HttpUopService(UopService):
       """
@@ -95,5 +96,15 @@ class HttpUopService(UopService):
               :param matchRsp:
               :return:
           """
-          return query_json(json_content = json.loads(self.rsp),
-                                   query = format)
+          retcode = "000000"
+          try:
+             retcode = query_json(json_content = json.loads(self.rsp),
+                                   query       = format)
+          except Exception as e:
+             print("返回报文异常")
+             print(e)
+             logger.info("返回报文异常")
+             logger.info(e)
+             retcode = "2000001"
+          finally:
+              return retcode
