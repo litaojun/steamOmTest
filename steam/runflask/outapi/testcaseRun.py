@@ -101,6 +101,7 @@ def query_run_state():
 def dataTimerCheck():
     if not timerSign :
        Timer(900,timeCheckData).start()
+    return {"code":"000000"}
 
 if __name__ == "__main__":
     pass
