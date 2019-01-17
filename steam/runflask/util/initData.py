@@ -11,14 +11,14 @@
 @file: initData.py 
 @time: 2018/10/25 17:28 
 """
-from opg.unit.flaskRunMgr import getRunTestTokenId,initAllTestCase,initAllTestClass,genAllTestCase,runAllTestCase
+from opg.unit.flaskRunMgr import initAllTestCase,initAllTestClass,genAllTestCase
 from steam.mockhttp.util.initFile import casepath
-sign = True
+sign      = True
 testSuite = None
 if sign :
     allTestClass = initAllTestClass()
-    allTestCase  = initAllTestCase( casePath   = casepath )
-    testSuite    = genAllTestCase( allCase      = allTestCase ,
-                                  allTestClass  = allTestClass )
+    allTestCase  = initAllTestCase( casePath     = casepath )
+    testSuite    = genAllTestCase( allCase       = allTestCase ,
+                                   allTestClass  = allTestClass )
     tokenList    = []
     sign         = False

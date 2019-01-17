@@ -16,7 +16,7 @@ from flask import Flask, jsonify,request
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from opg.unit.flaskRunMgr import getDbManger
-from steam.runflask.util.initData import allTestCase,allTestClass,tokenList
+from steam.runflask.util.initData import allTestCase
 # from opg.unit.flaskRunMgr import queryAllInterfaceByProjectName
 from flask import Blueprint
 bapp = Blueprint('infcs', __name__)

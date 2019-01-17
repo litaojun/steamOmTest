@@ -1,24 +1,19 @@
 #!/usr/bin/env python  
 # encoding: utf-8  
-from flask import Flask, jsonify,request
-from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery
+from flask import Flask
+from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery,timerCheckData
 from flask_cors import *
 from steam.mockhttp.util.initFile import ip
-import sys
-from steam.util.steamLog import SteamTestCase
+# import sys
 from flask import render_template
-from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
-sys.path.append("/home/nicepy/testhome/unittestExBaseb")
-from opg.unit.flaskRunMgr import queryStateByTokenPro,queryTestPlanList,queryPlanDetailByInterfaceName
-import threading
-from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
-from steam.runflask.util.initData import allTestCase,allTestClass,tokenList,testSuite
+# sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
 # app.register_blueprint(mediaresQueryTest.bapp , url_prefix = "/mediares")
 app.register_blueprint( interfaceMnr.bapp,       url_prefix = "/infcs"   )
 app.register_blueprint( testcaseRun.bapp,        url_prefix = "/tsrun"   )
 app.register_blueprint( reportQuery.bapp,        url_prefix = "/rptqy"   )
+app.register_blueprint( timerCheckData.bapp, url_prefix = "/timer" )
 
 # @app.route('/prop/runTestPro', methods=['GET'])
 # def start_steam_tasks():

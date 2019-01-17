@@ -21,9 +21,9 @@ from opg.unit.flaskRunMgr import genTestCaseByInterfaceOrCaseIds,runOneTestcase
 from steam.runflask.util.initData import allTestCase,allTestClass,testSuite
 from flask import Blueprint
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
-from opg.unit.flaskRunMgr import getRunTestTokenId,genAllTestCase,runAllTestCase
+from opg.unit.flaskRunMgr import getRunTestTokenId,runAllTestCase
 from opg.unit.flaskRunMgr import queryStateByTokenPro
-from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
+# from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
 @bapp.route("/prop/interfacelist", methods=['GET'])
@@ -74,7 +74,6 @@ def start_steam_tasks():
                                   }
                          )
     t.start()
-    # tokenList.append(retdata[0])
     return jsonify({
                         'sign'  : "000000",
                         "token" : retdata[0],
@@ -97,30 +96,7 @@ def query_run_state():
                                        token       = token)
     return jsonify(rtRunDt)
 
-def startTimer():
-    timeCheckData()
-    timer = threading.Timer(900 , startTimer)
-    timer.start()
-
-@bapp.route('/prop/timeCheckData', methods=['GET'])
-def dataTimerCheck():
-    global timerSign,timer
-    rtJson = {"code":"100001" ,"msg":"定时任务已在运行中了"}
-    if not timerSign :
-       print("定时器启动....")
-       # timer.setDaemon(daemonic=False)
-       startTimer()
-       timerSign = True
-       rtJson    = {"code": "000000","msg": "定时任务启动成功"}
-       print("定时器启动成功")
-    return jsonify(rtJson)
-
-@bapp.route('/prop/timeCheckStatus', methods=['GET'])
-def getTimerStatus():
-    print(timer.is_alive())
-    return jsonify({"state":timer.is_alive()})
-
 if __name__ == "__main__":
-   startTimer()
+   pass
 
 
