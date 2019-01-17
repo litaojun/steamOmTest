@@ -100,12 +100,15 @@ def query_run_state():
 @bapp.route('/prop/timeCheckData', methods=['GET'])
 def dataTimerCheck():
     global timerSign
+    rtJson = {"code":"100001" ,"msg":"定时任务已启动"}
     if not timerSign :
        print("定时器启动....")
-       threading.Timer(120,timeCheckData).start()
+       timer     = threading.Timer(60,timeCheckData)
+       timer.start()
        timerSign = True
+       rtJson    = {"code": "000000","msg": "定时任务启动成功"}
        print("定时器启动成功")
-    return jsonify({"code":"000000"})
+    return jsonify(rtJson)
 
 if __name__ == "__main__":
     pass
