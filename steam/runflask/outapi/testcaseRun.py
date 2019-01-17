@@ -26,7 +26,6 @@ from opg.unit.flaskRunMgr import queryStateByTokenPro
 from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
-timer     = threading.Timer(60,timeCheckData)
 @bapp.route("/prop/interfacelist", methods=['GET'])
 def runOneTestCase():
     """
@@ -98,19 +97,30 @@ def query_run_state():
                                        token       = token)
     return jsonify(rtRunDt)
 
+def startTimer():
+    timeCheckData()
+    timer = threading.Timer(900 , startTimer)
+    timer.start()
+
 @bapp.route('/prop/timeCheckData', methods=['GET'])
 def dataTimerCheck():
     global timerSign,timer
-    rtJson = {"code":"100001" ,"msg":"定时任务已启动"}
+    rtJson = {"code":"100001" ,"msg":"定时任务已在运行中了"}
     if not timerSign :
        print("定时器启动....")
-       timer.start()
+       # timer.setDaemon(daemonic=False)
+       startTimer()
        timerSign = True
        rtJson    = {"code": "000000","msg": "定时任务启动成功"}
        print("定时器启动成功")
     return jsonify(rtJson)
 
+@bapp.route('/prop/timeCheckStatus', methods=['GET'])
+def getTimerStatus():
+    print(timer.is_alive())
+    return jsonify({"state":timer.is_alive()})
+
 if __name__ == "__main__":
-    pass
+   startTimer()
 
 
