@@ -13,7 +13,7 @@
 """
 from flask import jsonify,request
 import sys
-from threading import Timer
+# from threading import Timer
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.util.steamLog import SteamTestCase
 import threading
@@ -102,7 +102,7 @@ def dataTimerCheck():
     global timerSign
     if not timerSign :
        print("定时器启动....")
-       Timer(90,timeCheckData).start()
+       threading.Timer(120,timeCheckData).start()
        timerSign = True
        print("定时器启动成功")
     return jsonify({"code":"000000"})
