@@ -34,6 +34,7 @@ if __name__ == "__main__":
    OperpsnQueryTest(methodName = "compareRetcodeTest",
                    param     = [ 1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\operposition\\steam-featuredhomeConfigremoveIndexConfigs.yml"  ,
-                    testclse     = OperpsnDelTest
+                    casefilepath = "\\steamcase\\admin\\operate\\steam-featuredhomeConfigremoveIndexConfigs.yml"  ,
+                    testclse     = OperpsnDelTest ,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )
