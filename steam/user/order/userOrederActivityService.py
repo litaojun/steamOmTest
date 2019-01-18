@@ -34,18 +34,12 @@ class UserOrderActivityService(HttpUopService):
         super(UserOrderActivityService, self).__init__(module       = modul,
                                                        filename     = filename,
                                                        sqlvaluedict = kwargs ,
-                                                       reqjsonfile  = reqjsonfile ,
                                                        dbName       = "allin")
         self.userThOrderActivityReqjson = self.reqjsondata
 
     @decorator(["tearInterfaceUserOrderActivity",
                 "preInterfaceUserOrderActivity"])
     def userOrderActivity(self):
-        # self.rsp =  httpPost(
-        #                                 url         =  userOrderActivityUrl ,
-        #                                 headers     =  self.jsonheart      ,
-        #                                 reqJsonData =  self.userThOrderActivityReqjson
-        #                     )
         self.rsp = self.sendHttpReq()
         return self.rsp
 

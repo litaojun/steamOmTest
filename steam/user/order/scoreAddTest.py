@@ -27,18 +27,18 @@ if __name__ == "__main__":
     from steam.user.order.userOrderActivityTest  import UserOrderActivityTest
     from steam.user.weixin.userViewCourseTest import UserViewCourseTest
     from steam.user.order.userListOrderActivityTest import UserListOrderActivityTest
-    UserVerfiyCodeTest(methodName="compareRetcodeTest",
-                       param=[1, 2, 3, 4, 5, {}, 7, 8])
-    UserLoginTest(methodName="compareRetcodeTest",
-                  param=[1, 2, 3, 4, 5, {}, 7, 8])
+    UserVerfiyCodeTest(methodName = "compareRetcodeTest",
+                       param      = [1, 2, 3, 4, 5, {}, 7, 8])
+    UserLoginTest(methodName = "compareRetcodeTest",
+                  param      = [1, 2, 3, 4, 5, {}, 7, 8])
     WeixinSearchTest(methodName = "compareRetcodeTest",
                      param      = [1, 2, 3, 4, 5, {}, 7, 8])
     UserOrderActivityTest(methodName = "compareRetcodeTest",
-                             param      = [1, 2, 3, 4, 5, {}, 7, 8])
+                             param   = [1, 2, 3, 4, 5, {}, 7, 8])
     UserViewCourseTest(methodName = "compareRetcodeTest",
-                             param      = [1, 2, 3, 4, 5, {}, 7, 8])
+                             param= [1, 2, 3, 4, 5, {}, 7, 8])
     UserListOrderActivityTest(methodName = "compareRetcodeTest",
-                             param      = [1, 2, 3, 4, 5, {}, 7, 8])
+                             param       = [1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                     casefilepath = "\\steamcase\\user\\order\\order-serviceScoreAdds.yml" ,
                     testclse     = ScoreAddTest ,

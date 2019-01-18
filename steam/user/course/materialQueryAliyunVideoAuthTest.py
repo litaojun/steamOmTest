@@ -40,6 +40,7 @@ if __name__ == "__main__":
    UserLoginTest(methodName="compareRetcodeTest",
                  param=[1, 2, 3, 4, 5, {}, 7, 8])
    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\steam-coursecoursequeryAliyunVideoAuth.yml",
-                    testclse     = MaterialQueryAliyunVideoAuthTest
+                    casefilepath = "\\steamcase\\user\\steam-coursecoursequeryAliyunVideoAuths.yml",
+                    testclse     = MaterialQueryAliyunVideoAuthTest,
+                    basepath     = "D:\\litaojun\\steamyml"
                 )

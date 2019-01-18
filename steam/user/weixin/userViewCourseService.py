@@ -59,9 +59,9 @@ class UserViewCourseService(HttpUopService):
            self.inputKV["materialId"] = charpterSecttionDict[self.inputKV["chapterName"]][self.inputKV["sectionName"]]
            print(self.inputKV["materialId"])
 
-    def getRetcodeByRsp(self,response = None):
-        return query_json(json_content = json.loads(response),
-                          query        = "code")
+    # def getRetcodeByRsp(self,response = None):
+    #     return query_json(json_content = json.loads(response),
+    #                       query        = "code")
 
     def checkTestdataByChapterNameOrSectionName(self):
         if self.rsp is None:
