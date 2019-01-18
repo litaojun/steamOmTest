@@ -31,7 +31,6 @@ class ActivityAddService(HttpUopService):
 												 sqlvaluedict = kwargs ,
 												 reqjsonfile  = None,
 												 dbName       = "resource")
-        # self.activityAddReqjson = self.reqjsondata
 
     @decorator("tearInterfaceDelOneArticle")
     def delActivity(self):
@@ -50,12 +49,6 @@ class ActivityAddService(HttpUopService):
 								  headers     =  self.jsonheart)
         self.rsp = addActivityRsp
         return addActivityRsp
-
-    #@check_rspdata(filepath=fxt.join(activityAddRspFmt))
-    # @check_rspdata(filepath="addActivityRspFmt")
-    # def getRetcodeByRsp(self,response = None):
-    #     return query_json(json_content = json.loads(response),
-		# 				  query        = "code")
 
     def getActivityIdByRsp(self,activityRsp = None):
         rssId = query_json(json_content = json.loads(activityRsp),

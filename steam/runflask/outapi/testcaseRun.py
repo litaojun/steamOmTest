@@ -97,6 +97,13 @@ def query_run_state():
     return jsonify(rtRunDt)
 
 if __name__ == "__main__":
-   pass
+    from opg.util.dbtools import Database
+    # sqlstr = "delete o.* from tb_order o where o.id = '11111fffffff'"
+    sqlstr = """select m.passport_id,m.MEMBER_NAME,m.NICK_NAME from t_member m where m.passport_id = 'd4662b02-b75f-4eda-b796-f7e16d04044d';"""
+    db = Database()
+    # num = db.deleteData(sql=sqlstr,dbName= "allin")
+    rst = db.queryAll(sql=sqlstr,dbName="allin")
+    print(rst)
+    # print(str(num))
 
 
