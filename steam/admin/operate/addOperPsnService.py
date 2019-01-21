@@ -26,26 +26,26 @@ class OperpsnAddService(HttpUopService):
         """
         super(OperpsnAddService, self).__init__(sqlvaluedict = kwargs)
 
-    @decorator("tearInterfaceDelOneOperPsn")
-    def delOperPosition(self):
-        rssid         = OperpsnQueryService(self.inputKV).getFirstResourceIdByRsp()
-        delOperpsnRsp = requests.post(
-									    url     =  delOperpositionurl,
-									    json    =  {
-                                                       "ids":[rssid]
-                                                   },
-									    headers = self.jsonheart,
-									    verify  =  False
-								      )
-        return delOperpsnRsp.text
+    # @decorator("tearInterfaceDelOneOperPsn")
+    # def delOperPosition(self):
+    #     rssid         = OperpsnQueryService(self.inputKV).getFirstResourceIdByRsp()
+    #     delOperpsnRsp = requests.post(
+		# 							    url     =  delOperpositionurl,
+		# 							    json    =  {
+    #                                                    "ids":[rssid]
+    #                                                },
+		# 							    headers = self.jsonheart,
+		# 							    verify  =  False
+		# 						      )
+    #     return delOperpsnRsp.text
 
     @decorator(["setupAddOperPosition"])
     def addOperPosition(self):
         self.sendHttpReq()
 
-    def getRetcodeByOperpsnRsp(self,operpsnRsp = None):
-        return query_json(json_content = json.loads(operpsnRsp),
-                          query        = "code")
+    # def getRetcodeByOperpsnRsp(self,operpsnRsp = None):
+    #     return query_json(json_content = json.loads(operpsnRsp),
+    #                       query        = "code")
     #
     def getOperpsnIdByTitle(self,title = "",position = ""):
         operQuerySer = OperpsnQueryService(self.inputKV)

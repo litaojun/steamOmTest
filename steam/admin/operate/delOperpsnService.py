@@ -30,9 +30,6 @@ class OperpsnDelService(HttpUopService):
     def delOperpsn(self):
         self.sendHttpReq()
 
-    def getRetCodeOperpsnRsp(self,rsp):
-        return query_json(json_content=json.loads(rsp), query="code")
-
 if __name__ == "__main__":
    alertjson = {
 					"title"         :  "Makeblock 2017 品牌视频",
