@@ -35,7 +35,7 @@ def timeTokeRefresh():
         rtJson = { "code": "000000", "msg": "定时任务启动成功" }
         timeToken = True
         print("定时器启动成功")
-    return rtJson
+    return jsonify(rtJson)
 
 
 if __name__ == "__main__":
