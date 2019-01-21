@@ -25,7 +25,7 @@ def dataTimerCheck():
        print("定时器启动成功")
     return jsonify(rtJson)
 
-
+@bapp.route('/prop/timeRefreshToken', methods=['GET'])
 def timeTokeRefresh():
     """token刷新定时任务"""
     global timeToken
