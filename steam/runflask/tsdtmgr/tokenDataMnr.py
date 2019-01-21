@@ -5,6 +5,7 @@ from steam.user.search.weixinSearchService import WeixinSearchService
 def sendHttpReqByToken():
     adminTokenRefresh()
     weixinTokenRefresh()
+    return True
 
 def adminTokenRefresh():
     args = {
@@ -17,6 +18,7 @@ def adminTokenRefresh():
            }
     aqs = ActivitySearchService(kwargs=args)
     aqs.sendHttpReq()
+    return True
 
 def weixinTokenRefresh():
     args = { "keyword":"测试" }
@@ -25,6 +27,7 @@ def weixinTokenRefresh():
         args["memberId"] = SteamTestCase.memberIdDict[phone][1]
         ser = WeixinSearchService(kwargs=args)
         ser.sendHttpReq()
+    return True
 
 if __name__ == "__main__":
     SteamTestCase.memberIdDict={
