@@ -18,6 +18,7 @@ def adminTokenRefresh():
            }
     aqs = ActivitySearchService(kwargs=args)
     aqs.sendHttpReq()
+    print("admin token已刷新")
     return True
 
 def weixinTokenRefresh():
@@ -27,6 +28,7 @@ def weixinTokenRefresh():
         args["memberId"] = SteamTestCase.memberIdDict[phone][1]
         ser = WeixinSearchService(kwargs=args)
         ser.sendHttpReq()
+        print("手机号码:%s对应token:%s，memberId:%s已刷新")
     return True
 
 if __name__ == "__main__":
