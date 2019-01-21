@@ -8,7 +8,7 @@ timerSign = False
 timeToken = False
 def startTimer(fun=None,time=1):
     fun()
-    timer = threading.Timer(time , startTimer)
+    timer = threading.Timer(time , startTimer,(fun,time))
     timer.start()
 
 @bapp.route('/prop/timeCheckData', methods=['GET'])
@@ -31,7 +31,7 @@ def timeTokeRefresh():
     global timeToken
     rtJson = { "code":"100001" ,"msg":"定时任务已在运行中了" }
     if not timeToken :
-        startTimer(fun=sendHttpReqByToken, time=900)
+        startTimer(fun=sendHttpReqByToken, time=90)
         rtJson = { "code": "000000", "msg": "定时任务启动成功" }
         timeToken = True
         print("定时器启动成功")
