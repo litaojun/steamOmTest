@@ -16,7 +16,7 @@ import sys
 # from threading import Timer
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.util.steamLog import SteamTestCase
-from opg.unit.flaskRunMgr import initAllTestCase,initAllTestClass
+
 import threading
 from opg.unit.flaskRunMgr import genTestCaseByInterfaceOrCaseIds,runOneTestcase
 from steam.runflask.util.initData import testSuite,genAllTestCase
@@ -98,19 +98,7 @@ def query_run_state():
                                        token       = token)
     return jsonify(rtRunDt)
 
-@bapp.route('/prop/genTestclass', methods=['GET'])
-def genTestClass():
-    rtRunDt = {"code":"000000"}
-    initData.allTestClass = initAllTestClass()
-    return jsonify(rtRunDt)
 
-
-@bapp.route('/prop/genTestdata', methods=['GET'])
-def genTestData():
-    rtRunDt = {"code":"000000"}
-    # global allTestCase
-    initData.allTestCase = initAllTestCase()
-    return jsonify(rtRunDt)
 
 if __name__ == "__main__":
     from opg.util.dbtools import Database
