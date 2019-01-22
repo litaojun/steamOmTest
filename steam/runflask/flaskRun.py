@@ -20,7 +20,8 @@ def hello_world():
 
 @app.route('/local', methods=['GET'])
 def hello_world_local():
+    print("fffff")
     return render_template( "pytestlocal.html", ipStr = ip )
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',debug=True,port=8181)
+   app.run(host='0.0.0.0',debug=False,port=8181)

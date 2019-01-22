@@ -16,9 +16,11 @@ import sys
 # from threading import Timer
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.util.steamLog import SteamTestCase
+from opg.unit.flaskRunMgr import initAllTestCase,initAllTestClass
 import threading
 from opg.unit.flaskRunMgr import genTestCaseByInterfaceOrCaseIds,runOneTestcase
-from steam.runflask.util.initData import allTestCase,allTestClass,testSuite,genAllTestCase
+from steam.runflask.util.initData import testSuite,genAllTestCase
+from steam.runflask.util import initData
 from flask import Blueprint
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
 from opg.unit.flaskRunMgr import getRunTestTokenId,runAllTestCase
@@ -39,8 +41,8 @@ def runOneTestCase():
     print("planId=%s,projectName=%s,caseId=%s,interfaceName=%s" %(planId,projectName,caseId,interfaceName))
     token         = queryTokenByPlanId(planId      = planId,
                                        projectName = projectName)
-    testSuite     = genTestCaseByInterfaceOrCaseIds( allTestClass  = allTestClass ,
-                                                     allCase       = allTestCase  ,
+    testSuite     = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
+                                                     allCase       = initData.allTestCase  ,
                                                      interfaceName = interfaceName,
                                                      caseIds       = [caseId] )
     runOneTestcase(suites      = testSuite,
@@ -62,8 +64,8 @@ def start_steam_tasks():
     """
     projectName = request.args.get("projectname")
     retdata     = getRunTestTokenId(projectname = projectName)
-    testSuite   = genAllTestCase(allCase        = allTestCase,
-                                 allTestClass   = allTestClass)
+    testSuite   = genAllTestCase(allCase        = initData.allTestCase,
+                                 allTestClass   = initData.allTestClass)
     # SteamTestCase.memberIdDict  = {}
     t = threading.Thread(target = runAllTestCase,
                          kwargs = {
@@ -96,6 +98,20 @@ def query_run_state():
                                        token       = token)
     return jsonify(rtRunDt)
 
+@bapp.route('/prop/genTestclass', methods=['GET'])
+def genTestClass():
+    rtRunDt = {"code":"000000"}
+    initData.allTestClass = initAllTestClass()
+    return jsonify(rtRunDt)
+
+
+@bapp.route('/prop/genTestdata', methods=['GET'])
+def genTestData():
+    rtRunDt = {"code":"000000"}
+    # global allTestCase
+    initData.allTestCase = initAllTestCase()
+    return jsonify(rtRunDt)
+
 if __name__ == "__main__":
     from opg.util.dbtools import Database
     # sqlstr = "delete o.* from tb_order o where o.id = '11111fffffff'"
@@ -105,5 +121,8 @@ if __name__ == "__main__":
     rst = db.queryAll(sql=sqlstr,dbName="allin")
     print(rst)
     # print(str(num))
+
+
+
 
 
