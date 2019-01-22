@@ -19,7 +19,7 @@ def getRunTestTokenId(projectname = "",starTime="sss"):
     starttime = getNowTime()
     tokenId = uuid.uuid4()
     sqlstr  = "insert into test_run_process(token,starttime,status,projectname) value('%s','%s',1,'%s')" % (tokenId,starttime,projectname)
-    dbManager.insertData(sql_insert=sqlstr)
+    dbManager.insertData(sql=sqlstr,dbName="ltjtest")
     return  tokenId,starttime
 
 def queryStateByTokenPro(projectName = "",token = ""):
@@ -29,7 +29,7 @@ def queryStateByTokenPro(projectName = "",token = ""):
                       from test_run_process p 
                       where p.projectname = "%s" 
                             and  p.token = "%s";""" % (projectName, token)
-    dataList = dbManager.queryAll(sql=querySql)
+    dataList = dbManager.queryAll(sql=querySql,dbName="ltjtest")
     if dataList is not None and len(dataList) > 0:
         return dict(zip(keyls,dataList[0]))
 
@@ -39,7 +39,7 @@ def queryTestPlanList(projectName = ""):
     querySql = """select id, plantime, projectname, description 
                   from test_plan p 
                   where projectname = "%s"   ;""" % projectName
-    dataList = dbManager.queryAll(sql=querySql)
+    dataList = dbManager.queryAll(sql=querySql,dbName="ltjtest")
     retList  = [dict(zip(keyls,data)) for data in dataList]
     retDict = {}
     retDict["code"] = "000000"
@@ -53,7 +53,7 @@ def queryTestPlanByInterfaceName(interfaceName = "",planId = 22,db = None):
                   from test_case_record r	
                   where r.plan_id = %s and 
                         r.interfacename = '%s';""" % (planId,interfaceName)
-    dataList = dbManager.queryAll(sql=querySql)
+    dataList = dbManager.queryAll(sql=querySql,dbName="ltjtest")
     retList  = [dict(zip(keyls,data)) for data in dataList]
     return retList
 
@@ -63,7 +63,7 @@ def queryTestPlanAllInterfaceName(interfaceName = "",planId = 22,db = None):
     querySql = """select  interfacename, testcaseid, testpoint, result_sign, errordes 
                   from test_case_record r	
                   where r.plan_id = %s ;""" % planId
-    dataList = dbManager.queryAll(sql=querySql)
+    dataList = dbManager.queryAll(sql=querySql,dbName="ltjtest")
     if dataList is None:
         dataList = []
     retList  = [dict(zip(keyls,data)) for data in dataList]
@@ -79,7 +79,7 @@ def queryTestPlanRecord(planId = 11):
 			                CONVERT(sum(1),SIGNED )  'total'
 			        from test_case_record r 
 			        where r.plan_id = %s group by r.interfacename;""" % planId
-    dataList = dbManager.queryAll(sql=querySql)
+    dataList = dbManager.queryAll(sql=querySql,dbName="ltjtest")
     if dataList is None:
        dataList = []
     retList = [dict(zip(keyls, data)) for data in dataList]
@@ -102,7 +102,8 @@ def queryPlanDetailByInterfaceName(planId = 22):
 def queryTestResultByPlanIdOrCaseId(planId,caseId):
     sign = None
     querySql = """select result_sign from test_case_record r where r.plan_id = %s and r.testcaseid = "%s";""" %(planId,caseId)
-    result = getDbManger().queryAll(sql = querySql)
+    result = getDbManger().queryAll(sql    = querySql ,
+                                    dbName = "ltjtest")
     if result is not None:
         sign = result[0][0]
     return  sign

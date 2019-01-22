@@ -36,7 +36,7 @@ def queryAllInterfaceByProjectName(projectName = None):
     querySql = """select inf.aliasName,inf.interfaceNameAddr,inf.reqtype,CONCAT(mt.mtype,'-',mt.module ) as 'module',inf.mark,inf.reqDataPath,inf.rspDataPath ,0 
                   from interface_mgr inf,module_type mt  
                   where inf.projectname = "%s" and inf.module = mt.module  order by mt.sortsign;""" % projectName
-    dataList = dbManager.queryAll(sql = querySql)
+    dataList = dbManager.queryAll(sql = querySql,dbName="ltjtest")
     if dataList is None:
        dataList = [ ]
     retList = [ dict(zip(keyls, data)) for data in dataList ]
