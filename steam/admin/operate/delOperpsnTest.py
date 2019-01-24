@@ -1,7 +1,7 @@
 from steam.admin.operate.delOperpsnService import OperpsnDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.operate.addOperPsnService import OperpsnAddService
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.admin.article.ArticleSearchService import ArticleSearchService
@@ -10,7 +10,7 @@ class OperpsnDelTest(SteamTestCase):
             admin删除一个运营位配置
       '''
       __interfaceName__ = "/operation-manage/featured/removeIndexConfig"
-      @initInputService( services = [ OperpsnAddService ,
+      @initAdminInputService( services = [ OperpsnAddService ,
                                       OperpsnQueryService ,
                                       ArticleSearchService ] ,
                          curser   = OperpsnDelService )

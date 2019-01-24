@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.resource.tagQueryTagsService import TagQueryTagsService
@@ -10,7 +10,7 @@ class TagQueryTagsTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/tag/queryTags"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initAdminInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
                          curser   = TagQueryTagsService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

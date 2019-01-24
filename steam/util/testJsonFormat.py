@@ -45,6 +45,36 @@ def initInputService(services = [],
         def __call(*args,**kwargs):
             fun(*args, **kwargs)
             sf = args[0]
+            sf.initWeixinData()
+            print("interface=%s,ClassName = %s" % (sf.__class__.__interfaceName__,sf.__class__.__name__))
+            #设置service __interfaceName__ 为对应URL标识
+            setattr(curser,"__interfaceName__",sf.__class__.__interfaceName__)
+            sf.myservice = curser(kwargs = sf.inputdata)
+            sf.myservice.initInterfaceData()
+            sf.myservice.initCompareResultFunData()
+            # sf.setService(sf.myservice)
+            for ser in services:
+                if isinstance(ser,list):
+                   opser = ser[0](kwargs = sf.inputdata)
+                   opser.initInterfaceData(ser[1])
+                else:
+                   opser = ser(kwargs = sf.inputdata)
+                   opser.initInterfaceData()
+                # {}.update()
+                sf.myservice.ifacedict.update(opser.ifacedict)
+                # for name in opser.ifacedict:
+                #     sf.myservice.ifacedict[name] = opser.ifacedict[name]
+        return __call
+    return _call
+
+def initAdminInputService(services = [] ,
+                          curser   = None):
+    def _call(fun):
+        def __call(*args,**kwargs):
+            fun(*args, **kwargs)
+            sf = args[0]
+            sf.initAdminData()
+            sf.initWeixinData()
             print("interface=%s,ClassName = %s" % (sf.__class__.__interfaceName__,sf.__class__.__name__))
             #设置service __interfaceName__ 为对应URL标识
             setattr(curser,"__interfaceName__",sf.__class__.__interfaceName__)

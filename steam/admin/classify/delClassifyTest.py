@@ -9,7 +9,7 @@
 @file: delClassifyTest.py 
 @time: 2018/4/18 19:06 
 """
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.classify.delClassifyService import ClassfiyDelService
 from steam.admin.classify.addClassfiyService import ClassfiyAddService
 from opg.unit.testcaseRunMgr import runTestOneCls
@@ -19,7 +19,7 @@ class ClassfiyDelTest(SteamTestCase):
             admin删除分类
       '''
       __interfaceName__ = "/operation-manage/entry/removeEntry"
-      @initInputService(curser   =  ClassfiyDelService ,
+      @initAdminInputService(curser   =  ClassfiyDelService ,
                         services = [ ClassfiyAddService] )
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyDelTest,self).__init__(methodName,param)

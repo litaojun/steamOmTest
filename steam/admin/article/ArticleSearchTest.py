@@ -15,14 +15,14 @@
 from steam.util.steamLog import SteamTestCase
 from steam.admin.article.ArticleSearchService import ArticleSearchService
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class ArticleSearchTest(SteamTestCase):
       '''
             admin删除分类
       '''
       __interfaceName__ = "/operation-manage/media/queryMedias"
 
-      @initInputService(services = [],
+      @initAdminInputService(services = [],
                         curser   = ArticleSearchService)
       def __init__(self, methodName='runTest', param=None):
           super(ArticleSearchTest,self).__init__(methodName,param)

@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.course.courseRemoveCourseService import CourseRemoveCourseService
@@ -10,7 +10,7 @@ class CourseRemoveCourseTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/course/removeCourse"
-      @initInputService( services = [ CourseQueryCourseByConditionService ,CourseCreateCourseService ],
+      @initAdminInputService( services = [ CourseQueryCourseByConditionService ,CourseCreateCourseService ],
                          curser   = CourseRemoveCourseService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

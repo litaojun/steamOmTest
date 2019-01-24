@@ -12,13 +12,13 @@
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class OperpsnQueryTest(SteamTestCase):
       '''
             admin查询一个运营位配置
       '''
       __interfaceName__ = "/operation-manage/featured/queryShowConfigs"
-      @initInputService( curser = OperpsnQueryService )
+      @initAdminInputService( curser = OperpsnQueryService )
       def __init__(self, methodName='runTest', param=None):
           super(OperpsnQueryTest,self).__init__(methodName,param)
 

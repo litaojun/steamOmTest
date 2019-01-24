@@ -14,14 +14,14 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class ActivityQueryTest(SteamTestCase):
       '''
             根据ID搜索活动
             使用和微信端相同接口
       '''
       __interfaceName__   = "/operation-manage/product/query"
-      @initInputService(services = [ ActivitySearchService ] ,
+      @initAdminInputService(services = [ ActivitySearchService ] ,
                         curser   =   ActivityQueryService   )
       def __init__(self, methodName =  'runTest',
                          param      =  None      ):

@@ -12,7 +12,7 @@
 
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.article.ArticleSearchService import ArticleSearchService
 
 from steam.admin.article.delArticleService import ArticleDelService
@@ -23,7 +23,7 @@ class ArticleDelTest(SteamTestCase):
             admin删除文章视频
       '''
       __interfaceName__ = "/operation-manage/media/deleteMedia"
-      @initInputService( services = [ ArticleAddService  ,
+      @initAdminInputService( services = [ ArticleAddService  ,
                                       ArticleSearchService  ] ,
                          curser   =   ArticleDelService  )
       def __init__(self, methodName='runTest', param=None):

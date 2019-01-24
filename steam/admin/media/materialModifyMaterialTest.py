@@ -1,4 +1,4 @@
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.media.materialModifyMaterialService import MaterialModifyMaterialService
@@ -8,7 +8,7 @@ class MaterialModifyMaterialTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/material/modifyMaterial"
-      @initInputService( services = [   ],
+      @initAdminInputService( services = [   ],
                          curser   =   MaterialModifyMaterialService )
       def __init__(self, methodName = 'runTest' ,
                          param      =  None):

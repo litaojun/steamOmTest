@@ -13,14 +13,14 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.upActivityService import ActivityPublishService
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class ActivityPublishTest(SteamTestCase):
       '''
             根据ID搜索活动
       '''
       __interfaceName__ = "/operation-manage/product/publish"
 
-      @initInputService(services = [ActivitySearchService ],
+      @initAdminInputService(services = [ActivitySearchService ],
                  curser   =  ActivityPublishService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)

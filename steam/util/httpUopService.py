@@ -1,25 +1,9 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: httpUopService.py 
-@time: 2018/11/16 16:09 
-"""
 from opg.util.utils import query_json
-from opg.util.uopService import UopService,loadStrFromFile,decorator,resultData
+from opg.util.uopService import UopService,loadStrFromFile,resultData
 from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
-
-
 import json,os
-from opg.util.lginfo import  logger
-import types
+from opg.util.lginfo import logger
 class HttpUopService(UopService):
       """
          增加根据URL发送HTTP请求
@@ -35,7 +19,6 @@ class HttpUopService(UopService):
                                                reqjsonfile  = reqjsonfile ,
                                                dbName       = dbName)
 
-      # @decorator(["setupUserAppleMatch"])
       def structReqData(self):
           urlPathSign = self.__class__.__interfaceName__
           reqFormatPath  = httpData[urlPathSign][1][ self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone" ][1]

@@ -12,7 +12,7 @@
 from steam.admin.article.ArticleAlertService import ArticleAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.article.ArticleSearchService import ArticleSearchService
 from steam.admin.article.ArticleSearchTest import ArticleSearchTest
 from steam.admin.article.delArticleService import ArticleDelService
@@ -24,7 +24,7 @@ class ArticleAlertTest(SteamTestCase):
             管理后台修改文章
       '''
       __interfaceName__ = "/operation-manage/media/updateMedia"
-      @initInputService( services =  [ArticleDelService,ArticleSearchService,ArticleAddService] ,
+      @initAdminInputService( services =  [ArticleDelService,ArticleSearchService,ArticleAddService] ,
                          curser   =  ArticleAlertService  )
       def __init__( self, methodName = 'runTest',
                           param      =  None ):

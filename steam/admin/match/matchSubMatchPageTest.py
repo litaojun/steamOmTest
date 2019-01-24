@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.match.matchSubMatchPageService import MatchSubMatchPageService
@@ -10,7 +10,7 @@ class MatchSubMatchPageTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/match/subMatchPage"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initAdminInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
                   curser   = MatchSubMatchPageService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

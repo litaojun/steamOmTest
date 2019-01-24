@@ -12,7 +12,7 @@
 from steam.admin.operate.AlertOperpsnService import OperpsnAlertService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.operate.addOperPsnService import OperpsnAddService
 from steam.admin.operate.delOperpsnService import OperpsnDelService
 from steam.admin.operate.featuredSearchResourceService import FeaturedSearchResourceService
@@ -22,7 +22,7 @@ class OperpsnAlertTest(SteamTestCase):
             admin修改一个运营位配置
       '''
       __interfaceName__ = "/operation-manage/featured/modifyIndexConfig"
-      @initInputService( services = [ OperpsnAddService ,
+      @initAdminInputService( services = [ OperpsnAddService ,
                                       OperpsnDelService ,
                                       FeaturedSearchResourceService ,
                                       OperpsnQueryService ]  ,

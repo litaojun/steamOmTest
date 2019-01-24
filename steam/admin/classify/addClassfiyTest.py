@@ -13,13 +13,13 @@ from steam.admin.classify.addClassfiyService import ClassfiyAddService
 from steam.admin.classify.delClassifyService import ClassfiyDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class ClassfiyAddTest(SteamTestCase):
       '''
             admin新增分类
       '''
       __interfaceName__ = "/operation-manage/entry/addEntry"
-      @initInputService(curser   = ClassfiyAddService,
+      @initAdminInputService(curser   = ClassfiyAddService,
                         services = [ ClassfiyDelService ])
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyAddTest,self).__init__(methodName,param)

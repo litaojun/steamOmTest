@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.media.materialQueryAliyunUpdateKeyService import MaterialQueryAliyunUpdateKeyService
@@ -10,7 +10,7 @@ class MaterialQueryAliyunUpdateKeyTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/material/queryAliyunUpdateKey"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initAdminInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
                          curser   = MaterialQueryAliyunUpdateKeyService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

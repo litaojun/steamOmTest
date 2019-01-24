@@ -4,9 +4,7 @@ from flask import Flask
 from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery,timerCheckData,dynamicLoadClassData
 from flask_cors import *
 from steam.mockhttp.util.initFile import ip
-# import sys
 from flask import render_template
-# sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)
 app.register_blueprint( interfaceMnr.bapp,       url_prefix = "/infcs"   )

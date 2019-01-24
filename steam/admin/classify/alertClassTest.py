@@ -9,7 +9,7 @@
 @file: alertClassTest.py 
 @time: 2018/4/18 19:06 
 """
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.classify.alertClassService import ClassfiyAlertService
 from steam.admin.classify.delClassifyService import ClassfiyDelService
 from steam.admin.classify.addClassfiyService import ClassfiyAddService
@@ -20,7 +20,7 @@ class ClassfiyAlertTest(SteamTestCase):
             admin新增分类
       '''
       __interfaceName__ = "/operation-manage/entry/modifyEntry"
-      @initInputService( curser   = ClassfiyAlertService,
+      @initAdminInputService( curser   = ClassfiyAlertService,
                          services = [ClassfiyAddService,ClassfiyDelService] )
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiyAlertTest,self).__init__(methodName,param)

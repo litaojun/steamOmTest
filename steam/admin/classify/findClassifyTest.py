@@ -9,7 +9,7 @@
 @file: findClassifyTest.py 
 @time: 2018/4/18 19:05 
 """
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.classify.delClassifyService import ClassfiyDelService
 from steam.admin.classify.findClassifyService import ClassfiySearchService
 from opg.unit.testcaseRunMgr import runTestOneCls
@@ -19,7 +19,7 @@ class ClassfiySearchTest(SteamTestCase):
             admin查询分类列表
       '''
       __interfaceName__ = "/operation-manage/entry/queryEntries"
-      @initInputService(curser   =  ClassfiySearchService ,
+      @initAdminInputService(curser   =  ClassfiySearchService ,
                         services = [ ] )
       def __init__(self, methodName='runTest', param=None):
           super(ClassfiySearchTest,self).__init__(methodName,param)

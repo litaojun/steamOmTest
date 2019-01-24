@@ -1,4 +1,4 @@
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.media.materialQueryAliyunVideoAuthService import MaterialQueryAliyunVideoAuthService
@@ -8,7 +8,7 @@ class MaterialQueryAliyunVideoAuthTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/material/queryAliyunVideoAuth"
-      @initInputService( services = [ QueryMerchantInfoByCondtionService ],
+      @initAdminInputService( services = [ QueryMerchantInfoByCondtionService ],
                          curser   = MaterialQueryAliyunVideoAuthService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

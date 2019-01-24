@@ -15,13 +15,13 @@ from steam.admin.operate.delOperpsnService import OperpsnDelService
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.admin.operate.featuredSearchResourceService import FeaturedSearchResourceService
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class OperpsnAddTest(SteamTestCase):
       '''
             admin新增一个运营位配置
       '''
       __interfaceName__ = "/operation-manage/featured/createConfig"
-      @initInputService( services = [ OperpsnDelService ,OperpsnQueryService,FeaturedSearchResourceService ] ,
+      @initAdminInputService( services = [ OperpsnDelService ,OperpsnQueryService,FeaturedSearchResourceService ] ,
                          curser   = OperpsnAddService )
       def __init__(self, methodName = 'runTest',
                          param      = None):

@@ -9,10 +9,11 @@ def genTestClass():
     initData.allTestClass = initAllTestClass()
     return jsonify(rtRunDt)
 
-
 @bapp.route('/prop/genTestdata', methods=['GET'])
 def genTestData():
-    rtRunDt = {"code":"000000"}
+    rtRunDt = {
+                 "code":"000000"
+              }
     # global allTestCase
     initData.allTestCase = initAllTestCase()
     return jsonify(rtRunDt)

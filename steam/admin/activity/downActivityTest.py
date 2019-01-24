@@ -15,13 +15,13 @@ from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.admin.activity.downActivityService import ActivityUnPublishService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 class ActivityUnPublishTest(SteamTestCase):
       '''
             根据ID下架活动
       '''
       __interfaceName__ = "/operation-manage/product/unPublish"
-      @initInputService(services = [ ActivitySearchService,
+      @initAdminInputService(services = [ ActivitySearchService,
                                      ActivityQueryService ],
                  curser   =   ActivityUnPublishService )
       def __init__(self, methodName = 'runTest', param = None ):

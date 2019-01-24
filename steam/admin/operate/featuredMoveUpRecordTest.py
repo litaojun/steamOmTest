@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.featuredMoveUpRecordService import FeaturedMoveUpRecordService
@@ -12,7 +12,7 @@ class FeaturedMoveUpRecordTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/featured/moveUpRecord"
-      @initInputService( services = [ OperpsnQueryService ,FeaturedSearchResourceService,
+      @initAdminInputService( services = [ OperpsnQueryService ,FeaturedSearchResourceService,
                                       OperpsnAddService,OperpsnDelService ],
                   curser   = FeaturedMoveUpRecordService )
       def __init__(self, methodName = 'runTest',

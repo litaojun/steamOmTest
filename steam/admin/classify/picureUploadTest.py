@@ -14,7 +14,7 @@
 from steam.admin.classify.picureUploadService import PicureUploadService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 import re
 class PicureUploadTest(SteamTestCase):
     '''
@@ -22,7 +22,7 @@ class PicureUploadTest(SteamTestCase):
     '''
     __interfaceName__ = "/steam-resource/resource/uploadImages"
 
-    @initInputService( services = [],
+    @initAdminInputService( services = [],
                        curser   = PicureUploadService )
     def __init__(self, methodName='runTest', param=None):
         super(PicureUploadTest, self).__init__(methodName, param)

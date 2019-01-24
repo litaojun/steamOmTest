@@ -1,5 +1,5 @@
 from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.resource.tagRemoveTagService import TagRemoveTagService
@@ -11,7 +11,7 @@ class TagRemoveTagTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/tag/removeTag"
-      @initInputService( services = [ TagAddTagService  ],
+      @initAdminInputService( services = [ TagAddTagService  ],
                   curser   = TagRemoveTagService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

@@ -1,4 +1,4 @@
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.featuredMoveDownRecordService import FeaturedMoveDownRecordService
@@ -11,7 +11,7 @@ class FeaturedMoveDownRecordTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/featured/moveDownRecord"
-      @initInputService( services = [ OperpsnQueryService ,FeaturedSearchResourceService,
+      @initAdminInputService( services = [ OperpsnQueryService ,FeaturedSearchResourceService,
                                       OperpsnAddService,OperpsnDelService ],
                   curser   = FeaturedMoveDownRecordService )
       def __init__(self, methodName = 'runTest',

@@ -12,7 +12,6 @@
 from opg.unit.parametrized import ParametrizedTestCase
 import logging
 logger = logging.getLogger(__name__)
-# logger = logging.getLogger("%s.%s" % ( self.__class__.__name__,"__init__"))
 class UserLoginTest(ParametrizedTestCase):
 	def __init__(self):
 		logger = logging.getLogger("%s.%s" % (self.__class__.__name__, "__init__"))

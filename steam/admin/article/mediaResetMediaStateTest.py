@@ -1,4 +1,4 @@
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.article.mediaResetMediaStateService import MediaResetMediaStateService
@@ -8,7 +8,7 @@ class MediaResetMediaStateTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/media/resetMediaState"
-      @initInputService( services = [ ArticleSearchService ] ,
+      @initAdminInputService( services = [ ArticleSearchService ] ,
                          curser   = MediaResetMediaStateService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

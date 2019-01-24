@@ -12,14 +12,14 @@
 from steam.admin.competition.competitionDelService import MatchDelService
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.competition.competitionService import MatchAddService
 class MatchDelTest(SteamTestCase):
       '''
            admin删除赛事场次
       '''
       __interfaceName__ = "/operation-manage/match/deleteMatch"
-      @initInputService( curser   = MatchDelService ,
+      @initAdminInputService( curser   = MatchDelService ,
                          services = [ [ MatchAddService,"addReqjsonfile" ] ])
       def __init__(self, methodName='runTest', param=None):
           super(MatchDelTest,self).__init__(methodName,param)

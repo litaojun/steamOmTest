@@ -1,4 +1,4 @@
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.media.materialRemoveMaterialService import MaterialRemoveMaterialService
@@ -9,7 +9,7 @@ class MaterialRemoveMaterialTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/material/removeMaterial"
-      @initInputService( services = [  MaterialCreateMaterialService ,
+      @initAdminInputService( services = [  MaterialCreateMaterialService ,
                                        QueryMerchantInfoByCondtionService ],
                           curser  =  MaterialRemoveMaterialService )
 
