@@ -26,7 +26,7 @@ class LotteryQueryLotteryListService(HttpUopService):
         return dict((lttery["lotteryTitle"],lttery["resourceId"])
                     for lttery in lotteryList)
 
-    @decorator("setupGetResourceIdByLotyTitle")
+    @decorator(["setupGetResourceIdByLotyTitle","tearDownGetResourceIdByLotyTitle"])
     def getRsidByLotyName(self):
         lotyDict  = self.genNameIdDict()
         self.inputKV["resourceId"] = lotyDict[self.inputKV["lotyName"]]

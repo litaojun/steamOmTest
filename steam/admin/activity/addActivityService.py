@@ -32,26 +32,11 @@ class ActivityAddService(HttpUopService):
 												 reqjsonfile  = None,
 												 dbName       = "resource")
 
-    @decorator("tearInterfaceDelOneArticle")
-    def delActivity(self):
-        articleid = self.getActivityIdByRsp(self.rsp)
-        delclassfiyRsp = requests.post(
-									        url=None,
-									        json={"resourceId": articleid},
-									        headers=self.jsonheart,
-									        verify=False
-								      )
-        return delclassfiyRsp.text
 
-    def addActivity(self):
-        addActivityRsp = httpPost(url         =  addActivityurl,
-								  reqJsonData =  self.activityAddReqjson,
-								  headers     =  self.jsonheart)
-        self.rsp = addActivityRsp
-        return addActivityRsp
-
-    def getActivityIdByRsp(self,activityRsp = None):
-        rssId = query_json(json_content = json.loads(activityRsp),
+    def getActivityIdByRsp(self):
+        if self.rsp is None:
+           self.rsp = self.sendHttpReq()
+        rssId = query_json(json_content = json.loads(self.rsp),
 						   query        = "data.resourceId")
         return rssId
 

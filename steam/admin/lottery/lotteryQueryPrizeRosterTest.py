@@ -1,16 +1,14 @@
-from steam.util.testJsonFormat import initInput
-from steam.util.testJsonFormat import initInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.lottery.lotteryQueryPrizeRosterService import LotteryQueryPrizeRosterService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
+from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotteryListService
 class LotteryQueryPrizeRosterTest(SteamTestCase):
       """
-            %(subTitle)s
+            查看中奖名单
       """
       __interfaceName__ = "/operation-manage/lottery/queryPrizeRoster"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initAdminInputService( services = [ LotteryQueryLotteryListService ],
                   curser   = LotteryQueryPrizeRosterService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
@@ -20,16 +18,19 @@ if __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
     from steam.user.login.userLoginTest import UserLoginTest
     from steam.user.search.weixinSearchTest import WeixinSearchTest
-    from steam.user.collection.userCancelCollectionTest import UserCancelCollectionTest
+    from steam.admin.lottery.lotteryQueryPrizeInventoryTest import LotteryQueryPrizeInventoryTest
+    from steam.admin.lottery.lotteryQueryLotteryListTest import LotteryQueryLotteryListTest
+    from steam.user.login.queryMemberIdTest import QueryMemberIdTest
     UserVerfiyCodeTest(methodName="compareRetcodeTest",
                        param=[1, 2, 3, 4, 5, {}, 7, 8])
     UserLoginTest(methodName="compareRetcodeTest",
                   param=[1, 2, 3, 4, 5, {}, 7, 8])
-    WeixinSearchTest(methodName = "compareRetcodeTest",
+    LotteryQueryLotteryListTest(methodName = "compareRetcodeTest",
                      param      = [1, 2, 3, 4, 5, {}, 7, 8])
-    UserCancelCollectionTest(methodName = "compareRetcodeTest",
+    LotteryQueryPrizeInventoryTest(methodName = "compareRetcodeTest",
                              param      = [1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                     casefilepath = "\\steamcase\\admin\\lottery\\operation-manageLotteryQueryPrizeRosters.yml",
-                    testclse     = LotteryQueryPrizeRosterTest
+                    testclse     = LotteryQueryPrizeRosterTest,
+                    basepath     = "D:\\litaojun\\steamyml"
                  )

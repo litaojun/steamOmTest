@@ -15,5 +15,13 @@ class LotteryReleaseOrOfflineLotteryService(HttpUopService):
         :param picturePath:
         """
         super(LotteryReleaseOrOfflineLotteryService, self).__init__(module       = "",
-												 filename     = "",
-												 sqlvaluedict = kwargs )
+											                        filename     = "",
+												                    sqlvaluedict = kwargs )
+
+    @decorator("setupStateToStart")
+    def updateStateToStart(self):
+        self.inputKV["state"],self.inputKV["startState"] = \
+            self.inputKV["startState"],self.inputKV["state"]
+        self.sendHttpReq()
+        self.inputKV["state"], self.inputKV["startState"] = \
+            self.inputKV["startState"], self.inputKV["state"]

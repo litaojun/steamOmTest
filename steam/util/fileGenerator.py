@@ -82,6 +82,6 @@ if __name__ == "__main__":
     bsDict = {
                 "oneDir" : "admin" ,
                 "twoDir" : "lottery" ,
-                "pathSign" : "/operation-manage/lottery/queryPrizeInventory"
+                "pathSign" : "/operation-manage/lottery/queryLotteryInfo"
              }
     genAllFile(bsDict = bsDict)

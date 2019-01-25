@@ -14,6 +14,8 @@ class LotteryCreateLotteryInfoService(HttpUopService):
         :param entryName:
         :param picturePath:
         """
-        super(LotteryCreateLotteryInfoService, self).__init__(module       = "",
-												 filename     = "",
-												 sqlvaluedict = kwargs )
+        super(LotteryCreateLotteryInfoService, self).__init__(module       = "lottery",
+												              filename     = "lotteryDb.xml",
+												              sqlvaluedict = kwargs,
+                                                              dbName       = "resource")
+
