@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uop>
+    <mysql>
+        <name>tearDBdel_t_resource</name>
+        <opertype>delete</opertype>
+        <sql>DELETE r.* from t_resource r where  r.resource_id = %(resourceId)d ;</sql>
+	    <desc>删除抽奖信息资源主表</desc>
+    </mysql>
+    <mysql>
+        <name>tearDBdel_t_lottery_info</name>
+        <opertype>delete</opertype>
+        <sql>DELETE i.* from t_lottery_info i where i.resource_id = %(resourceId)d;</sql>
+	    <desc>删除抽奖信息详情主表</desc>
+    </mysql>
+    <mysql>
+        <name>tearDBdel_t_prize_info</name>
+        <opertype>delete</opertype>
+        <sql>DELETE pr.* from t_prize_roster pr where pr.resource_id = %(resourceId)d;</sql>
+	    <desc>删除抽奖对应奖品关联表</desc>
+    </mysql>
+    <mysql>
+        <name>tearDBt_prize_roster</name>
+        <opertype>delete</opertype>
+        <sql>DELETE pr.* from t_prize_roster pr where pr.resource_id = %(resourceId)d;</sql>
+	    <desc>删除中奖记录表</desc>
+    </mysql>
+    <mysql>
+        <name>tearDBdel_t_luck_draw_record</name>
+        <opertype>delete</opertype>
+        <sql>DELETE dr.* from t_luck_draw_record dr where dr.lottery_id = %(lotteryId)d ;</sql>
+	    <desc>删除抽奖记录表</desc>
+    </mysql>
+</uop>
