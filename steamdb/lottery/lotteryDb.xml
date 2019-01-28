@@ -3,7 +3,7 @@
     <mysql>
         <name>tearDBdel_t_resource</name>
         <opertype>delete</opertype>
-        <sql>DELETE r.* from t_resource r where  r.resource_id = %(resourceId)d ;</sql>
+        <sql>DELETE r.* from t_resource r where  r.id = %(resourceId)d ;</sql>
 	    <desc>删除抽奖信息资源主表</desc>
     </mysql>
     <mysql>
@@ -15,11 +15,11 @@
     <mysql>
         <name>tearDBdel_t_prize_info</name>
         <opertype>delete</opertype>
-        <sql>DELETE pr.* from t_prize_roster pr where pr.resource_id = %(resourceId)d;</sql>
+        <sql>DELETE pr.* from t_prize_info pr where pr.resource_id = %(resourceId)d;</sql>
 	    <desc>删除抽奖对应奖品关联表</desc>
     </mysql>
     <mysql>
-        <name>tearDBt_prize_roster</name>
+        <name>tearDBdel_t_prize_roster</name>
         <opertype>delete</opertype>
         <sql>DELETE pr.* from t_prize_roster pr where pr.resource_id = %(resourceId)d;</sql>
 	    <desc>删除中奖记录表</desc>
