@@ -44,12 +44,10 @@ class SteamTestCase(ParametrizedTestCase):
                   userLoginSer             = WeixinUserLoginService(kwargs=inputData)
                   rsp  = userLoginSer.weixinUserLogin()
                   code = userLoginSer.getRetcodeByUserLoginRsp(response=rsp)
-                  # code = userLoginSer.getRetcodeByRsp()
                   if code  == "000000":
                      token = userLoginSer.getTokenFromRsp(response=rsp)
                      self.inputdata["token"] = token
                      qmIdSer = QueryMemberIdService(kwargs=inputData)
-                     # rsp     = qmIdSer.userMemberIdReq()
                      rsp = qmIdSer.sendHttpReq()
                      memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
                      self.inputdata["memberId"] = memberId
@@ -92,9 +90,7 @@ class SteamTestCase(ParametrizedTestCase):
         token = UserLoginService.getTokenData()
         self.inputdata["token"] = token
 
-    # @classmethod
-    # def clearPhoneData(cls):
-    #     cls.memberIdDict = {}
+
 if __name__ == "__main__":
     args = {
                 "phoneNo":"18916899938"

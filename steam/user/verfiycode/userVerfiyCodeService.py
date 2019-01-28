@@ -24,6 +24,7 @@ class WeixinUserVerfiyCodeService(HttpUopService):
     '''
         微信端用户登录
     '''
+    __interfaceName__ = "/passport/verifyCode"
     def __init__(self, kwargs):
         """
             :param entryName:

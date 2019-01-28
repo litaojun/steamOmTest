@@ -23,6 +23,7 @@ class WeixinUserLoginService(HttpUopService):
     '''
         微信端用户登录
     '''
+    __interfaceName__ = "/member/login/memberLogin"
     def __init__(self, kwargs):
         """
             :param entryName:

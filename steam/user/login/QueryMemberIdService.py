@@ -21,6 +21,7 @@ class QueryMemberIdService(HttpUopService):
     '''
         微信端用户登录后根据token换取memberId
     '''
+    __interfaceName__ = "/member/login/queryMemberInfo"
     def __init__(self, kwargs):
         """
             :param entryName:
