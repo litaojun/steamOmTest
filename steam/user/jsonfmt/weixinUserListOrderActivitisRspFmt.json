@@ -147,7 +147,7 @@
                         {
                             "type": "string",
                             "type":null
-                          },
+                        },
                 "title": "The Datestr Schema ",
                 "default": "",
                 "examples": [
@@ -159,7 +159,7 @@
                 "anyof":{
                              "type": "string",
                              "type": null
-                         },
+                         } ,
                 "title": "The Addressdesc Schema ",
                 "default": "",
                 "examples": [
