@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: upActivityTest.py 
-@time: 2018/5/10 17:54 
-"""
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.upActivityService import ActivityPublishService
 from steam.admin.activity.searchActivityService import ActivitySearchService
