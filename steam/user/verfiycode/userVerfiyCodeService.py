@@ -34,8 +34,6 @@ class WeixinUserVerfiyCodeService(HttpUopService):
                                                           "",
                                                           kwargs ,
                                                           reqjsonfile = None)
-        self.rsp = None
-        self.userVerfiyCodeReqjson = self.reqjsondata
 
     def sendUserVerifyCode(self):
         self.rsp = self.sendHttpReq()

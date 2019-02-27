@@ -1,16 +1,5 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: userLoginService.py 
-@time: 2018/3/2 17:00 
-"""
 from opg.util.uopService import UopService,decorator
-from opg.util.httptools import httpGet,httpPost
+from opg.util.httptools import httpPost
 from steam.util.configurl import adminLoginUrl
 from opg.util.utils import query_json
 from opg.util.schemajson import check_rspdata
@@ -21,8 +10,7 @@ class UserLoginService(UopService):
         super(UserLoginService, self).__init__(module       =  "",
 	                                           filename     =  "",
                                                sqlvaluedict =  kwargs,
-                                               reqjsonfile  =  "userLoginReq"
-	                                           )
+                                               reqjsonfile  =  "userLoginReq")
 
     @decorator("interfaceUserLoginMobile")
     def userLogin(self):
@@ -48,20 +36,11 @@ class UserLoginService(UopService):
                         "password": "68039c0183cd34950fc57726f3b23446701c36a7898e66a61a805f4474b5a63c"
                    }
            rsp = httpPost(url         = adminLoginUrl,
-                           headers     =  {},
-                           reqJsonData = kwgs)
+                          headers     =  {},
+                          reqJsonData = kwgs)
            cls.token = query_json(json_content=json.loads(rsp), query="token")
         return cls.token
 
 if __name__ == "__main__":
    token = UserLoginService.getTokenData()
    print(token)
-   # kwgs = {
-   #            "username":"cuiyiming",
-   #            "password":"68039c0183cd34950fc57726f3b23446701c36a7898e66a61a805f4474b5a63c"
-   #        }
-   # a = UserLoginService(kwargs=kwgs)
-   # rsp  = a.userLogin()
-   # token = a.getTokenByRsp(response=rsp)
-   # print(token)
-

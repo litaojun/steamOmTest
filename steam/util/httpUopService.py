@@ -39,7 +39,8 @@ class HttpUopService(UopService):
           self.jsonheart = {
                                   "x-token": "admin",
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
-                                  "token": self.inputKV["token"] if "token" in self.inputKV else ""
+                                  "token": self.inputKV["token"] if "token" in self.inputKV else "",
+                                  "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
                             }
           if method in ("get","delete","file","put-get") :
              self.reqjsondata = reqdata

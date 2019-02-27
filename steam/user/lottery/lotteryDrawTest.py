@@ -1,4 +1,3 @@
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
@@ -19,7 +18,6 @@ class LotteryDrawTest(SteamTestCase):
 if __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
     from steam.user.login.userLoginTest import UserLoginTest
-    from steam.user.search.weixinSearchTest import WeixinSearchTest
     from steam.user.lottery.lotteryDetailTest import LotteryDetailTest
     from steam.admin.lottery.lotteryQueryLotteryListTest import LotteryQueryLotteryListTest
     from steam.user.login.queryMemberIdTest import QueryMemberIdTest

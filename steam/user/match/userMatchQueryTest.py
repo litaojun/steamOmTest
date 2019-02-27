@@ -7,8 +7,8 @@ class UserMatchQueryTest(SteamTestCase):
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
       '''
       __interfaceName__   = "/match-service/member/wa/query"
-      @initInputService(services = [] ,
-                        curser   = UserMatchQueryService)
+      @initInputService( services = [] ,
+                         curser   = UserMatchQueryService )
       def __init__(self, methodName='runTest', param=None):
           super(UserMatchQueryTest,self).__init__(methodName,param)
 
@@ -24,5 +24,6 @@ if  __name__ == "__main__":
     UserLoginTest(methodName="compareRetcodeTest", param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\match-servicememberwaquerys.yml",
-                        testclse     = UserMatchQueryTest
+                        testclse     = UserMatchQueryTest,
+                        basepath     = "D:\\litaojun\\steamyml"
                  )
