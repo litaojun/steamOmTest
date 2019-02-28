@@ -9,7 +9,7 @@ class LotteryQueryPrizeRosterTest(SteamTestCase):
       """
       __interfaceName__ = "/operation-manage/lottery/queryPrizeRoster"
       @initAdminInputService( services = [ LotteryQueryLotteryListService ],
-                  curser   = LotteryQueryPrizeRosterService )
+                              curser   = LotteryQueryPrizeRosterService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(LotteryQueryPrizeRosterTest,self).__init__(methodName,param)

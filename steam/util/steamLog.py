@@ -50,6 +50,7 @@ class SteamTestCase(ParametrizedTestCase):
     def initAdminData(self):
         token = UserLoginService.getTokenData()
         self.inputdata["token"] = token
+        self.inputdata["admin-token"] = token
 
     #商户登录核销系统
     def initMerchantData(self):

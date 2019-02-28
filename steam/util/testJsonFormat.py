@@ -32,13 +32,13 @@ def initInput(services=[],
     return _call
 
 
-def initInputService(services=[],
-                     curser=None,sign="weixin"):
+def initInputService(services=[],curser=None,sign="weixin"):
     def _call(fun):
         def __call(*args, **kwargs):
             fun(*args, **kwargs)
             sf = args[0]
             if sign == "weixin":
+                sf.initAdminData()
                 sf.initWeixinData()
             elif sign == "admin":
                 sf.initAdminData()

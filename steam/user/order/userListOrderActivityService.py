@@ -89,7 +89,6 @@ class UserListOrderActivityService(HttpUopService):
         orderTitleDict = self.genCourseTitleOderIdDict()
         self.inputKV["orderId"] = orderTitleDict.get(title,"1000118")
 
-
 if __name__ == "__main__":
     kwarg = {
                 "orderId": "15311885444040000005112",

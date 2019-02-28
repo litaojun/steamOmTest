@@ -1,17 +1,20 @@
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.merchant.merchantCertificateTicketService import MerchantCertificateTicketService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
+from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotteryListService
+from steam.user.lottery.lotteryDetailService import LotteryDetailService
+from steam.user.lottery.lotteryDrawService import LotteryDrawService
+from steam.user.order.userListOrderActivityService import UserListOrderActivityService
 class MerchantCertificateTicketTest(SteamTestCase):
       """
             %(subTitle)s
       """
       __interfaceName__ = "/ticket-service/merchant/certificateTicket"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
-                  curser   = MerchantCertificateTicketService )
+      @initInputService( services = [ LotteryQueryLotteryListService,
+                                      LotteryDetailService ,
+                                      LotteryDrawService,UserListOrderActivityService],
+                         curser   = MerchantCertificateTicketService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(MerchantCertificateTicketTest,self).__init__(methodName,param)

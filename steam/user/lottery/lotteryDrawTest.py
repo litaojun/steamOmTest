@@ -9,8 +9,8 @@ class LotteryDrawTest(SteamTestCase):
             %(subTitle)s
       """
       __interfaceName__ = "/steam-lottery/lottery/draw"
-      @initInputService( services = [ LotteryQueryLotteryListService , LotteryDetailService ],
-                         curser   = LotteryDrawService )
+      @initInputService(services = [LotteryQueryLotteryListService , LotteryDetailService],
+                        curser   =  LotteryDrawService)
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(LotteryDrawTest,self).__init__(methodName,param)

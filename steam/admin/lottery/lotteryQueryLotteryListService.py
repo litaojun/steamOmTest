@@ -1,8 +1,6 @@
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.httptools import httpPost
+from opg.util.uopService import decorator
+import json
 from opg.util.utils import query_json
-from opg.util.schemajson import check_rspdata
 from steam.util.httpUopService import  HttpUopService
 
 class LotteryQueryLotteryListService(HttpUopService):
@@ -11,12 +9,12 @@ class LotteryQueryLotteryListService(HttpUopService):
     '''
     def __init__(self, kwargs):
         """
-        :param entryName:
-        :param picturePath:
+            :param entryName:
+            :param picturePath:
         """
         super(LotteryQueryLotteryListService, self).__init__(module       = "",
-												 filename     = "",
-												 sqlvaluedict = kwargs )
+                                                             filename     = "",
+                                                             sqlvaluedict = kwargs )
 
     def genNameIdDict(self):
         if self.rsp is None:
@@ -26,7 +24,7 @@ class LotteryQueryLotteryListService(HttpUopService):
         return dict((lttery["lotteryTitle"],lttery["resourceId"])
                     for lttery in lotteryList)
 
-    @decorator(["setupGetResourceIdByLotyTitle","tearDownGetResourceIdByLotyTitle"])
+    @decorator(["setupGetResourceIdByLotyTitle","tearDownGetResourceIdByLotyTitle"],userType="admin")
     def getRsidByLotyName(self):
         lotyDict  = self.genNameIdDict()
         self.inputKV["resourceId"] = lotyDict[self.inputKV["lotyName"]]
