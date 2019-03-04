@@ -22,15 +22,10 @@ class ActivityQueryTest(SteamTestCase):
       '''
       __interfaceName__   = "/operation-manage/product/query"
       @initAdminInputService(services = [ ActivitySearchService ] ,
-                        curser   =   ActivityQueryService   )
+                             curser   =   ActivityQueryService   )
       def __init__(self, methodName =  'runTest',
                          param      =  None      ):
           super(ActivityQueryTest,self).__init__(methodName , param)
-
-      # def queryActivityDetail(self):
-      #     oneActRsp = self.myservice.queryOneActivity()
-      #     code      = self.myservice.getRetcodeByOneactRsp(oneActRsp = oneActRsp)
-      #     self.assertTrue(code == self.expectdata["code"])
 
 if __name__ == "__main__":
          from steam.admin.activity.searchActivityTest import ActivitySearchTest
