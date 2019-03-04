@@ -2,11 +2,10 @@ from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.merchant.passportVerifyCodeService import PassportVerifyCodeService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
+
 class PassportVerifyCodeTest(SteamTestCase):
       """
-            %(subTitle)s
+            商户获取登录验证码
       """
       __interfaceName__ = "/merchant/passport/verifyCode"
       @initInputService( services=[ ],
@@ -17,8 +16,22 @@ class PassportVerifyCodeTest(SteamTestCase):
           super(PassportVerifyCodeTest,self).__init__(methodName,param)
 
 if __name__ == "__main__":
-    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\merchant\\merchantPassportVerifyCodes.yml",
-                    testclse     = PassportVerifyCodeTest,
-                    basepath     = "D:\\litaojun\\steamyml"
-                 )
+    # runTestOneCls(
+    #                 casefilepath = "\\steamcase\\user\\merchant\\merchantPassportVerifyCodes.yml",
+    #                 testclse     = PassportVerifyCodeTest,
+    #                 basepath     = "D:\\litaojun\\steamyml"
+    #              )
+    def a(sign):
+        t = {}
+        def b(a,b):
+            if a not in t:
+                t[a] = (sign,b)
+            else:
+                print(t)
+        return b
+    f = a("aaa")
+    f("fff","cccc")
+    f("fff1", "cccc1")
+    f("fff2", "cccc2")
+    f("fff3", "cccc3")
+    f("fff", "ccccff")

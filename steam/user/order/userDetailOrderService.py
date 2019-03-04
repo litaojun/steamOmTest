@@ -27,16 +27,14 @@ class UserDetailOrderActivityService(HttpUopService):
     '''
     def __init__(self, kwargs = {},
                        modul  = "",
-                       filename    = "",
-                       reqjsonfile = "weixinUserDetailOrderActivitisReq"):
+                       filename    = ""):
         """
             :param entryName:
             :param picturePath:
         """
         super(UserDetailOrderActivityService, self).__init__(modul,
                                                              filename,
-                                                             sqlvaluedict=kwargs ,
-                                                             reqjsonfile = reqjsonfile)
+                                                             sqlvaluedict=kwargs )
         self.userDetailOrderActivityReqjson = self.reqjsondata
 
     def userDetailOrderActivity(self):
@@ -50,6 +48,14 @@ class UserDetailOrderActivityService(HttpUopService):
     #@check_rspdata(filepath=weixinUserDetailOrderActivityRspFmt)
     def getRetcodeByOrderRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="code")
+
+    @decorator(["setupGetTicketNo"],userType="weixin")
+    def getTicketNo(self):
+        """获取订单的核销卷码"""
+        if self.rsp is None:
+            self.rsp = self.sendHttpReq()
+        self.inputKV["ticketCode"] = query_json(json_content=json.loads(self.rsp),
+                                                  query="data.ticketNo")
 
     @decorator(["preInterfaceUserOrderActivtiy"])
     def userOrderActivity(self):

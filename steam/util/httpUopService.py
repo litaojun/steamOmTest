@@ -36,8 +36,11 @@ class HttpUopService(UopService):
              reqdata        = reqDataFmt % self.inputKV
           else:
               self.reqjsondata = reqdata
-          if "userType" in self.inputKV and self.inputKV["userType"] == "admin":
-              token = self.inputKV["admin-token"]
+          if "userType" in self.inputKV :
+              if self.inputKV["userType"] == "admin":
+                 token = self.inputKV["admin-token"]
+              elif self.inputKV["userType"] == "weixin":
+                  token = self.inputKV["user-token"]
           else:
               token = self.inputKV["token"] if "token" in self.inputKV else ""
           self.jsonheart = {
@@ -46,6 +49,7 @@ class HttpUopService(UopService):
                                   "token": token,
                                   "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
                             }
+          # self.jsonheart={}
           if method in ("get","delete","file","put-get") :
              self.reqjsondata = reqdata
              if method   == "get":

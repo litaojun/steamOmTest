@@ -39,11 +39,13 @@ class SteamTestCase(ParametrizedTestCase):
                   if code  == "000000":
                      token = userLoginSer.getTokenFromRsp(response=rsp)
                      self.inputdata["token"] = token
+                     self.inputdata["user-token"] = token
                      qmIdSer = QueryMemberIdService(kwargs=inputData)
                      # rsp     = qmIdSer.userMemberIdReq()
                      rsp = qmIdSer.sendHttpReq()
                      memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
                      self.inputdata["memberId"] = memberId
+                     self.inputdata["user-memberId"] = memberId
                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)
 
     #CMS端admin登录管理系统
@@ -58,7 +60,7 @@ class SteamTestCase(ParametrizedTestCase):
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.merMemberIdDict:
                 inputData["token"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]][0]
-                inputData["memberId"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]][1]
+                # inputData["memberId"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]][1]
             else:
                 inputData["scenes"] = "OTP"
                 userVerCodeSer = PassportVerifyCodeService(kwargs=inputData)

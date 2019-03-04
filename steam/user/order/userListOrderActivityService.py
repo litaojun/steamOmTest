@@ -58,6 +58,18 @@ class UserListOrderActivityService(HttpUopService):
         return query_json(json_content = json.loads(self.rsp),
                           query        = "data.orderList")
 
+    def getOrderIdListByTitleOrState(self,title="",state=""):
+        orderList = self.getOrderList()
+        return [order["orderId"] for order in orderList if order["title"]==title and order["state"]==state]
+
+    @decorator(["setupGetFirstKsyOrderIdByTitle"],userType="weixin")
+    def getFirstKsyOrderId(self):
+        """根据TITLE获取第一个可使用抽奖订单,订单状态为100，其中100  中奖未使用，101  中奖已使用，102   中奖已过期"""
+        title = self.inputKV["title"]
+        import time
+        time.sleep(2)
+        self.inputKV["orderId"] = self.getOrderIdListByTitleOrState(title=title,state='100')[0]
+
     def getTitleOrderDictByOl(self,orderList = None):
         if orderList is None:
             orderList = self.getOrderList(response = self.rsp)

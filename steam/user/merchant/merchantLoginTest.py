@@ -5,7 +5,7 @@ from steam.user.merchant.merchantLoginService import MerchantLoginService
 from steam.user.merchant.passportVerifyCodeService import PassportVerifyCodeService
 class MerchantLoginTest(SteamTestCase):
       """
-            %(subTitle)s
+            商户登录
       """
       __interfaceName__ = "/merchant-service/merchant/login"
       @initInputService( services = [ PassportVerifyCodeService ],

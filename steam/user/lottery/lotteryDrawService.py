@@ -18,12 +18,14 @@ class LotteryDrawService(HttpUopService):
 												 filename     = "",
 												 sqlvaluedict = kwargs )
 
-    @decorator(["setupUserLotterDray", "tearDownUserLotterDray"])
+    @decorator(["setupUserLotterDray", "tearDownUserLotterDray"],userType="weixin")
     def userLotterDraw(self):
         self.rsp = self.sendHttpReq()
-        self.inputKV["prizeId"] = query_json(json_content=self.rsp,
+        self.inputKV["prizeId"] = query_json(json_content=json.loads(self.rsp),
                                              query="drawResult.prizeId")
-        self.inputKV["resourceId"] = query_json(json_content=self.rsp,
+        self.inputKV["resourceId"] = query_json(json_content=json.loads(self.rsp),
                                                   query="drawResult.prizeId")
-        self.inputKV["resourceTypeId"] = query_json(json_content=self.rsp,
-                                                    query="drawResult.resourceTypeId")
+        self.inputKV["resourceTypeId"] = query_json(json_content=json.loads(self.rsp),
+                                                      query="drawResult.resourceTypeId")
+        self.inputKV["title"] = query_json(json_content=json.loads(self.rsp),
+                                                      query="drawResult.prizeTitle")

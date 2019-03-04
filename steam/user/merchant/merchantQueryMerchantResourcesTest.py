@@ -4,7 +4,7 @@ from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.merchant.merchantQueryMerchantResourcesService import MerchantQueryMerchantResourcesService
 class MerchantQueryMerchantResourcesTest(SteamTestCase):
       """
-            %(subTitle)s
+            商户页
       """
       __interfaceName__ = "/merchant-service/merchant/queryMerchantResources"
       @initInputService( services = [  ],

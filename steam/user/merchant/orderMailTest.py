@@ -5,7 +5,7 @@ from steam.user.merchant.orderMailService import OrderMailService
 from steam.user.merchant.merchantLoginService import MerchantLoginService
 class OrderMailTest(SteamTestCase):
       """
-            %(subTitle)s
+            发送订单到商户邮箱
       """
       __interfaceName__ = "/merchant/order/mail"
       @initInputService( services = [ ] ,
