@@ -11,7 +11,7 @@ class MaterialQueryAliyunUpdateKeyTest(SteamTestCase):
       """
       __interfaceName__ = "/operation-manage/material/queryAliyunUpdateKey"
       @initAdminInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
-                         curser   = MaterialQueryAliyunUpdateKeyService )
+                              curser   = MaterialQueryAliyunUpdateKeyService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(MaterialQueryAliyunUpdateKeyTest,self).__init__(methodName,param)
