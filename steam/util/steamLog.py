@@ -22,8 +22,10 @@ class SteamTestCase(ParametrizedTestCase):
         inputData = self.getInputData()
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.memberIdDict :
-               inputData["token"]    = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
-               inputData["memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
+               self.inputdata["token"]     = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
+               self.inputdata["memberId"]  = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
+               self.inputdata["user-token"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][0]
+               self.inputdata["user-memberId"] = SteamTestCase.memberIdDict[inputData["phoneNo"]][1]
             else:
                inputData["scenes"] = "OTP"
                userVerCodeSer = WeixinUserVerfiyCodeService(kwargs = inputData)
@@ -59,7 +61,8 @@ class SteamTestCase(ParametrizedTestCase):
         inputData = self.getInputData()
         if "phoneNo" in inputData:
             if inputData["phoneNo"] in SteamTestCase.merMemberIdDict:
-                inputData["token"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]][0]
+                inputData["token"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]]
+                inputData["merchant_token"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]]
                 # inputData["memberId"] = SteamTestCase.merMemberIdDict[inputData["phoneNo"]][1]
             else:
                 inputData["scenes"] = "OTP"

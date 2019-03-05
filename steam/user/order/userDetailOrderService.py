@@ -25,6 +25,7 @@ class UserDetailOrderActivityService(HttpUopService):
     '''
         首页配置数据
     '''
+    __interfaceName__ = "/order-service/order/detail"
     def __init__(self, kwargs = {},
                        modul  = "",
                        filename    = ""):

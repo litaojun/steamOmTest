@@ -6,18 +6,26 @@ from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotte
 from steam.user.lottery.lotteryDetailService import LotteryDetailService
 from steam.user.lottery.lotteryDrawService import LotteryDrawService
 from steam.user.order.userListOrderActivityService import UserListOrderActivityService
-from steam.user.order.userDetailOrderService import  UserDetailOrderActivityService
+from steam.user.order.userDetailOrderService import UserDetailOrderActivityService
+
 
 class MerchantCertificateTicketTest(SteamTestCase):
-      """商户核销券码"""
-      __interfaceName__ = "/ticket-service/merchant/certificateTicket"
-      @initInputService( services = [ LotteryQueryLotteryListService,
-                                      LotteryDetailService,UserDetailOrderActivityService,
-                                      LotteryDrawService,UserListOrderActivityService ],
-                         curser   =   MerchantCertificateTicketService ,sign="merchant")
-      def __init__(self, methodName = 'runTest',
-                         param      =  None):
-          super(MerchantCertificateTicketTest,self).__init__(methodName,param)
+    """商户核销券码"""
+    __interfaceName__ = "/ticket-service/merchant/certificateTicket"
+
+    @initInputService(
+        services=[
+            LotteryQueryLotteryListService,
+            LotteryDetailService,
+            UserDetailOrderActivityService,
+            LotteryDrawService,
+            UserListOrderActivityService],
+        curser=MerchantCertificateTicketService,
+        sign="merchant")
+    def __init__(self, methodName='runTest',
+                 param=None):
+        super(MerchantCertificateTicketTest, self).__init__(methodName, param)
+
 
 if __name__ == "__main__":
     from steam.user.order.userDetailOrderTest import UserDetailOrderActivityTest
@@ -29,14 +37,13 @@ if __name__ == "__main__":
                                 param=[1, 2, 3, 4, 5, {}, 7, 8])
     UserListOrderActivityTest(methodName="compareRetcodeTest",
                               param=[1, 2, 3, 4, 5, {}, 7, 8])
-    LotteryDrawTest(methodName = "compareRetcodeTest",
-                    param      = [1, 2, 3, 4, 5, {}, 7, 8])
-    LotteryDetailTest(methodName = "compareRetcodeTest",
-                      param      = [1, 2, 3, 4, 5, {}, 7, 8])
-    LotteryQueryLotteryListTest(methodName = "compareRetcodeTest",
-                                param      = [1, 2, 3, 4, 5, {}, 7, 8])
+    LotteryDrawTest(methodName="compareRetcodeTest",
+                    param=[1, 2, 3, 4, 5, {}, 7, 8])
+    LotteryDetailTest(methodName="compareRetcodeTest",
+                      param=[1, 2, 3, 4, 5, {}, 7, 8])
+    LotteryQueryLotteryListTest(methodName="compareRetcodeTest",
+                                param=[1, 2, 3, 4, 5, {}, 7, 8])
     runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\merchant\\ticket-serviceMerchantCertificateTickets.yml",
-                    testclse     = MerchantCertificateTicketTest,
-                    basepath     = "D:\\litaojun\\steamyml"
-                 )
+        casefilepath="\\steamcase\\user\\merchant\\ticket-serviceMerchantCertificateTickets.yml",
+        testclse=MerchantCertificateTicketTest,
+        basepath="D:\\litaojun\\steamyml")
