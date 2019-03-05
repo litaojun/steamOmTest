@@ -17,7 +17,7 @@ def checkTestData():
             casedata = [1,2,3,4,5,data,7,8]
             tc = testClass( methodName = "compareRetcodeTest" ,
                             param      = casedata )
-            tc.getInputDataInit()
+            # tc.getInputDataInit()
             checkCode = tc.myservice.findTestdataByStatus()
             print("checkCode = " + checkCode)
             if checkCode != "000000":
@@ -58,7 +58,7 @@ def sendReqByCode( code = "100001",fileName = "",inputData = {} ):
           reqdata = sendData["data"]
        tc = testClass(methodName = "compareRetcodeTest",
                       param      =  casedata)
-       tc.getInputDataInit()
+       # tc.getInputDataInit()
        tc.myservice.sendHttpReq(reqdata = reqdata)
        retcode = tc.myservice.getRetcodeByRsp()
     return retcode

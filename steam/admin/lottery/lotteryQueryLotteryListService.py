@@ -35,14 +35,14 @@ class LotteryQueryLotteryListService(HttpUopService):
 
     def findTestdataByStatus(self):
         nameIdList = self.getNameIdList()
-        dataDict = [(data["title"],data) for data in nameIdList ]
+        dataDict   = dict([(data["lotteryTitle"],data) for data in nameIdList ])
         # nameIdDict = self.genNameIdDict()
         # print(self.inputKV)
-        if self.inputKV["title"] not in dataDict:
+        if self.inputKV["lotteryTitle"] not in dataDict:
             return "100001"
         # nameIdList = self.getNameIdList()
         # datals = [data for data in nameIdList if data["title"] == self.inputKV["title"] and data["state"]==self.inputKV["status"] ]
-        curData = dataDict[self.inputKV["title"]]
+        curData = dataDict[self.inputKV["lotteryTitle"]]
         if curData["state"] != self.inputKV["status"]:
             self.inputKV["resourceId"] = curData["id"]
             return "100002"
