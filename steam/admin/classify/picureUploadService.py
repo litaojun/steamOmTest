@@ -39,6 +39,11 @@ class PicureUploadService(HttpUopService):
     def getRetcodeByrsp(self,classfiyRsp = None):
         return query_json(json_content=json.loads(classfiyRsp),query="code")
 
+    @decorator(["setupAddFilePath"])
+    def setFilePath(self):
+        from steam.mockhttp.util.initFile import casepath
+        self.inputKV["file"] = casepath + os.sep + "steamcase" + os.sep + self.inputKV["file"]
+
     def getImgUrlFromRsp(self,response = None):
         return query_json(json_content=json.loads(response), query="data.links.0")
 
