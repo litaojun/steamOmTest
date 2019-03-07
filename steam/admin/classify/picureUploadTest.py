@@ -40,11 +40,12 @@ class PicureUploadTest(SteamTestCase):
 
 if  __name__ == "__main__":
     runTestOneCls(
-                    casefilepath = "\\steamcase\\testactivity\\steam-resourceresourceuploadImages.yml" ,
-                    testclse     = PicureUploadTest
+                    casefilepath = "\\steamcase\\admin\\testactivity\\steam-resourceresourceuploadImages.yml" ,
+                    testclse     = PicureUploadTest,
+                    basepath="D:\\litaojun\\steamyml"
                  )
-    imgurl = "http://uat-steam.opg.cn/_static/admin/images/resource/20180720142714_267655.jpg"
-    regStr = "^((https|http|ftp|rtsp|mms)?://)"
-    pattern = re.compile(pattern=regStr)
-    matcher = re.search(pattern, imgurl)
-    print(matcher.group(0))
+    # imgurl = "http://uat-steam.opg.cn/_static/admin/images/resource/20180720142714_267655.jpg"
+    # regStr = "^((https|http|ftp|rtsp|mms)?://)"
+    # pattern = re.compile(pattern=regStr)
+    # matcher = re.search(pattern, imgurl)
+    # print(matcher.group(0))

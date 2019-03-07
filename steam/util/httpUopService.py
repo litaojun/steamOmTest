@@ -60,7 +60,7 @@ class HttpUopService(UopService):
                                           headers = self.jsonheart)
              elif method  == "file":
                   self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
-                  self.files = {'file': open(self.filepath % self.inputKV['file'], 'rb')}
+                  self.files = {'file': open(self.inputKV['file'], 'rb')}
                   self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
              elif method == "put-get":
                  self.rsp = httpPutGet(url     = url + self.reqjsondata,
