@@ -1,6 +1,7 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from opg.unit.testcaseRunMgr import runTestOneCls
+
 from steam.user.merchant.merchantQueryCertificateService import MerchantQueryCertificateService
 from steam.user.merchant.merchantCertificateTicketService import MerchantCertificateTicketService
 from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotteryListService
@@ -37,8 +38,10 @@ if __name__ == "__main__":
                       param      = [1, 2, 3, 4, 5, {}, 7, 8])
     LotteryQueryLotteryListTest(methodName = "compareRetcodeTest",
                                 param      = [1, 2, 3, 4, 5, {}, 7, 8])
-    runTestOneCls(
-                    casefilepath = "\\steamcase\\user\\merchant\\ticket-serviceMerchantQueryCertificates.yml",
-                    testclse     = MerchantQueryCertificateTest,
-                    basepath     = "D:\\litaojun\\steamyml"
-                 )
+    # runTestOneCls(
+    #                 casefilepath = "\\steamcase\\user\\merchant\\ticket-serviceMerchantQueryCertificates.yml",
+    #                 testclse     = MerchantQueryCertificateTest,
+    #                 basepath     = "D:\\litaojun\\steamyml"
+    #              )
+    from steam.runflask.innerapi.testcaseRun import runOneTestCase
+    runOneTestCase(interfaceName="/ticket-service/merchant/queryCertificate")

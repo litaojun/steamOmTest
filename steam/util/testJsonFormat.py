@@ -34,10 +34,10 @@ def initInput(services=[],
 
 def initInputService(services=[],curser=None,sign="weixin"):
     """
-    :param services:
-    :param curser:
-    :param sign: 微信用户端："weixin" ，管理平台：admin , 核销小程序：merchant
-    :return:
+        :param services:
+        :param curser:
+        :param sign: 微信用户端："weixin" ，管理平台：admin , 核销小程序：merchant
+        :return:
     """
     def _call(fun):
         def __call(*args, **kwargs):
