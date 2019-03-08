@@ -23,7 +23,8 @@ from steam.runflask.util.initData import testSuite,genAllTestCase
 from steam.runflask.util import initData
 from flask import Blueprint
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
-from opg.unit.flaskRunMgr import getRunTestTokenId,runAllTestCase
+from opg.unit.flaskRunMgr import getRunTestTokenId
+from opg.unit.loadTestcase import runAllTestCase
 from opg.unit.flaskRunMgr import queryStateByTokenPro
 # from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
 bapp = Blueprint('tsrun', __name__)

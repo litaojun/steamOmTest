@@ -13,7 +13,7 @@ class ActivityAddTest(SteamTestCase):
     __interfaceName__ = "/operation-manage/product/add"
     @initAdminInputService(curser=ActivityAddService)
     def __init__(self, methodName='runTest',
-                 param=None):
+                       param=None):
         super(ActivityAddTest, self).__init__(methodName,
                                               param)
 
