@@ -109,9 +109,6 @@ def delListMula():
 	print(als)
 
 
-
-
-
 if __name__ == "__main__":
 	#testListSort()
 	#sortListA()
