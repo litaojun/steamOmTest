@@ -1,6 +1,6 @@
 from flask import Blueprint
 from steam.runflask.util.initData import allTestCase
-from opg.unit.flaskRunMgr import getDbManger
+from opg.bak.flaskRunMgr import getDbManger
 from flask import  jsonify, request
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")

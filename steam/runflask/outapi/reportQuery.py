@@ -17,7 +17,7 @@ sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
 from steam.runflask.util.initData import allTestCase,allTestClass
 
-from opg.unit.flaskRunMgr import queryTestPlanList,queryPlanDetailByInterfaceName
+from opg.bak.flaskRunMgr import queryTestPlanList,queryPlanDetailByInterfaceName
 from flask import Blueprint
 bapp = Blueprint('rptqy', __name__)
 @bapp.route('/prop/testplanlist', methods=['GET'])

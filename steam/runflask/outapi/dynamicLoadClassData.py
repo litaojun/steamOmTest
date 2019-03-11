@@ -1,6 +1,6 @@
 from steam.runflask.util import initData
 from flask import Blueprint
-from opg.unit.flaskRunMgr import initAllTestCase,initAllTestClass
+from opg.bak.flaskRunMgr import initAllTestCase,initAllTestClass
 from flask import jsonify
 bapp = Blueprint('load', __name__)
 @bapp.route('/prop/genTestclass', methods=['GET'])
