@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# encoding: utf-8
 from steam.admin.activity.addActivityService import ActivityAddService
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase

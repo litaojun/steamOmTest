@@ -1,16 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: userCancelCollectionService.py 
-@time: 2018/10/18 16:01 
-"""
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
@@ -23,8 +10,7 @@ class UserCancelCollectionService(HttpUopService):
     '''
     def __init__(self, kwargs      = {},
                        modul       = "",
-                       filename    = "",
-                       reqjsonfile = "userCollectionContentReq" ):
+                       filename    = ""):
         """
             :param entryName:
             :param picturePath:

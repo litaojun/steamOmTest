@@ -1,17 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: userCancelCollectionTest.py 
-@time: 2018/10/18 16:01 
-"""
-
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from opg.bak.testcaseRunMgr import runTestOneCls
@@ -28,12 +14,6 @@ class UserCancelCollectionTest(SteamTestCase):
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(UserCancelCollectionTest,self).__init__(methodName,param)
-
-      # def userCancelCollectTest(self):
-      #     rsp        = self.myservice.userCancelCollectionReq()
-      #     rspcode    = self.myservice.getRetcodeByRsp( response = rsp )
-      #     self.assertTrue(rspcode == self.expectdata["code"],
-      #                     msg     =  "rspcode=%s,e  expectcode=%s" % (rspcode,self.expectdata["code"]))
 
 if __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest

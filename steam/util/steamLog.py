@@ -21,7 +21,16 @@ class SteamTestCase(ParametrizedTestCase):
     def selectFh(self):
         from steam.runflask.outapi.testcaseRun import writeDir
         self.fh = writeDir(interfaceSign=self.__class__.__interfaceName__)
+        # selectFh(fh=self.fh)
+
+    def setUp(self):
         selectFh(fh=self.fh)
+        super(SteamTestCase, self).setUp()
+
+    def tearDown(self):
+        super(SteamTestCase, self).tearDown()
+        selectFh(fh=self.fh,sign=False)
+
     #微信端相关问题初始化登录
     def initWeixinData(self):
         inputData = self.getInputData()
