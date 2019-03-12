@@ -9,7 +9,7 @@
 @file: AlertOperpsnService.py 
 @time: 2018/4/25 16:37 
 """
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import alertOperpositionurl,delOperpositionurl

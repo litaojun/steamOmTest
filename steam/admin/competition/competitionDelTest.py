@@ -10,7 +10,7 @@
 @time: 2018/4/19 18:32 
 """
 from steam.admin.competition.competitionDelService import MatchDelService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.competition.competitionService import MatchAddService

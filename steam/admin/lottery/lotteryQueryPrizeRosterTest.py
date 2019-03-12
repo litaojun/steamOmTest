@@ -1,6 +1,6 @@
 from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.lottery.lotteryQueryPrizeRosterService import LotteryQueryPrizeRosterService
 from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotteryListService
 class LotteryQueryPrizeRosterTest(SteamTestCase):
@@ -17,10 +17,9 @@ class LotteryQueryPrizeRosterTest(SteamTestCase):
 if __name__ == "__main__":
     from steam.user.verfiycode.userVerfiyCodeTest import UserVerfiyCodeTest
     from steam.user.login.userLoginTest import UserLoginTest
-    from steam.user.search.weixinSearchTest import WeixinSearchTest
     from steam.admin.lottery.lotteryQueryPrizeInventoryTest import LotteryQueryPrizeInventoryTest
     from steam.admin.lottery.lotteryQueryLotteryListTest import LotteryQueryLotteryListTest
-    from steam.user.login.queryMemberIdTest import QueryMemberIdTest
+
     UserVerfiyCodeTest(methodName="compareRetcodeTest",
                        param=[1, 2, 3, 4, 5, {}, 7, 8])
     UserLoginTest(methodName="compareRetcodeTest",

@@ -12,7 +12,7 @@
 @time: 2018/7/26 15:34 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.match.userCancelMatchAppleService import UserCancelMatchAppleService
 from steam.user.match.userMatchQueryService import UserMatchQueryService
 from steam.user.match.userMatchAppleService import UserMatchAppleService

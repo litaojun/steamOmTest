@@ -9,14 +9,13 @@
 @file: queryActivityService.py 
 @time: 2018/5/7 14:06 
 """
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
-from steam.util.reqFormatPath import fxt,activityQueryReq
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import decorator
+
+
 class ActivityQueryService(HttpUopService):
     '''
         查询活动

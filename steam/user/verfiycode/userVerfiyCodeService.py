@@ -11,15 +11,9 @@
 @file: userVerfiyCodeService.py 
 @time: 2018/6/5 16:49 
 """
-from opg.util.uopService import UopService
-import requests,json
-from opg.util.utils import query_json
-from steam.util.configurl import weixinUserVerifyCodeurl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserVerfiyCodeReq,weixinUserVerfiyCodeRspFmt
 from opg.util.redisUtil import RedisOper
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import UopService,decorator
+from opg.bak.uopService import decorator
 class WeixinUserVerfiyCodeService(HttpUopService):
     '''
         微信端用户登录

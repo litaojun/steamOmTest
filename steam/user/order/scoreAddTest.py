@@ -1,6 +1,6 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.order.scoreAddService import ScoreAddService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.order.userOrederActivityService import UserOrderActivityService

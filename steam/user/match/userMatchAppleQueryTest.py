@@ -12,9 +12,8 @@
 @time: 2018/7/26 12:47 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 class UserMatchAppleQueryTest(SteamTestCase):
       '''

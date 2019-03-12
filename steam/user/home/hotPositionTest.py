@@ -1,5 +1,5 @@
 from steam.user.home.hotPositionService import HomeHotPositionService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInputService
 class HotPositionTest(SteamTestCase):

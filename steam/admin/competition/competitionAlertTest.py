@@ -13,7 +13,7 @@ from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.competition.competitionAlertService import CompetitionAlertService
 from steam.admin.competition.competitionService import MatchAddService
 from steam.admin.competition.competitionDelService import MatchDelService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class CompetitionAlertTest(SteamTestCase):
       '''

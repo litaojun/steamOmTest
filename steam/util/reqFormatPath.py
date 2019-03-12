@@ -9,7 +9,7 @@
 @file: configurl.py
 @time: 2018/4/18 14:40
 """
-from opg.util.isSystemType import  getfileopertr
+from opg.bak.isSystemType import  getfileopertr
 fxt = getfileopertr()
 activityAddReq    = ["", "steam", "activity", "jsonfmt","addActivityReq.txt"]
 activityAlertReq  = ["", "steam", "activity", "jsonfmt","alertActivityReq.txt"]

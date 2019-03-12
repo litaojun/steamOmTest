@@ -11,9 +11,8 @@
 @file: queryCourseTest.py 
 @time: 2018/12/10 11:02 
 """
-from steam.util.testJsonFormat import initInput
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.course.queryCourseService import QueryCourseService
 from steam.util.testJsonFormat import initInputService

@@ -1,8 +1,4 @@
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.httptools import httpPost
-from opg.util.utils import query_json
-from opg.util.schemajson import check_rspdata
+from opg.bak.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 
 class CourseCreateCourseService(HttpUopService):

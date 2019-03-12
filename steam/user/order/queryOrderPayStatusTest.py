@@ -1,11 +1,10 @@
 #!/usr/bin/env python  
 # encoding: utf-8  
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 # from opg.util.uopService import decorator
 from steam.user.order.queryOrderPayStatusService import QueryOrderPayStatusService
 # from steam.user.order.userOrederActivityService import UserOrderActivityService
-from steam.util.testJsonFormat import initInputService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from steam.util.testJsonFormat import initInputService

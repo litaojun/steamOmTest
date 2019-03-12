@@ -11,12 +11,9 @@
 @file: userMatchAppleQueryService.py 
 @time: 2018/7/26 12:46 
 """
-from opg.util.uopService import decorator,resultData
+from opg.bak.uopService import decorator,resultData
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userMatchAppleQueryUrl
-from opg.util.schemajson import check_rspdata
-from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserMatchAppleQueryService(HttpUopService):
     '''

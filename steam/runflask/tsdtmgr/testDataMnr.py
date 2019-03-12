@@ -2,7 +2,7 @@
 # encoding: utf-8
 from steam.runflask.util.initData import allTestClass
 from steam.mockhttp.util.initFile import casepath
-from opg.util.testcaseTool import loadYamlFileData
+from opg.bak.testcaseTool import loadYamlFileData
 import os
 def checkTestData():
     testdataFilePath = casepath + os.sep + "testdata" +\

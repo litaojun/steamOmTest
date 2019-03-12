@@ -19,7 +19,6 @@ def hello_world():
 
 @app.route('/local', methods=['GET'])
 def hello_world_local():
-    print("fffff")
     return render_template( "pytestlocal.html", ipStr = ip )
 
 if __name__ == '__main__':

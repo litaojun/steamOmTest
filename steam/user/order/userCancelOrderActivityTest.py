@@ -12,7 +12,7 @@
 @time: 2018/7/11 10:09 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.order.userCancelOrderActivityService import UserCancelOrderActivityService
 from steam.user.order.userOrederActivityService import UserOrderActivityService

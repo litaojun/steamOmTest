@@ -11,11 +11,7 @@
 @file: studyListService.py 
 @time: 2018/10/16 17:06 
 """
-from opg.util.uopService import UopService
-import json
 from opg.util.utils import query_json
-from steam.util.configurl import userStudentCourseListUrl
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class StudyListService(HttpUopService):
     '''

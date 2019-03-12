@@ -9,7 +9,6 @@
 @file: ArticleAlertService.py 
 @time: 2018/4/23 14:29 
 """
-from opg.util.uopService import decorator,UopService
 import json
 from opg.util.utils import query_json
 

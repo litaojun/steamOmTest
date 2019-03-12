@@ -14,6 +14,5 @@ def genTestData():
     rtRunDt = {
                  "code":"000000"
               }
-    # global allTestCase
     initData.allTestCase = initAllTestCase()
     return jsonify(rtRunDt)

@@ -13,7 +13,7 @@ from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.classify.alertClassService import ClassfiyAlertService
 from steam.admin.classify.delClassifyService import ClassfiyDelService
 from steam.admin.classify.addClassfiyService import ClassfiyAddService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class ClassfiyAlertTest(SteamTestCase):
       '''

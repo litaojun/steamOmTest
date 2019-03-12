@@ -12,7 +12,7 @@
 @time: 2018/6/5 10:48 
 """
 from steam.user.home.homeCnfQueryService import HomeCnfQueryService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initInputService
 class HomeCnfQueryTest(SteamTestCase):

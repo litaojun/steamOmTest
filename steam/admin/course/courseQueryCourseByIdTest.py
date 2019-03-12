@@ -1,6 +1,6 @@
 from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.course.courseQueryCourseByIdService import CourseQueryCourseByIdService
 from steam.admin.course.courseQueryCourseByConditionService import CourseQueryCourseByConditionService
 class CourseQueryCourseByIdTest(SteamTestCase):

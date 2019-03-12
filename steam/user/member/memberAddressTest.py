@@ -12,9 +12,8 @@
 @time: 2018/7/25 11:40 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.member.memberAddressService import MemberAddressService
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 class MemberAddressTest(SteamTestCase):
       '''

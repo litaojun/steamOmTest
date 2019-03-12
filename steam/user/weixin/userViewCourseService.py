@@ -14,7 +14,7 @@
 
 import json
 from opg.util.utils import query_json
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 class UserViewCourseService(HttpUopService):
     '''

@@ -11,12 +11,11 @@
 @file: homeCnfQueryService.py 
 @time: 2018/6/4 17:59 
 """
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.utils import query_json,del_json_data
+import json
+from opg.util.utils import query_json
 from steam.util.configurl import homeConfigQueryurl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import homeConfigQueryReq,homeConfigQueryRspFmt
+from steam.util.reqFormatPath import homeConfigQueryRspFmt
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 import operator as op

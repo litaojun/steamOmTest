@@ -9,9 +9,9 @@
 @file: queryOperpsnService.py 
 @time: 2018/4/25 15:27 
 """
-from opg.util.httptools import httpPost,httpGet
+from opg.util.httptools import httpGet
 import json
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 from opg.util.utils import query_json
 from steam.util.configurl import homeConfigQueryurl
 from steam.util.httpUopService import  HttpUopService

@@ -11,11 +11,6 @@
 @file: queryCourseService.py 
 @time: 2018/12/10 11:01 
 """
-from opg.util.uopService import UopService
-import json
-from opg.util.utils import query_json
-from steam.util.configurl import recommandCourseUrl
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class QueryCourseService(HttpUopService):
     '''

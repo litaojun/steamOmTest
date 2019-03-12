@@ -1,5 +1,5 @@
 from opg.util.utils import query_json
-from opg.util.uopService import UopService,loadStrFromFile,resultData
+from opg.bak.uopService import UopService,loadStrFromFile,resultData
 from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 import json,os

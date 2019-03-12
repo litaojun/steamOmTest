@@ -1,9 +1,5 @@
-from opg.util.uopService import UopService
 import requests
-import json
-from opg.util.utils import query_json
 from steam.util.configurl import downActivityurl
-from steam.util.reqFormatPath import fxt, activityDownReq
 
 from steam.util.httpUopService import HttpUopService
 

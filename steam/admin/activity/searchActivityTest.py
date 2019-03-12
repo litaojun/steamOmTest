@@ -3,7 +3,7 @@
 """ 
 @version: v1.0
 """
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.testJsonFormat import initAdminInputService

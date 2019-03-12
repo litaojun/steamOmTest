@@ -4,12 +4,15 @@ from opg.bak.flaskRunMgr import getRunTestTokenId
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
 from flask import Blueprint
 from steam.runflask.util import initData
+from opg.unit.runtest import genDir,writeLog
 from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
 from opg.unit.runtest import runOneTestcase
 import threading
-
+from steam.mockhttp.util.initFile import casepath
+from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
+writeDir = None
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
 @bapp.route("/prop/interfacelist", methods=['GET'])
@@ -26,9 +29,14 @@ def runOneTestCase():
           (planId, projectName, caseId, interfaceName))
     token = queryTokenByPlanId(planId=planId,
                                projectName=projectName)
+    global writeDir
+    logDir = genDir()
+    writeDir = writeLog(wtrDir=logDir)
+    testcases = initAllTestCase(casepath)
+    testclass = initAllTestClass()
     testSuite = genTestCaseByInterfaceOrCaseIds(
-        allTestClass=initData.allTestClass,
-        allCase=initData.allTestCase,
+        allTestClass=testclass,
+        allCase=testcases,
         interfaceName=interfaceName,
         caseIds=[caseId])
     runOneTestcase(suites=testSuite,
@@ -51,9 +59,13 @@ def start_steam_tasks():
     """
     projectName = request.args.get("projectname")
     retdata = getRunTestTokenId(projectname=projectName)
-    testSuite = genAllTestCase(allCase=initData.allTestCase,
-                               allTestClass=initData.allTestClass)
-    # SteamTestCase.memberIdDict  = {}
+    global writeDir
+    logDir = genDir()
+    writeDir = writeLog(wtrDir=logDir)
+    testcases = initAllTestCase(casepath)
+    testclass = initAllTestClass()
+    testSuite = genAllTestCase(allCase=testcases,
+                               allTestClass=testclass)
     t = threading.Thread(target=runAllTestCase,
                          kwargs={
                              "suites": testSuite,

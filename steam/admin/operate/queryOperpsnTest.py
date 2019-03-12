@@ -9,7 +9,7 @@
 @file: queryOperpsnTest.py 
 @time: 2018/4/25 19:24 
 """
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService

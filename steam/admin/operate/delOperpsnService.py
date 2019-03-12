@@ -9,9 +9,7 @@
 @file: delOperpsnService.py 
 @time: 2018/4/25 18:12 
 """
-from opg.util.uopService import decorator
-import json
-from opg.util.utils import query_json
+from opg.bak.uopService import decorator
 from steam.admin.operate.addOperPsnService import  OperpsnAddService
 from steam.util.httpUopService import  HttpUopService
 class OperpsnDelService(HttpUopService):

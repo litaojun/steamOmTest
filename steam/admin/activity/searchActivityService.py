@@ -9,15 +9,13 @@
 @file: searchActivityService.py 
 @time: 2018/5/7 17:33 
 """
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import searchActivityurl
-from steam.util.reqFormatPath import fxt,activitySearchReq
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import UopService,decorator
+from opg.bak.uopService import decorator
 class ActivitySearchService(HttpUopService):
     '''
         管理后台-搜索活动商品

@@ -1,6 +1,6 @@
 from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.article.mediaResetMediaStateService import MediaResetMediaStateService
 from steam.admin.article.ArticleSearchService import ArticleSearchService
 class MediaResetMediaStateTest(SteamTestCase):

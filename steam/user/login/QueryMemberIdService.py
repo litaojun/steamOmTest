@@ -11,11 +11,10 @@
 @file: QueryMemberIdService.py 
 @time: 2018/8/13 9:55 
 """
-from opg.util.uopService import decorator,UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinUserLoginurl,weixinUserMemberIdUrl
-from opg.util.httptools import httpGet,httpPost
+from steam.util.configurl import weixinUserMemberIdUrl
+from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class QueryMemberIdService(HttpUopService):
     '''

@@ -10,9 +10,8 @@
 @time: 2018/4/18 19:05 
 """
 from steam.util.testJsonFormat import initAdminInputService
-from steam.admin.classify.delClassifyService import ClassfiyDelService
 from steam.admin.classify.findClassifyService import ClassfiySearchService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 class ClassfiySearchTest(SteamTestCase):
       '''

@@ -11,15 +11,12 @@
 @file: userMatchAppleService.py 
 @time: 2018/7/23 14:14 
 """
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userCancelMatchAppleUrl
-from opg.util.httptools import httpPost
 from steam.admin.login.userLoginService import UserLoginService
 from steam.admin.competition.competitionAlertService import CompetitionAlertService
 from steam.user.match.appleResetTools import getTokenReset
-from steam.user.match.userMatchAppleQueryService import UserMatchAppleQueryService
 from steam.util.httpUopService import  HttpUopService
 class UserMatchAppleService(HttpUopService):
     '''

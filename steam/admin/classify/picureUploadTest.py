@@ -13,7 +13,7 @@
 """
 from steam.admin.classify.picureUploadService import PicureUploadService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initAdminInputService
 import re
 class PicureUploadTest(SteamTestCase):
