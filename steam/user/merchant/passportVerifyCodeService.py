@@ -1,7 +1,6 @@
-from steam.util.httpUopService import  HttpUopService
 from opg.util.redisUtil import RedisOper
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import UopService,decorator
+from opg.bak.uopService import decorator
 class PassportVerifyCodeService(HttpUopService):
     '''
         商户获取登录验证码

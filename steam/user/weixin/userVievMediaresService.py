@@ -1,4 +1,3 @@
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.httpUopService import  HttpUopService

@@ -1,6 +1,6 @@
-from steam.util.testJsonFormat import initInputService,initAdminInputService
+from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.lottery.lotteryReleaseOrOfflineLotteryService import LotteryReleaseOrOfflineLotteryService
 from steam.admin.lottery.lotteryQueryLotteryListService import LotteryQueryLotteryListService
 class LotteryReleaseOrOfflineLotteryTest(SteamTestCase):

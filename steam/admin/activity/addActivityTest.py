@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 from steam.admin.activity.addActivityService import ActivityAddService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 

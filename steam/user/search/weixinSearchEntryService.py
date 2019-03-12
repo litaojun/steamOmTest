@@ -11,11 +11,6 @@
 @file: weixinSearchService.py 
 @time: 2018/8/13 17:11 
 """
-from opg.util.uopService import UopService
-import json
-from opg.util.utils import query_json
-from steam.util.configurl import userSearchEntryUrl
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class UserSearchEntryService(HttpUopService):
     '''

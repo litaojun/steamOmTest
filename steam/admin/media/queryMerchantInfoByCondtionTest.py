@@ -1,6 +1,6 @@
 from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog     import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.media.queryMerchantInfoByCondtionService import QueryMerchantInfoByCondtionService
 class QueryMerchantInfoByCondtionTest(SteamTestCase):
       """

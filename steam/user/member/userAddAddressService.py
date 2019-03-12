@@ -11,12 +11,7 @@
 @file: userAddAddressService.py 
 @time: 2018/7/24 15:35 
 """
-from opg.util.uopService import decorator,UopService
-import json
-from opg.util.utils import query_json
-from steam.util.configurl import userAddAddressUrl
-from opg.util.schemajson import check_rspdata
-from opg.util.httptools import httpGet,httpPost
+from opg.bak.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 class UserAddAddressService(HttpUopService):
     '''

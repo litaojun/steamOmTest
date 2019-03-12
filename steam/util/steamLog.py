@@ -5,7 +5,7 @@ from steam.admin.login.userLoginService import UserLoginService
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
 from steam.user.merchant.merchantLoginService import MerchantLoginService
 from steam.user.merchant.passportVerifyCodeService import PassportVerifyCodeService
-
+from opg.util.lginfo import selectFh
 class SteamTestCase(ParametrizedTestCase):
     '''
           用户进入公众号首页，获取运营位数据
@@ -16,7 +16,12 @@ class SteamTestCase(ParametrizedTestCase):
 
     def __init__(self, methodName='runTest', param=None):
         super(SteamTestCase, self).__init__(methodName, param)
+        self.selectFh()
 
+    def selectFh(self):
+        from steam.runflask.outapi.testcaseRun import writeDir
+        self.fh = writeDir(interfaceSign=self.__class__.__interfaceName__)
+        selectFh(fh=self.fh)
     #微信端相关问题初始化登录
     def initWeixinData(self):
         inputData = self.getInputData()

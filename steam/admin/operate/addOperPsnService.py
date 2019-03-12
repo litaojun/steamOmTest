@@ -9,10 +9,7 @@
 @file: addOperPsnService.py 
 @time: 2018/4/25 14:06 
 """
-from opg.util.uopService import decorator
-import requests,json
-from opg.util.utils import query_json
-from steam.util.configurl import delOperpositionurl
+from opg.bak.uopService import decorator
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.httpUopService import  HttpUopService
 class OperpsnAddService(HttpUopService):

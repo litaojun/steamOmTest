@@ -12,9 +12,9 @@
 @time: 2018/9/17 14:08 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.util.testJsonFormat import initInput,initInputService
+from steam.util.testJsonFormat import initInputService
 class WeixinSearchTest(SteamTestCase):
       '''
             微信端用户进入报名页面，获取到赛事，场次，赛题相关信息
@@ -41,7 +41,7 @@ if  __name__ == "__main__":
     # UserLoginTest(methodName="compareRetcodeTest",
     #               param=[1, 2, 3, 4, 5, {}, 7, 8])
     from steam.runflask.util.initData import allTestCase, allTestClass
-    from opg.unit.flaskRunMgr import  genAllTestCase
+    from opg.bak.flaskRunMgr import  genAllTestCase
     genAllTestCase(allTestClass=allTestClass,allCase=allTestCase)
     runTestOneCls(
                         casefilepath = "\\steamcase\\user\\steam-searchsearchkeywordSearchs.yml",

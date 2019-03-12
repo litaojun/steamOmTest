@@ -1,4 +1,4 @@
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from steam.util.testJsonFormat import initInputService
 from steam.user.login.userLoginService import WeixinUserLoginService

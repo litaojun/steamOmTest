@@ -1,21 +1,6 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: dbOper.py 
-@time: 2018/11/15 14:51 
-"""
-from steam.mockhttp.util.initFile import generateDelayTimeConfig,generateUrlToFilePath,cf
-from opg.util.uopService import loadStrFromFile
-from werkzeug.routing import BaseConverter
+from steam.mockhttp.util.initFile import generateUrlToFilePath
 import os
-from opg.unit.flaskRunMgr import getDbManger
+from opg.bak.flaskRunMgr import getDbManger
 httpData  = generateUrlToFilePath()
 def insertInterfaceTable():
     dbManger = getDbManger()

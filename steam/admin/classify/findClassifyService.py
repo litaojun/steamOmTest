@@ -9,11 +9,7 @@
 @file: findClassifyService.py 
 @time: 2018/4/18 19:04 
 """
-from opg.util.uopService import decorator,UopService
-import requests,json
-from opg.util.utils import query_json
-from steam.util.configurl import delEntryurl
-from steam.admin.classify.addClassfiyService import ClassfiyAddService
+from opg.bak.uopService import decorator
 from steam.util.httpUopService import  HttpUopService
 class ClassfiySearchService(HttpUopService):
     '''

@@ -11,14 +11,13 @@
 @file: weixinSearchService.py 
 @time: 2018/8/13 17:11 
 """
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import weixinSearchUrl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 class WeixinSearchService(HttpUopService):
     '''
         微信端-搜索

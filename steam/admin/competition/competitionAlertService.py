@@ -9,12 +9,9 @@
 @file: competitionAlertService.py 
 @time: 2018/4/20 15:06 
 """
-from opg.util.uopService import decorator,UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import alertMatchurl
-from steam.admin.competition.competitionService import MatchAddService
-from steam.admin.competition.competitionDelService import MatchDelService
 from opg.util.timeTool import getTimeIntByInPut
 from steam.util.httpUopService import  HttpUopService
 class CompetitionAlertService(HttpUopService):

@@ -11,10 +11,9 @@
 @file: userCollectionTest.py 
 @time: 2018/10/18 15:55 
 """
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.collection.userCollectionService import UserCollectionService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.collection.userCancelCollectionService import UserCancelCollectionService

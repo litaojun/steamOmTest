@@ -11,9 +11,6 @@
 @file: userListCollectionService.py 
 @time: 2018/10/18 16:09 
 """
-from opg.util.uopService import UopService,decorator
-import json
-from   opg.util.utils import query_json
 from   steam.util.configurl import userListCollectionUrl
 from   opg.util.httptools import httpGet
 from   steam.util.httpUopService import  HttpUopService

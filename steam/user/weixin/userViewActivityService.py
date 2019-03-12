@@ -11,12 +11,9 @@
 @file: userViewActivityService.py 
 @time: 2018/7/9 15:53 
 """
-from opg.util.uopService import UopService
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userViewActivityUrl
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class UserViewActivityService(HttpUopService):
     '''

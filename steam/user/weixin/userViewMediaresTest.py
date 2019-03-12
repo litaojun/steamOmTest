@@ -11,9 +11,8 @@
 @file: userViewMediaresTest.py 
 @time: 2018/9/14 16:30 
 """
-from steam.util.testJsonFormat import initInput
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userVievMediaresService import UserViewMediaresService
 

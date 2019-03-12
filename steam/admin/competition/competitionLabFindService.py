@@ -11,7 +11,7 @@
 @file: competitionFindService.py 
 @time: 2018/8/22 17:20 
 """
-from opg.util.uopService import UopService
+from opg.bak.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import findSubMatchUrl

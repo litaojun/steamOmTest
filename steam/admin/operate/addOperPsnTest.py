@@ -9,7 +9,7 @@
 @file: addOperPsnTest.py 
 @time: 2018/4/25 18:14 
 """
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.addOperPsnService import OperpsnAddService
 from steam.admin.operate.delOperpsnService import OperpsnDelService
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService

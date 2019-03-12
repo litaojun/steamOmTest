@@ -11,14 +11,11 @@
 @file: userDetailOrderService.py 
 @time: 2018/7/9 19:09 
 """
-from opg.util.uopService import decorator,UopService
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userDetailOrderActivityUrl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserDetailOrderActivityReq,weixinUserDetailOrderActivityRspFmt
-from opg.util.httptools import httpGet,httpPost
-from steam.util.testJsonFormat import initInput
+from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 from steam.user.order.userOrederActivityService import UserOrderActivityService
 class UserDetailOrderActivityService(HttpUopService):

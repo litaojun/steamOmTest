@@ -9,12 +9,11 @@
 @file: downActivityTest.py 
 @time: 2018/5/10 17:48 
 """
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.admin.activity.downActivityService import ActivityUnPublishService
 from steam.util.steamLog import SteamTestCase
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initAdminInputService
 class ActivityUnPublishTest(SteamTestCase):
       '''

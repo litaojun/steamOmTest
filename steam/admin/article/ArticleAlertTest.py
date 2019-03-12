@@ -10,13 +10,11 @@
 @time: 2018/4/23 16:13 
 """
 from steam.admin.article.ArticleAlertService import ArticleAlertService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.article.ArticleSearchService import ArticleSearchService
-from steam.admin.article.ArticleSearchTest import ArticleSearchTest
 from steam.admin.article.delArticleService import ArticleDelService
-from steam.admin.article.delArticleTest import ArticleDelTest
 from steam.admin.article.ArticleAddService import ArticleAddService
 from steam.admin.article.ArticleAddTest import ArticleAddTest
 class ArticleAlertTest(SteamTestCase):

@@ -11,7 +11,6 @@
 @file: userStudentCourseService.py 
 @time: 2018/10/12 17:17 
 """
-from opg.util.uopService import UopService
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import userStudentCourseListUrl

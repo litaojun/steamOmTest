@@ -11,13 +11,9 @@
 @file: memberAddressService.py 
 @time: 2018/7/10 16:08 
 """
-from opg.util.uopService import decorator,UopService
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import memberAddressUrl
-from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import memberAddressRspFmt
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class MemberAddressService(HttpUopService):
     '''

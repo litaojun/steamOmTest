@@ -14,7 +14,7 @@
 
 from steam.util.steamLog import SteamTestCase
 from steam.admin.article.ArticleSearchService import ArticleSearchService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initAdminInputService
 class ArticleSearchTest(SteamTestCase):
       '''

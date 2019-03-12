@@ -1,10 +1,7 @@
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initAdminInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.resource.tagRemoveTagService import TagRemoveTagService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
 from steam.admin.resource.tagAddTagService import TagAddTagService
 class TagRemoveTagTest(SteamTestCase):
       """

@@ -13,11 +13,12 @@
 """
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.member.userDelAddressService import UserDelAddressService
 from steam.user.member.memberAddressService import MemberAddressService
 from steam.user.member.userAddAddressService import UserAddAddressService
-from steam.util.testJsonFormat import initInput
+
+
 class UserDelAddressTest(SteamTestCase):
       '''
             微信端用户删除一个地址

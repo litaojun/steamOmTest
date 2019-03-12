@@ -3,7 +3,7 @@ from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.searchActivityTest import ActivitySearchService
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.merchant.merchantQueryCertificateService import MerchantQueryCertificateService
-
+from opg.unit.report import getDbManger
 
 def sendHttpReqByToken():
     adminTokenRefresh()
@@ -48,6 +48,16 @@ def merchantTokenRefresh():
         print("商户手机号码:%s对应token:%s已刷新" %
               (x, args["merchant_token"]))
 
+def queryStateByTokenPro(projectName = "",token = ""):
+    dbManager = getDbManger()
+    keyls = ["id", "starttime", "status", "endtime", "projectname","hourtime","mintime","sectime"]
+    querySql = """select  id, starttime, status, endtime, projectname ,HOUR(timediff(endtime , starttime)) hourtime ,minute(timediff(endtime , starttime)) mintime,SECOND(timediff(endtime , starttime)) sectime
+                      from test_run_process p 
+                      where p.projectname = "%s" 
+                            and  p.token = "%s";""" % (projectName, token)
+    dataList = dbManager.queryAll(sql = querySql,dbName="ltjtest")
+    if dataList is not None and len(dataList) > 0:
+            return dict(zip(keyls,dataList[0]))
 if __name__ == "__main__":
     SteamTestCase.memberIdDict = {
         "18916899938": [

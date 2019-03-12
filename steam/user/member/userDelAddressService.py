@@ -11,13 +11,10 @@
 @file: userDelAddressService.py 
 @time: 2018/7/24 16:13 
 """
-from opg.util.uopService import decorator,UopService
-import json
-from opg.util.utils import query_json
+from opg.bak.uopService import decorator
 from steam.user.member.memberAddressService import MemberAddressService
-from steam.util.configurl import userDelAddressUrl,userAddAddressUrl
-from opg.util.schemajson import check_rspdata
-from opg.util.httptools import httpDelete,httpPost
+from steam.util.configurl import userAddAddressUrl
+from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserDelAddressService(HttpUopService):
     '''

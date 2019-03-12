@@ -11,7 +11,7 @@
 @file: ArticleSearchService.py 
 @time: 2018/12/4 16:58 
 """
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
 from steam.util.httpUopService import  HttpUopService

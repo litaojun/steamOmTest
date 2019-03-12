@@ -1,5 +1,5 @@
 from steam.admin.activity.alertActivityService import ActivityAlertService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 

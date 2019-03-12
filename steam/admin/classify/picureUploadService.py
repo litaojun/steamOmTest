@@ -11,9 +11,8 @@
 """
 
 #https://blog.csdn.net/u010889616/article/details/78946589
-from opg.util.uopService import UopService
-from opg.util.uopService import decorator
-import requests,json
+from opg.bak.uopService import decorator
+import json
 from opg.util.utils import query_json
 import requests, os
 from steam.util.httpUopService import  HttpUopService

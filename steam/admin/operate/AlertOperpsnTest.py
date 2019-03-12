@@ -10,7 +10,7 @@
 @time: 2018/4/25 18:53 
 """
 from steam.admin.operate.AlertOperpsnService import OperpsnAlertService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.operate.addOperPsnService import OperpsnAddService

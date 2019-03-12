@@ -11,9 +11,9 @@
 @file: userViewActivityTest.py 
 @time: 2018/9/14 16:30 
 """
-from steam.util.testJsonFormat import initInput,initInputService
+from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.weixin.userViewActivityService import UserViewActivityService
 class UserViewActivityTest(SteamTestCase):
@@ -33,7 +33,7 @@ class UserViewActivityTest(SteamTestCase):
       #     self.assertTrue(rspcode == self.expectdata["code"])
 
 if __name__ == "__main__":
-   from opg.unit.flaskRunMgr import  genAllTestCase
+   from opg.bak.flaskRunMgr import  genAllTestCase
    from steam.runflask.util.initData import allTestCase, allTestClass
    genAllTestCase(allCase= allTestCase,allTestClass=allTestClass)
    runTestOneCls(

@@ -1,8 +1,9 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.merchant.orderMailService import OrderMailService
-from steam.user.merchant.merchantLoginService import MerchantLoginService
+
+
 class OrderMailTest(SteamTestCase):
       """
             发送订单到商户邮箱

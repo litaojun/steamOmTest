@@ -12,7 +12,7 @@
 @time: 2018/9/17 14:39 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initInputService
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
 class QueryMemberIdTest(SteamTestCase):

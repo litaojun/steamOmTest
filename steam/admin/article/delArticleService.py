@@ -9,7 +9,7 @@
 @file: delArticleService.py 
 @time: 2018/4/23 15:27 
 """
-from opg.util.uopService import decorator,UopService
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
 from steam.util.httpUopService import  HttpUopService

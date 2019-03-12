@@ -12,7 +12,7 @@
 @time: 2018/9/17 15:45 
 """
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.search.weixinQueryKeywordsService import WeixinQueryKeywordsService
 
 from steam.util.testJsonFormat import initInputService

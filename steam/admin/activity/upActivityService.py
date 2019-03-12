@@ -9,11 +9,9 @@
 @file: upActivityService.py 
 @time: 2018/5/7 13:58 
 """
-from opg.util.uopService import UopService
 import requests,json
 from opg.util.utils import query_json
 from steam.util.configurl import upActivityurl
-from steam.util.reqFormatPath import fxt,activityUpReq
 from steam.util.httpUopService import  HttpUopService
 class ActivityPublishService(HttpUopService):
     '''

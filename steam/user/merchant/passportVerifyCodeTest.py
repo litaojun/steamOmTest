@@ -1,6 +1,5 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.user.merchant.passportVerifyCodeService import PassportVerifyCodeService
 
 class PassportVerifyCodeTest(SteamTestCase):

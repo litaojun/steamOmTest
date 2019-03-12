@@ -11,7 +11,7 @@
 """
 from steam.util.steamLog import SteamTestCase
 from steam.admin.article.ArticleAddService import ArticleAddService
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.article.delArticleService import ArticleDelService
 from steam.admin.article.ArticleSearchService import ArticleSearchService

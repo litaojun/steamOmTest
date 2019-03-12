@@ -11,15 +11,12 @@
 @file: userListOrderActivityService.py 
 @time: 2018/7/9 19:08 
 """
-from opg.util.uopService import decorator,UopService
+from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userListOrderActivityUrl,userCancelThumbUpUrl
+from steam.util.configurl import userListOrderActivityUrl
 from opg.util.schemajson import check_rspdata
-from steam.util.reqFormatPath import weixinUserListOrderActivityReq,weixinUserListOrderActivityRspFmt
-from opg.util.httptools import httpGet,httpPost
-from opg.util.lginfo import  logger
-import operator as op
+from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserListOrderActivityService(HttpUopService):
     '''

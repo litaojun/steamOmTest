@@ -18,7 +18,7 @@ from steam.util.reqFormatPath import weixinUserLoginRspFmt
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService
 from steam.user.login.QueryMemberIdService import QueryMemberIdService
 from steam.util.httpUopService import  HttpUopService
-from opg.util.uopService import decorator
+from opg.bak.uopService import decorator
 class WeixinUserLoginService(HttpUopService):
     '''
         微信端用户登录

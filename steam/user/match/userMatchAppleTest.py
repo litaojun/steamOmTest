@@ -2,7 +2,7 @@
 # encoding: utf-8  
 
 from steam.util.steamLog import SteamTestCase
-from opg.unit.testcaseRunMgr import runTestOneCls
+from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.user.match.userMatchAppleService import UserMatchAppleService
 from steam.user.match.userMatchQueryService import UserMatchQueryService
 from steam.util.testJsonFormat import initInputService
