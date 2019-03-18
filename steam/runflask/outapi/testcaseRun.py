@@ -7,11 +7,13 @@ from steam.runflask.util import initData
 from opg.unit.runtest import genDir,writeLog
 from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
-from opg.unit.runtest import runOneTestcase
+from opg.unit.runtest import runOneTestcase,runTestOneCls,runOneCls
 import threading
 from steam.mockhttp.util.initFile import casepath
+
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
+# from opg.bak.loadTestcase import runTestOneCls
 writeDir = None
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
@@ -98,7 +100,15 @@ def query_run_state():
                                    token=token)
     return jsonify(rtRunDt)
 
-
+def runOneTestClass(interfaceName):
+    global writeDir
+    logDir = genDir()
+    writeDir = writeLog(wtrDir=logDir)
+    testSuite     = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
+                                                     allCase       = initData.allTestCase  ,
+                                                     interfaceName = interfaceName,
+                                                     caseIds       = None )
+    runOneCls(testSuite,casepath)
 if __name__ == "__main__":
     from opg.util.dbtools import Database
     # sqlstr = "delete o.* from tb_order o where o.id = '11111fffffff'"
