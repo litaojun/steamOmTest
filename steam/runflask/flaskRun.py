@@ -1,5 +1,5 @@
 from flask import Flask
-from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery,timerCheckData,dynamicLoadClassData
+from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery,timerCheckData,dynamicLoadClassData,fileUpDown
 from flask_cors import *
 from steam.mockhttp.util.initFile import ip
 from flask import render_template
@@ -9,6 +9,7 @@ app.register_blueprint( interfaceMnr.bapp,       url_prefix = "/infcs"   )
 app.register_blueprint( testcaseRun.bapp,        url_prefix = "/tsrun"   )
 app.register_blueprint( reportQuery.bapp,        url_prefix = "/rptqy"   )
 app.register_blueprint( timerCheckData.bapp,     url_prefix = "/timer" )
+app.register_blueprint( fileUpDown.bapp,     url_prefix = "/file" )
 app.register_blueprint( dynamicLoadClassData.bapp,     url_prefix = "/load" )
 
 @app.route('/', methods=['GET'])
