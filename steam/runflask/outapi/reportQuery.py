@@ -1,23 +1,10 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: reportQuery.py 
-@time: 2018/10/25 11:14 
-"""
 from flask import jsonify,request
 import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
 from steam.runflask.util.initData import allTestCase,allTestClass
-
-from opg.bak.flaskRunMgr import queryTestPlanList,queryPlanDetailByInterfaceName
+# from opg.bak.flaskRunMgr import
+from steam.runflask.dao.queryDbTestReport import queryPlanDetailByInterfaceName,queryTestPlanList
 from flask import Blueprint
 bapp = Blueprint('rptqy', __name__)
 @bapp.route('/prop/testplanlist', methods=['GET'])

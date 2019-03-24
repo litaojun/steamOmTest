@@ -7,7 +7,7 @@ from steam.runflask.util import initData
 from opg.unit.runtest import genDir,writeLog
 from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
-from opg.unit.runtest import runOneTestcase,runTestOneCls,runOneCls
+from opg.unit.runtest import runOneTestcase,runTestOneCls
 import threading
 from steam.mockhttp.util.initFile import casepath
 

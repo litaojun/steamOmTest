@@ -39,44 +39,43 @@ function selectPlanByProName(proname)
 //根据选择的执行计划时间获取对应测试报告
 function selectfun(event)
 {
-                 testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";
-			      $("#result_table").attr("class","");
-                  $("#interface_table").attr("class","hiddenRow");
-			      lid = $(this).val()  ;//获取选中计划的planId
-				  $.ajax({
-					       type :"GET" ,
-                            url : testReporturl + lid ,
-                           dataType :"json" ,
-                           <!--global:false,-->
-					        success: function(data){
-                                                      clearTestReportTable();
-                                                      listdata = data.testrst	;
-                                                      casetotal = 0;
-                                                      casesuccess = 0;
-                                                      casefail = 0;
-                                                      caseerror = 0;
-												      $.each(listdata,function(index,item)
-                                                      {
-														        casetotal   = casetotal    + item.total;
-														        casesuccess = casesuccess  + item.success;
-															    casefail    = casefail     + item.fail;
-															    caseerror   = caseerror    + item.error;
-                                                                var addr = structureInterfaceTotal(item.interfaceName,item.total,item.success,item.fail,item.error,index);
-																$("#result_table").append(addr);
-                                                                $.each(item.result,function(i,tcase){
-                                                                                                        testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes,item.interfaceName);
-                                                                                                        $("#result_table").append(testcasestr);
-                                                                                                     }
-                                                                      );
-
-
-                                                      });
-												      $("button[name^='onecase']").bind("click",runOneTestcae);
+         testReporturl = ipStr + "/rptqy/prop/testappmap?planid=";
+		 $("#result_table").attr("class","");
+         $("#interface_table").attr("class","hiddenRow");
+		 lid = $(this).val()  ;//获取选中计划的planId
+		 $.ajax({
+		         type :"GET" ,
+                 url : testReporturl + lid ,
+                 dataType :"json" ,
+                 <!--global:false,-->
+		         success: function(data){
+                                          clearTestReportTable();
+                                          listdata = data.testrst	;
+                                          casetotal = 0;
+                                          casesuccess = 0;
+                                          casefail = 0;
+                                          caseerror = 0;
+									      $.each(listdata,function(index,item)
+                                                  {
+                                                        casetotal   = casetotal    + item.total;
+                                                        casesuccess = casesuccess  + item.success;
+                                                        casefail    = casefail     + item.fail;
+                                                        caseerror   = caseerror    + item.error;
+                                                        var addr = structureInterfaceTotal(item.interfaceName,item.total,item.success,item.fail,item.error,index);
+                                                        $("#result_table").append(addr);
+                                                        $.each(item.result,function(i,tcase)
+                                                                {
+                                                                  testcasestr = structureTestCaseData(tcase.resultSign,i,index,tcase.testcaseid,tcase.testpoint,tcase.errordes,item.interfaceName);
+                                                                  $("#result_table").append(testcasestr);
+                                                                }
+                                                               );
+                                                  });
+												  $("button[name^='onecase']").bind("click",runOneTestcae);
 												      //$("tr[id^='ft'],tr[id^='pt']").bind("click",getTestCaseDetail);
-												      $(".errorCase, .failCase,td[class='None']").bind("click",getTestCaseDetail);
-                                                      totalstr = structureBtTotal(casetotal,casesuccess,casefail,caseerror);
-                                                      $("#result_table").append(totalstr);
-                                                    }
+												      //$(".errorCase, .failCase,td[class='None']").bind("click",getTestCaseDetail);
+                                                  totalstr = structureBtTotal(casetotal,casesuccess,casefail,caseerror);
+                                                  $("#result_table").append(totalstr);
+                                           }
 								   });
 }
 
@@ -110,8 +109,6 @@ function queryReportByPlanId(planId,trid)
                                                                                                         $("#result_table").append(testcasestr);
                                                                                                       }
                                                                       );
-
-
                                                       });
 												      $("button[name^='onecase']").bind("click",runOneTestcae);
 												      // $("tr[id^='ft'],tr[id^='pt']").bind("click",getTestCaseDetail);
@@ -159,7 +156,7 @@ function bingEvent()
          $("#planTest").bind("click",autoTestFun);                        //点击自动接口测试
          $("#select_plan").bind("change",selectfun);                      //选择一个执行计划
          $("#interfaceMngr").bind("click",getInterfaceListData);          //接口管理
-         $('body').everyTime('5s',timeTest);                              //定时检查是否执行完成
+         $('body').everyTime('30s',timeTest);                              //定时检查是否执行完成
          $("#select_project").bind("change",getAllPlanByProName);	       //选择一个项目
          $("tr[id^='ft'],tr[id^='pt']").bind("click",getTestCaseDetail); //
          $("#rtnHome").bind("click",retuntHome);	                        //选择一个项目

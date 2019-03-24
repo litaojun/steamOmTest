@@ -36,7 +36,7 @@ def queryAllInterfaceByProjectName(projectName=None):
     retList = [dict(zip(keyls, data)) for data in dataList]
     for data in retList:
         if data["aliasName"] in interfaceAliasList:
-            data["sign"] = 1
+           data["sign"] = 1
     #sorted(retList,key = lambda a:  a["sign"] )
     retList.sort(key=lambda a: a["sign"], reverse=True)
     retdata = {

@@ -6,6 +6,7 @@ from configparser import ConfigParser
 cf = ConfigParser(allow_no_value=True)
 cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"]))
 platType = platform.system()
+
 if platType == "Linux" :
     casepath = cf.get( 'lpath', 'casepath')
     basePath = cf.get( 'lpath', 'basepath')
