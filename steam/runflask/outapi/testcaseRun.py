@@ -10,11 +10,12 @@ from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
 from opg.unit.runtest import runOneTestcase,runTestOneCls
 import threading
 from steam.mockhttp.util.initFile import casepath
-
+import os
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
 # from opg.bak.loadTestcase import runTestOneCls
 writeDir = None
+logDir   =  os.sep.join([os.getcwd(),"Logs","201903251018"])
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
 @bapp.route("/prop/interfacelist", methods=['GET'])
@@ -62,7 +63,7 @@ def start_steam_tasks():
     projectName = request.args.get("projectname")
     retdata = getRunTestTokenId(projectname=projectName)
     global writeDir
-    logDir = genDir()
+    logDir = genDir(str(retdata[2]))
     writeDir = writeLog(wtrDir=logDir)
     testcases = initAllTestCase(casepath)
     testclass = initAllTestClass()
