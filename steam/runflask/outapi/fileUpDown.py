@@ -19,13 +19,14 @@ def query_planlist():
     logDir = os.sep.join([os.getcwd(),"Logs",str(logtime)])
     print("interfacename=%s,planId=%s,startFmtName=%s,logDir=%s" %
           (interfacename,planId,startFmtName,logDir))
-    filePath = filterFileByName(fileDir=logDir,fileNameFmt=startFmtName)
-    return send_from_directory( logDir,
-                                filePath,
-                                as_attachment=True )
+    fileDir,filename = filterFileByName(fileDir=logDir,fileNameFmt=startFmtName)
+    return send_from_directory( fileDir ,
+                                filename ,
+                                as_attachment = True )
 
 def filterFileByName(fileDir = "" ,fileNameFmt = ""):
-    for file in os.listdir(fileDir):
-        if file.startswith(fileNameFmt):
-            return file
-    return os.getcwd() + "upload" + os.getcwd() + "aaa.log"
+    if os.path.exists(fileDir):
+       for file in os.listdir(fileDir):
+           if file.startswith(fileNameFmt):
+              return fileDir,file
+    return os.getcwd() + os.sep + "upload"  ,  "aaa.log"
