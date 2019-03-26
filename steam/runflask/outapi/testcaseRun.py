@@ -13,7 +13,6 @@ from steam.mockhttp.util.initFile import casepath
 import os
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
-# from opg.bak.loadTestcase import runTestOneCls
 writeDir = None
 logDir   =  os.sep.join([os.getcwd(),"Logs","201903251018"])
 bapp = Blueprint('tsrun', __name__)

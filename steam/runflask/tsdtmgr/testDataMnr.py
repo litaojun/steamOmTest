@@ -1,11 +1,21 @@
 #!/usr/bin/env python  
 # encoding: utf-8
 from steam.runflask.util.initData import allTestClass
+from opg.util.lginfo import selectFh
 from steam.mockhttp.util.initFile import casepath
 from opg.bak.testcaseTool import loadYamlFileData
+from opg.unit.runtest import genDir,writeLog
 import os
+sh = None
 def checkTestData():
-    testdataFilePath = casepath + os.sep + "testdata" +\
+    from opg.util.timeTool import getNowTime, getTwoFmtTime
+    global sh
+    datetime,logtime = getTwoFmtTime()
+    logDir = genDir(logtime)
+    writeDir = writeLog(wtrDir=logDir)
+    sh = writeDir("checkTestData.log")
+    selectFh(sh)
+    testdataFilePath = casepath + os.sep + "testdata" + \
                        os.sep   +  "testData.yml"
     testdata         = loadYamlFileData(filePath = testdataFilePath)
     sign = True
@@ -17,14 +27,13 @@ def checkTestData():
             casedata = [1,2,3,4,5,data,7,8]
             tc = testClass( methodName = "compareRetcodeTest" ,
                             param      = casedata )
-            # tc.getInputDataInit()
             checkCode = tc.myservice.findTestdataByStatus()
             print("checkCode = " + checkCode)
             if checkCode != "000000":
                sign = False
             retcode = sendReqByCode(code       = checkCode,
                                     fileName   = dataPath,
-                                     inputData = data)
+                                    inputData  = data)
             if retcode == "211111":
                print("无需重建")
             elif retcode == "000000":
@@ -33,6 +42,7 @@ def checkTestData():
                 print("重建中返回报文数据异常")
             else:
                 print("重建出错，对应返回码为%s" % retcode)
+    selectFh(sh,False)
     return sign
 
 

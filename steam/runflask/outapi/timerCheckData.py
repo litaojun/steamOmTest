@@ -3,6 +3,7 @@ import threading
 from flask import Blueprint
 from steam.runflask.tsdtmgr.testDataMnr import timeCheckData
 from steam.runflask.tsdtmgr.tokenDataMnr import sendHttpReqByToken
+
 bapp = Blueprint('timer', __name__)
 timerSign = False
 timeToken = False

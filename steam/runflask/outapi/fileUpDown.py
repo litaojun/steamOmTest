@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request, make_response, send_from_directory, abort
 import os
 from flask import Blueprint
-from opg.util.dbtools import DbManager, Database
+from opg.util.dbtools import  Database
 bapp = Blueprint('downfile', __name__)
 @bapp.route('/interface/log', methods=['GET'])
 def query_planlist():
@@ -20,6 +20,7 @@ def query_planlist():
     print("interfacename=%s,planId=%s,startFmtName=%s,logDir=%s" %
           (interfacename,planId,startFmtName,logDir))
     fileDir,filename = filterFileByName(fileDir=logDir,fileNameFmt=startFmtName)
+    print("fileDir=%s,filename=%s" % (fileDir,filename))
     return send_from_directory( fileDir ,
                                 filename ,
                                 as_attachment = True )

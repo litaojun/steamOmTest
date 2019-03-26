@@ -16,14 +16,13 @@ class SteamTestCase(ParametrizedTestCase):
 
     def __init__(self, methodName='runTest', param=None):
         super(SteamTestCase, self).__init__(methodName, param)
-        self.selectFh()
 
-    def selectFh(self):
+    def createFh(self):
         from steam.runflask.outapi.testcaseRun import writeDir
         self.fh = writeDir(interfaceSign=self.__class__.__interfaceName__)
-        # selectFh(fh=self.fh)
 
     def setUp(self):
+        self.createFh()
         selectFh(fh=self.fh)
         super(SteamTestCase, self).setUp()
 
