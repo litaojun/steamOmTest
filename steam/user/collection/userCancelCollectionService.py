@@ -33,7 +33,6 @@ class UserCancelCollectionService(HttpUopService):
                     headers     = self.jsonheart
                 )
 
-    #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
     def getRetcodeByRsp(self,response  = None):
         return query_json(json_content = json.loads(response),
                           query        = "code")

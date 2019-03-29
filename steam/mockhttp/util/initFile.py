@@ -1,20 +1,7 @@
 import os
 import yaml
 import collections
-import platform
-from configparser import ConfigParser
-cf = ConfigParser(allow_no_value=True)
-cf.read(os.sep.join([os.getcwd() ,"steam","mockhttp",  "jsonfile" , "config.ini"]))
-platType = platform.system()
-
-if platType == "Linux" :
-    casepath = cf.get( 'lpath', 'casepath')
-    basePath = cf.get( 'lpath', 'basepath')
-    ip       = cf.get('lpath', 'ipStr')
-elif platType == "Windows" :
-    casepath = cf.get('path','casepath')
-    basePath = cf.get('path', 'basepath')
-    ip       = cf.get('path', 'ipStr')
+from steam.util.configIni import basePath,cf
 urldata = collections.defaultdict(lambda :{})
 def loadFileData():
     filePath = os.sep.join([basePath  , "testjson-url.yml"])
@@ -29,18 +16,15 @@ def loadYamlFileData(filePath = None):
 
 def generateUrlToFilePath():
     ymldata  = loadFileData()
-    # basePath = os.getcwd()
     for urltype in ymldata["steam"]:
         data = traverseFileData(ymldata, urltype)
         for url in data:
             urldata[url] = data[url]
-    return urldata
+    return  urldata
 
 def traverseFileData(ymldata,dir):
     filedata = ymldata["steam"][dir]
     rtdata = collections.defaultdict(lambda :{})
-    # basePath = ymldata["config"]["basepath"]
-    # basePath
     dir = [basePath,"steam",dir]
     for curdir in filedata:
         for pathurl  in  filedata[curdir]:
