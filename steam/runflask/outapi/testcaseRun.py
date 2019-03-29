@@ -9,7 +9,8 @@ from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
 from opg.unit.runtest import runOneTestcase,runTestOneCls
 import threading
-from steam.mockhttp.util.initFile import casepath
+# from steam.mockhttp.util.initFile import casepath
+from steam.util.configIni import casepath
 import os
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request

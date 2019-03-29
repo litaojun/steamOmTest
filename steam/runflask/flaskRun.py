@@ -1,7 +1,8 @@
 from flask import Flask
 from steam.runflask.outapi import interfaceMnr,testcaseRun,reportQuery,timerCheckData,dynamicLoadClassData,fileUpDown
 from flask_cors import *
-from steam.mockhttp.util.initFile import ip
+# from steam.mockhttp.util.initFile import ip
+from steam.util.configIni import ip
 from flask import render_template
 app = Flask(__name__,template_folder='templates',static_url_path='/static/')
 CORS(app, supports_credentials=True)

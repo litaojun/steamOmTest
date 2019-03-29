@@ -2,7 +2,8 @@
 # encoding: utf-8
 from steam.runflask.util.initData import allTestClass
 from opg.util.lginfo import selectFh
-from steam.mockhttp.util.initFile import casepath
+# from steam.mockhttp.util.initFile import casepath
+from steam.util.configIni import casepath
 from opg.bak.testcaseTool import loadYamlFileData
 from opg.unit.runtest import genDir,writeLog
 import os
