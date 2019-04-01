@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: queryActivityService.py 
-@time: 2018/5/7 14:06 
-"""
 import json
 from opg.util.utils import query_json
 from steam.util.configurl import queryIdActivityurl
