@@ -25,7 +25,7 @@ def generateUrlToFilePath():
 def traverseFileData(ymldata,dir):
     filedata = ymldata["steam"][dir]
     rtdata = collections.defaultdict(lambda :{})
-    dir = [basePath,"steam",dir]
+    bsdir = [basePath,"steam",dir]
     for curdir in filedata:
         for pathurl  in  filedata[curdir]:
             data     = filedata[curdir][pathurl]
@@ -38,8 +38,8 @@ def traverseFileData(ymldata,dir):
             pathdict  = {}
             for key in data:
                 if key not in ( "method","url","title","modul"):
-                   pathdict[key] = [os.sep.join(dir + [curdir, filename]) for filename in data[key]]  #key对应formatone和其它格式
-            rtdata[pathurl] = [method, pathdict,url,modul,title]
+                   pathdict[key] = [os.sep.join(bsdir + [curdir, filename]) for filename in data[key]]  #key对应formatone和其它格式
+            rtdata[pathurl] = [method, pathdict,url,modul,title,dir]
     return rtdata
 
 def generateDelayTimeConfig():

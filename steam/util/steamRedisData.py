@@ -4,8 +4,8 @@ ip = redisCf.get("uat","ip")
 port = redisCf.get("uat","port")
 steamRedis = RedisOper(ip,port)
 #从redis中获取CMS登录的验证码
-def getVerifyCodeByUserType(userType="",phoneNum=""):
-    """
+def getVerifyCodeUserType(userType="",phoneNum=""):
+    """eBy
     :param userType:
             admin  CMS登录 STEAM_PERMISSION:SMS_CODE_INFO:18916899938_819195;
             weixin 微信用户登录 PASSPORT_VERIFY_CODE:OTP:18916899938_000000；
@@ -18,7 +18,7 @@ def getVerifyCodeByUserType(userType="",phoneNum=""):
     d = { "admin":"STEAM_PERMISSION:SMS_CODE_INFO:%s_%s" % data,
           "weixin":"PASSPORT_VERIFY_CODE:OTP:%s_%s" % data,
           "merchants":"steam-merchant:SMS:%s_%s" % data ,
-          "weixinReg":"PASSPORT_VERIFY_CODE:MLN:%s%s"}
+          "weixinReg":"PASSPORT_VERIFY_CODE:MLN:%s%s" }
     keyls = RedisOper.curRedis.keys(d[userType])
     code = b'ss'
     if len(keyls) > 0:

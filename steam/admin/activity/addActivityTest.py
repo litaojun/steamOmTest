@@ -3,7 +3,6 @@ from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 
-
 class ActivityAddTest(SteamTestCase):
     """
          新增活动
@@ -14,7 +13,6 @@ class ActivityAddTest(SteamTestCase):
                        param=None):
         super(ActivityAddTest, self).__init__(methodName,
                                               param)
-
 
 if __name__ == "__main__":
     runTestOneCls(

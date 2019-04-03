@@ -1,7 +1,7 @@
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
-from steam.mockhttp.util.initFile import basePath,generateUrlToFilePath
+from steam.mockhttp.util.initFile import generateUrlToFilePath
 from steam.util.configIni import basePath,phoneCf
-from steam.util.steamRedisData import getVerifyCodeByUserType
+from steam.util.steamRedisData import getVerifyCodeUserType
 import json
 from opg.util.utils import query_json
 from collections import defaultdict
@@ -23,8 +23,13 @@ class TokenData():
              TokenData.sign = False
 
       #根据用户类型获取配置的手机号码
-      def getPhoneNumByUserType(self,userType="weixin"):
-          return phoneCf.get(userType,"phoneNums")
+      def getPhoneNumByUserType(self,urlSign="weixin",adminType="admin"):
+          userType = urldata[urlSign][5]
+          if userType in ["weixin","merchants"]:
+              phoneNum = phoneCf.get(userType, "phoneNums")
+          else:
+              phoneNum = phoneCf.get(userType,adminType)
+          return phoneNum
 
       #根据配置的手机号初始化Token
       def initTokenData(self):
@@ -42,14 +47,28 @@ class TokenData():
           self.tkdict["cms"]["merchants"][phoneCf.get("admin", "merchants")] = cms_merchants_token
           self.tkdict["merchants"][phoneCf.get("merchants", "phoneNums")] = hx_merchants_token
 
-
-      #根据用户类型获取默认登录的token
-      def getTokenByUserType(self,userType=''):
-          pass
+      #根据Url获取默认登录的token
+      def getTokenByUserType(self,urlSign='',adminType="admin"):
+          token = "sssssssssssssssss"
+          phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
+          userType = urldata[urlSign][5]
+          if userType in ["weixin","merchants"]:
+             token = self.tkdict[userType][phoneNum]
+          elif userType == "admin":
+               token = self.tkdict[userType][adminType][phoneNum]
+          return token
 
       #根据手机号码获取token，针对CMS
       def getTokenBytUserPhone(self,userPhone=""):
-          pass
+          if userPhone == phoneCf.get("admin","admin"):
+              token = self.tkdict["cms"]["admin"][userPhone]
+          elif userPhone == phoneCf.get("admin", "operate"):
+              token = self.tkdict["cms"]["operate"][userPhone]
+          elif userPhone == phoneCf.get("admin", "merchants"):
+              token = self.tkdict["cms"]["merchants"][userPhone]
+          else:
+              token = self.cmsLogin(phoneNum=userPhone)
+          return token
 
       def login(self,phoneNum="",vfyUrl="",lgUrl="",lgDataBy={},vfyCodeName="code",queryTokenFmt="data.token"):
           dataBody = { "phoneNo": phoneNum }
@@ -57,7 +76,7 @@ class TokenData():
           print("phoneNum=%s,vfyUrl-rsp:%s" % (phoneNum,rsp) )
           retcode = query_json(json_content=json.loads(rsp),query="code")
           if retcode == "000000":
-              verifyCode = getVerifyCodeByUserType("admin",phoneNum)
+              verifyCode = getVerifyCodeUserType("admin",phoneNum)
               print("verifyCode:%s" % verifyCode)
               lgDataBy[vfyCodeName] = verifyCode
               rsp = httpPost(url=lgUrl, reqJsonData=lgDataBy)
@@ -103,7 +122,7 @@ class TokenData():
                                 "term": "",
                                 "sourceType": ""
                             }
-                        }
+                    }
           vfyCodeName = "password"
           queryTokenFmt = "token"
           return self.login(phoneNum=phoneNum,

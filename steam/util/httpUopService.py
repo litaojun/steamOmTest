@@ -4,6 +4,7 @@ from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 import json,os
 from opg.util.lginfo import logger
+from steam.util.tokenDataMgr import tokenData
 class HttpUopService(UopService):
       """
          增加根据URL发送HTTP请求
