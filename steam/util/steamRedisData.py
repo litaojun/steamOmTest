@@ -4,7 +4,7 @@ ip = redisCf.get("uat","ip")
 port = redisCf.get("uat","port")
 steamRedis = RedisOper(ip,port)
 #从redis中获取CMS登录的验证码
-def getVerifyCodeUserType(userType="",phoneNum=""):
+def getVerifyCodeByUserType(userType="",phoneNum=""):
     """eBy
     :param userType:
             admin  CMS登录 STEAM_PERMISSION:SMS_CODE_INFO:18916899938_819195;

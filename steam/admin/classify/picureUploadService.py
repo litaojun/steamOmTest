@@ -40,7 +40,7 @@ class PicureUploadService(HttpUopService):
 
     @decorator(["setupAddFilePath"])
     def setFilePath(self):
-        from steam.mockhttp.util.initFile import casepath
+        from steam.util.configIni import casepath
         self.inputKV["file"] = casepath + os.sep + "steamcase" + os.sep + self.inputKV["file"]
 
     def getImgUrlFromRsp(self,response = None):

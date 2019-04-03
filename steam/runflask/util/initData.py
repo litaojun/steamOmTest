@@ -12,7 +12,8 @@
 @time: 2018/10/25 17:28 
 """
 from opg.unit.loader import initAllTestCase,initAllTestClass,genAllTestCase
-from steam.mockhttp.util.initFile import casepath
+# from steam.mockhttp.util.initFile import casepath
+from steam.util.configIni import casepath
 sign      = True
 testSuite = None
 if sign :

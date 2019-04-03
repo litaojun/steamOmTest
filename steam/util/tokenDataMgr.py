@@ -1,10 +1,13 @@
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
-from steam.mockhttp.util.initFile import generateUrlToFilePath
+from steam.mockhttp.util.initFile import basePath,generateUrlToFilePath
 from steam.util.configIni import basePath,phoneCf
-from steam.util.steamRedisData import getVerifyCodeUserType
+from opg.util.lginfo import logger
+from steam.util.steamRedisData import getVerifyCodeByUserType
+from opg.util.httptools import jsonFmtPrint
 import json
 from opg.util.utils import query_json
 from collections import defaultdict
+from opg.util.lginfo import selectFh,genDir,writeLog
 urldata = generateUrlToFilePath()
 class TokenData():
       sign = True
@@ -17,10 +20,20 @@ class TokenData():
                             "merchants": { "codeurl": "/merchant/passport/verifyCode",
                                             "loginurl": "/merchant-service/merchant/login" },
                          }
-          self.tkdict =  defaultdict(lambda x:{})
+          self.tkdict =  defaultdict(dict)
           if TokenData.sign:
+             logdir = genDir("token")
+             sh = writeLog(logdir,logtag="tokenlog")()
+             selectFh(sh)
              self.initTokenData()
+             selectFh(sh,sign=False)
              TokenData.sign = False
+
+      def getTkdict(self):
+          if TokenData.sign:
+              self.initTokenData()
+              TokenData.sign = False
+          return self.tkdict
 
       #根据用户类型获取配置的手机号码
       def getPhoneNumByUserType(self,urlSign="weixin",adminType="admin"):
@@ -33,19 +46,24 @@ class TokenData():
 
       #根据配置的手机号初始化Token
       def initTokenData(self):
+          logger.info("默认token生成开始")
           wx_token = self.weixinLogin(phoneNum=phoneCf.get("weixin","phoneNums"))
           cms_admin_token = self.cmsLogin(phoneNum=phoneCf.get("admin","admin"))
           cms_operate_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "operate"))
           cms_merchants_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "merchants"))
           hx_merchants_token = self.merchantsLogin(phoneNum=phoneCf.get("merchants","phoneNums"))
+          print("wx_token=%s ,cms_admin_token=%s ,cms_operate_token=%s , cms_merchants_token=%s ,hx_merchants_token =%s" %
+                (wx_token,cms_admin_token,cms_operate_token,cms_merchants_token,hx_merchants_token))
           self.tkdict["weixin"][phoneCf.get("weixin","phoneNums")] = wx_token
           self.tkdict["cms"]["admin"] = {}
           self.tkdict["cms"]["operate"] = {}
           self.tkdict["cms"]["merchants"] = {}
-          self.tkdict["cms"]["admin"][phoneCf.get("admin","admin")] = cms_admin_token
+          # self.tkdict["cms"]["admin"][phoneCf.get("admin","admin")] = cms_admin_token
           self.tkdict["cms"]["operate"][phoneCf.get("admin", "operate")] = cms_operate_token
           self.tkdict["cms"]["merchants"][phoneCf.get("admin", "merchants")] = cms_merchants_token
           self.tkdict["merchants"][phoneCf.get("merchants", "phoneNums")] = hx_merchants_token
+          logger.info(jsonFmtPrint(self.tkdict))
+          logger.info("默认token生成结束")
 
       #根据Url获取默认登录的token
       def getTokenByUserType(self,urlSign='',adminType="admin"):
@@ -70,15 +88,16 @@ class TokenData():
               token = self.cmsLogin(phoneNum=userPhone)
           return token
 
-      def login(self,phoneNum="",vfyUrl="",lgUrl="",lgDataBy={},vfyCodeName="code",queryTokenFmt="data.token"):
+      def login(self,userType="admin",phoneNum="",vfyUrl="",lgUrl="",lgDataBy={},vfyCodeName="code",queryTokenFmt="data.token"):
           dataBody = { "phoneNo": phoneNum }
           rsp = httpPost(url=vfyUrl , reqJsonData=dataBody)
           print("phoneNum=%s,vfyUrl-rsp:%s" % (phoneNum,rsp) )
           retcode = query_json(json_content=json.loads(rsp),query="code")
           if retcode == "000000":
-              verifyCode = getVerifyCodeUserType("admin",phoneNum)
+              verifyCode = getVerifyCodeByUserType(userType,phoneNum)
               print("verifyCode:%s" % verifyCode)
               lgDataBy[vfyCodeName] = verifyCode
+              print("lgDataBy :%s" % str(lgDataBy))
               rsp = httpPost(url=lgUrl, reqJsonData=lgDataBy)
               print("lgDataBy-rsp:%s" % rsp)
               return query_json(json_content=json.loads(rsp),query=queryTokenFmt)
@@ -89,10 +108,11 @@ class TokenData():
           lgSign = self.urlDict["admin"]["loginurl"]
           vfyUrl = urldata[vfySign][2]
           lgUrl  = urldata[lgSign][2]
-          lgDataBy = { "phoneNo":"18916899938","code":"430280" }
+          lgDataBy = { "phoneNo":phoneNum,"code":"430280" }
           vfyCodeName = "code"
           queryTokenFmt = "data.token"
           return self.login(phoneNum=phoneNum,
+                            userType="admin",
                             vfyUrl=vfyUrl,
                             lgUrl=lgUrl,
                             lgDataBy=lgDataBy,
@@ -106,26 +126,15 @@ class TokenData():
           vfyUrl = urldata[vfySign][2]
           lgUrl  = urldata[lgSign][2]
           lgDataBy = {
-                            "loginName": "15221874610",
+                            "loginName": phoneNum,
                             "loginType": "NM",
                             "password": "000000",
-                            "inviterId": "",
-                            "partnerInfo": {
-                                "partnerName": "WX",
-                                "partnerMemberId": "oJ3wwxO7th7tBYDVGTbZWkqdLt2A"
-                            },
-                            "adInfo": {
-                                "source": "",
-                                "medium": "",
-                                "campaign": "",
-                                "content": "",
-                                "term": "",
-                                "sourceType": ""
-                            }
-                    }
+                     }
+          print("lgDataBy :%s" % lgDataBy)
           vfyCodeName = "password"
           queryTokenFmt = "token"
           return self.login(phoneNum=phoneNum,
+                            userType="weixin",
                             vfyUrl=vfyUrl,
                             lgUrl=lgUrl,
                             lgDataBy=lgDataBy,
@@ -138,16 +147,17 @@ class TokenData():
           lgSign   = self.urlDict["merchants"]["loginurl"]
           vfyUrl   = urldata[vfySign][2]
           lgUrl    = urldata[lgSign][2]
-          lgDataBy = { "phoneNo":"18916899938","code":"430280" }
+          lgDataBy = { "phoneNo":phoneNum,"code":"430280" }
           vfyCodeName   = "code"
           queryTokenFmt = "token"
           return self.login(phoneNum=phoneNum,
+                            userType="merchants",
                             vfyUrl=vfyUrl,
                             lgUrl=lgUrl,
                             lgDataBy=lgDataBy,
                             vfyCodeName=vfyCodeName,
                             queryTokenFmt=queryTokenFmt)
-tokenData = TokenData()
+tokenData = TokenData().getTkdict()
 
 if __name__ == "__main__":
     token = tokenData["weixin"]["18916899938"]
