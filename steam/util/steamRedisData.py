@@ -14,11 +14,12 @@ def getVerifyCodeByUserType(userType="",phoneNum=""):
     :param phoneNum  手机号码
     :return:
     """
-    data = (phoneNum,"*")
+    data = (phoneNum,"[0-9]*")
     d = { "admin":"STEAM_PERMISSION:SMS_CODE_INFO:%s_%s" % data,
-          "weixin":"PASSPORT_VERIFY_CODE:OTP:%s_%s" % data,
+          "weixin":"steam-passport:PASSPORT_VERIFY_CODE:OTP:%s_%s" % data,
           "merchants":"steam-merchant:SMS:%s_%s" % data ,
-          "weixinReg":"PASSPORT_VERIFY_CODE:MLN:%s%s" }
+          "weixinReg":"PASSPORT_VERIFY_CODE:MLN:%s%s"  % data }
+    #steam-passport:PASSPORT_VERIFY_CODE:OTP:18916899938_746647
     keyls = RedisOper.curRedis.keys(d[userType])
     code = b'ss'
     if len(keyls) > 0:
