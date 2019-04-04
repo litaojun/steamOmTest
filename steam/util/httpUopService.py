@@ -4,6 +4,7 @@ from steam.mockhttp.flaskHttpServer import httpData
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 import json,os
 from opg.util.lginfo import logger
+
 from steam.util.tokenDataMgr import tokenData
 class HttpUopService(UopService):
       """
@@ -19,6 +20,7 @@ class HttpUopService(UopService):
                                                sqlvaluedict = sqlvaluedict ,
                                                reqjsonfile  = reqjsonfile ,
                                                dbName       = dbName)
+          self.jsonheart = {}
 
       def structReqData(self):
           urlPathSign = self.__class__.__interfaceName__
@@ -26,6 +28,16 @@ class HttpUopService(UopService):
           reqDataFmt     = loadStrFromFile(reqFormatPath)
           reqdata        = reqDataFmt % self.inputKV
           return reqdata
+
+      def genReqHeader(self,urlSign = None):
+          userType   = httpData[urlSign][5]
+          permission = httpData[urlSign][6]
+          phoneNum = self.inputKV.get("phoneNum",None)
+          if userType == "weixin":
+             if permission is None and phoneNum is None:
+                self.jsonheart["token"] = tokenData.getTokenByUrl(urlsign=urlSign)
+             elif phoneNum is not None:
+
 
       def sendHttpReq(self,reqdata=None):
           urlPathSign    = self.__class__.__interfaceName__
@@ -47,7 +59,7 @@ class HttpUopService(UopService):
           self.jsonheart = {
                                   "x-token": "admin",
                                   "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
-                                  "token": token,
+                                  "token": token ,
                                   "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
                             }
           # self.jsonheart={}

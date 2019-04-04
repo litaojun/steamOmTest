@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: configurl.py 
-@time: 2018/4/18 14:40 
-"""
 from opg.util.fileOper import walk_dir_test
 import os
 #环境IP地址

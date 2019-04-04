@@ -33,13 +33,14 @@ def traverseFileData(ymldata,dir):
             url      = data["url"]
             modul    = data["modul"]
             title    = data["title"]
+            permission = data.get("permission",None)
             # format  = data["formatone"]
             # tempdir = dir + [curdir,format]
             pathdict  = {}
             for key in data:
                 if key not in ( "method","url","title","modul"):
                    pathdict[key] = [os.sep.join(bsdir + [curdir, filename]) for filename in data[key]]  #key对应formatone和其它格式
-            rtdata[pathurl] = [method, pathdict,url,modul,title,dir]
+            rtdata[pathurl] = [method, pathdict,url,modul,title,dir,permission]
     return rtdata
 
 def generateDelayTimeConfig():

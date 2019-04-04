@@ -66,7 +66,7 @@ class TokenData():
           logger.info("默认token生成结束")
 
       #根据Url获取默认登录的token
-      def getTokenByUserType(self,urlSign='',adminType="admin"):
+      def getTokenByUrl(self,urlSign='',adminType="admin"):
           token = "sssssssssssssssss"
           phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
           userType = urldata[urlSign][5]
@@ -157,7 +157,7 @@ class TokenData():
                             lgDataBy=lgDataBy,
                             vfyCodeName=vfyCodeName,
                             queryTokenFmt=queryTokenFmt)
-tokenData = TokenData().getTkdict()
+tokenData = TokenData()
 
 if __name__ == "__main__":
     token = tokenData["weixin"]["18916899938"]
