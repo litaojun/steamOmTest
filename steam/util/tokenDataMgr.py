@@ -76,8 +76,19 @@ class TokenData():
                token = self.tkdict[userType][adminType][phoneNum]
           return token
 
+      def getTokenBytUserPhone(self, userPhone="",userType = "admin"):
+          if userType == "admin":
+              token = self.getTokenByAdminPhone(userPhone=userPhone)
+          elif userType == "user":
+              token = self.weixinLogin(phoneNum=userPhone)
+          elif userType == "merchants":
+              token  = self.merchantsLogin(phoneNum=userPhone)
+          else:
+              token  = None
+          return token
+
       #根据手机号码获取token，针对CMS
-      def getTokenBytUserPhone(self,userPhone=""):
+      def getTokenByAdminPhone(self,userPhone=""):
           if userPhone == phoneCf.get("admin","admin"):
               token = self.tkdict["cms"]["admin"][userPhone]
           elif userPhone == phoneCf.get("admin", "operate"):

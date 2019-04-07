@@ -33,10 +33,35 @@ class HttpUopService(UopService):
           userType   = httpData[urlSign][5]
           permission = httpData[urlSign][6]
           phoneNum = self.inputKV.get("phoneNum",None)
-          if userType == "weixin":
+          if userType in ("user","merchants"):
              if permission is None and phoneNum is None:
                 self.jsonheart["token"] = tokenData.getTokenByUrl(urlsign=urlSign)
-             elif phoneNum is not None:
+             elif phoneNum is not None and permission is None:
+                 self.jsonheart["token"] = tokenData.getTokenBytUserPhone(userPhone=phoneNum)
+             elif phoneNum is not None and permission is not None:
+                 pass
+          elif userType == "admin":
+              pass
+
+      def genReqHeaderByUrl(self,urlSign = None):
+          userType = httpData[urlSign][5]
+          permission = httpData[urlSign][6]
+          phoneNum = self.inputKV.get("phoneNum", None)
+          token = None
+          if phoneNum is not None and permission is not None and permission == "kong":
+              token = None
+          elif phoneNum is not None:
+              token = tokenData.getTokenBytUserPhone(userPhone=phoneNum,userType=userType)
+          elif phoneNum is None:
+              token = tokenData.getTokenByUrl(urlSign=urlSign)
+          if userType in ("user", "admin"):
+              if token is not None:
+                  self.inputKV["token"] = token
+          elif userType == "merchants":
+              if token is not None:
+                  self.inputKV["merchant_token"] = token
+
+
 
 
       def sendHttpReq(self,reqdata=None):
@@ -49,19 +74,20 @@ class HttpUopService(UopService):
              reqdata        = reqDataFmt % self.inputKV
           else:
               self.reqjsondata = reqdata
-          if "userType" in self.inputKV :
-              if self.inputKV["userType"] == "admin":
-                 token = self.inputKV["admin-token"]
-              elif self.inputKV["userType"] == "weixin":
-                  token = self.inputKV["user-token"]
-          else:
-              token = self.inputKV["token"] if "token" in self.inputKV else ""
-          self.jsonheart = {
-                                  "x-token": "admin",
-                                  "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
-                                  "token": token ,
-                                  "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
-                            }
+          self.genReqHeaderByUrl(urlSign=url)
+          # if "userType" in self.inputKV :
+          #     if self.inputKV["userType"] == "admin":
+          #        token = self.inputKV["admin-token"]
+          #     elif self.inputKV["userType"] == "weixin":
+          #         token = self.inputKV["user-token"]
+          # else:
+          #     token = self.inputKV["token"] if "token" in self.inputKV else ""
+          # self.jsonheart = {
+          #                         "x-token": "admin",
+          #                         "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
+          #                         "token": token ,
+          #                         "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
+          #                   }
           # self.jsonheart={}
           if method in ("get","delete","file","put-get") :
              self.reqjsondata = reqdata
