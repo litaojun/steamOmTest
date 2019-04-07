@@ -43,15 +43,15 @@ def initInputService(services=[],curser=None,sign="weixin"):
         def __call(*args, **kwargs):
             fun(*args, **kwargs)
             sf = args[0]
-            if sign == "weixin":
-                sf.initAdminData()
-                sf.initWeixinData()
-            elif sign == "admin":
-                sf.initAdminData()
-            elif sign == "merchant":
-                sf.initAdminData()
-                sf.initWeixinData()
-                sf.initMerchantData()
+            # if sign == "weixin":
+            #     sf.initAdminData()
+            #     sf.initWeixinData()
+            # elif sign == "admin":
+            #     sf.initAdminData()
+            # elif sign == "merchant":
+            #     sf.initAdminData()
+            #     sf.initWeixinData()
+            #     sf.initMerchantData()
             print("interface=%s,ClassName = %s" %
                   (sf.__class__.__interfaceName__, sf.__class__.__name__))
             # 设置service __interfaceName__ 为对应URL标识
@@ -80,7 +80,7 @@ def initAdminInputService(services=[],
         def __call(*args, **kwargs):
             fun(*args, **kwargs)
             sf = args[0]
-            sf.initAdminData()
+            # sf.initAdminData()
             print("interface=%s,ClassName = %s" %
                   (sf.__class__.__interfaceName__, sf.__class__.__name__))
             # 设置service __interfaceName__ 为对应URL标识

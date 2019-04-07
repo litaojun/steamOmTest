@@ -48,19 +48,19 @@ class TokenData():
       def initTokenData(self):
           logger.info("默认token生成开始")
           wx_token = self.weixinLogin(phoneNum=phoneCf.get("weixin","phoneNums"))
-          cms_admin_token = self.cmsLogin(phoneNum=phoneCf.get("admin","admin"))
+          # cms_admin_token = self.cmsLogin(phoneNum=phoneCf.get("admin","admin"))
           cms_operate_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "operate"))
           cms_merchants_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "merchants"))
           hx_merchants_token = self.merchantsLogin(phoneNum=phoneCf.get("merchants","phoneNums"))
-          print("wx_token=%s ,cms_admin_token=%s ,cms_operate_token=%s , cms_merchants_token=%s ,hx_merchants_token =%s" %
-                (wx_token,cms_admin_token,cms_operate_token,cms_merchants_token,hx_merchants_token))
-          self.tkdict["weixin"][phoneCf.get("weixin","phoneNums")] = wx_token
-          self.tkdict["cms"]["admin"] = {}
-          self.tkdict["cms"]["operate"] = {}
-          self.tkdict["cms"]["merchants"] = {}
+          print("wx_token=%s ,cms_operate_token=%s , cms_merchants_token=%s ,hx_merchants_token =%s" %
+                (wx_token,cms_operate_token,cms_merchants_token,hx_merchants_token))
+          self.tkdict["user"][phoneCf.get("weixin","phoneNums")] = wx_token
+          self.tkdict["admin"]["admin"] = {}
+          self.tkdict["admin"]["operate"] = {}
+          self.tkdict["admin"]["merchants"] = {}
           # self.tkdict["cms"]["admin"][phoneCf.get("admin","admin")] = cms_admin_token
-          self.tkdict["cms"]["operate"][phoneCf.get("admin", "operate")] = cms_operate_token
-          self.tkdict["cms"]["merchants"][phoneCf.get("admin", "merchants")] = cms_merchants_token
+          self.tkdict["admin"]["operate"][phoneCf.get("admin", "operate")] = cms_operate_token
+          self.tkdict["admin"]["merchants"][phoneCf.get("admin", "merchants")] = cms_merchants_token
           self.tkdict["merchants"][phoneCf.get("merchants", "phoneNums")] = hx_merchants_token
           logger.info(jsonFmtPrint(self.tkdict))
           logger.info("默认token生成结束")
@@ -70,7 +70,7 @@ class TokenData():
           token = "sssssssssssssssss"
           phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
           userType = urldata[urlSign][5]
-          if userType in ["weixin","merchants"]:
+          if userType in ["user","merchants"]:
              token = self.tkdict[userType][phoneNum]
           elif userType == "admin":
                token = self.tkdict[userType][adminType][phoneNum]

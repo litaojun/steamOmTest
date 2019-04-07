@@ -74,7 +74,7 @@ class HttpUopService(UopService):
              reqdata        = reqDataFmt % self.inputKV
           else:
               self.reqjsondata = reqdata
-          self.genReqHeaderByUrl(urlSign=url)
+          self.genReqHeaderByUrl(urlSign=urlPathSign)
           # if "userType" in self.inputKV :
           #     if self.inputKV["userType"] == "admin":
           #        token = self.inputKV["admin-token"]

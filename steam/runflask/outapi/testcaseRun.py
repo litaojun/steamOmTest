@@ -12,6 +12,7 @@ import threading
 # from steam.mockhttp.util.initFile import casepath
 from steam.util.configIni import casepath
 import os
+from opg.unit.runtest import runOneCls
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
 writeDir = None
@@ -102,8 +103,10 @@ def query_run_state():
     return jsonify(rtRunDt)
 
 def runOneTestClass(interfaceName):
+    from opg.util.timeTool import  getTwoFmtTime
+    starttime, logtime = getTwoFmtTime()
     global writeDir
-    logDir = genDir()
+    logDir = genDir(str(logtime))
     writeDir = writeLog(wtrDir=logDir)
     testSuite     = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
                                                      allCase       = initData.allTestCase  ,

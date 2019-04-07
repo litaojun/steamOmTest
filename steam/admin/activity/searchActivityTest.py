@@ -3,10 +3,11 @@
 """ 
 @version: v1.0
 """
-from opg.bak.testcaseRunMgr import runTestOneCls
+# from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.testJsonFormat import initAdminInputService
+# from steam.runflask.innerapi.testcaseRun import runOneTestCase
 class ActivitySearchTest(SteamTestCase):
       '''
             根据名称搜索活动
@@ -14,7 +15,7 @@ class ActivitySearchTest(SteamTestCase):
       __interfaceName__ = "/operation-manage/product/queryProducts"
 
       @initAdminInputService(services = [],
-                 curser   = ActivitySearchService)
+                             curser   = ActivitySearchService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivitySearchTest,self).__init__(methodName,param)
 
@@ -22,8 +23,5 @@ class ActivitySearchTest(SteamTestCase):
           return self.myservice.findTestDataByStatus()
 
 if __name__ == "__main__":
-
-    runTestOneCls(
-				          casefilepath = "\\steamcase\\activity\\operation-manageproductqueryProducts.yml",
-				          testclse     = ActivitySearchTest
-			     )
+   pass
+   # runOneTestCase(interfaceName="/operation-manage/product/queryProducts")
