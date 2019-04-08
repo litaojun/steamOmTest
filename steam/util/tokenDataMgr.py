@@ -66,10 +66,11 @@ class TokenData():
           logger.info("默认token生成结束")
 
       #根据Url获取默认登录的token
-      def getTokenByUrl(self,urlSign='',adminType="admin"):
+      def getTokenByUrl(self,urlSign='',adminType=None):
           token = "sssssssssssssssss"
-          phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
           userType = urldata[urlSign][5]
+          # adminType = urldata[urlSign][6]
+          phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
           if userType in ["user","merchants"]:
              token = self.tkdict[userType][phoneNum]
           elif userType == "admin":
