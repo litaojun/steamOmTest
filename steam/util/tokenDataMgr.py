@@ -54,7 +54,7 @@ class TokenData():
           hx_merchants_token = self.merchantsLogin(phoneNum=phoneCf.get("merchants","phoneNums"))
           print("wx_token=%s ,cms_operate_token=%s , cms_merchants_token=%s ,hx_merchants_token =%s" %
                 (wx_token,cms_operate_token,cms_merchants_token,hx_merchants_token))
-          self.tkdict["user"][phoneCf.get("weixin","phoneNums")] = wx_token
+          self.tkdict["weixin"][phoneCf.get("weixin","phoneNums")] = wx_token
           self.tkdict["admin"]["admin"] = {}
           self.tkdict["admin"]["operate"] = {}
           self.tkdict["admin"]["merchants"] = {}
@@ -99,6 +99,10 @@ class TokenData():
           else:
               token = self.cmsLogin(phoneNum=userPhone)
           return token
+
+      def getMemberIdByToken(self,token):
+          pass
+
 
       def login(self,userType="admin",phoneNum="",vfyUrl="",lgUrl="",lgDataBy={},vfyCodeName="code",queryTokenFmt="data.token"):
           dataBody = { "phoneNo": phoneNum }

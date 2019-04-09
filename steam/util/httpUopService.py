@@ -33,7 +33,7 @@ class HttpUopService(UopService):
           userType   = httpData[urlSign][5]
           permission = httpData[urlSign][6]
           phoneNum = self.inputKV.get("phoneNum",None)
-          if userType in ("user","merchants"):
+          if userType in ("weixin","merchants"):
              if permission is None and phoneNum is None:
                 self.jsonheart["token"] = tokenData.getTokenByUrl(urlsign=urlSign)
              elif phoneNum is not None and permission is None:
@@ -44,7 +44,7 @@ class HttpUopService(UopService):
               pass
 
       def genReqHeaderByUrl(self,urlSign = None):
-          utToTokenType = { "admin":"CMS","user":"","merchants":"MERCHANT" }
+          utToTokenType = { "admin":"CMS","weixin":"","merchants":"MERCHANT" }
           userType = httpData[urlSign][5]
           permission = httpData[urlSign][6]
           phoneNum = self.inputKV.get("phoneNum", None)
@@ -57,7 +57,7 @@ class HttpUopService(UopService):
               token = tokenData.getTokenBytUserPhone(userPhone=phoneNum,userType=userType)
           elif phoneNum is None:
               token = tokenData.getTokenByUrl(urlSign=urlSign,adminType=permission)
-          if userType in ("user", "admin"):
+          if userType in ("weixin", "admin"):
               if token is not None:
                   self.jsonheart["token"] = token
           elif userType == "merchants":
