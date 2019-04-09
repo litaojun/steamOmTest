@@ -80,7 +80,7 @@ class TokenData():
       def getTokenBytUserPhone(self, userPhone="",userType = "admin"):
           if userType == "admin":
               token = self.getTokenByAdminPhone(userPhone=userPhone)
-          elif userType == "user":
+          elif userType == "weixin":
               token = self.weixinLogin(phoneNum=userPhone)
           elif userType == "merchants":
               token  = self.merchantsLogin(phoneNum=userPhone)
