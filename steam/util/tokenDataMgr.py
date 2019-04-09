@@ -103,6 +103,7 @@ class TokenData():
       def getMemberIdByToken(self,token):
           urlSign = "/member/login/queryMemberInfo"
           rsp = httpGet(url = urldata[urlSign][2],headers={"token":token})
+          print("token memberId rsp %s" % rsp)
           return query_json(json_content=json.loads(rsp), query="data.memberId")
 
 
@@ -178,5 +179,6 @@ class TokenData():
 tokenData = TokenData()
 
 if __name__ == "__main__":
-    token = tokenData["weixin"]["18916899938"]
+    token = tokenData.tkdict["weixin"]["18916899938"]
     print("token=%s" % token)
+    memberId = tokenData.getMemberIdByToken(token=token)
