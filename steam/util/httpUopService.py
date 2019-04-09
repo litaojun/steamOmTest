@@ -60,6 +60,10 @@ class HttpUopService(UopService):
           if userType in ("weixin", "admin"):
               if token is not None:
                   self.jsonheart["token"] = token
+              if userType == "weixin":
+                  memberId = tokenData.getMemberIdByToken(token=token)
+                  self.jsonheart["memberId"] = memberId
+                  self.inputKV["memberId"] = memberId
           elif userType == "merchants":
               if token is not None:
                   self.jsonheart["merchant_token"] = token

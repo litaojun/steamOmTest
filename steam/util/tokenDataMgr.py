@@ -101,7 +101,9 @@ class TokenData():
           return token
 
       def getMemberIdByToken(self,token):
-          pass
+          urlSign = "/member/login/queryMemberInfo"
+          rsp = httpGet(url = urldata[urlSign][2],headers={"token":token})
+          return query_json(json_content=json.loads(rsp), query="data.memberId")
 
 
       def login(self,userType="admin",phoneNum="",vfyUrl="",lgUrl="",lgDataBy={},vfyCodeName="code",queryTokenFmt="data.token"):
