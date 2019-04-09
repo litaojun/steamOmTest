@@ -71,7 +71,7 @@ class TokenData():
           userType = urldata[urlSign][5]
           # adminType = urldata[urlSign][6]
           phoneNum = self.getPhoneNumByUserType(urlSign,adminType)
-          if userType in ["user","merchants"]:
+          if userType in ["weixin","merchants"]:
              token = self.tkdict[userType][phoneNum]
           elif userType == "admin":
                token = self.tkdict[userType][adminType][phoneNum]
