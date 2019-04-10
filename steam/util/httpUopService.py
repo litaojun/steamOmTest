@@ -52,11 +52,11 @@ class HttpUopService(UopService):
           if userType in ["admin","merchants"]:
              self.jsonheart["login_type"] = utToTokenType[userType]
           if phoneNum is not None and permission is not None and permission == "kong":
-              token = None
+             token = None
           elif phoneNum is not None:
-              token = tokenData.getTokenBytUserPhone(userPhone=phoneNum,userType=userType)
+               token = tokenData.getTokenBytUserPhone(userPhone=phoneNum,userType=userType)
           elif phoneNum is None:
-              token = tokenData.getTokenByUrl(urlSign=urlSign,adminType=permission)
+               token = tokenData.getTokenByUrl(urlSign=urlSign,adminType=permission)
           if userType in ("weixin", "admin"):
               if token is not None:
                   self.jsonheart["token"] = token
