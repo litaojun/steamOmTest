@@ -77,11 +77,11 @@ class HttpUopService(UopService):
           url            = httpData[urlPathSign][2]
           reqFormatPath  = httpData[urlPathSign][1][ self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone" ][1]
           reqDataFmt     = loadStrFromFile(reqFormatPath)
+          self.genReqHeaderByUrl(urlSign=urlPathSign)
           if reqdata is None:
              reqdata        = reqDataFmt % self.inputKV
           else:
               self.reqjsondata = reqdata
-          self.genReqHeaderByUrl(urlSign=urlPathSign)
           # if "userType" in self.inputKV :
           #     if self.inputKV["userType"] == "admin":
           #        token = self.inputKV["admin-token"]
