@@ -121,17 +121,17 @@ def writeHttpReqRspDataToFile(bsDict = None,reqHeaderData = {},reqBodyData = {},
 if __name__ == "__main__":
     bsDict = {
                     "oneDir": "admin",
-                    "twoDir": "article",
-                    "pathSign": "/operation-manage/media/audit"
+                    "twoDir": "media",
+                    "pathSign": "/operation-manage/material/audit"
                 }
     # formatAllFile(bsDict=bsDict)
-    httpReqUrl = "https://uat-steam-api.opg.cn/operation-manage/media/audit"
+    httpReqUrl = "https://uat-steam-api.opg.cn/operation-manage/material/audit"
     httpHeader = {
                     "login_type":"CMS",
                     "token":"5a33f2eda53749e9bb542308b4f81e8f"
                     #"memberId":"68a30b8e-7dc2-46f5-89c4-c0894c0c3e68"
                   }
-    httpReqBody = { "pass": True , "auditReason": None , "id": 6744 }
+    httpReqBody = { "pass": True , "auditReason": None , "id": 354 }
     writeHttpReqRspDataToFile(bsDict=bsDict,
                               reqHeaderData=httpHeader,
                               reqBodyData=httpReqBody,
