@@ -2,8 +2,6 @@ from steam.admin.activity.alertActivityService import ActivityAlertService
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
-
-
 class ActivityAlertTest(SteamTestCase):
     '''
           新增活动
