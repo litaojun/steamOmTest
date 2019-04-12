@@ -4,7 +4,7 @@ class Request:
     def __init__(self, r):
         self.content = r
         self.method = r.split()[0]
-        print("method = %s" % self.method)
+        print("method = %s" % self.method.encode())
         self.path = r.split()[1]
         print("path = %s" % self.path)
         # self.body = r.split('\r\n\r\n', 1)[1]
