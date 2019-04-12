@@ -46,7 +46,7 @@ class Access_to_Host(object):
             if ssl_client_data:
                 #####send data to server
                 try:
-                    r = Request(r=ssl_client_data)
+                    # r = Request(r=ssl_client_data)
                     # print("method=%s,body=%s" %(r.method,r.body))
                     # print("ssl_client_data=%s" % ssl_client_data)
                     self.dst_conn.sendall(ssl_client_data)
