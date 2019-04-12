@@ -48,7 +48,7 @@ class Access_to_Host(object):
                 try:
                     r = Request(r=ssl_client_data)
                     # print("method=%s,body=%s" %(r.method,r.body))
-                    print("ssl_client_data=%s" % ssl_client_data)
+                    print("ssl_client_data=%s" % ssl_client_data.decode())
                     self.dst_conn.sendall(ssl_client_data)
                 except Exception as e:
                     print("server disconnct Err")
