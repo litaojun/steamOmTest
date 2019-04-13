@@ -7,7 +7,7 @@ class ProductAuditTest(SteamTestCase):
       """
             %(subTitle)s
       """
-      __interfaceName__ = "/operation-manage/product/audit"
+      __interfaceName__ = "/operation-manage/product/audit--del"
       @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
                   curser   = ProductAuditService )
       def __init__(self, methodName = 'runTest',

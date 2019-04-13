@@ -7,7 +7,7 @@ class CourseAuditTest(SteamTestCase):
       """
             %(subTitle)s
       """
-      __interfaceName__ = "/operation-manage/course/audit"
+      __interfaceName__ = "/operation-manage/course/audit--del"
       @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
                   curser   = CourseAuditService )
       def __init__(self, methodName = 'runTest',
