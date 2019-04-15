@@ -37,3 +37,7 @@ class SteamMtyp:
 
 def start():
     return SteamMtyp()
+
+addons = [
+    SteamMtyp()
+]
