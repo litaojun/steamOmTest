@@ -33,3 +33,7 @@ class SteamMtyp:
         """
         data = flow.response.text
         print("body = %s" % data)
+
+
+def start():
+    return SteamMtyp()
