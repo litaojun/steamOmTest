@@ -1,5 +1,5 @@
 import typing
-
+from mitmproxy import ctx
 import mitmproxy.addonmanager
 import mitmproxy.connections
 import mitmproxy.http
@@ -16,7 +16,8 @@ class SteamMtyp:
             The full HTTP request has been read.
         """
         method = flow.request.method
-        print("litaojun - get")
+        print("itaojun - gelt")
+        ctx.log.info("itaojun - gelt")
         if method == "GET":
             query = flow.request.query
             queryurl = "&".join(["%s=%s" % (k,v) for k,v in query.items()])
