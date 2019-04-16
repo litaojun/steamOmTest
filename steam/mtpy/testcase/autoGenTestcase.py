@@ -13,7 +13,7 @@ def dumpYmalCaseToFile(path,usertype,modul,testcase):
     dumpDataToYmlFile(filePath=filePath,data=testcase)
 
 def getCaseTmpFilepath():
-    filepath = os.sep.join([basePath,"template","testcaseMitmproxy.template"])
+    filepath = os.sep.join([basePath,"template","testcaseMitmproxy.yml"])
     return filepath
 
 def getTestcasePath(usertype,modul,path):
