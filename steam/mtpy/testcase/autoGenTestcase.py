@@ -23,6 +23,7 @@ def getTestcasePath(usertype,modul,path):
     return filePath
 
 def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
+    ctx.log.info("genAutoCase,path=%s" % path)
     if path not in httpData:
         print("path=%s is not exist in testjson-url.yml" % path)
         return
