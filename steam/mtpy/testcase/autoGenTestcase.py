@@ -4,7 +4,7 @@ from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 import os
 from mitmproxy import ctx
 def loadCaseTmpFile():
-    filepath = os.sep.join([basePath,"template","testcaseMitmproxy.template"])
+    filepath = os.sep.join([basePath,"template","testcaseMitmproxy.yml"])
     caseTmpData = readYmlFile(filePath=filepath)
     return caseTmpData
 
@@ -12,9 +12,6 @@ def dumpYmalCaseToFile(path,usertype,modul,testcase):
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
     dumpDataToYmlFile(filePath=filePath,data=testcase)
 
-def getCaseTmpFilepath():
-    filepath = os.sep.join([basePath,"template","testcaseMitmproxy.yml"])
-    return filepath
 
 def getTestcasePath(usertype,modul,path):
     fileName = "".join([ name.capitalize() if index>0 else name for index,name in enumerate(path.split("/"))])
