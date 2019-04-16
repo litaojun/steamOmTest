@@ -33,7 +33,8 @@ class SteamMtyp:
             elif method == "POST":
                 body = flow.request.get_text()
                 ctx.log.info("body = %s" % body)
-            self.reqProxyHook.run(method=method,host=host,url=url,path=path,reqbody=body)
+            if method in ["GET","POST","DELETE","PUT"]:
+               self.reqProxyHook.run(method=method,host=host,url=url,path=path,reqbody=body)
 
     def response(self, flow: mitmproxy.http.HTTPFlow):
         """

@@ -24,7 +24,7 @@ def getTestcasePath(usertype,modul,path):
 
 def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     if path not in httpData:
-        print("path=%s is not exist in testjson-url.yml")
+        print("path=%s is not exist in testjson-url.yml" % path)
         return
     testData = {
                  "caseid":"activity_alert_1",
