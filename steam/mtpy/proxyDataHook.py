@@ -15,7 +15,7 @@ class ProxyHook(object):
     def run(self,**kwargs):
         if len(self.funHook):
             for fun in self.funHook:
-                fun(self.kwargs)
+                fun(**kwargs)
         if len(self.clsHook)>0:
             for cls in self.clsHook:
-                cls(self.kwargs).run()
+                cls(**kwargs).run()
