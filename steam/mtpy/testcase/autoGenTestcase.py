@@ -2,6 +2,7 @@ from steam.mockhttp.flaskHttpServer import httpData
 from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 import os
+from mitmproxy import ctx
 def loadCaseTmpFile():
     filepath = os.sep.join([basePath,"template","testcaseMitmproxy.template"])
     caseTmpData = readYmlFile(filePath=filepath)
@@ -36,6 +37,7 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     caseTmpDataDict[0]["case"][0]["testPoint"] = title
     caseTmpDataDict[0]["case"][0]["testData"] = [testData.update(reqbody)]
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
+    ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
     
 

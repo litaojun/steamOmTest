@@ -25,6 +25,7 @@ class SteamMtyp:
         if host == "uat-steam-api.opg.cn":
             ctx.log.info("itaojun - gelt")
             path = flow.request.path.split("?")[0]
+            ctx.log.info("path=%s" % path)
             if method == "GET":
                 query = flow.request.query
                 queryurl = "&".join(["%s=%s" % (k,v) for k,v in query.items()])
