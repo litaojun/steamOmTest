@@ -6,17 +6,21 @@ import mitmproxy.http
 import mitmproxy.log
 import mitmproxy.tcp
 import mitmproxy.websocket
+from steam.mtpy.proxyDataHook import ProxyHook
+from steam.mtpy.testcase.autoGenTestcase import genAutoCase
 import mitmproxy.proxy.protocol
 
 class SteamMtyp:
+
+    def __init__(self):
+        self.reqProxyHook = ProxyHook()
+        self.reqProxyHook.register_hook(genAutoCase)
 
     def request(self, flow: mitmproxy.http.HTTPFlow):
         """
             The full HTTP request has been read.
         """
-        method = flow.request.method
-        host = flow.request.host
-        url = flow.request.url
+        body,method,host,url = "",flow.request.method,flow.request.host,flow.request.url
         ctx.log.info("SteamMtyp - request method=%s,host=%s,url=%s" % (method,host,url))
         if host == "uat-steam-api.opg.cn":
             ctx.log.info("itaojun - gelt")
@@ -28,6 +32,7 @@ class SteamMtyp:
             elif method == "POST":
                 body = flow.request.get_text()
                 ctx.log.info("body = %s" % body)
+            self.reqProxyHook.run(method=method,host=host,url=url,path=path,reqbody=body)
 
     def response(self, flow: mitmproxy.http.HTTPFlow):
         """

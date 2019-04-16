@@ -1,4 +1,4 @@
-class LazyPerson(object):
+class ProxyHook(object):
     def __init__(self,   **kwargs):
         self.clsHook = []
         self.funHook = []
@@ -9,10 +9,10 @@ class LazyPerson(object):
         else:
             self.clsHook.append(obj)
 
-    def __call__(self,):
-        self.run()
+    def __call__(self,**kwargs):
+        self.run(**kwargs)
 
-    def run(self):
+    def run(self,**kwargs):
         if len(self.funHook):
             for fun in self.funHook:
                 fun(self.kwargs)
