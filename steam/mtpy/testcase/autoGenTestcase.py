@@ -65,7 +65,7 @@ def genReqData(method=None,host=None,url=None,path=None,reqbody=None):
     reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,dirType="steam",fileType=".json")
     writeStrToJsonFile(filePath=reqFilePath,jsonStr=reqbody,rwmode="a+")
     reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=".yml")
-    dumpDataToYmlFile(filePath=reqFilePath,data=json.loads(reqbody,encoding="utf-8"))
+    dumpDataToYmlFile(filePath=reqFilePath,data=reqbody)
 
 if __name__ == "__main__":
     testData = {
