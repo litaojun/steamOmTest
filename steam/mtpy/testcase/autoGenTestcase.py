@@ -36,12 +36,22 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     caseTmpDataDict = loadCaseTmpFile()
     caseTmpDataDict["testcases"][0]["interfaceName"] = path
     caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title
-    ctx.log.info("reqbody=%s" % reqbody)
+    ctx.log.info("reqbody=%s,type=%s" % (reqbody,type(reqbody)))
     testData.update(reqbody)
     ctx.log.info("testData=%s" % testData)
     caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [ testData.update(reqbody) ]
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
     ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
+
+if __name__ == "__main__":
+    testData = {
+                 "caseid":"activity_alert_1",
+                 "testPoint":"修改活动正常",
+                 "reqjsonfile":"formatone"
+               }
+    reqbody = {"phoneNo": "18916899938"}
+    testData.update(reqbody)
+    print(testData)
     
 
