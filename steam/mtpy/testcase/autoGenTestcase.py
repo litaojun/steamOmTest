@@ -18,7 +18,7 @@ def dumpYmalCaseToFile(path,usertype,modul,testcase):
 
 def getTestcasePath(usertype,modul,path):
     fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))]) + "s.yml"
-    filePath = os.sep.join([basePath,"mitmproxy","steam",usertype,modul,fileName])
+    filePath = os.sep.join([basePath,"mitmproxy","steamcase",usertype,modul,fileName])
     print("filePath = %s" % filePath)
     return filePath
 
@@ -39,7 +39,7 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     ctx.log.info("reqbody=%s,type=%s" % (reqbody,type(reqbody)))
     testData.update(reqbody)
     ctx.log.info("testData=%s" % testData)
-    caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [ testData.update(reqbody) ]
+    caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [ testData ]
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
     ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
