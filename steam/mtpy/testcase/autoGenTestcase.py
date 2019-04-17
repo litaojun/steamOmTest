@@ -3,9 +3,12 @@ from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 import os
 from mitmproxy import ctx
+
+#获取用例模板
 def loadCaseTmpFile():
     filepath = os.sep.join([basePath,"template","testcaseMitmproxy.yml"])
     caseTmpData = readYmlFile(filePath=filepath)
+    ctx.log.info("loadCaseTmpFile - caseTmpData=%s" % caseTmpData)
     return caseTmpData
 
 def dumpYmalCaseToFile(path,usertype,modul,testcase):
@@ -31,9 +34,9 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
                }
     usertype,modul,title = httpData[path][5],httpData[path][3],httpData[path][4]
     caseTmpDataDict = loadCaseTmpFile()
-    caseTmpDataDict[0]["interfaceName"] = path
-    caseTmpDataDict[0]["case"][0]["testPoint"] = title
-    caseTmpDataDict[0]["case"][0]["testData"] = [testData.update(reqbody)]
+    caseTmpDataDict["testcases"][0]["interfaceName"] = path
+    caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title
+    caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [testData.update(reqbody)]
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
     ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
