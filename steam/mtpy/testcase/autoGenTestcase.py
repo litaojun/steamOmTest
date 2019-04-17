@@ -36,7 +36,10 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     caseTmpDataDict = loadCaseTmpFile()
     caseTmpDataDict["testcases"][0]["interfaceName"] = path
     caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title
-    caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [testData.update(reqbody)]
+    ctx.log.info("reqbody=%s" % reqbody)
+    testData.update(reqbody)
+    ctx.log.info("testData=%s" % testData)
+    caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [ testData.update(reqbody) ]
     filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
     ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
