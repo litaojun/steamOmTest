@@ -6,6 +6,7 @@ import mitmproxy.http
 import mitmproxy.log
 import mitmproxy.tcp
 import mitmproxy.websocket
+from opg.util.yamlOper import dumpDataToYmlFile
 import json
 from steam.mtpy.proxyDataHook import ProxyHook
 from steam.mtpy.testcase.autoGenTestcase import genAutoCase
@@ -30,6 +31,7 @@ class SteamMtyp:
             if method == "GET":
                 query = flow.request.query
                 queryurl = "&".join(["%s=%s" % (k,v) for k,v in query.items()])
+                body = zip([(k,v) for k,v in query.items()])
                 ctx.log.info("query = %s " % queryurl)
             elif method == "POST":
                 body = json.loads(flow.request.get_text(),encoding="utf-8")

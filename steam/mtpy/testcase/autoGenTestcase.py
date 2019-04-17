@@ -3,6 +3,7 @@ from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 from steam.util.formatJsonFile import writeStrToJsonFile
 import os
+import json
 from mitmproxy import ctx
 
 #获取用例模板
@@ -18,16 +19,16 @@ def dumpYmalCaseToFile(path,usertype,modul,testcase):
     dumpDataToYmlFile(filePath=filePath,data=testcase)
 
 #获取测试用例的路径OR请求响应数据格式路径
-def getTestcasePath(usertype,modul,path,fileType="steamcase"):
+def getTestcasePath(usertype,modul,path,dirType="steamcase",fileType="s.yml"):
     """
     :param usertype: 用户类型，一级目录，admin,weixin,merchants
     :param modul: 二级目录，模块级别，与testjson-url.yml配置一致
     :param path:  请求URL标识
-    :param fileType: steamcase:测试用例目录， steam:请求响应数据目录
+    :param dirType: steamcase:测试用例目录， steam:请求响应数据目录
     :return:
     """
-    fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))]) + "s.yml"
-    filePath = os.sep.join([basePath,"mitmproxy",fileType,usertype,modul,fileName])
+    fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))]) + fileType
+    filePath = os.sep.join([basePath,"mitmproxy",dirType,usertype,modul,fileName])
     print("filePath = %s" % filePath)
     return filePath
 
@@ -61,8 +62,10 @@ def genReqData(method=None,host=None,url=None,path=None,reqbody=None):
         print("path=%s is not exist in testjson-url.yml" % path)
         return
     usertype, modul, title = httpData[path][5], httpData[path][7], httpData[path][4]
-    reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,fileType="steam")
+    reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,dirType="steam",fileType=".json")
     writeStrToJsonFile(filePath=reqFilePath,jsonStr=reqbody,rwmode="a+")
+    reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=".yml")
+    dumpDataToYmlFile(filePath=reqFilePath,data=json.loads(reqbody,encoding="utf-8"))
 
 if __name__ == "__main__":
     testData = {
