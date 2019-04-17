@@ -17,7 +17,7 @@ def dumpYmalCaseToFile(path,usertype,modul,testcase):
 
 
 def getTestcasePath(usertype,modul,path):
-    fileName = "".join([ name.capitalize() if index>0 else name for index,name in enumerate(path.split("/"))])
+    fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))]) + "s.yml"
     filePath = os.sep.join([basePath,"mitmproxy","steam",usertype,modul,fileName])
     print("filePath = %s" % filePath)
     return filePath
@@ -32,7 +32,7 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
                  "testPoint":"修改活动正常",
                  "reqjsonfile":"formatone"
                }
-    usertype,modul,title = httpData[path][5],httpData[path][3],httpData[path][4]
+    usertype,modul,title = httpData[path][5],httpData[path][7],httpData[path][4]
     caseTmpDataDict = loadCaseTmpFile()
     caseTmpDataDict["testcases"][0]["interfaceName"] = path
     caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title

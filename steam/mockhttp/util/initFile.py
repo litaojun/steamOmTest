@@ -38,7 +38,7 @@ def traverseFileData(ymldata,dir):
             for key in data:
                 if key not in ( "method","url","title","modul"):
                    pathdict[key] = [os.sep.join(bsdir + [curdir, filename]) for filename in data[key]]  #key对应formatone和其它格式
-            rtdata[pathurl] = [method, pathdict,url,modul,title,dir,permission]
+            rtdata[pathurl] = [method, pathdict,url,modul,title,dir,permission,curdir]
     return rtdata
 
 def generateDelayTimeConfig():
