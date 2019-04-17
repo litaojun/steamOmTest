@@ -9,7 +9,7 @@ import mitmproxy.websocket
 from opg.util.yamlOper import dumpDataToYmlFile
 import json
 from steam.mtpy.proxyDataHook import ProxyHook
-from steam.mtpy.testcase.autoGenTestcase import genAutoCase
+from steam.mtpy.testcase.autoGenTestcase import genAutoCase,genReqData
 import mitmproxy.proxy.protocol
 
 class SteamMtyp:
@@ -17,6 +17,7 @@ class SteamMtyp:
     def __init__(self):
         self.reqProxyHook = ProxyHook()
         self.reqProxyHook.register_hook(genAutoCase)
+        self.reqProxyHook.register_hook(genReqData)
 
     def request(self, flow: mitmproxy.http.HTTPFlow):
         """
