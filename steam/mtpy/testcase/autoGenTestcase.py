@@ -33,7 +33,7 @@ def getTestcasePath(usertype,modul,path,dirType="steamcase",fileType="s.yml"):
     return filePath
 
 #生成自动化测试用例
-def genAutoCase(method=None,host=None,url=None,path=None,bodydata=None):
+def genAutoCase(method=None,host=None,url=None,path=None,bodydata=None,bodyType="request"):
     ctx.log.info("genAutoCase,path=%s" % path)
     if path not in httpData:
         print("path=%s is not exist in testjson-url.yml" % path)
