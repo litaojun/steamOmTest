@@ -1,7 +1,7 @@
 from steam.mockhttp.flaskHttpServer import httpData
 from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
-from steam.util.formatJsonFile import writeStrToJsonFile
+from steam.util.formatJsonFile import writeStrToJsonFile,fmtStrToJson
 import os
 
 from mitmproxy import ctx
@@ -73,7 +73,7 @@ def genReqData(method=None,host=None,url=None,path=None,bodydata=None,bodyType="
     reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,dirType="steam",fileType=jsonFileType)
     writeStrToJsonFile(filePath=reqFilePath,jsonStr=bodydata,rwmode="a+")
     reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=ymlFileType)
-    dumpDataToYmlFile(filePath=reqFilePath,data=bodydata)
+    dumpDataToYmlFile(filePath=reqFilePath,data=fmtStrToJson(bodydata))
 
 
 
