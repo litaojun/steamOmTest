@@ -3,7 +3,7 @@ from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 from steam.util.formatJsonFile import writeStrToJsonFile
 import os
-import json
+
 from mitmproxy import ctx
 
 #获取用例模板
@@ -56,16 +56,26 @@ def genAutoCase(method=None,host=None,url=None,path=None,reqbody=None):
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
 
 #生成请求数据
-def genReqData(method=None,host=None,url=None,path=None,reqbody=None):
+def genReqData(method=None,host=None,url=None,path=None,bodydata=None,bodyType="request"):
+    if bodyType == "request":
+        jsonFileType = "Req.json"
+        ymlFileType  = "Req.yml"
+    elif bodyType == "response":
+        jsonFileType = "Rsp.json"
+        ymlFileType  = "Rsp.yml"
+    else:
+        return
     ctx.log.info("genReqData,path=%s" % path)
     if path not in httpData:
         print("path=%s is not exist in testjson-url.yml" % path)
         return
     usertype, modul, title = httpData[path][5], httpData[path][7], httpData[path][4]
-    reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,dirType="steam",fileType=".json")
-    writeStrToJsonFile(filePath=reqFilePath,jsonStr=reqbody,rwmode="a+")
-    reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=".yml")
-    dumpDataToYmlFile(filePath=reqFilePath,data=reqbody)
+    reqFilePath = getTestcasePath(usertype=usertype,modul=modul,path=path,dirType="steam",fileType=jsonFileType)
+    writeStrToJsonFile(filePath=reqFilePath,jsonStr=bodydata,rwmode="a+")
+    reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=ymlFileType)
+    dumpDataToYmlFile(filePath=reqFilePath,data=bodydata)
+
+
 
 if __name__ == "__main__":
     testData = {
