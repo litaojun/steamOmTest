@@ -49,7 +49,7 @@ def genAutoCase(**xargs):
     ctx.log.info("fileEnd=%s" % fileEnd)
     if fileEnd is not None:
         fileEnd = query_json(json_content=bodydata,query=fileEnd)
-        fileEnd = "s%s.yml" % fileEnd
+        fileEnd = "s-%s.yml" % fileEnd
     else:
         fileEnd = "s.yml"
     ctx.log.info("fileEnd=%s" % fileEnd)
