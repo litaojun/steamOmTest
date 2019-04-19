@@ -44,7 +44,11 @@ def genAutoCase(**xargs):
                  "testPoint":"修改活动正常",
                  "reqjsonfile":"formatone"
                }
-    usertype,modul,title = httpData[path][5],httpData[path][7],httpData[path][4]
+    usertype,modul,title,fileEnd = httpData[path][5],httpData[path][7],httpData[path][4],httpData[path][8]
+    if fileEnd is not None:
+        fileEnd = "s%s.yml" % fileEnd
+    else:
+        fileEnd = "s.yml"
     caseTmpDataDict = loadCaseTmpFile()
     caseTmpDataDict["testcases"][0]["interfaceName"] = path
     caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title
@@ -52,7 +56,7 @@ def genAutoCase(**xargs):
     testData.update(bodydata)
     ctx.log.info("testData=%s" % testData)
     caseTmpDataDict["testcases"][0]["case"][0]["testData"] = [ testData ]
-    filePath = getTestcasePath(usertype=usertype,modul=modul,path=path)
+    filePath = getTestcasePath(usertype=usertype,modul=modul,path=path,fileType=fileEnd)
     ctx.log.info("filePat=%s,caseData=%s" %(filePath,caseTmpDataDict))
     dumpDataToYmlFile(filePath=filePath,data=caseTmpDataDict)
 
@@ -60,11 +64,9 @@ def genAutoCase(**xargs):
 def genReqData(**xargs):
     bodyType,path,bodydata = xargs["bodyType"],xargs["path"],xargs["bodydata"]
     if bodyType == "request":
-        jsonFileType = "Req.json"
-        ymlFileType  = "Req.yml"
+        jsonFileType,ymlFileType = "Req.json","Req.yml"
     elif bodyType == "response":
-        jsonFileType = "Rsp.json"
-        ymlFileType  = "Rsp.yml"
+        jsonFileType,ymlFileType = "Rsp.json","Rsp.yml"
     else:
         return
     ctx.log.info("genReqData,path=%s" % path)
