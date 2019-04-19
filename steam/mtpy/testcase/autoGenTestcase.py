@@ -46,12 +46,13 @@ def genAutoCase(**xargs):
                  "reqjsonfile":"formatone"
                }
     usertype,modul,title,fileEnd = httpData[path][5],httpData[path][7],httpData[path][4],httpData[path][8]
+    ctx.log.info("fileEnd=%s" % fileEnd)
     if fileEnd is not None:
-        query_json(json_content=bodydata,query=fileEnd)
+        fileEnd = query_json(json_content=bodydata,query=fileEnd)
         fileEnd = "s%s.yml" % fileEnd
-        ctx.log.info("fileEnd=%s" % fileEnd)
     else:
         fileEnd = "s.yml"
+    ctx.log.info("fileEnd=%s" % fileEnd)
     caseTmpDataDict = loadCaseTmpFile()
     caseTmpDataDict["testcases"][0]["interfaceName"] = path
     caseTmpDataDict["testcases"][0]["case"][0]["testPoint"] = title
