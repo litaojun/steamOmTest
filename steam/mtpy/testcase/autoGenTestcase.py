@@ -2,6 +2,7 @@ from steam.mockhttp.flaskHttpServer import httpData
 from steam.util.configIni import basePath
 from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 from steam.util.formatJsonFile import writeStrToJsonFile,fmtStrToJson
+from opg.util.utils import query_json
 import os
 
 from mitmproxy import ctx
@@ -46,7 +47,9 @@ def genAutoCase(**xargs):
                }
     usertype,modul,title,fileEnd = httpData[path][5],httpData[path][7],httpData[path][4],httpData[path][8]
     if fileEnd is not None:
+        query_json(json_content=bodydata,query=fileEnd)
         fileEnd = "s%s.yml" % fileEnd
+        ctx.log.info("fileEnd=%s" % fileEnd)
     else:
         fileEnd = "s.yml"
     caseTmpDataDict = loadCaseTmpFile()
