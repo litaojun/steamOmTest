@@ -1,7 +1,8 @@
 from opg.util.utils import query_json
 from opg.bak.uopService import UopService,loadStrFromFile,resultData
+from steam.util.formatJsonFile import loadJsonFromFile
 from steam.mockhttp.flaskHttpServer import httpData
-from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
+from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet,httpReqSend
 import json,os
 from opg.util.lginfo import logger
 
@@ -43,6 +44,13 @@ class HttpUopService(UopService):
           elif userType == "admin":
               pass
 
+      def genCaseByFmtOrInputKV(self,reqJsonDataFmt = None):
+          reqData = {}
+          if reqJsonDataFmt is not None:
+              for caseKey in reqJsonDataFmt:
+                  reqData[caseKey] = self.inputKV.get(caseKey,reqJsonDataFmt[caseKey])
+          return reqData
+
       def genReqHeaderByUrl(self,urlSign = None):
           utToTokenType = { "admin":"CMS","weixin":"","merchants":"MERCHANT" }
           userType = httpData[urlSign][5]
@@ -68,61 +76,49 @@ class HttpUopService(UopService):
               if token is not None:
                   self.jsonheart["merchant_token"] = token
 
-
-
-
       def sendHttpReq(self,reqdata=None):
           urlPathSign    = self.__class__.__interfaceName__
           method         = httpData[urlPathSign][0]
           url            = httpData[urlPathSign][2]
-          reqFormatPath  = httpData[urlPathSign][1][ self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone" ][1]
-          reqDataFmt     = loadStrFromFile(reqFormatPath)
+          reqjsonfile = self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"
+          reqFormatPath  = httpData[urlPathSign][1][reqjsonfile][0]
+          # reqDataFmt     = loadStrFromFile(reqFormatPath)
+          reqJsonDataFmt = loadJsonFromFile(reqFormatPath)
           self.genReqHeaderByUrl(urlSign=urlPathSign)
           if reqdata is None:
-             reqdata        = reqDataFmt % self.inputKV
+             # reqdata        = reqDataFmt % self.inputKV
+             self.reqjsondata = self.genCaseByFmtOrInputKV(reqJsonDataFmt=reqJsonDataFmt)
           else:
               self.reqjsondata = reqdata
-          # if "userType" in self.inputKV :
-          #     if self.inputKV["userType"] == "admin":
-          #        token = self.inputKV["admin-token"]
-          #     elif self.inputKV["userType"] == "weixin":
-          #         token = self.inputKV["user-token"]
+          self.rsp = httpReqSend(url=url,headers=self.jsonheart,reqJson=self.reqjsondata,
+                                 fileName=self.inputKV.get('file',None),method=method)
+          # if method in ("get","delete","file","put-get") :
+          #    self.reqjsondata = reqdata
+          #    if method == "get":
+          #       self.rsp =  httpGet(url     = url + self.reqjsondata ,
+          #                           headers = self.jsonheart)
+          #    elif method  == "delete":
+          #         self.rsp =   httpDelete(url     = url + self.reqjsondata ,
+          #                                 headers = self.jsonheart)
+          #    elif method  == "file":
+          #         self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
+          #         self.files = {'file': open(self.inputKV['file'], 'rb')}
+          #         self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
+          #    elif method == "put-get":
+          #        self.rsp = httpPutGet(url     = url + self.reqjsondata,
+          #                              headers = self.jsonheart)
           # else:
-          #     token = self.inputKV["token"] if "token" in self.inputKV else ""
-          # self.jsonheart = {
-          #                         "x-token": "admin",
-          #                         "memberId": self.inputKV["memberId"] if "memberId" in self.inputKV else "",
-          #                         "token": token ,
-          #                         "merchant_token": self.inputKV["merchant_token"] if "merchant_token" in self.inputKV else ""
-          #                   }
-          # self.jsonheart={}
-          if method in ("get","delete","file","put-get") :
-             self.reqjsondata = reqdata
-             if method   == "get":
-                self.rsp =  httpGet(url     = url + self.reqjsondata ,
-                                    headers = self.jsonheart)
-             elif method  == "delete":
-                  self.rsp =   httpDelete(url     = url + self.reqjsondata ,
-                                          headers = self.jsonheart)
-             elif method  == "file":
-                  self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
-                  self.files = {'file': open(self.inputKV['file'], 'rb')}
-                  self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
-             elif method == "put-get":
-                 self.rsp = httpPutGet(url     = url + self.reqjsondata,
-                                       headers = self.jsonheart)
-          else:
-              try:
-                  if  type(reqdata) == str :
-                      self.reqjsondata = eval(reqdata)
-                  if method == "post":
-                     self.rsp = httpPost( url         = url ,
-                                          headers     = self.jsonheart,
-                                          reqJsonData = self.reqjsondata )
-                  elif method == "put":
-                       self.rsp = httpDelete( url = url )
-              except Exception as e:
-                  raise e
+          #     try:
+          #         if  type(reqdata) == str :
+          #             self.reqjsondata = eval(reqdata)
+          #         if method == "post":
+          #            self.rsp = httpPost( url         = url ,
+          #                                 headers     = self.jsonheart,
+          #                                 reqJsonData = self.reqjsondata )
+          #         elif method == "put":
+          #              self.rsp = httpDelete( url = url )
+          #     except Exception as e:
+          #         raise e
           return  self.rsp
 
       @resultData(param="getRetcodeByRsp")

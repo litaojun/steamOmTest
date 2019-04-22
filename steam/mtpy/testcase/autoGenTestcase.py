@@ -28,7 +28,7 @@ def getTestcasePath(usertype,modul,path,dirType="steamcase",fileType="s.yml"):
     :param dirType: steamcase:测试用例目录， steam:请求响应数据目录
     :return:
     """
-    fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))]) + fileType
+    fileName = "".join([ name.capitalize() if index>1 else name for index,name in enumerate(path.split("/"))][-2:]) + fileType
     filePath = os.sep.join([basePath,"mitmproxy",dirType,usertype,modul,fileName])
     print("filePath = %s" % filePath)
     return filePath
