@@ -1,6 +1,6 @@
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import searchActivityurl
+#from steam.util.configurl import searchActivityurl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
@@ -47,11 +47,8 @@ class ActivitySearchService(HttpUopService):
 
     @decorator("setupGetFirstProductContent")
     def setInPutData(self):
-        #sku = self.getSku(skuName=self.inputKV["skuName"])
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        #self.inputKV["skuId"] = sku["skuId"]
         self.inputKV["resourceId"] = resourceId
-        #self.inputKV["payPrice"] = sku["price"]
 
     def getRetcodeByActRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="code")

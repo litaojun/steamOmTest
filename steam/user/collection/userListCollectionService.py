@@ -1,4 +1,4 @@
-from   steam.util.configurl import userListCollectionUrl
+# from   steam.util.configurl import userListCollectionUrl
 from   opg.util.httptools import httpGet
 from   steam.util.httpUopService import  HttpUopService
 class UserListCollectionService(HttpUopService):

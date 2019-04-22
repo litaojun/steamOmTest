@@ -5,7 +5,13 @@ from opg.util.httptools import httpPost,httpGet
 
 def loadJsonFromFile(filePath=""):
     if filePath  is not None and os.path.exists(filePath):
-        return  json.load(open(filePath, "r", encoding="utf-8"))
+        with open(filePath) as f:
+            try:
+              jsonData = json.load(f)
+            except Exception as e:
+              print(e)
+              raise e
+            return jsonData
 
 # 读json文件，并格式化indent=3后写入
 def formatJsFile(filePath=""):

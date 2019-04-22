@@ -11,7 +11,7 @@
 """
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import upActivityurl
+#from steam.util.configurl import upActivityurl
 from steam.util.httpUopService import  HttpUopService
 class ActivityPublishService(HttpUopService):
     '''

@@ -11,7 +11,7 @@
 @file: resourceVisitService.py 
 @time: 2018/10/19 10:31 
 """
-from steam.util.configurl import userResourceVisistUrl
+#from steam.util.configurl import userResourceVisistUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class ResourceVisitService(HttpUopService):

@@ -14,7 +14,7 @@
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userMatchQueryUrl
+#from steam.util.configurl import userMatchQueryUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserMatchQueryService(HttpUopService):

@@ -14,7 +14,7 @@
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userCancelOrderActivityUrl
+#from steam.util.configurl import userCancelOrderActivityUrl
 from opg.util.schemajson import check_rspdata
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService

@@ -13,7 +13,7 @@
 """
 from opg.bak.uopService import decorator
 from steam.user.member.memberAddressService import MemberAddressService
-from steam.util.configurl import userAddAddressUrl
+#from steam.util.configurl import userAddAddressUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 class UserDelAddressService(HttpUopService):

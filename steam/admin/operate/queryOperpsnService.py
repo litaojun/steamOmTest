@@ -13,7 +13,7 @@ from opg.util.httptools import httpGet
 import json
 from opg.bak.uopService import decorator
 from opg.util.utils import query_json
-from steam.util.configurl import homeConfigQueryurl
+#from steam.util.configurl import homeConfigQueryurl
 from steam.util.httpUopService import  HttpUopService
 class OperpsnQueryService(HttpUopService):
     '''

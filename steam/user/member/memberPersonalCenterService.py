@@ -1,6 +1,6 @@
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import memberPersonalCenterUrl
+#from steam.util.configurl import memberPersonalCenterUrl
 from steam.util.httpUopService import  HttpUopService
 from opg.util.httptools import httpGet
 class MemberPersonalCenterService(HttpUopService):

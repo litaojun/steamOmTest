@@ -14,7 +14,7 @@
 from opg.bak.uopService import UopService
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import findSubMatchUrl
+#from steam.util.configurl import findSubMatchUrl
 from opg.util.httptools import httpGet
 class MatchLabFindService(UopService):
     '''

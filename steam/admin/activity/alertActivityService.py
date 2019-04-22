@@ -12,7 +12,7 @@
 from opg.util.httptools import httpPost
 import json
 from opg.util.utils import query_json, setValue_json
-from steam.util.configurl import alertActivityurl
+#from steam.util.configurl import alertActivityurl
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.httpUopService import HttpUopService
 

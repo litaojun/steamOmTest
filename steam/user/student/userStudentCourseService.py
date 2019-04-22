@@ -13,7 +13,7 @@
 """
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userStudentCourseListUrl
+#from steam.util.configurl import userStudentCourseListUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class UserStudentCourseService(HttpUopService):

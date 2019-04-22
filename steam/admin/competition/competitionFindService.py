@@ -13,7 +13,7 @@
 """
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import findMatchUrl
+#from steam.util.configurl import findMatchUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class MatchFindService(HttpUopService):

@@ -14,7 +14,7 @@
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import userDetailOrderActivityUrl
+#from steam.util.configurl import userDetailOrderActivityUrl
 from opg.util.httptools import httpPost
 from steam.util.httpUopService import  HttpUopService
 from steam.user.order.userOrederActivityService import UserOrderActivityService

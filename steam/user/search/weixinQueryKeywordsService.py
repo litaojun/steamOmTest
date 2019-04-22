@@ -11,7 +11,7 @@
 @file: weixinSearchService.py 
 @time: 2018/8/13 17:11 
 """
-from steam.util.configurl import weixinQueryKeywordsUrl
+#from steam.util.configurl import weixinQueryKeywordsUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class WeixinQueryKeywordsService(HttpUopService):

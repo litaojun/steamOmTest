@@ -13,7 +13,7 @@
 """
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import weixinSearchUrl
+#from steam.util.configurl import weixinSearchUrl
 from steam.user.weixin.userViewActivityService import  UserViewActivityService
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService

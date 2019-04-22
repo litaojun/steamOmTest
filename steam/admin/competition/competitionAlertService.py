@@ -11,7 +11,7 @@
 """
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import alertMatchurl
+#from steam.util.configurl import alertMatchurl
 from opg.util.timeTool import getTimeIntByInPut
 from steam.util.httpUopService import  HttpUopService
 class CompetitionAlertService(HttpUopService):

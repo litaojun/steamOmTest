@@ -1,5 +1,5 @@
 import requests
-from steam.util.configurl import downActivityurl
+#from steam.util.configurl import downActivityurl
 
 from steam.util.httpUopService import HttpUopService
 

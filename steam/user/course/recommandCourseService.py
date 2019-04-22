@@ -11,7 +11,7 @@
 @file: recommandCourseService.py 
 @time: 2018/10/12 16:29 
 """
-from steam.util.configurl import recommandCourseUrl
+#from steam.util.configurl import recommandCourseUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class RecommandCourseService(HttpUopService):

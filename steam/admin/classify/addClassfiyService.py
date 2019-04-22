@@ -12,7 +12,7 @@
 from opg.bak.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import delEntryurl
+#from steam.util.configurl import delEntryurl
 from steam.util.httpUopService import  HttpUopService
 # from steam.classify.delclassify.delClassifyService import ClassfiyDelService
 

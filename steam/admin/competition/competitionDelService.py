@@ -13,7 +13,7 @@ from steam.util.httpUopService import  HttpUopService
 from opg.bak.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import delMatchurl
+#from steam.util.configurl import delMatchurl
 from steam.admin.competition.competitionService import MatchAddService
 class MatchDelService(HttpUopService):
     '''

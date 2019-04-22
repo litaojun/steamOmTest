@@ -1,6 +1,6 @@
 from opg.bak.uopService import UopService,decorator
 from opg.util.httptools import httpPost
-from steam.util.configurl import adminLoginUrl
+# from steam.util.configurl import adminLoginUrl
 from opg.util.utils import query_json
 from opg.util.schemajson import check_rspdata
 import json

@@ -13,7 +13,7 @@ from steam.util.httpUopService import  HttpUopService
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import alertentryurl
+#from steam.util.configurl import alertentryurl
 from steam.admin.classify.addClassfiyService import ClassfiyAddService
 from opg.util.httptools import httpPost
 from steam.admin.classify.delClassifyService import ClassfiyDelService

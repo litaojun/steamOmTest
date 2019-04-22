@@ -13,7 +13,7 @@
 """
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import hotPositonUrl
+#from steam.util.configurl import hotPositonUrl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import homePositionReq,homePositionRspFmt
 from opg.util.httptools import httpGet

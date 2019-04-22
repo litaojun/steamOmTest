@@ -12,7 +12,7 @@
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import delArticleurl
+#from steam.util.configurl import delArticleurl
 from opg.util.schemajson import check_rspdata
 from steam.util.reqFormatPath import  fxt, articleAddRspFmt
 from opg.util.httptools import httpPost

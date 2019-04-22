@@ -12,7 +12,7 @@
 from opg.bak.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
-from steam.util.configurl import alertOperpositionurl,delOperpositionurl
+#from steam.util.configurl import alertOperpositionurl,delOperpositionurl
 from steam.admin.operate.addOperPsnService import  OperpsnAddService
 from steam.util.httpUopService import  HttpUopService
 class OperpsnAlertService(HttpUopService):

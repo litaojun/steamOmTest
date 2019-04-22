@@ -13,7 +13,7 @@
 """
 import json
 from opg.util.utils import query_json
-from steam.util.configurl import queryAliyunVideoAuthUrl
+#from steam.util.configurl import queryAliyunVideoAuthUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class QueryAliyunVideoAuthService(HttpUopService):
