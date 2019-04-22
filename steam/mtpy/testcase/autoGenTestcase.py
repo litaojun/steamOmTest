@@ -28,7 +28,8 @@ def getTestcasePath(usertype,modul,path,dirType="steamcase",fileType="s.yml"):
     :param dirType: steamcase:测试用例目录， steam:请求响应数据目录
     :return:
     """
-    fileName = "".join([ name.capitalize() if index==1 else name for index,name in enumerate(path.split("/")[-2:])]) + fileType
+    fileName = "".join([ name.capitalize() if index==1 else name for index,name in enumerate(path.split("/")[-2:])])\
+               + fileType
     filePath = os.sep.join([basePath,"mitmproxy",dirType,usertype,modul,fileName])
     print("filePath = %s" % filePath)
     return filePath
@@ -82,8 +83,6 @@ def genReqData(**xargs):
     writeStrToJsonFile(filePath=reqFilePath,jsonStr=bodydata,rwmode="w")
     reqFilePath = getTestcasePath(usertype=usertype, modul=modul, path=path, dirType="steam", fileType=ymlFileType)
     dumpDataToYmlFile(filePath=reqFilePath,data=fmtStrToJson(bodydata))
-
-
 
 if __name__ == "__main__":
     testData = {
