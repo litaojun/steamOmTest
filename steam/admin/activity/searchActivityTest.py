@@ -1,13 +1,7 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0
-"""
-# from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.util.testJsonFormat import initAdminInputService
-# from steam.runflask.innerapi.testcaseRun import runOneTestCase
+
 class ActivitySearchTest(SteamTestCase):
       '''
             根据名称搜索活动
