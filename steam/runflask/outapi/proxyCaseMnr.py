@@ -24,9 +24,9 @@ def getInterfaceProxyTscase():
         caseData = {}
         data = httpData[urlSign]
         oneDir, twoDir, url, urlSuffix, fileEnd = data[5], data[7],\
-            data[2], data[2][29:],\
+            data[2], data[2][28:],\
             data[8]
-        caseData["interfaceName"] = url
+        caseData["interfaceName"]= url
         filePrefix = genFilePrefixByUrlSuf(urlSuffix=urlSuffix)
         casePath, fmtPath = genCaseOrFmtPath(oneDir, twoDir)
         data = []
@@ -41,7 +41,7 @@ def getInterfaceProxyTscase():
                          "fmtRspPath": fmtRspPath,
                          "localName": filePrefix + "s.yml"})
         else:
-            filePathName = casePath + os.sep + filePrefix + "*s.yml"
+            filePathName = casePath + os.sep + filePrefix #+ "*s.yml"
             data = genTitleFilepathDict(
                 filePathName, urlSuffix, fmtReqPath, fmtRspPath)
             print("data=%s" % data)
