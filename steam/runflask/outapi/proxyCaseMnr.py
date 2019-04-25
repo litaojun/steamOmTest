@@ -44,6 +44,7 @@ def getInterfaceProxyTscase():
             filePathName = casePath + os.sep + filePrefix + "*s.yml"
             data = genTitleFilepathDict(
                 filePathName, urlSuffix, fmtReqPath, fmtRspPath)
+            print("data=%s" % data)
         caseData["result"] = data
         interfaceProxyTscase.append(caseData)
     return jsonify({"code": "000000", "caseDataList": interfaceProxyTscase})
