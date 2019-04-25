@@ -9,7 +9,6 @@ from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
 from opg.unit.runtest import runOneTestcase
 import threading
-# from steam.mockhttp.util.initFile import casepath
 from steam.util.configIni import casepath
 import os
 from opg.unit.runtest import runOneCls
@@ -38,17 +37,15 @@ def runOneTestCase():
     writeDir = writeLog(wtrDir=logDir)
     testcases = initAllTestCase(casepath)
     testclass = initAllTestClass()
-    testSuite = genTestCaseByInterfaceOrCaseIds(
-        allTestClass=testclass,
-        allCase=testcases,
-        interfaceName=interfaceName,
-        caseIds=[caseId])
+    testSuite = genTestCaseByInterfaceOrCaseIds(allTestClass=testclass,
+                                                allCase=testcases,
+                                                interfaceName=interfaceName,
+                                                caseIds=[caseId])
     runOneTestcase(suites=testSuite,
                    planId=planId,
                    token=token,
                    title=projectName,
                    description="%s-用例测试情况" % projectName)
-
     return jsonify({
         "code": "000000",
         "token": token
