@@ -1,6 +1,7 @@
 from steam.mockhttp.flaskHttpServer import httpData
 from steam.util.configIni import basePath, casepath
 import os
+from steam.util.strFun import capitalize
 import glob
 from flask import Blueprint
 from flask import send_from_directory, request,jsonify
@@ -13,7 +14,7 @@ def genCaseOrFmtPath(oneDir, twoDir):
 
 
 def genFilePrefixByUrlSuf(urlSuffix):
-    return "".join([name if index == 0 else name.capitalize()
+    return "".join([name if index == 0 else capitalize(name)
                     for index, name in enumerate(urlSuffix.split("/")[-2:])])
 
 

@@ -4,6 +4,7 @@ from opg.util.yamlOper import readYmlFile,dumpDataToYmlFile
 from steam.util.formatJsonFile import writeStrToJsonFile,fmtStrToJson
 from opg.util.utils import query_json
 import os
+from steam.util.strFun import capitalize
 
 from mitmproxy import ctx
 
@@ -28,7 +29,7 @@ def getTestcasePath(usertype,modul,path,dirType="steamcase",fileType="s.yml"):
     :param dirType: steamcase:测试用例目录， steam:请求响应数据目录
     :return:
     """
-    fileName = "".join([ name.capitalize() if index==1 else name for index,name in enumerate(path.split("/")[-2:])])\
+    fileName = "".join([ capitalize(name) if index==1 else name for index,name in enumerate(path.split("/")[-2:])])\
                + fileType
     filePath = os.sep.join([basePath,"mitmproxy",dirType,usertype,modul,fileName])
     print("filePath = %s" % filePath)
