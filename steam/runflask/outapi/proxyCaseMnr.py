@@ -41,7 +41,7 @@ def getInterfaceProxyTscase():
                          "fmtRspPath": fmtRspPath,
                          "localName": filePrefix + "s.yml"})
         else:
-            filePathName = casePath + os.sep + filePrefix #+ "*s.yml"
+            filePathName = casePath + os.sep + filePrefix + "*" #+ "*s.yml"
             data = genTitleFilepathDict(
                 filePathName, urlSuffix, fmtReqPath, fmtRspPath)
             print("data=%s" % data)
