@@ -3,7 +3,7 @@ from steam.util.configIni import basePath, casepath
 import os
 import glob
 from flask import Blueprint
-from flask import send_from_directory, request
+from flask import send_from_directory, request,jsonify
 bapp = Blueprint('proxy', __name__)
 
 
@@ -46,7 +46,7 @@ def getInterfaceProxyTscase():
                 filePathName, urlSuffix, fmtReqPath, fmtRspPath)
         caseData["result"] = data
         interfaceProxyTscase.append(caseData)
-    return {"code": "000000", "caseDataList": interfaceProxyTscase}
+    return jsonify({"code": "000000", "caseDataList": interfaceProxyTscase})
 
 
 def genTitleFilepathDict(filePathName, urlSuffix, fmtReqPath, fmtRspPath):
