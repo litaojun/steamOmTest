@@ -2,7 +2,6 @@ import os
 from opg.util.schemajson import loadJsonFile, Validator
 from steam.util.reqFormatPath import fxt, homePositionRspFmt
 
-
 def loadjson(filepath=""):
     file = os.getcwd() + filepath
     activitiesInfoScma = loadJsonFile(file)
