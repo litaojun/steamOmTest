@@ -23,9 +23,9 @@ def getInterfaceProxyTscase():
     for urlSign in httpData:
         caseData = {}
         data = httpData[urlSign]
-        oneDir, twoDir, url, urlSuffix, fileEnd = data["dir"], data["curdir"],\
-            data["url"], data["url"][29:],\
-            data.get("fileEnd", None)
+        oneDir, twoDir, url, urlSuffix, fileEnd = data[5], data[7],\
+            data[2], data[2][29:],\
+            data.get[8]
         caseData["interfaceName"] = url
         filePrefix = genFilePrefixByUrlSuf(urlSuffix=urlSuffix)
         casePath, fmtPath = genCaseOrFmtPath(oneDir, twoDir)
