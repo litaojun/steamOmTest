@@ -51,11 +51,14 @@ def getInterfaceProxyTscase():
 
 
 def genTitleFilepathDict(filePathName, urlSuffix, fmtReqPath, fmtRspPath):
+    print("filePathName=%s,urlSuffix=%s,fmtReqPath=%s,fmtRspPath=%s" % (filePathName,urlSuffix,fmtReqPath,fmtRspPath))
     fileList = glob.glob(pathname=filePathName)
+    print("fileList=%s" % fileList )
     data = []
     for filePath in fileList:
         fileName = os.path.basename(filePath)
         title = fileName.split("-")[1][0:-4]
+        print("fileName=%s ,title=%s" %(fileName,title))
         data.append({"title": title,
                      "casePath": filePath,
                      "interfacename": urlSuffix,

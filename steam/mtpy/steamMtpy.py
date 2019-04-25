@@ -51,7 +51,12 @@ class SteamMtyp:
         if host == "uat-steam-api.opg.cn":
             body,path = flow.response.text,flow.request.path.split("?")[0]
             ctx.log.info("body = %s,path=%s" % (body,path))
-            self.rspProxyHook.run(method=method,host=host,url=url,path=path,bodydata=body,bodyType="response")
+            self.rspProxyHook.run(method=method,
+                                  host=host,
+                                  url=url,
+                                  path=path,
+                                  bodydata=body,
+                                  bodyType="response")
 
 # def start():
 #     return SteamMtyp()
