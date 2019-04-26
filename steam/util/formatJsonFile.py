@@ -5,7 +5,7 @@ from opg.util.httptools import httpPost,httpGet
 
 def loadJsonFromFile(filePath=""):
     if filePath  is not None and os.path.exists(filePath):
-        with open(filePath) as f:
+        with open(filePath,encoding='utf-8') as f:
             try:
               jsonData = json.load(f)
             except Exception as e:

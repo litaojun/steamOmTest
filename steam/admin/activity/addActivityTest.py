@@ -11,11 +11,9 @@ class ActivityAddTest(SteamTestCase):
     @initAdminInputService(curser=ActivityAddService)
     def __init__(self, methodName='runTest',
                        param=None):
-        super(ActivityAddTest, self).__init__(methodName,
-                                              param)
+        super(ActivityAddTest, self).__init__(methodName,param)
 
 if __name__ == "__main__":
-    runTestOneCls(
-        casefilepath="\\steamcase\\admin\\activity\\operation-manageproductadds.yml",
-        testclse=ActivityAddTest,
-        basepath="D:\\litaojun\\steamyml")
+    runTestOneCls(casefilepath="\\steamcase\\admin\\activity\\operation-manageproductadds.yml",
+                  testclse=ActivityAddTest,
+                  basepath="D:\\litaojun\\steamyml")

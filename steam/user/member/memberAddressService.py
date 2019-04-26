@@ -1,16 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: memberAddressService.py 
-@time: 2018/7/10 16:08 
-"""
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json
@@ -58,8 +45,7 @@ class MemberAddressService(HttpUopService):
     #                       query        = "code")
     @decorator(["setupGetUserAddressId","tearDownGetUserAddressId"])
     def setInPutData(self):
-        memberAddrId               = self.getMemberAddressIdFromRsp()
-        self.inputKV["addressId"] = memberAddrId
+        self.inputKV["id"] = self.getMemberAddressIdFromRsp()
 
 if __name__ == "__main__":
     kwargs = {
