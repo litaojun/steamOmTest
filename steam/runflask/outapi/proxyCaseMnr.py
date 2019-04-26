@@ -78,7 +78,10 @@ def downFile():
         print("request json=%s" % request.json)
         filePathName = request.json.get("filePath")
         print("filePathName=%s" % filePathName)
-        filePath,fileName  = os.path.dirname(filePathName), os.path.basename(filePathName)
+        if os.path.exists(filePathName):
+           filePath,fileName  = os.path.dirname(filePathName), os.path.basename(filePathName)
+        else:
+            filePath,fileName = os.getcwd() + os.sep + "upload"  ,  "aaa.log"
         print("fileName=%s, filePath=%s" % (fileName,filePath))
         return send_from_directory(filePath, fileName)
 
