@@ -1,6 +1,7 @@
 from steam.mockhttp.flaskHttpServer import httpData
 from steam.util.configIni import basePath, casepath
 import os
+from steam.util.strFun import capitalize
 import glob
 from flask import Blueprint
 from flask import send_from_directory, request,jsonify
@@ -13,7 +14,7 @@ def genCaseOrFmtPath(oneDir, twoDir):
 
 
 def genFilePrefixByUrlSuf(urlSuffix):
-    return "".join([name if index == 0 else name.capitalize()
+    return "".join([name if index == 0 else capitalize(name)
                     for index, name in enumerate(urlSuffix.split("/")[-2:])])
 
 
@@ -24,9 +25,9 @@ def getInterfaceProxyTscase():
         caseData = {}
         data = httpData[urlSign]
         oneDir, twoDir, url, urlSuffix, fileEnd = data[5], data[7],\
-            data[2], data[2][29:],\
+            data[2], data[2][28:],\
             data[8]
-        caseData["interfaceName"] = url
+        caseData["interfaceName"]= url
         filePrefix = genFilePrefixByUrlSuf(urlSuffix=urlSuffix)
         casePath, fmtPath = genCaseOrFmtPath(oneDir, twoDir)
         data = []
@@ -41,7 +42,7 @@ def getInterfaceProxyTscase():
                          "fmtRspPath": fmtRspPath,
                          "localName": filePrefix + "s.yml"})
         else:
-            filePathName = casePath + os.sep + filePrefix + "*s.yml"
+            filePathName = casePath + os.sep + filePrefix + "*" #+ "*s.yml"
             data = genTitleFilepathDict(
                 filePathName, urlSuffix, fmtReqPath, fmtRspPath)
             print("data=%s" % data)
@@ -51,11 +52,14 @@ def getInterfaceProxyTscase():
 
 
 def genTitleFilepathDict(filePathName, urlSuffix, fmtReqPath, fmtRspPath):
+    print("filePathName=%s,urlSuffix=%s,fmtReqPath=%s,fmtRspPath=%s" % (filePathName,urlSuffix,fmtReqPath,fmtRspPath))
     fileList = glob.glob(pathname=filePathName)
+    print("fileList=%s" % fileList )
     data = []
     for filePath in fileList:
         fileName = os.path.basename(filePath)
         title = fileName.split("-")[1][0:-4]
+        print("fileName=%s ,title=%s" %(fileName,title))
         data.append({"title": title,
                      "casePath": filePath,
                      "interfacename": urlSuffix,
