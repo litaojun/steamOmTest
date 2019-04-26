@@ -71,7 +71,7 @@ def downFile():
     print("filePathName=%s" % filePathName)
     fileName, filePath = os.path.dirname(filePathName), os.path.basename(filePathName)
     print("fileName=%s, filePath=%s" % (fileName,filePath))
-    send_from_directory(filePath, fileName)
+    return send_from_directory(filePath, fileName)
 
 
 def downFmtFile():
