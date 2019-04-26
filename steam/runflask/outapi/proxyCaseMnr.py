@@ -35,7 +35,7 @@ def getInterfaceProxyTscase():
         fmtRspPath = fmtPath + os.sep + filePrefix + "Rsp.json"
         if fileEnd is None:
             filePathName = casePath + os.sep + filePrefix + "s.yml"
-            data.append({"title": None,
+            data.append({"title": filePrefix + "s.yml",
                          "casePath": filePathName,
                          "interfacename": urlSuffix,
                          "fmtReqPath": fmtReqPath,
