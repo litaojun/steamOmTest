@@ -78,7 +78,7 @@ def downFile():
         print("request json=%s" % request.json)
         filePathName = request.json.get("filePath")
         print("filePathName=%s" % filePathName)
-        fileName, filePath = os.path.dirname(filePathName), os.path.basename(filePathName)
+        filePath,fileName  = os.path.dirname(filePathName), os.path.basename(filePathName)
         print("fileName=%s, filePath=%s" % (fileName,filePath))
         return send_from_directory(filePath, fileName)
 
