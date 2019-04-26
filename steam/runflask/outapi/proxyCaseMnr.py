@@ -71,7 +71,7 @@ def genTitleFilepathDict(filePathName, urlSuffix, fmtReqPath, fmtRspPath):
 
 @bapp.route("/prop/downfile", methods=['POST'])
 def downFile():
-    filePathName = request.args.get("filePath")
+    filePathName = request.form.get("filePath")
     print("filePathName=%s" % filePathName)
     fileName, filePath = os.path.dirname(filePathName), os.path.basename(filePathName)
     print("fileName=%s, filePath=%s" % (fileName,filePath))
