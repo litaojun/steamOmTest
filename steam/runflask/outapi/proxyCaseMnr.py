@@ -73,6 +73,7 @@ def genTitleFilepathDict(filePathName, urlSuffix, fmtReqPath, fmtRspPath):
 def downFile():
     if request.method == "POST":
         print("request form=%s" % request.form)
+        print("request form=%s" % request.values)
         filePathName = request.form.get("filePath")
         print("filePathName=%s" % filePathName)
         fileName, filePath = os.path.dirname(filePathName), os.path.basename(filePathName)
