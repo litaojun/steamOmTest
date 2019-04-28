@@ -1,5 +1,6 @@
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 from steam.mockhttp.util.initFile import basePath,generateUrlToFilePath
+from steam.util.formatJsonFile import loadJsonFromFile
 from steam.util.configIni import basePath,phoneCf
 from opg.util.lginfo import logger
 from steam.util.steamRedisData import getVerifyCodeByUserType
@@ -9,6 +10,23 @@ from opg.util.utils import query_json
 from collections import defaultdict
 from opg.util.lginfo import selectFh,genDir,writeLog
 urldata = generateUrlToFilePath()
+mockData = {
+                "weixin": {
+                    "18916899938": "01440d50081f411e8ad138a258937d9a"
+                },
+                "admin": {
+                    "admin": {},
+                    "operate": {
+                        "18916899938": "50a44947787844b09b1005a0fc7fe153"
+                    },
+                    "merchants": {
+                        "18516099506": "788631f7f7184e0a99374829127d680c"
+                    }
+                },
+                "merchants": {
+                    "18916899938": "d91596686139489aad203d3f2b544117"
+                }
+            }
 class TokenData():
       sign = True
       def __init__(self):
@@ -44,9 +62,23 @@ class TokenData():
               phoneNum = phoneCf.get(userType,adminType)
           return phoneNum
 
+      def getMockTokenData(self):
+          mockSign = phoneCf.get("mock","sign")
+          logger.info("mockSign=%s,type=%s" % (mockSign,type(mockSign)))
+          if mockSign in ["True","true"]:
+              logger.info("getMockTokenData--默认token生成开始")
+              import os
+              return loadJsonFromFile(os.sep.join([os.getcwd(),"config","mockToken.json"]))
+          else:
+              return  None
+
       #根据配置的手机号初始化Token
       def initTokenData(self):
           logger.info("默认token生成开始")
+          self.tkdict = self.getMockTokenData()
+          if self.tkdict is not None:
+              logger.info("使用mock token开始")
+              return
           wx_token = self.weixinLogin(phoneNum=phoneCf.get("weixin","phoneNums"))
           # cms_admin_token = self.cmsLogin(phoneNum=phoneCf.get("admin","admin"))
           cms_operate_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "operate"))
