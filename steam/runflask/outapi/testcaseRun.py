@@ -105,10 +105,10 @@ def runOneTestClass(interfaceName):
     global writeDir
     logDir = genDir(str(logtime))
     writeDir = writeLog(wtrDir=logDir)
-    testSuite     = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
-                                                     allCase       = initData.allTestCase  ,
-                                                     interfaceName = interfaceName,
-                                                     caseIds       = None )
+    testSuite = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
+                                                 allCase       = initData.allTestCase  ,
+                                                 interfaceName = interfaceName,
+                                                 caseIds       = None )
     runOneCls(testSuite,casepath)
 if __name__ == "__main__":
     from opg.util.dbtools import Database
