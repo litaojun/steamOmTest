@@ -82,43 +82,14 @@ class HttpUopService(UopService):
           url            = httpData[urlPathSign][2]
           reqjsonfile = self.inputKV["reqjsonfile"] if "reqjsonfile" in self.inputKV else "formatone"
           reqFormatPath  = httpData[urlPathSign][1][reqjsonfile][0]
-          # reqDataFmt     = loadStrFromFile(reqFormatPath)
           reqJsonDataFmt = loadJsonFromFile(reqFormatPath)
           self.genReqHeaderByUrl(urlSign=urlPathSign)
           if reqdata is None:
-             # reqdata        = reqDataFmt % self.inputKV
              self.reqjsondata = self.genCaseByFmtOrInputKV(reqJsonDataFmt=reqJsonDataFmt)
           else:
               self.reqjsondata = reqdata
           self.rsp = httpReqSend(url=url,headers=self.jsonheart,reqJson=self.reqjsondata,
                                  fileName=self.inputKV.get('file',None),method=method)
-          # if method in ("get","delete","file","put-get") :
-          #    self.reqjsondata = reqdata
-          #    if method == "get":
-          #       self.rsp =  httpGet(url     = url + self.reqjsondata ,
-          #                           headers = self.jsonheart)
-          #    elif method  == "delete":
-          #         self.rsp =   httpDelete(url     = url + self.reqjsondata ,
-          #                                 headers = self.jsonheart)
-          #    elif method  == "file":
-          #         self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
-          #         self.files = {'file': open(self.inputKV['file'], 'rb')}
-          #         self.rsp = httpPostFile(url = url , headers=self.jsonheart,file = self.files)
-          #    elif method == "put-get":
-          #        self.rsp = httpPutGet(url     = url + self.reqjsondata,
-          #                              headers = self.jsonheart)
-          # else:
-          #     try:
-          #         if  type(reqdata) == str :
-          #             self.reqjsondata = eval(reqdata)
-          #         if method == "post":
-          #            self.rsp = httpPost( url         = url ,
-          #                                 headers     = self.jsonheart,
-          #                                 reqJsonData = self.reqjsondata )
-          #         elif method == "put":
-          #              self.rsp = httpDelete( url = url )
-          #     except Exception as e:
-          #         raise e
           return  self.rsp
 
       @resultData(param="getRetcodeByRsp")

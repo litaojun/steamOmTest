@@ -79,7 +79,8 @@ def writeStrToJsonFile(filePath="", jsonStr=None,rwmode = "w"):
 
 
 def fmtStrToJson(jsonStr=None):
-    if jsonStr is not None and type(jsonStr) != dict:
+    import collections
+    if jsonStr is not None and type(jsonStr) == str:
         try:
             jsonDict = json.loads(jsonStr, encoding="utf-8")
             retCode = "jsonfmt000000"
@@ -90,6 +91,8 @@ def fmtStrToJson(jsonStr=None):
         return jsonDict
     elif type(jsonStr) == dict:
          return jsonStr
+    elif type(jsonStr) == collections.defaultdict:
+        return dict(jsonStr.items())
 
 def formatAllFile(bsDict={}):
     baseDictTranDataDict(bsDict)

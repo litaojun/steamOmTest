@@ -1,32 +1,16 @@
 from opg.util.httptools import httpPost,httpGet,httpDelete,httpPostFile,httpPutGet
 from steam.mockhttp.util.initFile import basePath,generateUrlToFilePath
-from steam.util.formatJsonFile import loadJsonFromFile
+from steam.util.formatJsonFile import loadJsonFromFile,writeStrToJsonFile
 from steam.util.configIni import basePath,phoneCf
 from opg.util.lginfo import logger
 from steam.util.steamRedisData import getVerifyCodeByUserType
 from opg.util.httptools import jsonFmtPrint
 import json
+import os
 from opg.util.utils import query_json
 from collections import defaultdict
 from opg.util.lginfo import selectFh,genDir,writeLog
 urldata = generateUrlToFilePath()
-mockData = {
-                "weixin": {
-                    "18916899938": "01440d50081f411e8ad138a258937d9a"
-                },
-                "admin": {
-                    "admin": {},
-                    "operate": {
-                        "18916899938": "50a44947787844b09b1005a0fc7fe153"
-                    },
-                    "merchants": {
-                        "18516099506": "788631f7f7184e0a99374829127d680c"
-                    }
-                },
-                "merchants": {
-                    "18916899938": "d91596686139489aad203d3f2b544117"
-                }
-            }
 class TokenData():
       sign = True
       def __init__(self):
@@ -67,7 +51,6 @@ class TokenData():
           logger.info("mockSign=%s,type=%s" % (mockSign,type(mockSign)))
           if mockSign in ["True","true"]:
               logger.info("getMockTokenData--默认token生成开始")
-              import os
               return loadJsonFromFile(os.sep.join([os.getcwd(),"config","mockToken.json"]))
           else:
               return  None
@@ -79,6 +62,8 @@ class TokenData():
           if self.tkdict is not None:
               logger.info("使用mock token开始")
               return
+          else:
+              self.tkdict = defaultdict(dict)
           wx_token = self.weixinLogin(phoneNum=phoneCf.get("weixin","phoneNums"))
           # cms_admin_token = self.cmsLogin(phoneNum=phoneCf.get("admin","admin"))
           cms_operate_token = self.cmsLogin(phoneNum=phoneCf.get("admin", "operate"))
@@ -90,11 +75,12 @@ class TokenData():
           self.tkdict["admin"]["admin"] = {}
           self.tkdict["admin"]["operate"] = {}
           self.tkdict["admin"]["merchants"] = {}
-          # self.tkdict["cms"]["admin"][phoneCf.get("admin","admin")] = cms_admin_token
           self.tkdict["admin"]["operate"][phoneCf.get("admin", "operate")] = cms_operate_token
           self.tkdict["admin"]["merchants"][phoneCf.get("admin", "merchants")] = cms_merchants_token
           self.tkdict["merchants"][phoneCf.get("merchants", "phoneNums")] = hx_merchants_token
           logger.info(jsonFmtPrint(self.tkdict))
+          filePath = os.sep.join([os.getcwd(),"config","mockToken.json"])
+          writeStrToJsonFile(filePath=filePath,jsonStr=self.tkdict)
           logger.info("默认token生成结束")
 
       #根据Url获取默认登录的token
