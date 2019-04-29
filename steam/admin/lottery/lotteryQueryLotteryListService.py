@@ -31,7 +31,7 @@ class LotteryQueryLotteryListService(HttpUopService):
     @decorator(["setupGetResourceIdByLotyTitle","tearDownGetResourceIdByLotyTitle"],userType="admin")
     def getRsidByLotyName(self):
         lotyDict  = self.genNameIdDict()
-        self.inputKV["resourceId"] = lotyDict[self.inputKV["lotyName"]]
+        self.inputKV["resourceId"] = lotyDict[self.inputKV["lotteryTitle"]]
 
     def findTestdataByStatus(self):
         nameIdList = self.getNameIdList()

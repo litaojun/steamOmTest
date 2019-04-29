@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: addOperPsnService.py 
-@time: 2018/4/25 14:06 
-"""
 from opg.bak.uopService import decorator
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.httpUopService import  HttpUopService
@@ -22,19 +11,6 @@ class OperpsnAddService(HttpUopService):
         :param picturePath:
         """
         super(OperpsnAddService, self).__init__(sqlvaluedict = kwargs)
-
-    # @decorator("tearInterfaceDelOneOperPsn")
-    # def delOperPosition(self):
-    #     rssid         = OperpsnQueryService(self.inputKV).getFirstResourceIdByRsp()
-    #     delOperpsnRsp = requests.post(
-		# 							    url     =  delOperpositionurl,
-		# 							    json    =  {
-    #                                                    "ids":[rssid]
-    #                                                },
-		# 							    headers = self.jsonheart,
-		# 							    verify  =  False
-		# 						      )
-    #     return delOperpsnRsp.text
 
     @decorator(["setupAddOperPosition"])
     def addOperPosition(self):

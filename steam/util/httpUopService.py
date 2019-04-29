@@ -113,3 +113,9 @@ class HttpUopService(UopService):
              retcode = "2000001"
           finally:
               return retcode
+
+
+if __name__ == "__main__":
+    httpPost(url="https://uat-steam-api.opg.cn/operation-manage/course/removeCourse",
+             headers={"login_type":"CMS","token":"9e8a038e5bb84cd49fa0e1e35aa8ed35"},
+             reqJsonData={"resourceId": 5318})

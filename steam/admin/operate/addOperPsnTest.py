@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: addOperPsnTest.py 
-@time: 2018/4/25 18:14 
-"""
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.addOperPsnService import OperpsnAddService
 from steam.admin.operate.delOperpsnService import OperpsnDelService
