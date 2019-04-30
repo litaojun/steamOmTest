@@ -47,8 +47,11 @@ class HttpUopService(UopService):
       def genCaseByFmtOrInputKV(self,reqJsonDataFmt = None):
           reqData = {}
           if reqJsonDataFmt is not None:
-              for caseKey in reqJsonDataFmt:
-                  reqData[caseKey] = self.inputKV.get(caseKey,reqJsonDataFmt[caseKey])
+              for caseKey in reqJsonDataFmt :
+                  if caseKey in self.inputKV :
+                     reqData[caseKey] = self.inputKV[caseKey]
+                  elif reqJsonDataFmt.get(caseKey) is not None:
+                      reqData[caseKey] = reqJsonDataFmt[caseKey]
           return reqData
 
       def genReqHeaderByUrl(self,urlSign = None):
