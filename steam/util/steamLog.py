@@ -94,7 +94,6 @@ class SteamTestCase(ParametrizedTestCase):
                       self.inputdata["merchant_token"] = token
                       SteamTestCase.merMemberIdDict[inputData["phoneNo"]] = token
 
-
 if __name__ == "__main__":
     args = {
                 "phoneNo":"18916899938"
