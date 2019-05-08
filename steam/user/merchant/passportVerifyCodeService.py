@@ -12,13 +12,14 @@ class PassportVerifyCodeService(HttpUopService):
         :param picturePath:
         """
         super(PassportVerifyCodeService, self).__init__(module       = "",
-												 filename     = "",
-												 sqlvaluedict = kwargs )
+												        filename     = "",
+												        sqlvaluedict = kwargs )
 
     @decorator(["setupGetSendVercode"])
     def sendVerCode(self):
         self.rsp = self.sendHttpReq()
-        self.inputKV["verfiyCode"] = self.getVerfiyCodeFromRedisByPhone()
+        verfCode = self.getVerfiyCodeFromRedisByPhone()
+        self.inputKV["verfiyCode"],self.inputKV["code"] = verfCode,verfCode
 
     def getVerfiyCodeFromRedisByPhone(self,phoneNum = "",scenes = "MER"):
         if phoneNum is None or phoneNum == "":

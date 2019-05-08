@@ -10,7 +10,7 @@ class CourseRemoveCourseTest(SteamTestCase):
       """
       __interfaceName__ = "/operation-manage/course/removeCourse"
       @initAdminInputService( services = [ CourseQueryCourseByConditionService ,CourseCreateCourseService ],
-                         curser   = CourseRemoveCourseService )
+                              curser   = CourseRemoveCourseService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(CourseRemoveCourseTest,self).__init__(methodName,param)

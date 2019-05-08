@@ -8,7 +8,8 @@ class ActivityAddTest(SteamTestCase):
          新增活动
     """
     __interfaceName__ = "/operation-manage/product/add"
-    @initAdminInputService(curser=ActivityAddService)
+    @initAdminInputService(services=[],
+                           curser=ActivityAddService)
     def __init__(self, methodName='runTest',
                        param=None):
         super(ActivityAddTest, self).__init__(methodName,param)

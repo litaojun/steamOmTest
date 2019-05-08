@@ -1,10 +1,5 @@
-# from opg.util.uopService import decorator,UopService
-# import requests,json
-# from opg.util.httptools import httpPost
-# from opg.util.utils import query_json
-# from opg.util.schemajson import check_rspdata
 from steam.util.httpUopService import  HttpUopService
-
+from opg.bak.uopService import decorator
 class ProductAuditService(HttpUopService):
     '''
         审核活动
@@ -17,3 +12,6 @@ class ProductAuditService(HttpUopService):
         super(ProductAuditService, self).__init__(module       = "",
 												 filename     = "",
 												 sqlvaluedict = kwargs )
+    @decorator(["setupGetAuditActivity"])
+    def optAuditActivity(self):
+        self.sendHttpReq()

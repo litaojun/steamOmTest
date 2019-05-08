@@ -5,6 +5,7 @@ from steam.admin.course.coursePublishCourseService import CoursePublishCourseSer
 from steam.admin.course.courseRemoveCourseService import CourseRemoveCourseService
 from steam.admin.course.courseQueryCourseByConditionService import CourseQueryCourseByConditionService
 from steam.admin.course.courseCreateCourseService import CourseCreateCourseService
+from steam.admin.course.courseAuditService import CourseAuditService
 class CoursePublishCourseTest(SteamTestCase):
       """
             %(subTitle)s
@@ -12,7 +13,7 @@ class CoursePublishCourseTest(SteamTestCase):
       __interfaceName__ = "/operation-manage/course/publishCourse"
       @initInputService( services = [ CourseCreateCourseService ,
                                       CourseQueryCourseByConditionService ,
-                                      CourseRemoveCourseService ],
+                                      CourseRemoveCourseService ,CourseAuditService],
                          curser     = CoursePublishCourseService ,sign="admin")
       def __init__(self, methodName = 'runTest',
                          param      =  None):

@@ -47,7 +47,8 @@ class WeixinUserVerfiyCodeService(HttpUopService):
     def setInPutData(self):
         if self.rsp is None:
            self.rsp = self.sendHttpReq()
-        self.inputKV["verfiyCode"]           = self.getVerfiyCodeFromRedisByPhone()
+        self.inputKV["verfiyCode"] = self.getVerfiyCodeFromRedisByPhone()
+        self.inputKV["password"] = self.getVerfiyCodeFromRedisByPhone()
         if "newPhoneNo" in self.inputKV:
             self.inputKV["alterPhoneNoVfycode"] = self.getVerfiyCodeFromRedisByPhone(phoneNum = self.inputKV["newPhoneNo"],
                                                                                           scenes = self.inputKV["alertScenes"])

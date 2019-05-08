@@ -9,8 +9,8 @@ class ActivityPublishTest(SteamTestCase):
       '''
       __interfaceName__ = "/operation-manage/product/publish"
 
-      @initAdminInputService(services = [ActivitySearchService ],
-                 curser   =  ActivityPublishService)
+      @initAdminInputService(services = [ ActivitySearchService ],
+                             curser   =  ActivityPublishService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
 

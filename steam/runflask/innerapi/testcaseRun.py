@@ -1,8 +1,7 @@
 from opg.unit.loader import genTestCaseByInterfaceOrCaseIds
 from steam.runflask.util.initData import casepath
 from steam.runflask.util import initData
-# from opg.bak.loadTestcase import runTestOneCls
-from steam.runflask.outapi.testcaseRun import runTestOneCls,runOneTestClass
+from steam.runflask.outapi.testcaseRun import runOneTestClass
 from opg.bak.flaskRunMgr import getRunTestTokenId
 from opg.unit.runtest import genDir, writeLog
 from opg.unit.runtest import runOneCls
