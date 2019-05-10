@@ -48,7 +48,8 @@ class ActivitySearchService(HttpUopService):
     @decorator("setupGetFirstProductContent")
     def setInPutData(self):
         resourceId = self.getFirstActivityIdByRsp(queryRsp=self.rsp)
-        self.inputKV["resourceId"] = resourceId
+        self.inputKV["resourceId"] = self.inputKV["id"] = resourceId
+        # self.inputKV["id"] = resourceId
 
     def getRetcodeByActRsp(self,queryRsp = None):
         return query_json(json_content=json.loads(queryRsp), query="code")

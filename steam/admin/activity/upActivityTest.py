@@ -1,6 +1,8 @@
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.upActivityService import ActivityPublishService
 from steam.admin.activity.searchActivityService import ActivitySearchService
+from steam.admin.activity.addActivityService import ActivityAddService
+from steam.admin.activity.productAuditService import ProductAuditService
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 class ActivityPublishTest(SteamTestCase):
@@ -9,7 +11,8 @@ class ActivityPublishTest(SteamTestCase):
       '''
       __interfaceName__ = "/operation-manage/product/publish"
 
-      @initAdminInputService(services = [ ActivitySearchService ],
+      @initAdminInputService(services = [ [ActivityAddService,"goodsreqjsonfile"],
+                                          ProductAuditService ],
                              curser   =  ActivityPublishService)
       def __init__(self, methodName='runTest', param=None):
           super(ActivityPublishTest,self).__init__(methodName,param)
