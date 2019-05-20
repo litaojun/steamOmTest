@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: listfun.py 
-@time: 2018/12/9 10:36 
-"""
 from functools import cmp_to_key
 
 def cmpfuna(a,b):
@@ -33,11 +22,8 @@ def cmpfunb(a,b):
 	return b-a
 
 def testListSort():
-	alst = [3, 33, -2,2,-1, 9,-5, 25,-6,-31,-23, 3, 9, 90, 1, 5, 89]
+	alst = [3,33,-2,2,-1,9,-5,25,-6,-31,-23,3,9,90,1,5,89]
 	print(alst)
-	# alst.sort(key = lambda a:a)
-	# print(alst)
-	# alst.sort(key = cmp_to_key(cmpfuna))
 	alst.sort(key = cmp_to_key(lambda a,b:a-b if a>0 and b>0  -1 else b-a ))
 	print(alst)
 	alsta = [1,2,3,4,5,6,7,8,9,10,11,12,13]

@@ -1,6 +1,5 @@
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.activity.upActivityService import ActivityPublishService
-from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.admin.activity.addActivityService import ActivityAddService
 from steam.admin.activity.productAuditService import ProductAuditService
 from steam.util.steamLog import SteamTestCase

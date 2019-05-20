@@ -1,16 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: userVerfiyCodeTest.py 
-@time: 2018/9/17 15:49 
-"""
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.testJsonFormat import initInputService
 from steam.user.verfiycode.userVerfiyCodeService import WeixinUserVerfiyCodeService

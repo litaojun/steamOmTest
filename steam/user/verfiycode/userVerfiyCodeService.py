@@ -1,16 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: userVerfiyCodeService.py 
-@time: 2018/6/5 16:49 
-"""
 from opg.util.redisUtil import RedisOper
 from steam.util.httpUopService import  HttpUopService
 from opg.bak.uopService import decorator

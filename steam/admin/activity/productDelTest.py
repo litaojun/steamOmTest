@@ -5,7 +5,7 @@ from steam.user.search.weixinSearchService import WeixinSearchService
 from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
 class ProductDelTest(SteamTestCase):
       """
-            %(subTitle)s
+            删除活动商品
       """
       __interfaceName__ = "/operation-manage/product/del"
       @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
