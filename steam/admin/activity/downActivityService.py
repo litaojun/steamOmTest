@@ -8,25 +8,21 @@ class ActivityUnPublishService(HttpUopService):
     '''
         活动下线
     '''
-
     def __init__(self, kwargs):
-        """
-        :param entryName:
-        :param picturePath:
-        """
+        """ 初始化代码 """
         super(ActivityUnPublishService, self).__init__(module="",
                                                        filename="",
                                                        sqlvaluedict=kwargs,
                                                        reqjsonfile=None)
 
-    def unPublishActivitySer(self):
-        pubActivityRsp = requests.post(
-            url=downActivityurl,
-            json=self.reqjsondata,
-            headers=self.jsonheart,
-            verify=False
-        )
-        return pubActivityRsp.text
+    # def unPublishActivitySer(self):
+    #     pubActivityRsp = requests.post(
+    #         url=downActivityurl,
+    #         json=self.reqjsondata,
+    #         headers=self.jsonheart,
+    #         verify=False
+    #     )
+    #     return pubActivityRsp.text
 
 if __name__ == "__main__":
     reqdata = {
