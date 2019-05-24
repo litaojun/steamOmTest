@@ -19,5 +19,5 @@ class QueryMerchantInfoByCondtionService(HttpUopService):
     @decorator(["setupGetFirstMerchant","tearDownGetFirstMerchant"])
     def getFirstMerchant(self):
         self.rsp = self.sendHttpReq()
-        self.inputKV["resourceId"]  = int(query_json( json_content = json.loads(self.rsp) ,
-                                                        query        = "data.targets.0.id" ))
+        self.inputKV["resourceId"] = self.inputKV["id"]  = int(query_json( json_content = json.loads(self.rsp) ,
+                                                                             query        = "data.targets.0.id" ))

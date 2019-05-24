@@ -5,12 +5,10 @@ from steam.admin.media.materialRemoveMaterialService import MaterialRemoveMateri
 from steam.admin.media.materialCreateMaterialService import MaterialCreateMaterialService
 from steam.admin.media.queryMerchantInfoByCondtionService import QueryMerchantInfoByCondtionService
 class MaterialRemoveMaterialTest(SteamTestCase):
-      """
-            %(subTitle)s
-      """
+      """ 删除媒 """
       __interfaceName__ = "/operation-manage/material/removeMaterial"
       @initAdminInputService( services = [  MaterialCreateMaterialService ,
-                                       QueryMerchantInfoByCondtionService ],
+                                            QueryMerchantInfoByCondtionService ],
                           curser  =  MaterialRemoveMaterialService )
 
       def __init__( self, methodName = 'runTest',
@@ -20,7 +18,7 @@ class MaterialRemoveMaterialTest(SteamTestCase):
 if __name__ == "__main__":
     from steam.admin.media.materialCreateMaterialTest import MaterialCreateMaterialTest
     MaterialCreateMaterialTest( methodName = "compareRetcodeTest" ,
-                             param     = [ 1, 2, 3, 4, 5, {}, 7, 8 ] )
+                                param     = [ 1, 2, 3, 4, 5, {}, 7, 8 ] )
     from steam.admin.media.queryMerchantInfoByCondtionTest import QueryMerchantInfoByCondtionTest
     QueryMerchantInfoByCondtionTest( methodName = "compareRetcodeTest" ,
                                      param      = [ 1, 2, 3, 4, 5, {}, 7, 8 ] )

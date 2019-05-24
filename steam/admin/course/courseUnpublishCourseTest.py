@@ -5,14 +5,17 @@ from steam.admin.course.courseUnpublishCourseService import CourseUnpublishCours
 from steam.admin.course.courseRemoveCourseService import CourseRemoveCourseService
 from steam.admin.course.courseQueryCourseByConditionService import CourseQueryCourseByConditionService
 from steam.admin.course.courseCreateCourseService import CourseCreateCourseService
+from steam.admin.course.courseAuditService import CourseAuditService
+from steam.admin.course.coursePublishCourseService import CoursePublishCourseService
 class CourseUnpublishCourseTest(SteamTestCase):
       """
             %(subTitle)s
       """
       __interfaceName__ = "/operation-manage/course/unpublishCourse"
-      @initAdminInputService( services = [ CourseCreateCourseService ,
-                                      CourseQueryCourseByConditionService ,
-                                      CourseRemoveCourseService],
+      @initAdminInputService( services = [ CourseCreateCourseService ,CourseAuditService,
+                                           CourseQueryCourseByConditionService ,
+                                           CoursePublishCourseService,
+                                           CourseRemoveCourseService ],
                   curser   = CourseUnpublishCourseService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
