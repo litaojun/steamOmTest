@@ -11,7 +11,7 @@ class MediaAuditTest(SteamTestCase):
       """
       __interfaceName__ = "/operation-manage/media/audit"
       @initInputService( services = [ ArticleAddService,ArticleSearchService,ArticleDelService ],
-                  curser   = MediaAuditService )
+                         curser   = MediaAuditService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(MediaAuditTest,self).__init__(methodName,param)

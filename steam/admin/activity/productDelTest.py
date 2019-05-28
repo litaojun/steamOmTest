@@ -1,14 +1,13 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.productDelService import ProductDelService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
+from steam.admin.activity.addActivityService import ActivityAddService
 class ProductDelTest(SteamTestCase):
       """
             删除活动商品
       """
       __interfaceName__ = "/operation-manage/product/del"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initInputService( services = [ [ActivityAddService,"goodsreqjsonfile"]  ],
                          curser   = ProductDelService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):

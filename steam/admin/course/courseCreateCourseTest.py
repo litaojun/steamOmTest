@@ -6,7 +6,7 @@ from steam.admin.course.courseQueryCourseByConditionService import CourseQueryCo
 from steam.admin.course.courseCreateCourseService import CourseCreateCourseService
 class CourseCreateCourseTest(SteamTestCase):
       """
-            %(subTitle)s
+            新增课程
       """
       __interfaceName__ = "/operation-manage/course/createCourse"
       @initAdminInputService( services = [ CourseQueryCourseByConditionService ,

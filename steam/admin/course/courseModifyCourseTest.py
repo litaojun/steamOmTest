@@ -10,7 +10,7 @@ class CourseModifyCourseTest(SteamTestCase):
       """
             %(subTitle)s
       """
-      __interfaceName__ = "/operation-manage/course/modifyCourse"
+      __interfaceName__ = "/operation-manage/course/modifyCourse-del"
       @initInputService( services = [ CourseCreateCourseService ,
                                       CourseQueryCourseByConditionService ,
                                       CourseRemoveCourseService],

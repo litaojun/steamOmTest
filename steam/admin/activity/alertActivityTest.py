@@ -6,7 +6,7 @@ class ActivityAlertTest(SteamTestCase):
     '''
           新增活动
     '''
-    __interfaceName__ = "/operation-manage/product/update"
+    __interfaceName__ = "/operation-manage/product/update-del"
     @initAdminInputService(services=[],
                            curser=ActivityAlertService)
     def __init__(self, methodName='runTest', param=None):

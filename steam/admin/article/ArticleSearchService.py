@@ -33,6 +33,7 @@ class ArticleSearchService(HttpUopService):
            self.rsp = self.sendHttpReq()
         self.inputKV["resourceId"] = query_json(json_content = json.loads(self.rsp),
                                                   query        = "data.targets.0.id")
+        self.inputKV["id"] = self.inputKV["resourceId"]
 
     def findTestdataByStatus(self):
         if self.rsp is None:

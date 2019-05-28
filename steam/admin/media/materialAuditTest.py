@@ -1,16 +1,16 @@
-from steam.util.testJsonFormat import initInput
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
-# from opg.unit.testcaseRunMgr import runTestOneCls
 from steam.admin.media.materialAuditService import MaterialAuditService
-from steam.user.search.weixinSearchService import WeixinSearchService
-from steam.user.collection.userCancelCollectionService import UserCancelCollectionService
+from steam.admin.media.materialCreateMaterialService import MaterialCreateMaterialService
+from steam.admin.media.materialRemoveMaterialService import MaterialRemoveMaterialService
+from steam.admin.media.queryMerchantInfoByCondtionService import QueryMerchantInfoByCondtionService
 class MaterialAuditTest(SteamTestCase):
       """
-            %(subTitle)s
+            审核素材
       """
       __interfaceName__ = "/operation-manage/material/audit"
-      @initInputService( services = [ WeixinSearchService ,UserCancelCollectionService ],
+      @initInputService( services = [ MaterialCreateMaterialService,MaterialRemoveMaterialService,
+                                      QueryMerchantInfoByCondtionService ],
                   curser   = MaterialAuditService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
