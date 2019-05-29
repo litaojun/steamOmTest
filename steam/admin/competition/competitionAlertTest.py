@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: competitionAlertTest.py 
-@time: 2018/4/20 15:06 
-"""
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.competition.competitionAlertService import CompetitionAlertService
 from steam.admin.competition.competitionService import MatchAddService

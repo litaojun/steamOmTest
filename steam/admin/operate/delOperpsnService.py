@@ -1,26 +1,11 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: delOperpsnService.py 
-@time: 2018/4/25 18:12 
-"""
 from opg.bak.uopService import decorator
 from steam.admin.operate.addOperPsnService import  OperpsnAddService
 from steam.util.httpUopService import  HttpUopService
 class OperpsnDelService(HttpUopService):
     '''
-        分类新增
+        删除一个运营位配置
     '''
     def __init__(self, kwargs):
-        """
-        :param entryName:
-        :param picturePath:
-        """
         super(OperpsnDelService, self).__init__(sqlvaluedict = kwargs)
         self.operpsnAddSer = OperpsnAddService(self.inputKV)
 

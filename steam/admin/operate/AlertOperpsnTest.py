@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: AlertOperpsnTest.py 
-@time: 2018/4/25 18:53 
-"""
 from steam.admin.operate.AlertOperpsnService import OperpsnAlertService
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase

@@ -17,8 +17,8 @@ class FeaturedSearchResourceService(HttpUopService):
 												            sqlvaluedict = kwargs )
     @decorator(["setupGetFirstSearchResource"])
     def getFirstSearchResource(self):
-        if self.rsp is None:
-           self.rsp = self.sendHttpReq()
+        # if self.rsp is None:
+        self.rsp = self.sendHttpReq()
         self.inputKV["resourceId"] = int(query_json(json_content = json.loads(self.rsp),
                                                       query       = "data.0.resourceId"))
 

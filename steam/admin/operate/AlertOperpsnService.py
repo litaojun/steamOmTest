@@ -1,14 +1,4 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: AlertOperpsnService.py 
-@time: 2018/4/25 16:37 
-"""
+
 from opg.bak.uopService import decorator
 import requests,json
 from opg.util.utils import query_json
@@ -20,41 +10,22 @@ class OperpsnAlertService(HttpUopService):
         分类新增
     '''
     def __init__(self, kwargs):
-        """
-        :param entryName:
-        :param picturePath:
-        """
         super(OperpsnAlertService, self).__init__(sqlvaluedict = kwargs)
         self.operpsnAddSer = OperpsnAddService(self.inputKV)
 
-    @decorator("preInterfaceAddOneOperpsn")
-    def addOneOperpsn(self):
-        operpsnAddRsp = self.operpsnAddSer.addOperPosition()
-        self.rsp      = operpsnAddRsp
-        self.reqjsondata["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
+    @decorator(["setupSetAlertResource"])
+    def getFirstSearchAlertResource(self):
+        self.inputKV["alertTitle"] , \
+        self.inputKV["title"] = self.inputKV["alertTitle"] ,\
+                                 self.inputKV["title"]
+    # @decorator("preInterfaceAddOneOperpsn")
+    # def addOneOperpsn(self):
+    #     operpsnAddRsp = self.operpsnAddSer.addOperPosition()
+    #     self.rsp      = operpsnAddRsp
+    #     self.reqjsondata["id"] = self.operpsnAddSer.getOperpsnIdByTitle()
 
-    @decorator("tearInterfaceDelOneOperpsn")
-    def delOperpsn(self):
-        rssid = self.operpsnAddSer.getOperpsnIdByTitle()
-        delOperpsnRsp = requests.post(
-								        url=delOperpositionurl,
-								        json={"ids": [rssid]},
-								        headers=self.jsonheart,
-								        verify=False
-							         )
-        return delOperpsnRsp.text
-
-    def alertOperpsn(self):
-        addOperpsnRsp = requests.post(
-		                                url     = alertOperpositionurl,
-		                                json    = self.reqjsondata,
-		                                headers = self.jsonheart,
-		                                verify  = False
-                                      )
-        return addOperpsnRsp.text
-
-    def getRetCodeOperpsnRsp(self,rsp):
-        return query_json(json_content=json.loads(rsp), query="code")
+    # def getRetCodeOperpsnRsp(self,rsp):
+    #     return query_json(json_content=json.loads(rsp), query="code")
 
 if __name__ == "__main__":
    alertjson = {

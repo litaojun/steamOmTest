@@ -1,14 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: queryOperpsnService.py 
-@time: 2018/4/25 15:27 
-"""
 from opg.util.httptools import httpGet
 import json
 from opg.bak.uopService import decorator
@@ -26,10 +15,10 @@ class OperpsnQueryService(HttpUopService):
         """
         super(OperpsnQueryService, self).__init__(sqlvaluedict = kwargs)
 
-    def queryOperpsnListdata(self):
-        queryResult = httpGet(url     = homeConfigQueryurl + self.reqjsondata,
-                              headers = self.jsonheart)
-        return  queryResult
+    # def queryOperpsnListdata(self):
+    #     queryResult = httpGet(url     = homeConfigQueryurl + self.reqjsondata,
+    #                           headers = self.jsonheart)
+    #     return  queryResult
 
     def getRetCodeByRsp(self,queryRsp = None):
         return query_json(json_content = json.loads(queryRsp),
@@ -41,7 +30,8 @@ class OperpsnQueryService(HttpUopService):
         if self.rsp is None:
            self.rsp = self.sendHttpReq()
         self.inputKV["id"] =  int(query_json(json_content = json.loads(self.rsp),
-                                          query        = "data.targets.0.id"))
+                                              query        = "data.targets.0.id"))
+        self.inputKV["ids"].append(self.inputKV["id"])
         self.inputKV["listOrder"] = (query_json(json_content = json.loads(self.rsp),
                                           query        = "data.targets.0.listOrder"))
 

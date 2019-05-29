@@ -1,5 +1,5 @@
 from steam.util.httpUopService import  HttpUopService
-
+from opg.bak.uopService import decorator
 class CourseModifyCourseService(HttpUopService):
     '''
         修改课程
@@ -12,3 +12,5 @@ class CourseModifyCourseService(HttpUopService):
         super(CourseModifyCourseService, self).__init__(module       = "",
 												 filename     = "",
 												 sqlvaluedict = kwargs )
+
+

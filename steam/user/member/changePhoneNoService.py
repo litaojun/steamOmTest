@@ -18,6 +18,10 @@ class ChangePhoneNoService(HttpUopService):
     def exchangeOldNewPhone(self):
         self.inputKV["oldPhoneNo"] , self.inputKV["newPhoneNo"] = self.inputKV["newPhoneNo"] , self.inputKV["oldPhoneNo"]
 
+    @decorator(["setupSetPhoneNoToNewphoneNo","tearDownSetPhoneNoToNewphoneNo"])
+    def exchangeOldNewPhone(self):
+        self.inputKV["phoneNo"] = self.inputKV["newPhoneNo"]
+
     @decorator(["tearDownChangePhone"])
     def changePhoneNo(self):
         self.sendHttpReq()

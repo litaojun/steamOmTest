@@ -1,14 +1,4 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: queryOperpsnTest.py 
-@time: 2018/4/25 19:24 
-"""
+
 from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 from steam.util.steamLog import SteamTestCase

@@ -1,15 +1,5 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: competitionAlertService.py 
-@time: 2018/4/20 15:06 
-"""
 import requests,json
+from opg.bak.uopService import decorator
 from opg.util.utils import query_json
 #from steam.util.configurl import alertMatchurl
 from opg.util.timeTool import getTimeIntByInPut
@@ -28,18 +18,12 @@ class CompetitionAlertService(HttpUopService):
                                                        sqlvaluedict = kwargs,
                                                        reqjsonfile  = None)
 
-    #@decorator("addClassfiyService")
-    def alertMatch(self):
-        alertMatchRsp = requests.post(
-		                                   url     = alertMatchurl,
-		                                   json    = self.reqjsondata,
-		                                   headers = self.jsonheart,
-		                                   verify  = False
-                                      )
-        return alertMatchRsp.text
-
     def getRetCodeAlertRsp(self,rsp):
         return query_json(json_content=json.loads(rsp), query="code")
+
+    @decorator(["setupSetMatchNameToAlertMatchName"])
+    def addOneCourse(self):
+        self.inputKV["matchName"] = self.inputKV["alertMatchName"]
 
     def alertMatchTime(self,s=1,e=1):
         starttime = getTimeIntByInPut(s)
