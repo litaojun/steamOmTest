@@ -8,12 +8,12 @@ from steam.admin.operate.featuredSearchResourceService import FeaturedSearchReso
 from steam.admin.operate.queryOperpsnService import OperpsnQueryService
 class FeaturedMoveDownRecordTest(SteamTestCase):
       """
-            %(subTitle)s
+            运营位配置下移
       """
       __interfaceName__ = "/operation-manage/featured/moveDownRecord"
       @initAdminInputService( services = [ OperpsnQueryService ,FeaturedSearchResourceService,
-                                      OperpsnAddService,OperpsnDelService ],
-                  curser   = FeaturedMoveDownRecordService )
+                                           OperpsnAddService,OperpsnDelService ],
+                              curser   = FeaturedMoveDownRecordService )
       def __init__(self, methodName = 'runTest',
                          param      =  None):
           super(FeaturedMoveDownRecordTest,self).__init__(methodName,param)

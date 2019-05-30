@@ -1,16 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: picureUploadTest.py 
-@time: 2018/7/19 18:03 
-"""
 from steam.admin.classify.picureUploadService import PicureUploadService
 from steam.util.steamLog import SteamTestCase
 from opg.bak.testcaseRunMgr import runTestOneCls
@@ -18,7 +5,7 @@ from steam.util.testJsonFormat import initAdminInputService
 import re
 class PicureUploadTest(SteamTestCase):
     '''
-          新增活动
+          上传一个图片
     '''
     __interfaceName__ = "/steam-resource/resource/uploadImages"
 

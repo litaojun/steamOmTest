@@ -1,15 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: picureUploadService.py 
-@time: 2018/4/18 15:18 
-"""
-
 #https://blog.csdn.net/u010889616/article/details/78946589
 from opg.bak.uopService import decorator
 import json
@@ -22,10 +10,6 @@ class PicureUploadService(HttpUopService):
     '''
 
     def __init__(self,kwargs):
-        """
-        :param entryName:
-        :param picturePath:
-        """
         super(PicureUploadService, self).__init__("", "", kwargs)
         # self.filepath = os.getcwd() + os.path.sep + "steamcase" + os.path.sep + "%s"
         # self.url =  "https://uat-steam-api.opg.cn/steam-resource/resource/uploadImages"

@@ -7,7 +7,7 @@ class MediaResetMediaStateTest(SteamTestCase):
       """
             %(subTitle)s
       """
-      __interfaceName__ = "/operation-manage/media/resetMediaState"
+      __interfaceName__ = "/operation-manage/media/resetMediaState--del"
       @initAdminInputService( services = [ ArticleSearchService ] ,
                          curser   = MediaResetMediaStateService )
       def __init__(self, methodName = 'runTest',

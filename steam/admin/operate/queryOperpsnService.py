@@ -31,9 +31,10 @@ class OperpsnQueryService(HttpUopService):
            self.rsp = self.sendHttpReq()
         self.inputKV["id"] =  int(query_json(json_content = json.loads(self.rsp),
                                               query        = "data.targets.0.id"))
-        self.inputKV["ids"].append(self.inputKV["id"])
-        self.inputKV["listOrder"] = (query_json(json_content = json.loads(self.rsp),
-                                          query        = "data.targets.0.listOrder"))
+        if "ids" in self.inputKV:
+           self.inputKV["ids"].append(self.inputKV["id"])
+        self.inputKV["listOrder"] = int(query_json(json_content = json.loads(self.rsp),
+                                                     query        = "data.targets.0.listOrder"))
 
 
 
