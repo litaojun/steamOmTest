@@ -99,11 +99,6 @@ class HttpUopService(UopService):
       def getRetcodeByRsp( self,
                            response = None ,
                            format   = "code" ):
-          """
-
-              :param matchRsp:
-              :return:
-          """
           retcode = "000000"
           try:
              retcode = query_json(json_content = json.loads(self.rsp),

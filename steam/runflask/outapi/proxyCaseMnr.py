@@ -7,7 +7,6 @@ from flask import Blueprint
 from flask import send_from_directory, request,jsonify
 bapp = Blueprint('proxy', __name__)
 
-
 def genCaseOrFmtPath(oneDir, twoDir):
     return os.sep.join([basePath, "mitmproxy", "steamcase", oneDir, twoDir]), \
         os.sep.join([basePath, "mitmproxy", "steam", oneDir, twoDir])

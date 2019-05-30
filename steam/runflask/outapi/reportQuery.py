@@ -3,7 +3,6 @@ import sys
 sys.path.append("/home/nicepy/testhome/unittestExBaseb")
 from steam.runflask.dao.queryDbFlask import queryTestResultByPlanIdOrCaseId
 from steam.runflask.util.initData import allTestCase,allTestClass
-# from opg.bak.flaskRunMgr import
 from steam.runflask.dao.queryDbTestReport import queryPlanDetailByInterfaceName,queryTestPlanList
 from flask import Blueprint
 bapp = Blueprint('rptqy', __name__)

@@ -4,7 +4,8 @@ from opg.bak.flaskRunMgr import getRunTestTokenId
 from steam.runflask.dao.queryDbRunTestcase import queryTokenByPlanId
 from flask import Blueprint
 from steam.runflask.util import initData
-from opg.unit.runtest import genDir,writeLog
+from opg.util.lginfo import  writeLog,genDir
+# from opg.unit.runtest import genDir,writeLog
 from steam.runflask.util.initData import genAllTestCase
 from opg.unit.loader import  genTestCaseByInterfaceOrCaseIds
 from opg.unit.runtest import runOneTestcase
@@ -15,7 +16,7 @@ from opg.unit.runtest import runOneCls
 from opg.unit.loader import initAllTestCase,initAllTestClass
 from flask import jsonify, request
 writeDir = None
-logDir   =  os.sep.join([os.getcwd(),"Logs","201903251018"])
+# logDir   =  os.sep.join([os.getcwd(),"Logs","201903251018"])
 bapp = Blueprint('tsrun', __name__)
 timerSign = False
 @bapp.route("/prop/interfacelist", methods=['GET'])
@@ -56,7 +57,6 @@ def runOneTestCase():
 def start_steam_tasks():
     """
     执行所有用例
-    :return:
     """
     projectName = request.args.get("projectname")
     retdata = getRunTestTokenId(projectname=projectName)
@@ -99,7 +99,7 @@ def query_run_state():
                                    token=token)
     return jsonify(rtRunDt)
 
-def runOneTestClass(interfaceName):
+def runOneTestClass(interfaceName,ids=None):
     from opg.util.timeTool import  getTwoFmtTime
     starttime, logtime = getTwoFmtTime()
     global writeDir
@@ -108,11 +108,10 @@ def runOneTestClass(interfaceName):
     testSuite = genTestCaseByInterfaceOrCaseIds( allTestClass  = initData.allTestClass ,
                                                  allCase       = initData.allTestCase  ,
                                                  interfaceName = interfaceName,
-                                                 caseIds       = None )
+                                                 caseIds       = ids )
     runOneCls(testSuite,casepath)
 if __name__ == "__main__":
     from opg.util.dbtools import Database
-    # sqlstr = "delete o.* from tb_order o where o.id = '11111fffffff'"
     sqlstr = """select m.passport_id,m.MEMBER_NAME,m.NICK_NAME from t_member m where m.passport_id = 'd4662b02-b75f-4eda-b796-f7e16d04044d';"""
     db = Database()
     # num = db.deleteData(sql=sqlstr,dbName= "allin")
