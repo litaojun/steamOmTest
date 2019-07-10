@@ -58,7 +58,7 @@ class SteamTestCase(ParametrizedTestCase):
                      qmIdSer = QueryMemberIdService(kwargs=inputData)
                      # rsp     = qmIdSer.userMemberIdReq()
                      rsp = qmIdSer.sendHttpReq()
-                     memberId               = qmIdSer.getMemberIdFromRsp(response=rsp)
+                     memberId = qmIdSer.getMemberIdFromRsp(response=rsp)
                      self.inputdata["memberId"] = memberId
                      self.inputdata["user-memberId"] = memberId
                      SteamTestCase.memberIdDict[inputData["phoneNo"]] = (token,memberId)

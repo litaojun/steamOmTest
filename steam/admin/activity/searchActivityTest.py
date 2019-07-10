@@ -18,4 +18,3 @@ class ActivitySearchTest(SteamTestCase):
 
 if __name__ == "__main__":
    pass
-   # runOneTestCase(interfaceName="/operation-manage/product/queryProducts")

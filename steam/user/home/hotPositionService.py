@@ -33,12 +33,6 @@ class HomeHotPositionService(HttpUopService):
                                                      filename      = "cnfDataDb.xml",
                                                      sqlvaluedict  = kwargs,
                                                      reqjsonfile   = None)
-    def queryHomeHotPosition(self):
-        self.rsp =  httpGet(
-                                        url     = hotPositonUrl + self.reqjsondata,
-                                        headers = self.jsonheart
-                            )
-        return  self.rsp
 
     @check_rspdata(filepath=homePositionRspFmt)
     def getRetcodeByActivityRsp(self,response = None):

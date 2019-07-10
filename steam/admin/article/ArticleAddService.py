@@ -1,14 +1,4 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-""" 
-@version: v1.0 
-@author: li.taojun 
-@contact: li.taojun@opg.cn
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: ArticleAddService.py 
-@time: 2018/4/20 16:17 
-"""
+
 from opg.bak.uopService import decorator
 import json
 from opg.util.utils import query_json

@@ -1,5 +1,4 @@
 from steam.admin.competition.competitionService import MatchAddService
-from opg.bak.testcaseRunMgr import runTestOneCls
 from steam.util.steamLog import SteamTestCase
 from steam.util.testJsonFormat import initAdminInputService
 from steam.admin.competition.competitionDelService import MatchDelService
@@ -9,14 +8,6 @@ class MatchAddTest(SteamTestCase):
       '''
       __interfaceName__ = "/operation-manage/match/createMatch"
       @initAdminInputService( curser   = MatchAddService,
-                         services = [ [MatchDelService,"delReqjsonfile"] ] )
+                              services = [ [MatchDelService,"delReqjsonfile"] ] )
       def __init__(self, methodName='runTest', param=None):
           super(MatchAddTest,self).__init__(methodName,param)
-
-if __name__ == "__main__":
-   from steam.admin.competition.competitionDelTest import MatchDelTest
-   MatchDelTest(methodName = "compareRetcodeTest", param = [1, 2, 3, 4, 5, {}, 7, 8])
-   runTestOneCls(
-                    casefilepath =  "\\steamcase\\competition\\match-servicematchcreateMatchs.yml",
-                    testclse     =  MatchAddTest
-                )

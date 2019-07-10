@@ -1,17 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: weixinSearchService.py 
-@time: 2018/8/13 17:11 
-"""
-#from steam.util.configurl import weixinQueryKeywordsUrl
 from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class WeixinQueryKeywordsService(HttpUopService):
@@ -28,16 +14,6 @@ class WeixinQueryKeywordsService(HttpUopService):
                                                          sqlvaluedict =  kwargs,
                                                          reqjsonfile  =  None)
 
-    def weixinQueryKeywordsReq(self):
-        self.rsp = httpGet(
-                                  url     =  weixinQueryKeywordsUrl ,
-                                  headers =  self.jsonheart
-                           )
-        return self.rsp
-
-    # def getRetcodeByRsp(self,response  = None):
-    #     return query_json(json_content = json.loads(response),
-    #                       query        = "code")
 
 if __name__ == "__main__":
     queryJsonData = {

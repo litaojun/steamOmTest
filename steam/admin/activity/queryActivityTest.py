@@ -1,4 +1,3 @@
-from steam.util.testJsonFormat import initInput
 from opg.unit.runtest import runTestOneCls
 from steam.admin.activity.searchActivityService import ActivitySearchService
 from steam.admin.activity.queryActivityService import ActivityQueryService

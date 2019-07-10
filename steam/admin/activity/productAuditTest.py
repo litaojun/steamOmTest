@@ -1,8 +1,6 @@
 from steam.util.testJsonFormat import initInputService
 from steam.util.steamLog import SteamTestCase
 from steam.admin.activity.productAuditService import ProductAuditService
-from steam.admin.activity.searchActivityService import ActivitySearchService
-from steam.admin.activity.queryActivityService import ActivityQueryService
 from steam.admin.activity.addActivityService import ActivityAddService
 class ProductAuditTest(SteamTestCase):
       """

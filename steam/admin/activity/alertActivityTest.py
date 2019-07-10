@@ -12,7 +12,6 @@ class ActivityAlertTest(SteamTestCase):
     def __init__(self, methodName='runTest', param=None):
         super(ActivityAlertTest, self).__init__(methodName, param)
 
-
 if __name__ == "__main__":
     runTestOneCls(casefilepath="\\steamcase\\admin\\activity\\operation-manageproductupdates.yml",
                   testclse=ActivityAlertTest,

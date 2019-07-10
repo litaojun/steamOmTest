@@ -29,22 +29,3 @@ class UserViewMediaresService(HttpUopService):
         return query_json(json_content=json.loads(response),
                           query       ="data.collects")
 
-if  __name__ == "__main__":
-    kwarg = {
-                "memberId": "e99abfeb-1ae5-41d8-a422-63bc108026d4",
-                "title": "OM的诞生与发展",
-                "resourceTypeId": 2,
-                "token":     "ca9fb71fa3bf48879be4f0a3ecd93ed5",
-                "resourceId": 5316
-            }
-    UserViewMediaresService.__interfaceName__ = "/steam-media/media/getMediaDetailByID"
-    aqs = UserViewMediaresService(kwargs=kwarg)
-    queryResultRsp = aqs.sendHttpReq()
-    # rsid = aqs.getFirstResourceIdByRsp(queryRsp=queryResultRsp)
-    # kwarg["resourceId"] = rsid
-    # uvms = UserViewMediaresService(kwarg=kwarg)
-    # rsp = uvms.userViewMediares()
-    # retcode = uvms.getRetcodeByRsp(response=rsp)
-    # print(retcode)
-    # collNum = uvms.getCollectsNumByRsp(response=rsp)
-    # print(collNum)

@@ -31,17 +31,6 @@ class UserMatchQueryService(HttpUopService):
                                                     sqlvaluedict = kwargs ,
                                                     reqjsonfile  = None)
 
-    def userMatchQuery(self):
-        self.rsp = httpPost(url         = userMatchQueryUrl,
-                            headers     = self.jsonheart,
-                            reqJsonData = self.reqjsondata)
-        return self.rsp
-
-    # @check_rspdata(filepath = "userMatchQueryRspFmt")
-    # def getRetcodeByRsp(self,response = None):
-    #     return query_json(json_content = json.loads(response),
-    #                       query        = "code")
-
     def getMatchTitleIds(self,response = None):
         if response is None:
            #response = self.userMatchQuery()
@@ -66,24 +55,3 @@ class UserMatchQueryService(HttpUopService):
             allMatchDict = self.getNameMatchIdDict(response=self.rsp)
             matchDict    = allMatchDict[self.inputKV["subMatchName"]]
             self.inputKV["subMatchId"] = matchDict["matchId"]
-
-if __name__ == "__main__":
-   args = {
-            "matchId": 22,
-            "subMatchId": 23,
-            "subjectIdList": [1, 4, 6],
-            "contactName": "李陶军",
-            "contactPhone": "18916899938",
-            "studentName": "李陶军",
-            "province": "上海",
-            "city": "上海市",
-            "country": "黄浦区",
-            "group": "幼儿园",
-            "school": "文庙路幼儿园",
-            "nationality": "",
-            "subMatchName": "亲子擂台赛初赛",
-            "memberId":"e99abfeb-1ae5-41d8-a422-63bc108026d4"
-        }
-   umps = UserMatchQueryService(kwargs=args)
-   rsp = umps.userMatchQuery()
-   print(rsp)

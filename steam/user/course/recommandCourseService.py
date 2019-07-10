@@ -1,18 +1,3 @@
-#!/usr/bin/env python  
-# encoding: utf-8  
-
-""" 
-@version: v1.0 
-@author: Lieb 
-@license: Apache Licence  
-@contact: 2750416737@qq.com 
-@site: http://blog.csdn.net/hqzxsc2006 
-@software: PyCharm 
-@file: recommandCourseService.py 
-@time: 2018/10/12 16:29 
-"""
-#from steam.util.configurl import recommandCourseUrl
-from opg.util.httptools import httpGet
 from steam.util.httpUopService import  HttpUopService
 class RecommandCourseService(HttpUopService):
     '''
@@ -31,18 +16,6 @@ class RecommandCourseService(HttpUopService):
                                                        sqlvaluedict = kwargs ,
                                                        reqjsonfile  = reqjsonfile )
 
-    def recommandCourseList(self):
-        self.rsp =  httpGet(
-                                  url     = recommandCourseUrl + self.reqjsondata,
-                                  headers = self.jsonheart
-                            )
-        return self.rsp
-
-    #@check_rspdata(filepath=weixinUserViewActivityRspFmt)
-
-    # def getRetcodeByRsp(self,response = None):
-    #     return query_json(json_content = json.loads(response),
-    #                       query        = "code")
 if  __name__ == "__main__":
     kwargs = {
                 "courseId":4165,
