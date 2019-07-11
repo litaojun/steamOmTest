@@ -31,9 +31,9 @@ def http_socket(client, addr):
                         host_url  = data.split("\r\n")[0].split(" ")
                         method, host_addr, protocol = map(lambda x: x.strip(), host_url)
                         print("method=%s, host_addr=%s, protocol=%s" % (method, host_addr, protocol))
-                        #如果 CONNECT 代理方式
+                        #如果 CONNECT
                         if method == "CONNECT":
-                            host, port = host_addr.split(":")
+                            host, port = host_a代理方式ddr.split(":")
                         else:
                             host_addr = data.split("\r\n")[1].split(":")
                             #如果未指定端口则为默认 80
