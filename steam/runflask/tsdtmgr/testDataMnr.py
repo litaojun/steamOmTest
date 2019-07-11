@@ -1,11 +1,10 @@
-#!/usr/bin/env python  
-# encoding: utf-8
+
 from steam.runflask.util.initData import allTestClass
-from opg.util.lginfo import selectFh
-# from steam.mockhttp.util.initFile import casepath
+# from opg.util.lginfo import selectFh
 from steam.util.configIni import casepath
 from opg.bak.testcaseTool import loadYamlFileData
-from opg.unit.runtest import genDir,writeLog
+# from opg.unit.runtest import genDir,writeLog
+from opg.util.lginfo import selectFh,genDir,writeLog
 import os
 sh = None
 def checkTestData():
